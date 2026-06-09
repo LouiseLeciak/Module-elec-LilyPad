@@ -1,0 +1,349 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
+/*   Updated: 2026/06/09 17:51:10 by nige42           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+// ili9341_hello.ino
+// Minimal ILI9341 TFT library for Arduino Uno (bare AVR C)
+// Draws "Hello" using a 5x7 bitmap font over hardware SPI
+//
+// Pin Map:
+//   SCK  -> D13 (PB5)
+//   MOSI -> D11 (PB3)
+//   CS   -> D10 (PB2)
+//   DC   ->  D9 (PB1)
+//   RST  ->  D8 (PB0)
+//   VCC  -> 3.3V
+//   GND  -> GND
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "spi_lib.h"
+#include "uart_lib.h"
+#include "small_font.h"
+#include "tools.h"
+
+// ─── Pin macros ───────────────────────────────────────────────────────────────
+
+#define CS_LOW()   PORTB &= ~(1 << PB2)
+#define CS_HIGH()  PORTB |=  (1 << PB2)
+#define DC_LOW()   PORTB &= ~(1 << PB0)   // command mode
+#define DC_HIGH()  PORTB |=  (1 << PB0)   // data mode
+#define RST_LOW()  PORTB &= ~(1 << PB1)
+#define RST_HIGH() PORTB |=  (1 << PB1)
+
+// ─── Colors (RGB565) ─────────────────────────────────────────────────────────
+
+#define COLOR_BLACK  0x0000
+#define COLOR_WHITE  0xFFFF
+#define COLOR_BLUE    0xF800
+#define COLOR_GREEN  0x07E0
+#define COLOR_RED   0x001F
+#define COLOR_YELLOW 0xFFE0
+
+// --- FONT SIZE ---------------------------------------------------------------
+
+#define SMALL 1
+// --- FONT LCD (ORDERED) SIZE 320 x 480 - 4 TFT ILI9341
+
+
+// --- FONT LCD SIZE 240 x 320 - 3,2 TFT ILI9341
+
+#define SMALL_MAX_CHAR_WIDTH 40
+#define MAX_PIXEL_WIDTH 240
+#define MAX_PIXEL_HIGH 320
+
+static uint8_t SCALE = 5;
+volatile char hex[4];               // global for function toHex()
+volatile char nbr_in_a_string[33];  // global variable for function nbr_to_str()
+
+// ─── ILI9341 low-level ───────────────────────────────────────────────────────
+
+void ili9341_cmd(uint8_t cmd) {
+    DC_LOW();
+    CS_LOW();
+    spi_send(cmd);
+    CS_HIGH();
+}
+
+void ili9341_data(uint8_t data) {
+    DC_HIGH();
+    CS_LOW();
+    spi_send(data);
+    CS_HIGH();
+}
+
+void ili9341_init(void) {
+    RST_LOW();  _delay_ms(100);
+    RST_HIGH(); _delay_ms(100);
+    ili9341_cmd(0x01);          // software reset
+    _delay_ms(150);
+    ili9341_cmd(0x11);          // sleep out
+    _delay_ms(150);
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+    ili9341_cmd(0x29);          // display on
+}
+
+// ─── Drawing primitives ──────────────────────────────────────────────────────
+
+void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+    ili9341_cmd(0x2A);
+    ili9341_data(x0 >> 8);
+    ili9341_data(x0 & 0xFF);
+    ili9341_data(x1 >> 8);
+    ili9341_data(x1 & 0xFF);
+    ili9341_cmd(0x2B);
+    ili9341_data(y0 >> 8);
+    ili9341_data(y0 & 0xFF);
+    ili9341_data(y1 >> 8);
+    ili9341_data(y1 & 0xFF);
+    ili9341_cmd(0x2C);
+}
+
+
+uint8_t ft_main_strlen(const char *str) {
+     uint8_t len = 0;
+    while (str && *str) {
+        len++;
+        str++;
+    }
+    return (len);    
+}
+
+
+void draw_pixel(uint16_t x, uint16_t y, uint16_t color) {
+    set_window(x, y, (MAX_PIXEL_WIDTH) - 1, MAX_PIXEL_HIGH - 1);
+    DC_HIGH();
+    CS_LOW();
+    spi_send(color >> 8);
+    spi_send(color & 0xFF);
+    CS_HIGH();
+}
+
+// ─── 10x14 Font ────────────────────────────────────────────────────────────────
+// Each char = 5 bytes (one per column) x 4
+// CH0 | CH1
+// ---------
+// CH3 | CH4
+static const uint8_t font10x14[95][4][5] = {    
+    // [0] = {
+    //     { 0x40, 0x60, 0x30, 0x30, 0x30 }, // CH0
+    //     { 0x30, 0x30, 0x30, 0x30, 0x30 }, // CH1
+    //     { 0x61, 0x63, 0x66, 0x66, 0x66 }, // CH2
+    //     { 0x66, 0x66, 0x66, 0x3E, 0x18 },  // CH3
+    // } // 115 's'
+
+    ['s' - 32] = {
+        { 0x00, 0x30, 0x30, 0x30, 0x30 }, // CH1  (was CH0 reversed)
+        { 0x30, 0x30, 0x30, 0x60, 0x40 }, // CH0  (was CH1 reversed)
+        { 0x18, 0x3E, 0x66, 0x66, 0x66 }, // CH3  (was CH2 reversed)
+        { 0x66, 0x66, 0x66, 0x63, 0x01 }, // CH2  (was CH3 reversed)
+    } // 115 's'
+
+};
+
+
+void draw_color_screen(uint16_t color) {
+    set_window(0, 0, MAX_PIXEL_WIDTH - 1, MAX_PIXEL_HIGH - 1);
+
+    DC_HIGH();
+    CS_LOW();
+
+    uint8_t hi = color >> 8;
+    uint8_t lo = color & 0xFF;
+
+    for (uint32_t i = 0; i < (uint32_t)MAX_PIXEL_WIDTH * MAX_PIXEL_HIGH; i++) {
+        spi_send(hi);
+        spi_send(lo);
+    }
+
+    CS_HIGH();
+}
+
+
+
+// ─── Text rendering ──────────────────────────────────────────────────────────
+
+void draw_char(uint16_t x, uint16_t y, char c, uint16_t fg, uint16_t bg) {
+    if (c < 32 || c > 126) c = '?';
+    // const uint8_t *glyph = font5x7[(uint8_t)c - 32];
+   
+   
+    const uint8_t (*glyph)[5] = font10x14[(uint8_t)c - 32];
+
+    uint16_t xTemp = x;
+    uint16_t yTemp = y;
+    
+
+    for (int8_t ch = 0; ch < 4; ch++) {
+
+        if (ch == 0) {
+            x = xTemp, y=yTemp;
+            // continue;
+        }
+        if (ch == 1) {
+            x += (5 * SCALE), y = yTemp;
+            // continue;
+        }
+        if (ch == 2) {
+            x = xTemp, y = yTemp + (7 * SCALE);
+            // continue;
+        }
+        if (ch == 3) {
+            x += (5 * SCALE), y = yTemp + (7 * SCALE);
+            // continue;
+        }
+        for (int8_t col = 0; col < 5; col++) {
+            for (int8_t row = 0; row < 7; row++) {
+                uint16_t color;
+                if (glyph[ch][col] & (1 << row)) {
+                    color = fg;
+                } else {
+                    color = bg;
+                    continue;
+                }
+                for (uint8_t i = 0; i < SCALE; i++) {
+                    for (uint8_t z = 0; z < SCALE; z++) {
+                        draw_pixel((x + (col * SCALE) + z), (y + (row * SCALE)) + i, color);
+                    } 
+                }            
+            }
+        }
+    }
+}
+
+
+
+// ─── Text rendering ──────────────────────────────────────────────────────────
+
+void draw_char_small(uint16_t x, uint16_t y, uint8_t c, uint16_t fg, uint16_t bg) {
+    if (c < 32 || c > 126) c = '?';
+
+    const volatile uint8_t *glyph = font5x7[c - 32];
+//    const uint8_t *glyph = font5x7[33];
+    uart_printstr("\n\rtableax Num : ");
+    putnbr(c-32);
+    uart_printstr(" pointer: ");
+    putnbr((uint16_t)glyph);
+        uart_printstr(" pointer: ");
+    uart_tx(c);
+    uart_printstr(" ptr address: ");
+
+    uart_print_addr((void*)(&font5x7[c - 32][0]));
+    uart_printstr("\r\n");
+
+        for (volatile int8_t col = 0; col < 5; col++) {
+            for (volatile int8_t row = 0; row < 7; row++) {
+                uint16_t color;
+
+                if (glyph[col] &(1 << row)) {
+                    putnbr(1);
+                    color = fg;
+                } else {
+                    color = bg;
+                    putnbr(0);
+
+                    continue;
+                }
+                for (volatile int8_t i = 0; i < SCALE; i++) {
+                    for (volatile int8_t z = 0; z < SCALE; z++) {
+                        draw_pixel((x + (col * SCALE) + z), (y + (row * SCALE)) + i, color);
+                    } 
+                }            
+            }
+            uart_printstr(" ");
+        }
+    
+}
+
+
+void draw_string(uint16_t x, uint16_t y, const char *str,
+                 uint16_t fg, uint16_t bg) {
+
+    uint8_t len = ft_main_strlen(str);
+    
+    
+    while (len > 0) {
+       
+
+        if (SCALE >= 2) {
+            draw_char(x, y, str[len - 1], fg, bg);
+            x += 1 + (5 * SCALE) + 5 * SCALE;     // 5px glyph + 1px gap
+            SCALE = 6;
+        } else {
+
+            draw_char_small(x, y, str[len - 1], fg, bg);
+            x += (5 * SCALE) + 1;     // 5px glyph + 1px gap
+
+        }
+    
+        // str++;
+        len--;
+    }
+}
+
+// ─── Arduino entry points ────────────────────────────────────────────────────
+
+
+
+void setup() {
+    uart_init();
+    spi_init();
+    ili9341_init();
+}
+
+int main() {
+    setup();
+    draw_color_screen(COLOR_BLUE);
+    // SCALE = 1;
+    SCALE = 2;
+    draw_string(0, 0,  "s", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    _delay_ms(500);
+    // draw_string(0, 0,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
+    SCALE = 1;
+
+    draw_string(30, 70,  "ABC 123", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    _delay_ms(500);
+
+
+
+//     draw_string(0, -7,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
+
+
+//     SCALE = 4;
+//     draw_string(0, -14,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+//     _delay_ms(500);
+//     draw_string(0, -14,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
+
+
+//   SCALE = 6;
+//     draw_string(0, -21,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+//     _delay_ms(500);
+//     draw_string(0, -21,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
+
+//       SCALE = 8;
+//     draw_string(0, -28,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+//     _delay_ms(500);
+//     draw_string(0, -28,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
+
+    // for (int x = 0; x < 80; x++) {
+    //     draw_pixel((50),(40+x),COLOR_RED);
+
+    // }
+
+   while(1) { 
+ 
+        ;
+    }
+    // nothing
+
+    return (0);
+}
