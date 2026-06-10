@@ -6,7 +6,7 @@
 #    By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/13 13:45:55 by nrobinso          #+#    #+#              #
-#    Updated: 2026/06/09 17:51:22 by nige42           ###   ########.fr        #
+#    Updated: 2026/06/10 18:02:06 by nige42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEX_OUT= ihex
 FLASH=avrdude
 PROGRAMMER= -c arduino
 CARD= -p atmega328p
-PORT= -P /dev/cu.usbserial-1440
+PORT= -P /dev/cu.usbserial-1430
 FLASH_IN_OUT= -U flash:w:$(NAME).hex:i
 
 
