@@ -6,12 +6,10 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/09 17:51:10 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/10 17:57:19 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// ili9341_hello.ino
-// Minimal ILI9341 TFT library for Arduino Uno (bare AVR C)
 // Draws "Hello" using a 5x7 bitmap font over hardware SPI
 //
 // Pin Map:
@@ -21,6 +19,7 @@
 //   DC   ->  D9 (PB1)
 //   RST  ->  D8 (PB0)
 //   VCC  -> 3.3V
+//   VCC  -> 5V
 //   GND  -> GND
 
 #include <avr/io.h>
