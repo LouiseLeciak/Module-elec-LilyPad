@@ -1,0 +1,24 @@
+[
+  {
+    "file": "src/main.c",
+    "arguments": [
+      "/opt/homebrew/bin/avr-gcc",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-Iinclude/",
+      "-I/opt/homebrew/opt/avr-gcc/avr/include",
+      "-Os",
+      "-mmcu=atmega2560",
+      "-DF_CPU=16000000UL",
+      "-MMD",
+      "-MP",
+      "-c",
+      "src/main.c",
+      "-o",
+      "build/main.o"
+    ],
+    "directory": "/Users/apetitco/Documents/Module Elec - Lily's Pad/experimentations",
+    "output": "build/main.o"
+  }
+]
