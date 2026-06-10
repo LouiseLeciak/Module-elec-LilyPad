@@ -11,25 +11,42 @@
 # **************************************************************************** #
 
 # ------------------------- project -------------------------------------------
-NAME	=	main
-TOOLS	=	#tools.c
-LIB		=	spi_lib.c small_font.c uart_lib.c tools.c #led_lib.c config.h 
+TARGET	=	$(BUI_DIR)main
+HEX			=	$(TARGET).hex
+
+SRC_DIR	=	src/
+INC_DIR	=	include/
+BUI_DIR	=	build/
+
+# ------------------------- CPU frequency and baud rate -----------------------
+MCU					=	atmega2560
+F_CPU				=	16000000UL
+PROGRAMMER	=	wiring
+BD_RATE			=	115200
+PORT				=	/dev/cu.usbserial-110 #There has to be a way to determine port through a command
 
 # ------------------------- compiler ------------------------------------------
 CC			=	avr-gcc
-CFLAGS	=	-mmcu=atmega328p -Wall -Wextra -Werror -Os
+CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
-# ------------------------- CPU frequency and baud rate -----------------------
-F_CPU					=	16000000UL
-BAUD					=	-b 115200
-UART_BAUDRATE	=	115200
+SRC_FIL	=	main.c \
+					spi_lib.c \
+					small_font.c \
+					uart_lib.c \
+					tools.c \
+					#led_lib.c \
+					config.h 
+
+SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
+OBJ			=	$(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
+DEP			=	$(OBJ.o=.d)
+
 # ------------------------- Conversion .bin -> .hex ---------------------------
-HEX			=	avr-objcopy
+OBJCOPY	=	avr-objcopy
 HEX_OUT	=	ihex
 
 # ------------------------- Flasher --------------- ----------------------------
-FLASH					=	avrdude
-PROGRAMMER		=	-c wiring
+DUDE					=	avrdude
 CARD					=	-p m2560
 # PORT				=	-P /dev/cu.usbserial-1430
 FLASH_IN_OUT	=	-U flash:w:$(NAME).hex:i
@@ -37,18 +54,28 @@ PORT					=	-P /dev/cu.usbmodem14301
 
 
 # ------------------------- Rules ---------------------------------------------
-all: hex flash
+.PHONY: all hex flash clean
 
-hex:
-	$(CC) $(CFLAGS) -DF_CPU=$(F_CPU) -Os -o $(NAME).bin $(NAME).c $(TOOLS) $(LIB)
-	$(HEX) -O $(HEX_OUT) $(NAME).bin $(NAME).hex
-	
-flash:
-	$(FLASH) $(PROGRAMMER) $(CARD) $(PORT) $(BAUD) $(FLASH_IN_OUT)
+all: hex
+
+hex: $(HEX)
+
+$(BUI_DIR):
+	mkdir -p $@
+
+$(BUI_DIR)%.o: $(SRC_DIR)%.c | $(BUI_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(TARGET).bin: $(OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(HEX) : $(TARGET).bin
+	$(OBJCOPY) -O ihex $< $@
+
+flash: $(HEX)
+	$(DUDE) -v -D -p $(MCU) -c $(PROGRAMMER) -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
 
 clean:
-	rm -rf $(NAME).bin
-	rm -rf $(NAME).hex
+	rm -rf $(BUI_DIR)
 
-
-.PHONY: all hex flash clean
+-include $(DEP)
