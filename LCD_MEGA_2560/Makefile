@@ -11,29 +11,29 @@
 # **************************************************************************** #
 
 # ------------------------- project -------------------------------------------
-NAME=main
-TOOLS=#tools.c
-LIB=spi_lib.c small_font.c uart_lib.c tools.c #led_lib.c config.h 
+NAME	=	main
+TOOLS	=	#tools.c
+LIB		=	spi_lib.c small_font.c uart_lib.c tools.c #led_lib.c config.h 
 
 # ------------------------- compiler ------------------------------------------
-CC=avr-gcc
-CFLAGS= -mmcu=atmega328p -Wall -Wextra -Werror -Os -I/opt
+CC			=	avr-gcc
+CFLAGS	=	-mmcu=atmega328p -Wall -Wextra -Werror -Os
 
 # ------------------------- CPU frequency and baud rate -----------------------
-F_CPU=16000000UL
-BAUD= -b 115200
-UART_BAUDRATE= 115200
+F_CPU					=	16000000UL
+BAUD					=	-b 115200
+UART_BAUDRATE	=	115200
 # ------------------------- Conversion .bin -> .hex ---------------------------
-HEX=avr-objcopy
-HEX_OUT= ihex
+HEX			=	avr-objcopy
+HEX_OUT	=	ihex
 
 # ------------------------- Flasher --------------- ----------------------------
-FLASH=avrdude
-PROGRAMMER= -c wiring
-CARD= -p m2560
-# PORT= -P /dev/cu.usbserial-1430
-FLASH_IN_OUT= -U flash:w:$(NAME).hex:i
-PORT= -P /dev/cu.usbmodem14301
+FLASH					=	avrdude
+PROGRAMMER		=	-c wiring
+CARD					=	-p m2560
+# PORT				=	-P /dev/cu.usbserial-1430
+FLASH_IN_OUT	=	-U flash:w:$(NAME).hex:i
+PORT					=	-P /dev/cu.usbmodem14301
 
 
 # ------------------------- Rules ---------------------------------------------
@@ -51,4 +51,4 @@ clean:
 	rm -rf $(NAME).hex
 
 
-.phony: all hex flash clean
+.PHONY: all hex flash clean
