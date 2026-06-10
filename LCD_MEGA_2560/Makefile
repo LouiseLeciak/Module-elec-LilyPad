@@ -29,13 +29,12 @@ PORT				=	/dev/cu.usbserial-110 #There has to be a way to determine port through
 CC			=	avr-gcc
 CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
-SRC_FIL	=	main.c \
-					spi_lib.c \
-					small_font.c \
-					uart_lib.c \
-					tools.c \
-					#led_lib.c \
-					config.h 
+SRC_FIL	=	main \
+					ili9341 \
+					spi_lib \
+					small_font \
+					uart_lib \
+					tools
 
 SRC			=	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ			=	$(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

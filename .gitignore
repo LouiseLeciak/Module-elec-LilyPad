@@ -1,3 +1,8 @@
+# Development files/directories
+build/
+compile_commands.json
+
+# MacOS files
 .DS_Store
 
 # KiCad files
