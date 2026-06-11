@@ -28,9 +28,7 @@ ili9341_init (void)
   ILI9341_RST_HIGH ();
   _delay_ms (100);
   ili9341_cmd (SOFTWARE_RESET);
-  // _delay_ms (150);
   ili9341_cmd (SLEEP_OUT);
-  // _delay_ms (150);
   ili9341_cmd (PIXEL_FORMAT_SET);
 
   // NOTE: I am confused because 0x55 is Write Content Adaptive Brightness
