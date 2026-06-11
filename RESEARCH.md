@@ -29,3 +29,11 @@ the toolchain, we can't really diagnose it at linking time.
 
 But we tried shortening the array to bar this possibility and the problem still
 occurred. So there may be something else at play here.
+
+## Things screen related
+
+### Tearing
+
+We will have tearing if we are not smart. It is impossible to cleanly display things if we redraw the whole screen each frame. Only time it will be acceptable to draw a full screen frame is at the setup. But then, We should only focus a precise box/area to redraw. For instance, in a clock, we a minute passes, you don't redraw the whole `12:34` but just the `4` that becomes a `5`, that way you only have to redraw a teeny tiny portion, which will be faster (say 20px x 30px = 1.2kB instead of 320px x 240px = 153.6kB)
+> [!NOTE]
+> The ATmega2560 has 8KB of SRAM
