@@ -56,6 +56,10 @@ typedef enum e_ili9341_cmd
   READ_ID3 = 0xDC,                           // Not implemented
 } ILI9341_CMDS;
 
+void ili9341_software_reset (void);
+
+void ili9341_sleep_out (void);
+
 void ili9341_col_address_set (const uint16_t page_start,
                               const uint16_t page_end);
 
@@ -63,5 +67,7 @@ void ili9341_page_address_set (const uint16_t page_start,
                                const uint16_t page_end);
 
 void ili9341_memory_write (void);
+
+void ili9341_pixel_format_set (uint8_t data);
 
 #endif // !ILI9341_CMDS_H

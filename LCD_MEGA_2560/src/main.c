@@ -28,9 +28,10 @@ main (void)
 
   while (1)
     {
-      for (uint16_t i = 0; i < (0xFFFF); i++)
+      for (uint16_t i = 0; i < 360; i++)
         {
-          fill_screen (i);
+          uint16_t color = hue_to_rgb565 ((float)i);
+          fill_screen (color);
         };
     }
 
