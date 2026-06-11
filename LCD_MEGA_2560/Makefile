@@ -1,5 +1,3 @@
-SHELL =  /opt/homebrew/bin/fish
-
 #####################
 ## MICROCONTROLLER ##
 ##        &        ##
@@ -41,10 +39,8 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/incl
 
 SRC_FIL	=	main \
 					ili9341 \
-					spi_lib \
-					small_font \
-					uart_lib \
-					tools
+					ili9341_cmds \
+					spi_lib
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

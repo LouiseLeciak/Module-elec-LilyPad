@@ -7,7 +7,7 @@
 
 // --- Main LCD Screen defines ---------------------------------------------
 // Pin on which we hooked the main LCD screen's Data/Command pin.
-// NOTE: This doesn't follow the pinout on the specifications !!!
+// WARNING: This doesn't follow the pinout on the specifications !!!
 #define LCD_MAIN_DC (1 << PB5)
 #define LCD_MAIN_RST (1 << PB6)
 // !-- Main LCD Screen defines ---------------------------------------------
@@ -20,14 +20,13 @@ spi_master_init (void)
   // That's why we don't set MISO here.
   DDRB |= (SS_LINES | SCK | MOSI | LCD_MAIN_DC | LCD_MAIN_RST);
 
-  PORTB |= SS_LINES | LCD_MAIN_DC | LCD_MAIN_RST;
+  PORTB |= (SS_LINES | LCD_MAIN_DC | LCD_MAIN_RST);
 
-  // NOTE: With only SPR0 set, we have a clock of F_CPU/16 = 1,000,000 (p.198).
-  // SPI clock frequency should be determined relative to the driver's maximum
-  // supported frequency, the ILI9488 supports up to 20MHz (see ILI9488's
-  // datasheet p.55).
+  // NOTE: SPI clock frequency should be determined relative to the driver's
+  // maximum supported frequency, the ILI9488 supports up to 20MHz (see
+  // ILI9488's datasheet p.55).
 
-  SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPI2X);
+  SPCR = (1 << SPE) | (1 << MSTR);
 }
 
 void
