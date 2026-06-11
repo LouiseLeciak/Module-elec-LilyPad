@@ -40,7 +40,9 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/incl
 SRC_FIL	=	main \
 					ili9341 \
 					ili9341_cmds \
-					spi_lib
+					small_font \
+					spi_lib \
+					uart_lib
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

@@ -1,8 +1,11 @@
 #include "ili9341.h"
 
+#include <stdint.h>
 #include <util/delay.h>
 
 #include "ili9341_cmds.h"
+#include "small_font.h"
+#include "uart_lib.h"
 
 void
 ili9341_cmd (uint8_t cmd)
@@ -57,3 +60,13 @@ fill_screen (uint16_t colour)
     }
   ILI9341_SS_HIGH (); // Deselects the slave
 }
+
+// void
+// draw_char_small (uint16_t pos_x, uint16_t pos_y, uint8_t c, uint8_t size,
+//                  uint16_t fg, uint16_t bg)
+// {
+//   const volatile uint8_t *glyph = font5x7[(uint8_t)c - 32];
+//
+//   if (c < 32 || c > 126)
+//     c = '?';
+// }
