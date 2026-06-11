@@ -1,13 +1,15 @@
+SHELL =  /opt/homebrew/bin/fish
+
 #####################
 ## MICROCONTROLLER ##
 ##        &        ##
 ## FLASHING CONFIG ##
 #####################
 
-MCU					:=	atmega328p
+MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-PORT				= $(ls -l /dev/cu* | grep juin | awk '{print $9}')
-PROGRAMMER	:=	arduino
+PORT				:= /dev/cu.usbmodem101
+PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
 #################
@@ -59,7 +61,7 @@ HEX	= $(TARGET).hex
 ## BUILD RULES ##
 #################
 
-.PHONY: all hex flash clean
+.PHONY: all hex flash clean re
 
 all: hex
 
@@ -78,9 +80,11 @@ $(HEX) : $(TARGET).bin
 	$(OBJCOPY) -O ihex $< $@
 
 flash: $(HEX)
-	$(DUDE) -v -p $(MCU) -c $(PROGRAMMER) -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
+	$(DUDE) -v -p $(MCU) -c $(PROGRAMMER) -D -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
 
 clean:
 	rm -rf $(BUI_DIR)
+
+re: clean all
 
 -include $(DEP)
