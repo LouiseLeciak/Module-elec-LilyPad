@@ -5,14 +5,21 @@
 
 #include "spi_lib.h"
 
+// NOTE: The ILI9314 can use several SPI configurations, we will use the
+// 4-Wires one (SCL, SDA, D/C, SC)
+
 #define ILI9341_DC (1 << PB5)
+#define ILI9341_RST (1 << PB6)
 
 #define ILI9341_SS_LOW() (PORTB &= ~(SS_LINES))
 #define ILI9341_SS_HIGH() (PORTB |= SS_LINES)
 #define ILI9341_DC_LOW() PORTB &= ~(ILI9341_DC) // COMMAND mode
 #define ILI9341_DC_HIGH() PORTB |= ILI9341_DC   // DATA mode
-#define ILI9341_RST_LOW() PORTB &= ~(1 << PB6)
-#define ILI9341_RST_HIGH() PORTB |= (1 << PB6)
+#define ILI9341_RST_LOW() PORTB &= ~ILI9341_RST
+#define ILI9341_RST_HIGH() PORTB |= ILI9341_RST
+
+#define ILI9341_MAX_HEIGHT 320
+#define ILI9341_MAX_WIDTH 240
 
 // --- ILI9341 COMMANDS -------------------------------------------------------
 // NOTE: The following commands are listed in the ILI9341's datasheet p.83-87.
@@ -68,6 +75,10 @@ typedef enum e_ili9341_cmd
   READ_ID3 = 0xDC,                           // Not implemented
 } ILI9341_CMDS;
 // !-- ILI9341 COMMANDS -------------------------------------------------------
+
+void fill_screen (uint16_t colour);
+
+void set_window (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
 
 void ili9341_cmd (uint8_t cmd);
 

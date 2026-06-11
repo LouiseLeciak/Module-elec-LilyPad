@@ -66,22 +66,6 @@ volatile char nbr_in_a_string[33]; // global variable for function nbr_to_str()
 // ─── Drawing primitives
 // ──────────────────────────────────────────────────────
 
-void
-set_window (uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
-{
-  ili9341_cmd (0x2A);
-  ili9341_data (x0 >> 8);
-  ili9341_data (x0 & 0xFF);
-  ili9341_data (x1 >> 8);
-  ili9341_data (x1 & 0xFF);
-  ili9341_cmd (0x2B);
-  ili9341_data (y0 >> 8);
-  ili9341_data (y0 & 0xFF);
-  ili9341_data (y1 >> 8);
-  ili9341_data (y1 & 0xFF);
-  ili9341_cmd (0x2C);
-}
-
 uint8_t
 ft_main_strlen (const char *str)
 {
@@ -110,7 +94,7 @@ draw_pixel (uint16_t x, uint16_t y, uint16_t color)
 // 5 bytes (one per column) x 4 CH0 | CH1
 // ---------
 // CH3 | CH4
-static const uint8_t font10x14[95][4][5] = {    
+static const uint8_t font10x14[95][4][5] = {
     // [0] = {
     //     { 0x40, 0x60, 0x30, 0x30, 0x30 }, // CH0
     //     { 0x30, 0x30, 0x30, 0x30, 0x30 }, // CH1
@@ -118,12 +102,13 @@ static const uint8_t font10x14[95][4][5] = {
     //     { 0x66, 0x66, 0x66, 0x3E, 0x18 },  // CH3
     // } // 115 's'
 
-    ['s' - 32] = {
-        { 0x00, 0x30, 0x30, 0x30, 0x30 }, // CH1  (was CH0 reversed)
-        { 0x30, 0x30, 0x30, 0x60, 0x40 }, // CH0  (was CH1 reversed)
-        { 0x18, 0x3E, 0x66, 0x66, 0x66 }, // CH3  (was CH2 reversed)
-        { 0x66, 0x66, 0x66, 0x63, 0x01 }, // CH2  (was CH3 reversed)
-    } // 115 's'
+    ['s' - 32] =
+        {
+            {0x00, 0x30, 0x30, 0x30, 0x30}, // CH1  (was CH0 reversed)
+            {0x30, 0x30, 0x30, 0x60, 0x40}, // CH0  (was CH1 reversed)
+            {0x18, 0x3E, 0x66, 0x66, 0x66}, // CH3  (was CH2 reversed)
+            {0x66, 0x66, 0x66, 0x63, 0x01}, // CH2  (was CH3 reversed)
+        } // 115 's'
 
 };
 
@@ -305,43 +290,11 @@ setup (void)
 }
 
 int
-main ()
+main (void)
 {
   setup ();
-  // SCALE = 2;
-  // _delay_ms(500);
-
-  draw_color_screen (COLOR_BLUE);
-  SCALE = 1;
-  _delay_ms (500);
-
-  // draw_string(0, 120,  "helloWORLD", COLOR_WHITE, COLOR_BLACK); // MAX H
-  // CHARS _delay_ms(500);
-  SCALE = 2;
-  _delay_ms (500);
-  draw_string (0, 0, "s", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-
-  //     draw_string(0, -7,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
-
-  //     SCALE = 4;
-  //     draw_string(0, -14,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-  //     _delay_ms(500);
-  //     draw_string(0, -14,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
-
-  //   SCALE = 6;
-  //     draw_string(0, -21,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-  //     _delay_ms(500);
-  //     draw_string(0, -21,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
-
-  //       SCALE = 8;
-  //     draw_string(0, -28,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-  //     _delay_ms(500);
-  //     draw_string(0, -28,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
-
-  // for (int x = 0; x < 80; x++) {
-  //     draw_pixel((50),(40+x),COLOR_RED);
-
-  // }
+  uart_printstr ("Trying to display GREEN\r\n");
+  fill_screen (COLOR_GREEN);
 
   while (1)
     ;
