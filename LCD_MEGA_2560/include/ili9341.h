@@ -20,8 +20,15 @@
 #define ILI9341_RST_LOW() PORTB &= ~ILI9341_RST
 #define ILI9341_RST_HIGH() PORTB |= ILI9341_RST
 
-#define ILI9341_MAX_HEIGHT 320
-#define ILI9341_MAX_WIDTH 240
+#define ILI9341_MAX_HEIGHT 480
+#define ILI9341_MAX_WIDTH 320
+
+typedef struct s_rgb
+{
+  const uint16_t red;
+  const uint16_t green;
+  const uint16_t blue;
+} t_rgb;
 
 void fill_screen (uint16_t colour);
 
@@ -39,8 +46,15 @@ void ili9341_data (uint8_t *data, size_t siz);
  */
 void ili9341_init (void);
 
-uint16_t pack_rgb (const uint8_t r, const uint8_t g, const uint8_t b);
+void ili9341_set_window (const uint16_t start_x, const uint16_t end_x,
+                         const uint16_t start_y, const uint16_t end_y);
+
+uint16_t pack_rgb565 (const t_rgb colour);
 
 uint16_t hue_to_rgb565 (float hue);
+
+// --- Drawing ----------------------------------------------------------------
+void ili9341_draw_pixel (const uint16_t pos_x, const uint16_t pos_y,
+                         const t_rgb colour);
 
 #endif // !ILI9341_H

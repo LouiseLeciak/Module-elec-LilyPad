@@ -26,7 +26,9 @@ spi_master_init (void)
   // maximum supported frequency, the ILI9488 supports up to 20MHz (see
   // ILI9488's datasheet p.55).
 
-  SPCR = (1 << SPE) | (1 << MSTR);
+  SPCR |= (1 << SPE) | (1 << MSTR);
+
+  SPSR |= (1 << SPI2X);
 }
 
 void

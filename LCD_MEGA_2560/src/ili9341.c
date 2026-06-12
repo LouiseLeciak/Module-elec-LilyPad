@@ -5,6 +5,7 @@
 
 #include "ili9341_cmds.h"
 #include "small_font.h"
+#include "spi_lib.h"
 #include "uart_lib.h"
 
 void
@@ -40,11 +41,40 @@ ili9341_init (void)
 }
 
 void
+ili9341_set_window (const uint16_t start_x, const uint16_t end_x,
+                    const uint16_t start_y, const uint16_t end_y)
+{
+  ili9341_col_address_set (start_x, end_x);
+  ili9341_page_address_set (start_y, end_y);
+}
+
+void
+ili9341_draw_pixel (const uint16_t pos_x, const uint16_t pos_y,
+                    const t_rgb colour)
+{
+  // if (pos_x >= ILI9341_MAX_WIDTH || pos_y >= ILI9341_MAX_HEIGHT)
+  //   {
+  //     uart_printstr ("Trying to draw pixel out of bounds\r\n");
+  //     return;
+  //   }
+
+  ILI9341_SS_LOW ();
+  ili9341_set_window (pos_x, pos_y, pos_x + 1, pos_y + 1);
+  ili9341_memory_write ();
+  ILI9341_DC_HIGH ();
+
+  uint16_t colour565 = pack_rgb565 (colour);
+  spi_master_transmit (colour565 >> 8);
+  spi_master_transmit (colour565 & 0xFF);
+
+  ILI9341_SS_HIGH ();
+}
+
+void
 fill_screen (uint16_t colour)
 {
   ILI9341_SS_LOW ();
-  ili9341_col_address_set (0x0000, 0x00EF);
-  ili9341_page_address_set (0x0000, 0x013F);
+  ili9341_set_window (0, ILI9341_MAX_WIDTH, 0, ILI9341_MAX_HEIGHT);
 
   ili9341_memory_write ();
   ILI9341_DC_HIGH ();
@@ -58,7 +88,7 @@ fill_screen (uint16_t colour)
 }
 
 uint16_t
-pack_rgb565 (const uint8_t r, const uint8_t g, const uint8_t b)
+pack_rgb565 (const t_rgb colour)
 {
   // For the red, we need to isolate the 5 most significant bits:
   //  1 1 1 1 | 1 0 0 0 (the `1` indicate the most significant bits)
@@ -78,7 +108,8 @@ pack_rgb565 (const uint8_t r, const uint8_t g, const uint8_t b)
   // In the end, this is the structure of the data to send :
   // R  R  R  R  R  G  G G G G G B B B B B
   // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-  return (((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3));
+  return (((colour.red & 0xF8) << 8) | ((colour.green & 0xFC) << 3)
+          | (colour.blue >> 3));
 }
 
 uint16_t
@@ -131,5 +162,6 @@ hue_to_rgb565 (float hue)
   uint8_t G8 = (uint8_t)((g + m) * 255.0);
   uint8_t B8 = (uint8_t)((b + m) * 255.0);
 
-  return pack_rgb565 (R8, G8, B8);
+  t_rgb tmp = { R8, G8, B8 };
+  return pack_rgb565 (tmp);
 }
