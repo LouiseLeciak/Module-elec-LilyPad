@@ -1,33 +1,13 @@
-
 #include "../headers/uart.h"
-#define INPUT 0
-#define OUTPUT 1
+
+#define INPUT 3
+#define OUTPUT 4
 #define INPUT_PULLUP 2
-#define HIGH 3
-#define LOW 4
-
-// screen /dev/ttyUSB0 115200
-// organisation des boutons, ligne et colonnes
-// https://github.com/EanNewton/Awesome-Keebs/blob/main/tutorials/How%20to%20make%20a%20keyboard%20-%20the%20matrix.md
-// https://hilpcb.com/fr/blog/keyboard-matrix-design/
-// les lignes, a activer 1 par 1
-// je commence par 2 car sur la arduino que j'utilise
-// pour mon test a les pins 0 et 1 deja utilisee
-const int rowPins[2] = {2, 3};
-
-// les colonnes
-const int colPins[3] = {4, 5, 6};
-
-// Tableau pour dire quel bouton est quel lettre en gros
-// pratique si je veux changer les lettres
-char keys[2][3] = {
-    {'A', 'B', 'C'},
-    {'D', 'E', 'F'}};
+#define HIGH 1
+#define LOW 0
 
 void ft_pinMode(uint8_t pin, uint8_t mode)
 {
-
-    // du 0 a 7 sur la arduino uno c;est le port D
     if (pin <= 7)
     {
         if (mode == OUTPUT)
@@ -39,7 +19,7 @@ void ft_pinMode(uint8_t pin, uint8_t mode)
             DDRD &= ~(1 << pin);
             PORTD &= ~(1 << pin);
         }
-        if (mode == INPUT_PULLUP)
+        else if (mode == INPUT_PULLUP)
         {
             DDRD &= ~(1 << pin);
             PORTD |= (1 << pin);
@@ -49,7 +29,6 @@ void ft_pinMode(uint8_t pin, uint8_t mode)
 
 void ft_digitalWrite(uint8_t pin, uint8_t value)
 {
-
     if (pin <= 7)
     {
         if (value)
@@ -61,109 +40,104 @@ void ft_digitalWrite(uint8_t pin, uint8_t value)
 
 uint8_t ft_digitalRead(uint8_t pin)
 {
-
-    uint8_t value;
-
     if (pin <= 7)
     {
         if (PIND & (1 << pin))
-            value = 1;
-        else
-            value = 0;
-        return value;
+            return 1;
+        return 0;
     }
-
     return 0;
 }
 
-void setup()
+
+
+// ligne pour le keyboard
+#define ROW0 2
+#define ROW1 3
+
+// colonnes pour le keyboard
+#define COL0 4
+#define COL1 5
+#define COL2 6
+
+void keypad_init(void)
 {
+    // en output parce qu'on veut recevoir des infos
+    ft_pinMode(ROW0, OUTPUT);
+    ft_pinMode(ROW1, OUTPUT);
 
-    uart_init();
+    ft_pinMode(COL0, INPUT_PULLUP);
+    ft_pinMode(COL1, INPUT_PULLUP);
+    ft_pinMode(COL2, INPUT_PULLUP);
 
-    uart_printstr("Coucou je suis connecte et c'est super !\r\n");
-
-    for (int i = 0; i < 2; i++)
-    {
-
-        // je veux controler ce pin et pouvoir le mettre a low ou high
-        // en gros output = je veux parler
-        // on le fait que sur les lignes parce que on veut scanner les lignes
-        ft_pinMode(rowPins[i], OUTPUT);
-
-        // HIGH = inactif
-        ft_digitalWrite(rowPins[i], HIGH);
-    }
-
-    for (int i = 0; i < 3; i++)
-    {
-
-        // set up colonne
-        // pull-up = HIGH desactive
-        // LOW = bouton active
-        // input le keyboard doit ecouter
-        ft_pinMode(colPins[i], INPUT_PULLUP);
-    }
+    // on remt les lignes a 0
+    ft_digitalWrite(ROW0, HIGH);
+    ft_digitalWrite(ROW1, HIGH);
 }
 
-char read_keyboard()
+int keypad_read(void)
 {
+    // on scan la premiere ligne
+    ft_digitalWrite(ROW0, LOW);
+    ft_digitalWrite(ROW1, HIGH);
 
-    // on check d'abord les lignes
-    for (int row = 0; row < 2; row++)
-    {
+    // low ca veut dire qu'on a appuye
+    if (ft_digitalRead(COL0) == LOW)
+        return 0;
 
-        // on active une ligne par une ligne
-        ft_digitalWrite(rowPins[row], LOW);
-        // LOW = courant envoye sur la ligne donc active
+    if (ft_digitalRead(COL1) == LOW)
+        return 1;
 
-        // ensuite on check les colonnes
-        for (int col = 0; col < 3; col++)
-        {
+    if (ft_digitalRead(COL2) == LOW)
+        return 2;
 
-            // si colonne est LOW alors le bouton est appuye
-            if (ft_digitalRead(colPins[col]) == LOW)
-            {
-                uart_printstr("DANS READ KEYBOARD\r\n");
+    // on scan la deuxieme ligne
+    ft_digitalWrite(ROW0, HIGH);
+    ft_digitalWrite(ROW1, LOW);
 
-                // debounce un peu sale
-                _delay_ms(30);
+    if (ft_digitalRead(COL0) == LOW)
+        return 3;
 
-                // while temporaire pour attendre le temps que l'user relache le boutpon
-                while (ft_digitalRead(colPins[col]) == LOW)
-                    ;
+    if (ft_digitalRead(COL1) == LOW)
+        return 4;
 
-                // je desac ma ligne
-                ft_digitalWrite(rowPins[row], HIGH);
+    if (ft_digitalRead(COL2) == LOW)
+        return 5;
 
-                // je return mon bouton/ ma touche
-                return keys[row][col];
-            }
-        }
-
-        // je desac la ligne actuelle avant de tester la prochaine
-        ft_digitalWrite(rowPins[row], HIGH);
-    }
-
-    // pas de touche
-    // pas sure que return '\0' soit la bonne strat ceci dit
-    return '\0';
+    return -1;
 }
 
-int main()
+int main(void)
 {
+    int key;
+
     uart_init();
-    setup();
+    uart_printstr("Test matrice 2x3\r\n");
+
+    keypad_init();
+
     while (1)
     {
-        char key = read_keyboard();
+        key = keypad_read();
 
-        // si on appui sur une touche
-        if (key != '\0')
+        if (key >= 0)
         {
-            uart_printstr("Key: ");
-            // uart_tx(key);
-            uart_printstr("bouton\r\n");
+
+            if (key == 0)
+                uart_printstr("A");
+            else if (key == 1)
+                uart_printstr("B");
+            else if (key == 2)
+                uart_printstr("C");
+            else if (key == 3)
+                uart_printstr("O");
+            else if (key == 4)
+                uart_printstr("U");
+            else if (key == 5)
+                uart_printstr("\r\n");
+
+
+            _delay_ms(200); // debouncing de boloss
         }
     }
 }
