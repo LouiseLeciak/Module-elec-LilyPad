@@ -3,11 +3,13 @@
 
 /**
  * @typedef e_st7796_cmd
- * @brief List of the ST7796's commands, as per the ST7796's datasheet p.131-140
+ * @brief List of the ST7796's commands, as per the ST7796's datasheet
+ * p.131-140
  *
  */
 #include <stdint.h>
-typedef enum e_st7796_cmd {
+typedef enum e_st7796_cmd
+{
   NOP = 0x00,                  // No operation
   SWRESET = 0x01,              // Software Reset
   RDDID = 0x04,                // Read display ID
@@ -83,7 +85,7 @@ typedef enum e_st7796_cmd {
   SPIRC = 0xFB       // SPI Read Control
 } ST7796_cmd;
 
-// --- Low-level commands ------------------------------------------------------
+// --- Low-level commands ----------------------------------------------------
 
 /**
  * @brief This command causes the commands and parameters to their S/W Reset
@@ -95,19 +97,34 @@ typedef enum e_st7796_cmd {
  *
  * SWRESET (0x01) p.141
  */
-void st7796_swreset(void);
+void st7796_swreset (void);
+
+/**
+ * @brief This command causes the LCD module to enter the minimum power
+ * consumption mode.
+ *
+ * SLPIN (0x10) p.159
+ */
+void st7796_slpin (void);
+
+/**
+ * @brief This command turns off sleep mode.
+ *
+ * SLPOUT (0x11) p.160
+ */
+void st7796_slpout (void);
 
 /**
  * @brief Sets the column address.
  *
  * @param col_start Start of the column (between 0 and the width of the screen
  * minus one).
- * @param col_end End of the column (between 0 and the width of the screen minus
- * one).
+ * @param col_end End of the column (between 0 and the width of the screen
+ * minus one).
  *
  * CASET (0x2A) p.170
  */
-void st7796_caset(const uint16_t col_start, const uint16_t col_end);
+void st7796_caset (const uint16_t col_start, const uint16_t col_end);
 
 /**
  * @brief Sets the row address.
@@ -119,7 +136,7 @@ void st7796_caset(const uint16_t col_start, const uint16_t col_end);
  *
  * RASET (0x2A) p.172
  */
-void st7796_raset(const uint16_t row_start, const uint16_t row_end);
+void st7796_raset (const uint16_t row_start, const uint16_t row_end);
 
 /**
  * @brief This command is used to transfer data from the MCU to frame memory.
@@ -129,6 +146,6 @@ void st7796_raset(const uint16_t row_start, const uint16_t row_end);
  *
  * RAMWR (0x2C) p.173
  */
-void st7796_ramwr(void);
+void st7796_ramwr (void);
 
 #endif // !ST7796_CMDS_H

@@ -38,6 +38,7 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 #####################
 
 SRC_FIL	=	main \
+					mads \
 					st7796 \
 					st7796_cmds
 

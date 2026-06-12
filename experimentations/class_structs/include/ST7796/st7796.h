@@ -21,34 +21,40 @@
 #define ST7796_SS_LOW() (PORTB &= ~(ST7796_SS))
 #define ST7796_SS_HIGH() (PORTB |= ST7796_SS)
 
-typedef struct s_window {
+typedef struct s_window
+{
   uint16_t _start_x;
   uint16_t _end_x;
   uint16_t _start_y;
   uint16_t _end_y;
 } window;
 
-typedef struct s_position {
+typedef struct s_position
+{
   uint16_t _pos_x;
   uint16_t _pos_y;
 } position;
 
-typedef struct s_rgb {
+typedef struct s_rgb
+{
   uint16_t red;
   uint16_t green;
   uint16_t blue;
 } t_rgb;
 
-typedef struct s_st7796 {
+typedef struct s_st7796
+{
 
 } st7796;
 
 // --- High-level commands ---------------------------------------------------
 // --------- Drawing commands ------------------------------------------------
-void draw_pixel(const position pos, const t_rgb rgb);
-void draw_rectangle(const window win, const t_rgb rgb);
+void draw_char (const position pos, const char c, const t_rgb fg,
+                const t_rgb bg);
+void draw_pixel (const position pos, const t_rgb rgb);
+void draw_rectangle (const window win, const t_rgb rgb);
 // --------- Utilitaries commands --------------------------------------------
-uint16_t pack_rgb565(const t_rgb colour);
-void set_window(const window win);
+uint16_t pack_rgb565 (const t_rgb colour);
+void set_window (const window win);
 
 #endif // !ST7796_H
