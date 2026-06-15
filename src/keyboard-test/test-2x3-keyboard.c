@@ -1,10 +1,12 @@
-#include "../headers/uart.h"
+#include "uart.h"
 
 #define INPUT 3
 #define OUTPUT 4
 #define INPUT_PULLUP 2
 #define HIGH 1
 #define LOW 0
+
+// screen /dev/ttyUSB0 115200
 
 void ft_pinMode(uint8_t pin, uint8_t mode)
 {

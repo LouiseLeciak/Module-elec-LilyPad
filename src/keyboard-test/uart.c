@@ -1,4 +1,4 @@
-#include "../headers/uart.h"
+#include "uart.h"
 
 // screen /dev/ttyUSB0 115200
 // ctrl a puis k puis y

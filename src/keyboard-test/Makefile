@@ -1,10 +1,11 @@
+
 NAME	= main
-PROG	= arduino
-MICROCONTROLLER	= atmega328p
+PROG	= wiring
+MICROCONTROLLER	= atmega2560
 CC	= avr-gcc
 OBJCOPY	= avr-objcopy
 DUDE	= avrdude
-FILES	= test-keyboard.c uart.c
+FILES	= ard-4x10-keyboard.c uart.c
 
 # mmcu to tell what microcontroller we have
 # -Os for optimisation
@@ -23,7 +24,7 @@ hex:
 # -O to give a target
 
 flash:
-	$(DUDE) -p $(MICROCONTROLLER) -c $(PROG) -b $(BAUD_RATE) -P $(PORT) -U flash:w:$(NAME).hex:i
+	$(DUDE) -p $(MICROCONTROLLER) -c $(PROG) -b $(BAUD_RATE) -P $(PORT) -D -U flash:w:$(NAME).hex:i
 # -p to specify which microcontroller we use
 # -c to specify a programmer (how to talk with the board)
 # -b to specify the baud rate
@@ -34,3 +35,4 @@ clean:
 	rm -f $(NAME).hex $(NAME).bin
 
 .PHONY: all hex flash clean
+

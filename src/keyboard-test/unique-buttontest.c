@@ -1,4 +1,4 @@
-#include "../headers/uart.h"
+#include "uart.h"
 
 #define INPUT 3
 #define OUTPUT 4
@@ -62,7 +62,7 @@ int main(void)
 {
     uart_init();
 
-    uart_printstr("Test bouton AVR\r\n");
+    uart_printstr("Test bouton unique\r\n");
 
     // bouton en pull-up
     ft_pinMode(BUTTON_PIN, INPUT_PULLUP);

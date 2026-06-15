@@ -1,0 +1,203 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include "uart.h"
+
+// sur la arduino du lab les pins
+// sont orga un peu diff
+// et certains de nos pins sont innaccessibles
+// donc j'utilise d'autres pin pour la version proto
+// Colonnes
+//
+// C1  -> PF4
+// C2  -> PF5
+// C3  -> PF6
+// C4  -> PF7
+// C5  -> PK0
+// C6  -> PK1
+// C7  -> PK2
+// C8  -> PK3
+// C9  -> PK4
+// C10 -> PK5
+//
+// Lignes
+//
+// R1 -> PF0
+// R2 -> PF1
+// R3 -> PF2
+// R4 -> PF3
+//
+
+#define ROWS_NB 4
+#define COLS_NB 10
+
+// comme ca juste a donner la position et renvois
+// la lettre qui va avec
+static const char keymap[ROWS_NB][COLS_NB] =
+    {
+        {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
+        {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
+        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '\n'},
+        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', ' ', '\0', '\0'}};
+
+static void keypad_init(void)
+{
+    // les 4 lignes, elles deviennent des sorties
+    // 1 sortie 0 entree
+    DDRF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+
+    PORTF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+
+    // les colonnes, on les met a 0
+    // car on veut els lire
+    DDRF &= ~(
+        (1 << PF4) |
+        (1 << PF5) |
+        (1 << PF6) |
+        (1 << PF7));
+
+    // pour les pull up
+    PORTF |= (
+        (1 << PF4) |
+        (1 << PF5) |
+        (1 << PF6) |
+        (1 << PF7));
+
+    DDRK &= ~(
+        (1 << PK0) |
+        (1 << PK1) |
+        (1 << PK2) |
+        (1 << PK3) |
+        (1 << PK4) |
+        (1 << PK5) );
+
+
+    PORTK |= (
+        (1 << PK0) |
+        (1 << PK1) |
+        (1 << PK2) |
+        (1 << PK3) |
+        (1 << PK4) |
+        (1 << PK5) );
+}
+
+// je veux selectionner qu'une seule ligne a la fois
+static void select_row(uint8_t row)
+{
+    // je desactive toutes les lignes
+    PORTF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+
+    // j'active une seule lgine poru "monitorer"
+    // j;active celle envoye en parametre
+    switch (row)
+    {
+    case 0:
+        PORTF &= ~(1 << PF0);
+        break;
+
+    case 1:
+        PORTF &= ~(1 << PF1);
+        break;
+
+    case 2:
+        PORTF &= ~(1 << PF2);
+        break;
+
+    case 3:
+        PORTF &= ~(1 << PF3);
+        break;
+    }
+}
+
+static int read_column(void)
+{
+    // si PINF = 0 alors c'est que c'est presse
+    if (!(PINF & (1 << PF4)))
+        return 0;
+    if (!(PINF & (1 << PF5)))
+        return 1;
+    if (!(PINF & (1 << PF6)))
+        return 2;
+    if (!(PINF & (1 << PF7)))
+        return 3;
+    if (!(PINK & (1 << PK0)))
+        return 4;
+    if (!(PINK & (1 << PK1)))
+        return 5;
+    if (!(PINK & (1 << PK2)))
+        return 6;
+    if (!(PINK & (1 << PK3)))
+        return 7;
+    if (!(PINK & (1 << PK4)))
+        return 8;
+    if (!(PINK & (1 << PK5)))
+        return 9;
+
+    return -1;
+}
+
+static int keypad_read(void)
+{
+    int row;
+    int col;
+
+    for (row = 0; row < ROWS_NB; row++)
+    {
+        select_row(row);
+
+        _delay_us(5);
+
+        col = read_column();
+
+        if (col >= 0)
+            return (row * COLS_NB + col);
+        // en gros par exemple si c'est r2 c3
+        // bah ca return 23, ca m'evite de reeefaire un tableau
+        // a return etc
+    }
+
+    return -1;
+}
+
+int main(void)
+{
+    int key;
+    uint8_t row;
+    uint8_t col;
+
+    uart_init();
+
+    uart_printstr("Keyboard 4x10 ready\r\n");
+
+    keypad_init();
+
+    while (1)
+    {
+        key = keypad_read();
+
+        if (key >= 0)
+        {
+            // ici je recuper la dizaine et l'unite
+            // comme je renvois en version aditione dans keypad read
+            // donc si on reprend l'exemple de 23 comme a la ligne 151
+            // on recupere bien row = 2 et col = 3
+            row = key / COLS_NB;
+            col = key % COLS_NB;
+
+            if (keymap[row][col] == '\n')
+                uart_printstr("\n\r");
+            else
+                uart_tx(keymap[row][col]);
+
+            // debounce
+            _delay_ms(20);
+
+            // le temps que ca relache le bouton
+            // mais a voir si on autorise ou pas le fait
+            // de pouvoir rester appuyer pour que ca fasse AAAAAA
+            while (keypad_read() >= 0)
+                ;
+        }
+    }
+
+    return (0);
+}
