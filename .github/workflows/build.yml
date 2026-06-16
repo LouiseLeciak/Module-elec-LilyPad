@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
 
       - name: Install toolchain
         run: |
@@ -21,7 +21,7 @@ jobs:
         run: make all
 
       - name: Upload artifacts
-        run: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4
         with:
           name: avr-firmware
           path: |
