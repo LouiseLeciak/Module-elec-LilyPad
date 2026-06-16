@@ -19,7 +19,7 @@ int main(void) {
   setup();
 
   window tmp = {{0, 0}, {MAIN_SCREEN_HEIGHT - 1, MAIN_SCREEN_WIDTH - 1}};
-  rgb colour = {0, 0, 255};
+  rgb colour = {0, 0, 0};
   spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
   main_screen_draw_rectangle(tmp, colour);
   spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
@@ -28,7 +28,8 @@ int main(void) {
   rgb bg = {0, 0, 0};
   position str_pos = {0, 0};
   spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
-  main_screen_draw_string(str_pos, "ABCDEFGHIKLMNOPQRSTUWXYZ", fg, bg, 1);
+  main_screen_draw_string(str_pos, "ABCDEFGHIKLMNOPQRSTUVWXYZYXWVUTSRQPO", fg,
+                          bg, 1);
   spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
 
   while (1) {
