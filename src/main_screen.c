@@ -31,7 +31,7 @@ void main_screen_init(void) {
   _delay_ms(5);
   main_screen_slpout();
   _delay_ms(5);
-  main_screen_madctl(0x48);  // Not really elegant for now*.
+  main_screen_madctl(0x48); // Not really elegant for now*.
   main_screen_colmod(BIT_16);
   main_screen_dispon();
 
@@ -67,17 +67,36 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
   }
 }
 
-void main_screen_draw_string(position pos,
-                             const char* str,
-                             const rgb fg,
-                             const rgb bg,
-                             const uint8_t scale) {
-  uint16_t len = strlen(str);  // WARNING: Must make a homemade version.
+static void draw_char(char c, const uint8_t row, uint16_t packed_fg,
+                      uint16_t packed_bg, const uint8_t scale) {
+
+  if (c < ' ' || c > 'Z')
+    c = ' ';
+
+  uint16_t font_index = c - ' ';
+  uint8_t row_data = mads8x8[font_index][row];
+  for (uint8_t col = 0; col < 8; col++) {
+    uint16_t color = ((~row_data) & (0x01 << col)) ? packed_fg : packed_bg;
+    for (uint8_t scale_x = 0; scale_x < scale; scale_x++) {
+      spi_master_transmit(color >> 8);
+      spi_master_transmit(color & 0xFF);
+    } // End of scale_x loop
+  } // End of col loop
+}
+
+void main_screen_draw_string(position pos, const char *str, const rgb fg,
+                             const rgb bg, const uint8_t scale) {
+  uint16_t len = strlen(str); // WARNING: Must make a homemade version.
   uint8_t kerning = 1 * scale;
   uint16_t total_width = len * ((8 * scale) + kerning);
+  uint8_t lines = 1;
 
-  window win = {pos,
-                {pos._pos_x + (8 * scale) - 1, pos._pos_y + total_width - 1}};
+  if (total_width >= MAIN_SCREEN_WIDTH)
+    lines = total_width / MAIN_SCREEN_WIDTH;
+
+  window win = {
+      pos,
+      {pos._pos_x + (8 * lines * scale) - 1, pos._pos_y + total_width - 1}};
 
   main_screen_set_window(win);
 
@@ -87,31 +106,26 @@ void main_screen_draw_string(position pos,
   main_screen_ramwr();
   MAIN_SCREEN_DC_DATA();
 
-  for (uint8_t row = 0; row < 8; row++) {
-    for (uint8_t scale_y = 0; scale_y < scale; scale_y++) {
-      for (uint16_t i = 0; i < len; i++) {
-        char c = str[i];
+  uint16_t i = 0;
 
-        if (c < ' ' || c > 'Z')
-          c = ' ';
-
-        uint16_t font_index = c - ' ';
-        uint8_t row_data = mads8x8[font_index][row];
-        for (uint8_t col = 0; col < 8; col++) {
-          uint16_t color =
-              ((~row_data) & (0x01 << col)) ? packed_fg : packed_bg;
-          for (uint8_t scale_x = 0; scale_x < scale; scale_x++) {
-            spi_master_transmit(color >> 8);
-            spi_master_transmit(color & 0xFF);
-          }  // End of scale_x loop
-        }  // End of col loop
-        for (uint8_t k = 0; k < kerning; k++) {
-          spi_master_transmit(packed_bg >> 8);
-          spi_master_transmit(packed_bg & 0xFF);
-        }  // End of kerning loop
-      }  // End of srt[i] loop
-    }  // End of scale_y loop
-  }  // End of row loop
+  // TODO: There's plenty of encapsulation to do here.
+  for (uint8_t i_line = 0; i_line < lines; i_line++) {
+    for (uint8_t row = 0; row < 8; row++) {
+      if (i * 8 >= ((MAIN_SCREEN_WIDTH * lines -
+                     pos._pos_y))) // We use 8 as our fonts are 8px wide
+        break;
+      for (uint8_t scale_y = 0; scale_y < scale; scale_y++) {
+        for (i = 0; i < len; i++) {
+          char c = str[i];
+          draw_char(c, row, packed_fg, packed_bg, scale);
+          for (uint8_t k = 0; k < kerning; k++) {
+            spi_master_transmit(packed_bg >> 8);
+            spi_master_transmit(packed_bg & 0xFF);
+          } // End of kerning loop
+        } // End of str[i] loop
+      } // End of scale_y loop
+    } // End of row loop
+  } // End of i_line loop
 }
 
 // ------ Utilitaries commands --------------------------------------------
@@ -154,13 +168,13 @@ void main_screen_swreset(void) {
 void main_screen_slpin(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SLPIN);
-  _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
+  _delay_ms(5); // See 9.2.12 (p.159), Restrictions, paragraph 2
 }
 
 void main_screen_slpout(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SLPOUT);
-  _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
+  _delay_ms(120); // See 9.2.13 (p.161), Restrictions, paragraph 3
 }
 
 void main_screen_dispon(void) {
