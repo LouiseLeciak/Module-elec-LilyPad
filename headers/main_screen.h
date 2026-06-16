@@ -5,9 +5,14 @@
 
 #include "structs.h"
 
+// NOTE: It is assumed the screen is using a ST7796 as driver.
+
+#define MAIN_SCREEN_WIDTH 320
+#define MAIN_SCREEN_HEIGHT 480
+
 // --- High-level commands ---------------------------------------------------
 // --- Setup commands --------------------------------------------------------
-void st7796_init(void);
+void main_screen_init(void);
 // --------- Drawing commands ------------------------------------------------
 /**
  * @brief Draws the provided string inside the driver's RAM.
@@ -18,19 +23,19 @@ void st7796_init(void);
  * @param bg Background's colour.
  * @param scale Text scaling (default 1).
  */
-void draw_string(position pos,
-                 const char* str,
-                 const rgb fg,
-                 const rgb bg,
-                 const uint8_t scale);
+void main_screen_draw_string(position pos,
+                             const char* str,
+                             const rgb fg,
+                             const rgb bg,
+                             const uint8_t scale);
 
-void draw_pixel(const position pos, const rgb rgb);
+void main_screen_draw_pixel(const position pos, const rgb rgb);
 
-void draw_rectangle(const window win, const rgb rgb);
+void main_screen_draw_rectangle(const window win, const rgb rgb);
 // --------- Utilitaries commands --------------------------------------------
 uint16_t pack_rgb565(const rgb colour);
 
-void set_window(const window win);
+void main_screen_set_window(const window win);
 
 // --- Low-level commands ----------------------------------------------------
 
@@ -126,7 +131,7 @@ typedef enum e_st7796_cmd {
  *
  * SWRESET (0x01) p.141
  */
-void st7796_swreset(void);
+void main_screen_swreset(void);
 
 /**
  * @brief This command causes the LCD module to enter the minimum power
@@ -134,14 +139,14 @@ void st7796_swreset(void);
  *
  * SLPIN (0x10) p.159
  */
-void st7796_slpin(void);
+void main_screen_slpin(void);
 
 /**
  * @brief This command turns off sleep mode.
  *
  * SLPOUT (0x11) p.160
  */
-void st7796_slpout(void);
+void main_screen_slpout(void);
 
 /**
  * @brief This command turns off sleep mode. It will be necessary to wait 5ms
@@ -151,14 +156,14 @@ void st7796_slpout(void);
  *
  * SLPOUT (0x11) p.160
  */
-void st7796_slpout(void);
+void main_screen_slpout(void);
 
 /**
  * @brief Enables the display
  *
  * DISPON (0X29) p.169
  */
-void st7796_dispon(void);
+void main_screen_dispon(void);
 
 /**
  * @brief Sets the column address.
@@ -170,7 +175,7 @@ void st7796_dispon(void);
  *
  * CASET (0x2A) p.170
  */
-void st7796_caset(const uint16_t col_start, const uint16_t col_end);
+void main_screen_caset(const uint16_t col_start, const uint16_t col_end);
 
 /**
  * @brief Sets the row address.
@@ -182,7 +187,7 @@ void st7796_caset(const uint16_t col_start, const uint16_t col_end);
  *
  * RASET (0x2B) p.172
  */
-void st7796_raset(const uint16_t row_start, const uint16_t row_end);
+void main_screen_raset(const uint16_t row_start, const uint16_t row_end);
 
 /**
  * @brief This command is used to transfer data from the MCU to frame memory.
@@ -192,9 +197,9 @@ void st7796_raset(const uint16_t row_start, const uint16_t row_end);
  *
  * RAMWR (0x2C) p.173
  */
-void st7796_ramwr(void);
+void main_screen_ramwr(void);
 
-void st7796_madctl(const uint8_t arg);
+void main_screen_madctl(const uint8_t arg);
 
 typedef enum e_colmod_arg {
   BIT_16 = 0x05,
@@ -208,6 +213,6 @@ typedef enum e_colmod_arg {
  *
  * COLMOD (0x3A) p.190
  */
-void st7796_colmod(const colmod_arg);
+void main_screen_colmod(const colmod_arg);
 
 #endif  // !MAIN_SCREEN_H

@@ -19,11 +19,10 @@ DUDE		:=	avrdude
 CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 # --- SOURCE & OBJECT FILES ---
-SRC_FIL	=	main #\
-					# mads \
-					# spi \
-					# st7796 \
-					# st7796_cmds
+SRC_FIL	=	main \
+					main_screen \
+					mads \
+					spi
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
