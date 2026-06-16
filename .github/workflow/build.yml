@@ -1,0 +1,30 @@
+name: Firmware Build
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs_on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v4
+
+      - name: Install toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-avr binutils-avr avr-libc make
+
+      - name: Build project
+        # We infer that there is a Makefile at the root of the project,
+        # if you want to use another Makefile (or just that the Makefile is located elsewhere),
+        # adapt the following command.
+        run: make all
+
+      - name: Upload artifacts
+        run: actions/upload-artifact@v4
+        with:
+          name: avr-firmware
+          path: |
+            *.hex
+            *.elf
+            *.bin
