@@ -7,6 +7,7 @@
 
 #include "fonts/mads.h"
 #include "pins.h"
+#include "structs.h"
 
 // WARNING: Placeholder until we implement SPI.
 void spi_master_transmit(uint8_t data);
@@ -31,7 +32,7 @@ void main_screen_init(void) {
   _delay_ms(5);
   main_screen_slpout();
   _delay_ms(5);
-  main_screen_madctl(0x48);  // Not really elegant for now*.
+  main_screen_madctl(0x48); // Not really elegant for now*.
   main_screen_colmod(BIT_16);
   main_screen_dispon();
 
@@ -67,51 +68,92 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
   }
 }
 
-void main_screen_draw_string(position pos,
-                             const char* str,
-                             const rgb fg,
-                             const rgb bg,
-                             const uint8_t scale) {
-  uint16_t len = strlen(str);  // WARNING: Must make a homemade version.
-  uint8_t kerning = 1 * scale;
-  uint16_t total_width = len * ((8 * scale) + kerning);
+void draw_char(char c, const uint8_t row, uint16_t packed_fg,
+               uint16_t packed_bg, const uint8_t scale) {
 
-  window win = {pos,
-                {pos._pos_x + (8 * scale) - 1, pos._pos_y + total_width - 1}};
+  if (c < ' ' || c > 'Z')
+    c = ' ';
+
+  uint16_t font_index = c - ' ';
+  uint8_t row_data = mads8x8[font_index][row];
+  for (uint8_t col = 0; col < 8; col++) {
+    uint16_t color = ((~row_data) & (0x01 << col)) ? packed_fg : packed_bg;
+    for (uint8_t scale_x = 0; scale_x < scale; scale_x++) {
+      spi_master_transmit(color >> 8);
+      spi_master_transmit(color & 0xFF);
+    } // End of scale_x loop
+  } // End of col loop
+}
+
+#define FONT_RES 8
+
+static uint16_t compute_max_char_per_line(const position pos,
+                                          const uint8_t scale) {
+  return (MAIN_SCREEN_WIDTH - pos._pos_y) / (scale * FONT_RES);
+}
+
+static uint8_t compute_nb_lines(const position pos, const char *str,
+                                const uint8_t scale) {
+  const uint16_t max_char_per_line = compute_max_char_per_line(pos, scale);
+  const uint16_t len = strlen(str);
+  if (max_char_per_line == 0)
+    return (0);
+
+  uint16_t nb_lines = len / max_char_per_line;
+
+  if (len % max_char_per_line != 0) // Catches any "spillover" lines
+    nb_lines += 1;
+
+  return (nb_lines);
+}
+
+static uint16_t draw_n_char(position pos, const char *str,
+                            const uint16_t *packed_colors, const uint8_t scale,
+                            const uint16_t n) {
+  uint16_t ret = strnlen(str, n);
+
+  const window win = {pos,
+                      {pos._pos_x + (FONT_RES * scale) - 1,
+                       pos._pos_y + (ret * FONT_RES * scale) - 1}};
 
   main_screen_set_window(win);
-
-  uint16_t packed_fg = pack_rgb565(fg);
-  uint16_t packed_bg = pack_rgb565(bg);
-
   main_screen_ramwr();
   MAIN_SCREEN_DC_DATA();
-
-  for (uint8_t row = 0; row < 8; row++) {
-    for (uint8_t scale_y = 0; scale_y < scale; scale_y++) {
-      for (uint16_t i = 0; i < len; i++) {
+  for (uint16_t row = 0; row < FONT_RES; row++) {
+    for (uint8_t scale_row = 0; scale_row < scale; scale_row++) {
+      for (uint16_t i = 0; i < ret; i++) {
         char c = str[i];
-
         if (c < ' ' || c > 'Z')
           c = ' ';
-
-        uint16_t font_index = c - ' ';
-        uint8_t row_data = mads8x8[font_index][row];
-        for (uint8_t col = 0; col < 8; col++) {
+        uint8_t font_index = c - ' ';
+        uint8_t data = mads8x8[font_index][row];
+        for (uint8_t col = 0; col < FONT_RES; col++) {
           uint16_t color =
-              ((~row_data) & (0x01 << col)) ? packed_fg : packed_bg;
-          for (uint8_t scale_x = 0; scale_x < scale; scale_x++) {
+              ((~data) & (0x01 << col)) ? packed_colors[0] : packed_colors[1];
+          for (uint8_t scale_col = 0; scale_col < scale; scale_col++) {
             spi_master_transmit(color >> 8);
             spi_master_transmit(color & 0xFF);
-          }  // End of scale_x loop
-        }  // End of col loop
-        for (uint8_t k = 0; k < kerning; k++) {
-          spi_master_transmit(packed_bg >> 8);
-          spi_master_transmit(packed_bg & 0xFF);
-        }  // End of kerning loop
-      }  // End of srt[i] loop
-    }  // End of scale_y loop
-  }  // End of row loop
+          }
+        }
+      }
+    }
+  }
+  return (ret);
+}
+
+void main_screen_draw_string(position pos, const char *str, const rgb fg,
+                             const rgb bg, const uint8_t scale) {
+
+  uint16_t packed_colors[2] = {pack_rgb565(fg), pack_rgb565(bg)};
+  uint8_t lines = compute_nb_lines(pos, str, scale);
+  uint16_t n = compute_max_char_per_line(pos, scale);
+  const char *runner = str;
+
+  for (uint8_t current_line = 0; current_line < lines; current_line++) {
+    uint16_t printed = draw_n_char(pos, runner, packed_colors, scale, n);
+    pos._pos_x += FONT_RES * scale;
+    runner += printed;
+  }
 }
 
 // ------ Utilitaries commands --------------------------------------------
@@ -145,7 +187,8 @@ void main_screen_set_window(const window win) {
   main_screen_raset(win._start._pos_x, win._end._pos_x);
 }
 
-// --- LOW LEVEL COMMANDS ------------------------------------------------------
+// --- LOW LEVEL COMMANDS
+// ------------------------------------------------------
 void main_screen_swreset(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SWRESET);
@@ -154,13 +197,13 @@ void main_screen_swreset(void) {
 void main_screen_slpin(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SLPIN);
-  _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
+  _delay_ms(5); // See 9.2.12 (p.159), Restrictions, paragraph 2
 }
 
 void main_screen_slpout(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SLPOUT);
-  _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
+  _delay_ms(120); // See 9.2.13 (p.161), Restrictions, paragraph 3
 }
 
 void main_screen_dispon(void) {
@@ -168,8 +211,8 @@ void main_screen_dispon(void) {
   spi_master_transmit(DISPON);
 }
 
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height of
-// the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
 void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(CASET);
@@ -181,8 +224,8 @@ void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
   spi_master_transmit(col_end & 0xFF);
 }
 
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height of
-// the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
 void main_screen_raset(const uint16_t row_start, const uint16_t row_end) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(RASET);
