@@ -251,11 +251,9 @@ void rotary_button_update(void)
         {
             if (sw == 0)
                 uart_printstr("Rotary button pressed\r\n");
-            else
-                uart_printstr("Rotary button released\r\n");
-
             // et on met a jout le prev ducoup
             prev_sw = sw;
+            _delay_ms(20);
         }
     }
 }
