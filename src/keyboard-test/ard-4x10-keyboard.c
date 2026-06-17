@@ -1,6 +1,6 @@
 #include <avr/io.h>
 #include <util/delay.h>
-#include "uart.h"
+#include "utils.h"
 
 // sur la arduino du lab les pins
 // sont orga un peu diff
@@ -26,9 +26,19 @@
 // R3 -> PF2
 // R4 -> PF3
 //
+// pour le rotary
+// CLK -> PC6
+// DT -> PC5
+// SW -> PC4
 
 #define ROWS_NB 4
 #define COLS_NB 10
+#define ROTARY_CLK PC6
+#define ROTARY_DT PC5
+#define ROTARY_SW PC4
+
+static uint8_t rotaryclk_prev;
+static int counter = 0;
 
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
@@ -56,11 +66,10 @@ static void keypad_init(void)
         (1 << PF7));
 
     // pour les pull up
-    PORTF |= (
-        (1 << PF4) |
-        (1 << PF5) |
-        (1 << PF6) |
-        (1 << PF7));
+    PORTF |= ((1 << PF4) |
+              (1 << PF5) |
+              (1 << PF6) |
+              (1 << PF7));
 
     DDRK &= ~(
         (1 << PK0) |
@@ -68,16 +77,30 @@ static void keypad_init(void)
         (1 << PK2) |
         (1 << PK3) |
         (1 << PK4) |
-        (1 << PK5) );
+        (1 << PK5));
 
+    PORTK |= ((1 << PK0) |
+              (1 << PK1) |
+              (1 << PK2) |
+              (1 << PK3) |
+              (1 << PK4) |
+              (1 << PK5));
 
-    PORTK |= (
-        (1 << PK0) |
-        (1 << PK1) |
-        (1 << PK2) |
-        (1 << PK3) |
-        (1 << PK4) |
-        (1 << PK5) );
+    // pour le rotary encoder
+    DDRC &= ~(
+        (1 << ROTARY_CLK) |
+        (1 << ROTARY_DT) |
+        (1 << ROTARY_SW));
+
+    PORTC |= ((1 << ROTARY_CLK) |
+              (1 << ROTARY_DT) |
+              (1 << ROTARY_SW));
+
+    // on check comment on est pour savoir comment changer
+    if (PINC & (1 << ROTARY_CLK))
+        rotaryclk_prev = 1;
+    else
+        rotaryclk_prev = 0;
 }
 
 // je veux selectionner qu'une seule ligne a la fois
@@ -158,6 +181,85 @@ static int keypad_read(void)
     return -1;
 }
 
+// FONCTION POUR LE ROTARY
+void rotary_update(void)
+{
+    uint8_t clk;// etat actuel de la clock
+    uint8_t dt;// etat actuel de la pin data
+
+    // on recupere l'etat actuel de la clock
+    if (PINC & (1 << ROTARY_CLK))
+        clk = 1;
+    else
+        clk = 0;
+
+    // si la clk a change
+    if (rotaryclk_prev == 1 && clk == 0)
+    {
+        if (PINC & (1 << ROTARY_DT))
+            dt = 1;
+        else
+            dt = 0;
+
+        // si dt est diff de clk alors on tourne dans un sens
+        if (dt != clk)
+        {
+            counter++;
+
+            uart_printstr("Rotary: ");
+            uart_printint(counter);
+            uart_printstr("\r\n");
+        }
+        // sinon c'est qu'on tourne dans l'autre
+        else
+        {
+            counter--;
+
+            uart_printstr("Rotary: ");
+            uart_printint(counter);
+            uart_printstr("\r\n");
+        }
+    }
+
+    rotaryclk_prev = clk;
+}
+
+//? Probablement pas opti comme verification, probablement a retaper
+void rotary_button_update(void)
+{
+    uint8_t prev_sw = 1;// etat precedent du bouton
+    uint8_t sw;// etat actuel
+
+    //pour checker juste le bit pc4 pour le bouton
+    if (PINC & (1 << ROTARY_SW))
+        sw = 1;
+    else
+        sw = 0;
+
+    // si l'etat du bouton a change
+    if (sw != prev_sw)
+    {
+        _delay_ms(5);// on attend un peu a cause des fluctuations electriques
+
+        // puis on recheck et on met a jour sw
+        if (PINC & (1 << ROTARY_SW))
+            sw = 1;
+        else
+            sw = 0;
+        // si sw a bien change alors on print des trucs pour le moment en uart
+        if (sw != prev_sw)
+        {
+            if (sw == 0)
+                uart_printstr("Rotary button pressed\r\n");
+            else
+                uart_printstr("Rotary button released\r\n");
+
+            // et on met a jout le prev ducoup
+            prev_sw = sw;
+        }
+    }
+}
+
 int main(void)
 {
     int key;
@@ -172,6 +274,8 @@ int main(void)
 
     while (1)
     {
+        rotary_update();
+        rotary_button_update();
         key = keypad_read();
 
         if (key >= 0)
@@ -183,6 +287,8 @@ int main(void)
             row = key / COLS_NB;
             col = key % COLS_NB;
 
+            //! TO ADD comportement dans le cas ou on appuie sur plusieurs touches
+            //! en meme temps
             if (keymap[row][col] == '\n')
                 uart_printstr("\n\r");
             else
