@@ -7,6 +7,7 @@
 
 #include "fonts/mads.h"
 #include "pins.h"
+#include "structs.h"
 
 // WARNING: Placeholder until we implement SPI.
 void spi_master_transmit(uint8_t data);
@@ -67,8 +68,8 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
   }
 }
 
-static void draw_char(char c, const uint8_t row, uint16_t packed_fg,
-                      uint16_t packed_bg, const uint8_t scale) {
+void draw_char(char c, const uint8_t row, uint16_t packed_fg,
+               uint16_t packed_bg, const uint8_t scale) {
 
   if (c < ' ' || c > 'Z')
     c = ' ';
@@ -84,48 +85,75 @@ static void draw_char(char c, const uint8_t row, uint16_t packed_fg,
   } // End of col loop
 }
 
-void main_screen_draw_string(position pos, const char *str, const rgb fg,
-                             const rgb bg, const uint8_t scale) {
-  uint16_t len = strlen(str); // WARNING: Must make a homemade version.
-  uint8_t kerning = 1 * scale;
-  uint16_t total_width = len * ((8 * scale) + kerning);
-  uint8_t lines = 1;
+#define FONT_RES 8
 
-  if (total_width >= MAIN_SCREEN_WIDTH)
-    lines = total_width / MAIN_SCREEN_WIDTH;
+static uint16_t compute_max_char_per_line(const position pos,
+                                          const uint8_t scale) {
+  return (MAIN_SCREEN_WIDTH - pos._pos_y) / (scale * FONT_RES);
+}
 
-  window win = {
-      pos,
-      {pos._pos_x + (8 * lines * scale) - 1, pos._pos_y + total_width - 1}};
+static uint8_t compute_nb_lines(const position pos, const char *str,
+                                const uint8_t scale) {
+  const uint16_t max_char_per_line = compute_max_char_per_line(pos, scale);
+  const uint16_t len = strlen(str);
+  if (max_char_per_line == 0)
+    return (0);
+
+  uint16_t nb_lines = len / max_char_per_line;
+
+  if (len % max_char_per_line != 0) // Catches any "spillover" lines
+    nb_lines += 1;
+
+  return (nb_lines);
+}
+
+static uint16_t draw_n_char(position pos, const char *str,
+                            const uint16_t *packed_colors, const uint8_t scale,
+                            const uint16_t n) {
+  uint16_t ret = strnlen(str, n);
+
+  const window win = {pos,
+                      {pos._pos_x + (FONT_RES * scale) - 1,
+                       pos._pos_y + (ret * FONT_RES * scale) - 1}};
 
   main_screen_set_window(win);
-
-  uint16_t packed_fg = pack_rgb565(fg);
-  uint16_t packed_bg = pack_rgb565(bg);
-
   main_screen_ramwr();
   MAIN_SCREEN_DC_DATA();
+  for (uint16_t row = 0; row < FONT_RES; row++) {
+    for (uint8_t scale_row = 0; scale_row < scale; scale_row++) {
+      for (uint16_t i = 0; i < ret; i++) {
+        char c = str[i];
+        if (c < ' ' || c > 'Z')
+          c = ' ';
+        uint8_t font_index = c - ' ';
+        uint8_t data = mads8x8[font_index][row];
+        for (uint8_t col = 0; col < FONT_RES; col++) {
+          uint16_t color =
+              ((~data) & (0x01 << col)) ? packed_colors[0] : packed_colors[1];
+          for (uint8_t scale_col = 0; scale_col < scale; scale_col++) {
+            spi_master_transmit(color >> 8);
+            spi_master_transmit(color & 0xFF);
+          }
+        }
+      }
+    }
+  }
+  return (ret);
+}
 
-  uint16_t i = 0;
+void main_screen_draw_string(position pos, const char *str, const rgb fg,
+                             const rgb bg, const uint8_t scale) {
 
-  // TODO: There's plenty of encapsulation to do here.
-  for (uint8_t i_line = 0; i_line < lines; i_line++) {
-    for (uint8_t row = 0; row < 8; row++) {
-      if (i * 8 >= ((MAIN_SCREEN_WIDTH * lines -
-                     pos._pos_y))) // We use 8 as our fonts are 8px wide
-        break;
-      for (uint8_t scale_y = 0; scale_y < scale; scale_y++) {
-        for (i = 0; i < len; i++) {
-          char c = str[i];
-          draw_char(c, row, packed_fg, packed_bg, scale);
-          for (uint8_t k = 0; k < kerning; k++) {
-            spi_master_transmit(packed_bg >> 8);
-            spi_master_transmit(packed_bg & 0xFF);
-          } // End of kerning loop
-        } // End of str[i] loop
-      } // End of scale_y loop
-    } // End of row loop
-  } // End of i_line loop
+  uint16_t packed_colors[2] = {pack_rgb565(fg), pack_rgb565(bg)};
+  uint8_t lines = compute_nb_lines(pos, str, scale);
+  uint16_t n = compute_max_char_per_line(pos, scale);
+  const char *runner = str;
+
+  for (uint8_t current_line = 0; current_line < lines; current_line++) {
+    uint16_t printed = draw_n_char(pos, runner, packed_colors, scale, n);
+    pos._pos_x += FONT_RES * scale;
+    runner += printed;
+  }
 }
 
 // ------ Utilitaries commands --------------------------------------------
@@ -159,7 +187,8 @@ void main_screen_set_window(const window win) {
   main_screen_raset(win._start._pos_x, win._end._pos_x);
 }
 
-// --- LOW LEVEL COMMANDS ------------------------------------------------------
+// --- LOW LEVEL COMMANDS
+// ------------------------------------------------------
 void main_screen_swreset(void) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(SWRESET);
@@ -182,8 +211,8 @@ void main_screen_dispon(void) {
   spi_master_transmit(DISPON);
 }
 
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height of
-// the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
 void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(CASET);
@@ -195,8 +224,8 @@ void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
   spi_master_transmit(col_end & 0xFF);
 }
 
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height of
-// the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
 void main_screen_raset(const uint16_t row_start, const uint16_t row_end) {
   MAIN_SCREEN_DC_COMMAND();
   spi_master_transmit(RASET);
