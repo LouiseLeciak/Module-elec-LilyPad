@@ -18,7 +18,15 @@ OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
 # --- COMPILER FLAGS ---
-CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+
+# --- OS DEPENDENT SIMAVR INCLUDES ---
+UNAME_S	:=	4(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	SIMAVR_INC := -I/opt/homebrew/opt/simavr/include
+else
+	SIMAVR_INC := -I/usr/include/simavr
+endif
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
@@ -62,7 +70,7 @@ clean:
 
 TST_FIL	= $(TST_DIR)test_add.c
 TST_EXE = test_runner
-TST_CFLAGS	=	-I$(INC_DIR) -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I/opt/homebrew/opt/avr-gcc/avr/include -I/opt/homebrew/opt/simavr/include -I/usr/include -I$(UNI_DIR)src -L. -lunity -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP -Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000
+TST_CFLAGS	=	-I$(INC_DIR) $(SIMAVR_INC) -I$(UNI_DIR)src -L. -lunity -mmcu=$(MCU) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP -Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000
 
 
 test:
