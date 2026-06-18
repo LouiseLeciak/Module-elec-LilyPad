@@ -68,7 +68,7 @@ $(BUI_DIR):
 	mkdir -p $@
 
 clean:
-	rm -rf $(BUI_DIR)
+	rm -rf $(BUI_DIR) $(TARGET).hex
 
 fclean:
 	rm -rf $(TARGET) $(LIBUNITY) $(UNI_DIR)build
