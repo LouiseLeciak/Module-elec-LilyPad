@@ -26,3 +26,4 @@ jobs:
       - name: Compile and run tests
         run: |
           make test
+          ./test_runner
