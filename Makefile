@@ -70,5 +70,6 @@ test:
 	cd unity/build && cmake .. && make
 	mv unity/build/libunity.a .
 	avr-gcc $(TST_CFLAGS) $(SRC_DIR)blabla.c $(TST_FIL) $(UNI_DIR)/src/unity.c -o $(TST_EXE)
+	simavr -m $(MCU) -f $(F_CPU) ./$(TST_EXE)
 
 -include $(DEP)
