@@ -62,9 +62,13 @@ clean:
 
 TST_FIL	= $(TST_DIR)test_add.c
 TST_EXE = test_runner
+TST_CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I/opt/homebrew/opt/avr-gcc/avr/include  -I$(UNI_DIR)src -L. -lunity -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+
 
 test:
-	$(cd unity ; mkdir build ; cd build ; cmake .. ; make ; mv libunity.a ..)
-	avr-gcc -I$(INC_DIR) -L$(UNI_DIR) -I$(UNI_DIR)/src -lunity $(SRC) $(TST_FIL) -o $(TST_EXE)
+	mkdir -p unity/build
+	cd unity/build && cmake .. && make
+	mv unity/build/libunity.a .
+	avr-gcc $(TST_CFLAGS) $(SRC) $(TST_FIL) -o $(TST_EXE)
 
 -include $(DEP)
