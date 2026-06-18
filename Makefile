@@ -44,7 +44,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean test
+.PHONY: all hex flash clean test test-re
 
 all: hex
 
@@ -68,16 +68,10 @@ flash: $(HEX)
 clean:
 	rm -rf $(BUI_DIR)
 
-TST_FIL	= $(TST_DIR)test_add.c
-TST_EXE = test_runner
-TST_CFLAGS	=	-I$(INC_DIR) $(SIMAVR_INC) -I$(UNI_DIR)src -L. -lunity -mmcu=$(MCU) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP -Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000
-
-
 test:
-	mkdir -p unity/build
-	cd unity/build && cmake .. && make
-	mv unity/build/libunity.a .
-	avr-gcc $(TST_CFLAGS) $(SRC_DIR)blabla.c $(TST_FIL) $(UNI_DIR)/src/unity.c -o $(TST_EXE)
-	simavr -m $(MCU) -f $(F_CPU) ./$(TST_EXE)
+	$(MAKE) -C test
+
+test-re:
+	$(MAKE) -C test re
 
 -include $(DEP)
