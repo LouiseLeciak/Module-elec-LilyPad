@@ -21,6 +21,7 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
 					main_screen \
+					main_screen_text \
 					mads \
 					spi
 
