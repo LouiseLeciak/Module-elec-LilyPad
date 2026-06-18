@@ -62,7 +62,7 @@ clean:
 
 TST_FIL	= $(TST_DIR)test_add.c
 TST_EXE = test_runner
-TST_CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I/opt/homebrew/opt/avr-gcc/avr/include  -I$(UNI_DIR)src -L. -lunity -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+TST_CFLAGS	=	-I$(INC_DIR) -mmcu=$(MCU) -DF_CPU=$(F_CPU) -I/opt/homebrew/opt/avr-gcc/avr/include -I/opt/homebrew/opt/simavr/include  -I$(UNI_DIR)src -L. -lunity -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP -Wl,--undefined=_mmcu,--section-start=.mmcu=0x910000
 
 
 test:

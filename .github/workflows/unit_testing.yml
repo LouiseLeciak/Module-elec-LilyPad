@@ -25,5 +25,5 @@ jobs:
 
       - name: Compile and run tests
         run: |
-          make test
-          ./test_runner
+          make test | tee test_output.log
+          if grep -q "FAIL" test_output.log; then exit 1; fi
