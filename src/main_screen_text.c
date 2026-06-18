@@ -49,8 +49,8 @@ static uint8_t find_glyph(const char c) {
   return (ret - ' ');
 }
 
-static void draw_char(const char c, const uint8_t row,
-                      const uint16_t *packed_colors, const uint8_t scale) {
+static void draw_char_row(const char c, const uint8_t row,
+                          const uint16_t *packed_colors, const uint8_t scale) {
   uint8_t font_index = find_glyph(c);
   uint8_t data = mads8x8[font_index][row];
 
@@ -79,7 +79,7 @@ static uint16_t draw_n_char(position pos, const char *str,
   for (uint16_t row = 0; row < FONT_RES; row++) {
     for (uint8_t scale_row = 0; scale_row < scale; scale_row++) {
       for (uint16_t i = 0; i < ret; i++) {
-        draw_char(str[i], row, packed_colors, scale);
+        draw_char_row(str[i], row, packed_colors, scale);
       } //! i loop
     } // !scale_row loop
   } // !row loop

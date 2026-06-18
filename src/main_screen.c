@@ -2,10 +2,8 @@
 
 #include <stddef.h>
 #include <stdint.h>
-#include <string.h>
 #include <util/delay.h>
 
-#include "fonts/mads.h"
 #include "pins.h"
 #include "structs.h"
 
