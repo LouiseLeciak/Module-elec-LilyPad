@@ -9,7 +9,7 @@ void tearDown(void) {}
 void test_addition(void) {
   int ret = addit(1, 1);
 
-  TEST_ASSERT_EQUAL(2, ret);
+  TEST_ASSERT_EQUAL_MESSAGE(2, ret, "Invalid value returned for addit(1,1)");
 }
 
 int main(void) {
