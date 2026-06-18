@@ -9,6 +9,8 @@ BD_RATE			:=	115200
 SRC_DIR	:=	src/
 INC_DIR	:=	headers/
 BUI_DIR	:=	build/
+TST_DIR	:=	test/
+UNI_DIR	:=	unity/
 
 # --- TOOLCHAIN ---
 CC			:=	avr-gcc
@@ -34,7 +36,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re
+.PHONY: all hex flash clean test
 
 all: hex
 
@@ -57,5 +59,12 @@ flash: $(HEX)
 
 clean:
 	rm -rf $(BUI_DIR)
+
+TST_FIL	= test_add.c
+TST_EXE = test_runner
+
+test:
+	$(cd unity ; mkdir build ; cd build ; cmake .. ; make ; mv libunity.a ..)
+	avr-gcc -I$(INC_DIR) -L$(UNI_DIR) -I$(UNI_DIR)/src -lunity $(SRC) $(TST_DIR)/*.c -o $(TST_EXE)
 
 -include $(DEP)
