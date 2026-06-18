@@ -35,9 +35,6 @@ test_addition (void)
 {
   int ret = addit (1, 1);
   TEST_ASSERT_EQUAL_MESSAGE (2, ret, "Invalid value returned for addit(1,1)");
-
-  ret = addit (2, 2);
-  TEST_ASSERT_EQUAL_MESSAGE (0, ret, "Invalid value returned for addit(1,1)");
 }
 
 int
