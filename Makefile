@@ -69,6 +69,6 @@ test:
 	mkdir -p unity/build
 	cd unity/build && cmake .. && make
 	mv unity/build/libunity.a .
-	avr-gcc $(TST_CFLAGS) $(SRC) $(TST_FIL) -o $(TST_EXE)
+	avr-gcc $(TST_CFLAGS) $(SRC_DIR)blabla.c $(TST_FIL) $(UNI_DIR)/src/unity.c -o $(TST_EXE)
 
 -include $(DEP)
