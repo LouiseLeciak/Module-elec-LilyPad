@@ -60,7 +60,7 @@ flash: $(HEX)
 clean:
 	rm -rf $(BUI_DIR)
 
-TST_FIL	= $(TST_DIR)/test_add.c
+TST_FIL	= $(TST_DIR)test_add.c
 TST_EXE = test_runner
 
 test:
