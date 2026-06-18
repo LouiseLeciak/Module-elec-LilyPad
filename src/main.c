@@ -29,7 +29,7 @@ int main(void) {
   position str_pos = {0, 0};
   spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
   main_screen_draw_string(str_pos, "ABCDEFGHIKLMNOPQRSTUVWXYZYXWVUTSRQPO", fg,
-                          bg, 1);
+                          bg, 2);
   spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
 
   while (1) {
