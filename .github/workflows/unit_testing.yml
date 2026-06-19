@@ -1,0 +1,30 @@
+name: Unit Testing
+on: [push, pull_request, workflow_dispatch]
+
+jobs:
+  buil-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential gcc-avr binutils-avr avr-libc make simavr libsimavr-dev cmake
+
+      # - name: Compile unity lib
+      #   run: |
+      #     cd unity
+      #     mkdir build
+      #     cd build
+      #     cmake ..
+      #     make
+      #     mv libunity.a ..
+
+      - name: Compile and run tests
+        run: |
+          set -o pipefail
+          make test 2>&1 | tee test_output.log
+          if grep -q "FAIL" test_output.log; then exit 1; fi

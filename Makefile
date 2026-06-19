@@ -9,14 +9,25 @@ BD_RATE			:=	115200
 SRC_DIR	:=	src/
 INC_DIR	:=	headers/
 BUI_DIR	:=	build/
+TST_DIR	:=	test/
+UNI_DIR	:=	unity/
 
 # --- TOOLCHAIN ---
 CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
+
+# --- OS DEPENDENT SIMAVR INCLUDES ---
+UNAME_S	:=	$(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+	AVR_INC				:=	-I/opt/homebrew/opt/avr-gcc/avr/include
+else
+	AVR_INC				:=	-I/usr/include/avr-gcc
+endif
+
 # --- COMPILER FLAGS ---
-CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) $(AVR_INC) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
@@ -34,7 +45,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re
+.PHONY: all hex flash clean test test-re
 
 all: hex
 
@@ -57,5 +68,11 @@ flash: $(HEX)
 
 clean:
 	rm -rf $(BUI_DIR)
+
+test:
+	$(MAKE) -C test
+
+test-re:
+	$(MAKE) -C test re
 
 -include $(DEP)
