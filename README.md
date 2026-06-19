@@ -29,4 +29,7 @@ Translation/game/alphabet modes.
 ### Generate Doxygen static website
 
 Run the following command:
-  make doc
+
+```
+make doc
+```
