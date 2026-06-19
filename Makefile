@@ -17,6 +17,8 @@ CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
+# --- Doxygen ---
+DOX_FIL	:=	Doxyfile
 
 # --- OS DEPENDENT SIMAVR INCLUDES ---
 UNAME_S	:=	$(shell uname -s)
@@ -45,7 +47,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean test test-re
+.PHONY: all hex flash clean test test-re doc
 
 all: hex
 
@@ -74,5 +76,8 @@ test:
 
 test-re:
 	$(MAKE) -C test re
+
+doc:
+	doxygen $(DOX_FIL)
 
 -include $(DEP)
