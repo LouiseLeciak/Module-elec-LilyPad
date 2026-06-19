@@ -15,6 +15,9 @@ CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
+# --- DOXYGEN ---
+DOXYFILE	:=	Doxyfile
+
 # --- COMPILER FLAGS ---
 CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
@@ -34,7 +37,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re
+.PHONY: all hex flash clean re doc
 
 all: hex
 
@@ -57,5 +60,8 @@ flash: $(HEX)
 
 clean:
 	rm -rf $(BUI_DIR)
+
+doc:
+	doxygen $(DOXYFILE)
 
 -include $(DEP)
