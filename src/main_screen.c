@@ -31,7 +31,7 @@ void main_screen_init(void) {
   main_screen_slpout();
   _delay_ms(5);
   main_screen_madctl(0x48); // Not really elegant for now*.
-  main_screen_colmod(BIT_16);
+  main_screen_colmod(CI_16B);
   main_screen_dispon();
 
   // *: The only bits that are different from its standard value are bit 3 and
@@ -88,8 +88,8 @@ uint16_t pack_rgb565(const rgb colour) {
   // In the end, this is the structure of the data to send :
   // R  R  R  R  R  G  G G G G G B B B B B
   // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-  return (((colour.red & 0xF8) << 8) | ((colour.green & 0xFC) << 3) |
-          (colour.blue >> 3));
+  return (((colour._red & 0xF8) << 8) | ((colour._green & 0xFC) << 3) |
+          (colour._blue >> 3));
 }
 
 void main_screen_set_window(const window win) {
