@@ -17,16 +17,17 @@ CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
-# --- COMPILER FLAGS ---
-CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 # --- OS DEPENDENT SIMAVR INCLUDES ---
-UNAME_S	:=	4(shell uname -s)
+UNAME_S	:=	$(shell uname -s)
 ifeq ($(UNAME_S),Darwin)
-	SIMAVR_INC := -I/opt/homebrew/opt/simavr/include
+	AVR_INC				:=	-I/opt/homebrew/opt/avr-gcc/avr/include
 else
-	SIMAVR_INC := -I/usr/include/simavr
+	AVR_INC				:=	-I/usr/include/avr-gcc
 endif
+
+# --- COMPILER FLAGS ---
+CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) $(AVR_INC) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
