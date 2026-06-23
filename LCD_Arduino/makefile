@@ -6,7 +6,7 @@
 #    By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/13 13:45:55 by nrobinso          #+#    #+#              #
-#    Updated: 2026/06/10 18:02:06 by nige42           ###   ########.fr        #
+#    Updated: 2026/06/23 16:47:02 by nige42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ LIB=spi_lib.c small_font.c uart_lib.c tools.c #led_lib.c config.h
 
 # ------------------------- compiler ------------------------------------------
 CC=avr-gcc
-CFLAGS= -mmcu=atmega328p -Wall -Wextra -Werror -Os
+CFLAGS= -mmcu=atmega2560 -Wall -Wextra -Werror -Os
 
 # ------------------------- CPU frequency and baud rate -----------------------
 F_CPU=16000000UL
@@ -39,13 +39,13 @@ FLASH_IN_OUT= -U flash:w:$(NAME).hex:i
 all: hex flash
 
 hex:
-	$(CC) $(CFLAGS) -DF_CPU=$(F_CPU) -Os -o $(NAME).bin $(NAME).c $(TOOLS) $(LIB)
+	$(CC) $(CFLAGS) -DF_CPU=$(F_CPU) -o $(NAME).bin $(NAME).c $(TOOLS) $(LIB)
 	$(HEX) -O $(HEX_OUT) $(NAME).bin $(NAME).hex
 	
 flash:
 	$(FLASH) $(PROGRAMMER) $(CARD) $(PORT) $(BAUD) $(FLASH_IN_OUT)
 
-clean:
+clean: 
 	rm -rf $(NAME).bin
 	rm -rf $(NAME).hex
 

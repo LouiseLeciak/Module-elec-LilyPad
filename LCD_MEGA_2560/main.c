@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/10 17:45:46 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/23 17:40:49 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 // Draws "s" using a 5x7 bitmap font over hardware SPI
 //
 // Pin Map: ON ARDUINO MEGA.        _____________________________________________________
-// 1 - SCK  -> D50 (PB3).         |. BREADBOARD. |   Position of Wires to MCU  2560      |
+// 1 - SCK  -> D52 (PB3).         |. BREADBOARD. |   Position of Wires to MCU  2560      |
 // 2 - MOSI -> D51 (PB2)          |              |    1    2    3    4     5             |
-// 3 - DC   ->  D12 (PB6)         |     LCD      |  -[R1]-[R1]-[R1]-[R1]-[R1]-- center   |
-// 4 - RST  ->  D13 (PB7)         |              |  -[R2]-[R2]-[R2]-[R2]-[R2]--          |
-// 5 - CS   -> D11 (PB5)          |              |            GND                        |
+// 3 - DC   ->  D11 (PB6)         |     LCD      |  -[R1]-[R1]-[R1]-[R1]-[R1]-- center   |
+// 4 - RST  ->  D12 (PB7)         |              |  -[R2]-[R2]-[R2]-[R2]-[R2]--          |
+// 5 - CS   -> D10 (PB5)          |              |            GND                        |
 //                                 ------------------------------------------------------
 // Power pins:
 //   VCC  -> 3.3V -> TOP LINE + BREAD BOARD
@@ -63,7 +63,7 @@
 #define MAX_PIXEL_WIDTH 240
 #define MAX_PIXEL_HIGH 320
 
-volatile uint8_t SCALE = 1;
+volatile uint8_t scale;
 volatile char hex[4];               // global for function toHex()
 volatile char nbr_in_a_string[33];  // global variable for function nbr_to_str()
 
@@ -193,15 +193,15 @@ void draw_char(uint16_t x, uint16_t y, char c, uint16_t fg, uint16_t bg) {
             // continue;
         }
         if (ch == 1) {
-            x += (5 * SCALE), y = yTemp;
+            x += (5 * scale), y = yTemp;
             // continue;
         }
         if (ch == 2) {
-            x = xTemp, y = yTemp + (7 * SCALE);
+            x = xTemp, y = yTemp + (7 * scale);
             // continue;
         }
         if (ch == 3) {
-            x += (5 * SCALE), y = yTemp + (7 * SCALE);
+            x += (5 * scale), y = yTemp + (7 * scale);
             // continue;
         }
         for (int8_t col = 0; col < 5; col++) {
@@ -213,9 +213,9 @@ void draw_char(uint16_t x, uint16_t y, char c, uint16_t fg, uint16_t bg) {
                     color = bg;
                     continue;
                 }
-                for (uint8_t i = 0; i < SCALE; i++) {
-                    for (uint8_t z = 0; z < SCALE; z++) {
-                        draw_pixel((x + (col * SCALE) + z), (y + (row * SCALE)) + i, color);
+                for (uint8_t i = 0; i < scale; i++) {
+                    for (uint8_t z = 0; z < scale; z++) {
+                        draw_pixel((x + (col * scale) + z), (y + (row * scale)) + i, color);
                     } 
                 }            
             }
@@ -234,16 +234,6 @@ void draw_char_small(uint16_t x, uint16_t y, uint8_t c, uint16_t fg, uint16_t bg
     const volatile uint8_t *glyph = font5x7[(uint8_t)c - 32];
 
 //    const uint8_t *glyph = font5x7[33];
-    uart_printstr("\n\rtableax Num : ");
-    putnbr(c-32);
-    uart_printstr(" pointer: ");
-    putnbr((uint16_t)glyph);
-        uart_printstr(" pointer: ");
-    uart_tx(c);
-    uart_printstr(" ptr address: ");
-
-    uart_print_addr((void*)(&font5x7[c - 32][0]));
-    uart_printstr("\r\n");
 
         for (int8_t col = 0; col < 5; col++) {
             for (int8_t row = 0; row < 7; row++) {
@@ -258,9 +248,9 @@ void draw_char_small(uint16_t x, uint16_t y, uint8_t c, uint16_t fg, uint16_t bg
 
                     continue;
                 }
-                for (int8_t i = 0; i < SCALE; i++) {
-                    for (int8_t z = 0; z < SCALE; z++) {
-                        draw_pixel((x + (col * SCALE) + z), (y + (row * SCALE)) + i, color);
+                for (int8_t i = 0; i < scale; i++) {
+                    for (int8_t z = 0; z < scale; z++) {
+                        draw_pixel((x + (col * scale) + z), (y + (row * scale)) + i, color);
                     } 
                 }            
             }
@@ -279,13 +269,13 @@ void draw_string(uint16_t x, uint16_t y, const char *str,
     while (len > 0) {
        
 
-        if (SCALE >= 2) {
+        if (scale >= 2) {
             draw_char(x, y, str[len - 1], fg, bg);
-            x += 1 + (5 * SCALE) + 5 * SCALE;     // 5px glyph + 1px gap
+            x += 1 + (5 * scale) + 5 * scale;     // 5px glyph + 1px gap
         } else {
 
             draw_char_small(x, y, str[len - 1], fg, bg);
-            x += (5 * SCALE) + 1;     // 5px glyph + 1px gap
+            x += (5 * scale) + 1;     // 5px glyph + 1px gap
 
         }
     
@@ -306,36 +296,36 @@ void setup() {
 
 int main() {
     setup();
-    // SCALE = 2;
+    // scale = 2;
     // _delay_ms(500);
 
-    draw_color_screen(COLOR_BLUE);
-    SCALE = 1;
-    _delay_ms(500);
-    
-    // draw_string(0, 120,  "helloWORLD", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-    // _delay_ms(500);
-    SCALE = 2;
+    scale = 2;
     _delay_ms(500);
     draw_string(0, 0,  "s", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    // draw_color_screen(COLOR_BLACK);
+    scale = 1;
+    _delay_ms(500);
+    
+    draw_string(0, 120,  "This is a text to READD", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    _delay_ms(1500);
 
 
 
 //     draw_string(0, -7,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
 
 
-//     SCALE = 4;
+//     scale = 4;
 //     draw_string(0, -14,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
 //     _delay_ms(500);
 //     draw_string(0, -14,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
 
 
-//   SCALE = 6;
+//   scale = 6;
 //     draw_string(0, -21,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
 //     _delay_ms(500);
 //     draw_string(0, -21,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
 
-//       SCALE = 8;
+//       scale = 8;
 //     draw_string(0, -28,  "ss", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
 //     _delay_ms(500);
 //     draw_string(0, -28,  "ss", COLOR_BLUE, COLOR_BLACK); // MAX H CHARS
