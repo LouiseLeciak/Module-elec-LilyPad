@@ -6,11 +6,11 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/24 10:18:04 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/23 17:40:49 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// GC9A01 - spi_lib.h
+// ili9341 - spi_lib.h
 // Draws "s" using a 5x7 bitmap font over hardware SPI
 //
 // Pin Map: ON ARDUINO MEGA.        _____________________________________________________
@@ -54,61 +54,61 @@
 // --- FONT SIZE ---------------------------------------------------------------
 
 #define SMALL 1
-// --- FONT LCD (ORDERED) SIZE 320 x 480 - 4 TFT GC9A01
+// --- FONT LCD (ORDERED) SIZE 320 x 480 - 4 TFT ILI9341
 
 
-// --- FONT LCD SIZE 240 x 320 - 3,2 TFT GC9A01
+// --- FONT LCD SIZE 240 x 320 - 3,2 TFT ILI9341
 
 #define SMALL_MAX_CHAR_WIDTH 40
 #define MAX_PIXEL_WIDTH 240
-#define MAX_PIXEL_HIGH 240
+#define MAX_PIXEL_HIGH 320
 
 volatile uint8_t scale;
 volatile char hex[4];               // global for function toHex()
 volatile char nbr_in_a_string[33];  // global variable for function nbr_to_str()
 
-// ─── GC9A01 low-level ───────────────────────────────────────────────────────
+// ─── ILI9341 low-level ───────────────────────────────────────────────────────
 
-void GC9A01_cmd(uint8_t cmd) {
+void ili9341_cmd(uint8_t cmd) {
     DC_LOW();
     CS_LOW();
     spi_send(cmd);
     CS_HIGH();
 }
 
-void GC9A01_data(uint8_t data) {
+void ili9341_data(uint8_t data) {
     DC_HIGH();
     CS_LOW();
     spi_send(data);
     CS_HIGH();
 }
 
-void GC9A01_init(void) {
+void ili9341_init(void) {
     RST_LOW();  _delay_ms(100);
     RST_HIGH(); _delay_ms(100);
-    GC9A01_cmd(0x01);          // software reset
+    ili9341_cmd(0x01);          // software reset
     _delay_ms(150);
-    GC9A01_cmd(0x11);          // sleep out
+    ili9341_cmd(0x11);          // sleep out
     _delay_ms(150);
-    GC9A01_cmd(0x3A);          // pixel format
-    GC9A01_data(0x55);         // 16-bit color (RGB565)
-    GC9A01_cmd(0x29);          // display on
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+    ili9341_cmd(0x29);          // display on
 }
 
 // ─── Drawing primitives ──────────────────────────────────────────────────────
 
 void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
-    GC9A01_cmd(0x2A);
-    GC9A01_data(x0 >> 8);
-    GC9A01_data(x0 & 0xFF);
-    GC9A01_data(x1 >> 8);
-    GC9A01_data(x1 & 0xFF);
-    GC9A01_cmd(0x2B);
-    GC9A01_data(y0 >> 8);
-    GC9A01_data(y0 & 0xFF);
-    GC9A01_data(y1 >> 8);
-    GC9A01_data(y1 & 0xFF);
-    GC9A01_cmd(0x2C);
+    ili9341_cmd(0x2A);
+    ili9341_data(x0 >> 8);
+    ili9341_data(x0 & 0xFF);
+    ili9341_data(x1 >> 8);
+    ili9341_data(x1 & 0xFF);
+    ili9341_cmd(0x2B);
+    ili9341_data(y0 >> 8);
+    ili9341_data(y0 & 0xFF);
+    ili9341_data(y1 >> 8);
+    ili9341_data(y1 & 0xFF);
+    ili9341_cmd(0x2C);
 }
 
 
@@ -291,7 +291,7 @@ void draw_string(uint16_t x, uint16_t y, const char *str,
 void setup() {
     uart_init();
     spi_init();
-    GC9A01_init();
+    ili9341_init();
 }
 
 int main() {
@@ -299,15 +299,15 @@ int main() {
     // scale = 2;
     // _delay_ms(500);
 
-    // scale = 2;
-    // _delay_ms(500);
-    // draw_string(0, 0,  "s", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-    draw_color_screen(COLOR_BLUE);
-    // scale = 1;
-    // _delay_ms(500);
+    scale = 2;
+    _delay_ms(500);
+    draw_string(0, 0,  "s", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    // draw_color_screen(COLOR_BLACK);
+    scale = 1;
+    _delay_ms(500);
     
-    // draw_string(0, 120,  "This", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
-    // _delay_ms(1500);
+    draw_string(0, 120,  "This is a text to READD", COLOR_WHITE, COLOR_BLACK); // MAX H CHARS
+    _delay_ms(1500);
 
 
 
