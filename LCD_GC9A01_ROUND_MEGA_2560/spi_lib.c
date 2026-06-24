@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 10:31:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/06/10 15:58:27 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/24 17:21:17 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,16 @@
 
 void spi_init(void) {
     DDRB |= (1 << PB2)   // MOSI
-      | (1 << PB1)   // SCK
-      | (1 << PB0)   // SS
-      | (1 << PB4)   // CS
-      | (1 << PB5)   // DC
-      | (1 << PB6);  // RST
-    // DDRB |= (1 << PB3) | (1 << PB7) | (1 << PB2) | (1 << PB1) | (1 << PB0);
-    SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0);
+          | (1 << PB1)   // SCK
+          | (1 << PB0)   // SS
+          | (1 << PB4)   // CS
+          | (1 << PB5)   // DC
+          | (1 << PB7);  // RST
+
+    PORTB |= (1 << PB0);              // SS idle high
+
+    SPCR = (1 << SPE) | (1 << MSTR); // SPI enable, master, fosc/4
+    SPSR = (1 << SPI2X);              // fosc/2 = 8MHz
 }
 
 // uint8_t spi_send(uint8_t data) {

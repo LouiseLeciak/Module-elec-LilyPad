@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 13:51:57 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/09 15:02:06 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/24 12:23:11 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ typedef unsigned char uint8_t;      // needed because not using stdlib
 typedef unsigned int uint16_t;      // needed because not using stdlib
 typedef uint8_t bool;
 
-extern volatile char hex[4];                // global variable for function toHex()
-extern volatile char nbr_in_a_string[33];    // global variable for function nbr_to_str()
+// extern volatile char hex[4];                // global variable for function toHex()
+// extern volatile char nbr_in_a_string[33];    // global variable for function nbr_to_str()
 
 
 
@@ -242,68 +242,6 @@ uint8_t convert_from_hex(unsigned char *str) {
 
 
 
-/// NOTE: function converts a dec number fronm 0 to 255 into 0xFF format
-/// ARGS: the unsigned char to convert
-/// RETURNS: None
-/// INFO: need a global variable hex[3] to works
-
-void toHex(unsigned char c) {
-
-    volatile uint8_t low = 0;
-    volatile uint8_t high = 0;
-
-    hex[0] = '\0';
-    hex[1] = '\0';
-    hex[2] = '\0';
-    
-    if (c == 0) {
-        (hex[0] = '0'); (hex[1] = '0'); (hex[2] = '\0');
-        return ;
-    }
-    high = c / 16;
-    low = c % 16;
-    
-    if (high <= 9 )
-        hex[0] = high + '0';
-    if (high > 9 && high <= 16)
-        hex[0] = high + 87;
-
-    if (low <= 9 )
-        hex[1] = low + '0';
-    if (low > 9 && low <= 16)
-        hex[1] = low + 87;
-     
-}
-
-
-
-void toHex_0xFFF(uint16_t c) {
-
-    volatile uint8_t low = 0;
-    volatile uint8_t mid = 0;
-    volatile uint8_t high = 0;
-
-    hex[0] = '\0';
-    hex[1] = '\0';
-    hex[2] = '\0';
-    hex[3] = '\0';
-    
-    if (c == 0) {
-        (hex[0] = '0'); (hex[1] = '0'); (hex[2] = '\0');
-        return ;
-    }
-    high = (c >> 8) & 0xF;
-    mid = (c >> 4)  & 0xF;
-    low = c         &0xF;
-    
-    hex[0] = (high <= 9) ? (high + '0') : (high + 87); // 87 = 'a' - 10
-    hex[1] = (mid  <= 9) ? (mid  + '0') : (mid  + 87);
-    hex[2] = (low  <= 9) ? (low  + '0') : (low  + 87);
-    hex[3] = '\0';
-     
-}
-
-
 
 uint16_t ft_nbrlen(volatile char *str) {
 
@@ -338,45 +276,6 @@ void reverseNumString(volatile char *str) {
     str[i] = '\0';
 }
 
-void nbr_to_str (uint32_t nbr) {
-    
-    uint8_t flag = 0;
-    if (nbr_in_a_string[0] == '-') {
-        flag = 1;
-    }
-    ft_itoa(nbr,-1);
-    if (flag == 1){
-        uint8_t len = ft_strlen((unsigned char*)nbr_in_a_string);
-        nbr_in_a_string[len] = '-';
-        len++;
-        nbr_in_a_string[len] = '\0'; 
-    }
-
-    // uart_printstr("\r\n DEBUG nbr to STR 0 :");
-    reverseNumString(nbr_in_a_string);
-    // uart_printstr(nbr_in_a_string);
-    // uart_printstr("\r\n DEBUG nbr to STR 1\r\n");
-}
-
-void ft_itoa(uint32_t nbr, int index){
-
-    int i = index;
-
-    if (nbr <= 9) {
-        i++;
-        nbr_in_a_string[i] = (nbr % 10) + '0';
-        i++;
-        nbr_in_a_string[i] = '\0';
-        return;
-    }
-    i++;
-    if (nbr > 9)  {
-        ft_itoa(nbr / 10, i);
-    }
-    // uart_tx(((nbr % 10) + '0'));
-    nbr_in_a_string[i] = (nbr % 10) + '0';
-}
-
 
 
 void putnbr(uint16_t nbr){
@@ -387,15 +286,6 @@ void putnbr(uint16_t nbr){
     uart_tx(((nbr % 10) + '0'));
 }
 
-
-
-// void putnbr_32t(uint32_t nbr){
-
-//     if (nbr > 9)  {
-//         putnbr_32t(nbr / 10);
-//     }
-//     uart_tx(((nbr % 10) + '0'));
-// }
 
 
 
@@ -420,15 +310,6 @@ void putnbr_32t(uint32_t nbr) {
 }
 
 
-
-/// NOTE: prints value in 0xFF to screen with uart lib
-/// ARGS: char
-/// RETURNS: None
-
-void print_hex_value(char c) {
-        toHex(c);
-        uart_printstr(hex);
-}
 
 
 /// NOTE: string in hex to decimal -> FF -> 255
