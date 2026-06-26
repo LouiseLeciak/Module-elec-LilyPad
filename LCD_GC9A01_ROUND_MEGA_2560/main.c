@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/24 17:50:19 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/26 11:24:32 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void GC9A01_init(void) {
     GC9A01_cmd(0xEF);
 
     GC9A01_cmd(0x3A); GC9A01_data(0x05);   // RGB565 16 bits by pixel 
-    GC9A01_cmd(0x36); GC9A01_data(0x00);   // MADCTL
+    GC9A01_cmd(0x36); GC9A01_data(0x00);   // MADCTL. DISPLAT DIRECTION 
 
     GC9A01_cmd(0xB6);                      // Display function control
     GC9A01_data(0x00);
@@ -106,16 +106,26 @@ void GC9A01_init(void) {
     GC9A01_data(0x18); GC9A01_data(0x0D); GC9A01_data(0x71); GC9A01_data(0xED);
     GC9A01_data(0x70); GC9A01_data(0x70); GC9A01_data(0x18); GC9A01_data(0x0F);
     GC9A01_data(0x71); GC9A01_data(0xEF); GC9A01_data(0x70); GC9A01_data(0x70);
-
+ 
     GC9A01_cmd(0x63);
     GC9A01_data(0x18); GC9A01_data(0x11); GC9A01_data(0x71); GC9A01_data(0xF1);
     GC9A01_data(0x70); GC9A01_data(0x70); GC9A01_data(0x18); GC9A01_data(0x13);
     GC9A01_data(0x71); GC9A01_data(0xF3); GC9A01_data(0x70); GC9A01_data(0x70);
 
-    GC9A01_cmd(0x64);
-    GC9A01_data(0x28); GC9A01_data(0x29); GC9A01_data(0xF1);
-    GC9A01_data(0x01); GC9A01_data(0x8F); GC9A01_data(0x00); GC9A01_data(0x00);
+    // GC9A01_cmd(0x64);
+    // GC9A01_data(0x28); GC9A01_data(0x29); GC9A01_data(0xF1);
+    // GC9A01_data(0x01); GC9A01_data(0x8F); GC9A01_data(0x00); GC9A01_data(0x00);
 
+GC9A01_cmd(0x64);
+GC9A01_data(0x28);
+GC9A01_data(0x29);
+GC9A01_data(0xF1);
+GC9A01_data(0x01);
+GC9A01_data(0xF0);  // ← your 0x8F replaced with 0xF0
+GC9A01_data(0x00);
+GC9A01_data(0x00);
+
+    
     GC9A01_cmd(0x66);
     GC9A01_data(0x3C); GC9A01_data(0x00); GC9A01_data(0xCD); GC9A01_data(0x67);
     GC9A01_data(0x45); GC9A01_data(0x45); GC9A01_data(0x10);
@@ -131,9 +141,75 @@ void GC9A01_init(void) {
     GC9A01_data(0x00); GC9A01_data(0x00); GC9A01_data(0x4E); GC9A01_data(0x00);
     // // -----------------------------------------------------------------
 
+GC9A01_cmd(0xC6); GC9A01_data(0x01);      // Frame rate control
+GC9A01_cmd(0xB7); GC9A01_data(0x35);      // Gate control
+GC9A01_cmd(0xBB); GC9A01_data(0x06);      // VCOM
+GC9A01_cmd(0xC0); GC9A01_data(0x6C);      // LCM control
+GC9A01_cmd(0xC3); GC9A01_data(0x0B);      // VRH
+GC9A01_cmd(0xC4); GC9A01_data(0x0F);      // VDV
+GC9A01_cmd(0xD0); GC9A01_data(0xA4); GC9A01_data(0xA1); // Power control
 
-    
 
+
+
+
+
+
+// GC9A01_cmd(0xEF); 
+// GC9A01_cmd(0xEB); GC9A01_data(0x14);
+
+// GC9A01_cmd(0xFE); 
+// GC9A01_cmd(0xEB); GC9A01_data(0x14);
+
+// GC9A01_cmd(0x84); GC9A01_data(0x40);
+// GC9A01_cmd(0x85); GC9A01_data(0xFF);
+// GC9A01_cmd(0x86); GC9A01_data(0xFF);
+// GC9A01_cmd(0x87); GC9A01_data(0xFF);
+// GC9A01_cmd(0x88); GC9A01_data(0x0A);
+// GC9A01_cmd(0x89); GC9A01_data(0x21);
+// GC9A01_cmd(0x8A); GC9A01_data(0x00);
+// GC9A01_cmd(0x8B); GC9A01_data(0x80);
+// GC9A01_cmd(0x8C); GC9A01_data(0x01);
+// GC9A01_cmd(0x8D); GC9A01_data(0x01);
+// GC9A01_cmd(0x8E); GC9A01_data(0xFF);
+// GC9A01_cmd(0x8F); GC9A01_data(0xFF);
+// GC9A01_cmd(0xB6); GC9A01_data(0x00); GC9A01_data(0x00);
+// GC9A01_cmd(0x36); GC9A01_data(0x48);
+// GC9A01_cmd(0x3A); GC9A01_data(0x05);
+// GC9A01_cmd(0x90); GC9A01_data(0x08); GC9A01_data(0x08); GC9A01_data(0x08); GC9A01_data(0x08);
+// GC9A01_cmd(0xBD); GC9A01_data(0x06);
+// GC9A01_cmd(0xBC); GC9A01_data(0x00);
+// GC9A01_cmd(0xFF); GC9A01_data(0x60); GC9A01_data(0x01); GC9A01_data(0x04);
+// GC9A01_cmd(0xC3); GC9A01_data(0x13);
+// GC9A01_cmd(0xC4); GC9A01_data(0x13);
+// GC9A01_cmd(0xC9); GC9A01_data(0x22);
+// GC9A01_cmd(0xBE); GC9A01_data(0x11);
+// GC9A01_cmd(0xE1); GC9A01_data(0x10); GC9A01_data(0x0E);
+// GC9A01_cmd(0xDF); GC9A01_data(0x21); GC9A01_data(0x0c); GC9A01_cmd(0x02);
+// GC9A01_cmd(0xF0); GC9A01_data(0x45);  GC9A01_data(0x09); GC9A01_data(0x08); GC9A01_data(0x08); GC9A01_data(0x26); GC9A01_data(0x2A);
+// GC9A01_cmd(0xF1); GC9A01_data(0x43);  GC9A01_data(0x70); GC9A01_data(0x72); GC9A01_data(0x36); GC9A01_data(0x37); GC9A01_data(0x6F);
+// GC9A01_cmd(0xF2); GC9A01_data(0x45);  GC9A01_data(0x09); GC9A01_data(0x08); GC9A01_data(0x08); GC9A01_data(0x26); GC9A01_data(0x2A);
+// GC9A01_cmd(0xF3); GC9A01_data(0x43);  GC9A01_data(0x70); GC9A01_data(0x72); GC9A01_data(0x36); GC9A01_data(0x37); GC9A01_data(0x6F);
+// GC9A01_cmd(0xED); GC9A01_data(0x1B); GC9A01_data(0x0B);
+// GC9A01_cmd(0xAE); GC9A01_data(0x77);
+// GC9A01_cmd(0xCD); GC9A01_data(0x63);
+// GC9A01_cmd(0x70); GC9A01_data(0x07); GC9A01_data(0x07); GC9A01_data(0x04); GC9A01_data(0x0E); GC9A01_data(0x0F); GC9A01_data(0x09); GC9A01_data(0x07); GC9A01_data(0x08); GC9A01_data(0x03);
+// GC9A01_cmd(0xE8); GC9A01_data(0x34);
+
+// GC9A01_cmd(0x62); GC9A01_data(0x18); GC9A01_data(0x0D); GC9A01_data(0x71); GC9A01_data(0xED); GC9A01_data(0x70); GC9A01_data(0x70); GC9A01_data(0x18); GC9A01_data(0x0F); GC9A01_data(0x71); GC9A01_data(0xEF); GC9A01_data(0x70); GC9A01_data(0x70);
+// GC9A01_cmd(0x63); GC9A01_data(0x18); GC9A01_data(0x11); GC9A01_data(0x71); GC9A01_data(0xF1); GC9A01_data(0x70); GC9A01_data(0x70); GC9A01_data(0x18); GC9A01_data(0x13); GC9A01_data(0x71); GC9A01_data(0xF3); GC9A01_data(0x70); GC9A01_data(0x70);
+
+// GC9A01_cmd(0x64); GC9A01_data(0x28); GC9A01_data(0x29); GC9A01_data(0xF1); GC9A01_data(0x01); GC9A01_data(0x8F); GC9A01_data(0x00); GC9A01_data(0x00);
+// GC9A01_cmd(0x66); GC9A01_data(0x3C); GC9A01_data(0x00); GC9A01_data(0xCD); GC9A01_data(0x67); GC9A01_data(0x45); GC9A01_data(0x45); GC9A01_data(0x10); GC9A01_data(0x00); GC9A01_data(0x00); GC9A01_data(0x00);
+// GC9A01_cmd(0x67); GC9A01_data(0x00); GC9A01_data(0x3C); GC9A01_data(0x00); GC9A01_data(0x00); GC9A01_data(0x00); GC9A01_data(0x01); GC9A01_data(0x54); GC9A01_data(0x10); GC9A01_data(0x32); GC9A01_data(0x98);
+// GC9A01_cmd(0x74); GC9A01_data(0x10); GC9A01_data(0x85); GC9A01_data(0x80); GC9A01_data(0x00); GC9A01_data(0x00); GC9A01_data(0x4E); GC9A01_data(0x00);
+// GC9A01_cmd(0x98); GC9A01_data(0x3e); GC9A01_data(0x07);
+// GC9A01_cmd(0x21);
+// GC9A01_cmd(0x11); GC9A01_data(0x80);
+// GC9A01_cmd(0x29); GC9A01_data(0x80);
+// GC9A01_cmd(0x00);
+
+// }
     GC9A01_cmd(0x21);  // inversion ON
     
     GC9A01_cmd(0x11);  // sleep out
@@ -199,12 +275,16 @@ int main() {
     uart_init();
    
     setup();
-    draw_color_screen(COLOR_BLUE);
+    draw_color_screen(COLOR_GREEN);
 
     // gc9a01a_tearing_off();
     while (1) {
         ;
 
+        // draw_color_screen(COLOR_BLACK);
+        // _delay_ms(500);
+        draw_color_screen(COLOR_BLUE);
+        _delay_ms(5000);
         // draw_color_screen(COLOR_BLACK);
     }
 }
