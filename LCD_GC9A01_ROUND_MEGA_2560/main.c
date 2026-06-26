@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/26 18:41:47 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/26 18:49:42 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,21 +287,21 @@ int main() {
 
         draw_square(&PORTB, PB4, LEFT_EYE, 90, 90, 60, GC9A01A_COLOR_BLUE);
         draw_rect(&PORTB, PB4, LEFT_EYE, 60, 90, 30, 60, GC9A01A_COLOR_BLACK);
-        _delay_ms(50);
+        // _delay_ms(50);
         
         draw_square(&PORTB, PB4, LEFT_EYE, 80, 90, 60, GC9A01A_COLOR_YELLOW);
         draw_rect(&PORTB, PB4, LEFT_EYE, 140, 90, 10, 60, GC9A01A_COLOR_BLACK);
-        _delay_ms(50);
+        // _delay_ms(50);
         
         
         draw_square(&PORTB, PB4, LEFT_EYE, 70, 90, 60, GC9A01A_COLOR_RED);
         draw_rect(&PORTB, PB4, LEFT_EYE, 130, 90, 10, 60, GC9A01A_COLOR_BLACK);
-        _delay_ms(50);
+        // _delay_ms(50);
         
         draw_square(&PORTB, PB4, LEFT_EYE, 60, 90, 60, GC9A01A_COLOR_GREEN);
         draw_rect(&PORTB, PB4, LEFT_EYE, 120, 90, 60, 60, GC9A01A_COLOR_BLACK);
         // draw_rect(&PORTB, PB4, LEFT_EYE, 120, 90, 10, 60, GC9A01A_COLOR_BLACK);
-        _delay_ms(50);
+        // _delay_ms(50);
 
     
     }
