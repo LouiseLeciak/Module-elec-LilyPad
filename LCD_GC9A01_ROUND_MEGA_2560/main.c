@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/26 14:44:22 by nige42           ###   ########.fr       */
+/*   Updated: 2026/06/26 18:41:47 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,14 @@
 // --- FONT LCD SIZE 240 x 320 - 3,2 TFT GC9A01
 
 #define MAX_PIXEL_WIDTH 240
-#define MAX_PIXEL_HIGH 320
+#define MAX_PIXEL_HIGH 240
 
 #define LEFT_EYE 1
 #define RIGHT_EYE 2
+
+
+
+
 
 
 void GC9A01_cmd(uint8_t cmd, uint8_t screen) {
@@ -177,8 +181,8 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_cmd(0x11, screen);
     _delay_ms(120);
 
-    // Display on
-    GC9A01_cmd(0x29, screen);
+    // Display on 0x29
+    GC9A01_cmd(0x28, 1); // display off
     _delay_ms(20);
 }
 
@@ -218,6 +222,18 @@ void GC9A01_draw_color_screen(uint8_t screen, uint16_t color) {
 
 }
 
+
+void GC9A01_draw_square(uint16_t pixels, uint16_t color) {
+    uint8_t hi = color >> 8;
+    uint8_t lo = color & 0xFF;
+    for (uint32_t i = 0; i < pixels; i++) {
+        spi_send(hi);
+        spi_send(lo);
+    }
+}
+
+
+
 void setup() {
     
     uart_init();
@@ -229,24 +245,64 @@ void setup() {
 
 }
 
+void draw_square(volatile uint8_t *port, uint8_t pin, uint8_t eye, uint8_t x, uint8_t y, uint8_t size, uint16_t color) {
+    uint32_t pixels = (uint32_t)size * size;   
+    set_window(eye, x, y, x + size - 1, y + size - 1);
+    DC_HIGH();
+    *port &= ~(1 << pin);     // LOW
+    GC9A01_draw_square(pixels, color);
+    *port |= (1 << pin);     // HIGH
+    _delay_ms(500);
+
+}
+
+
+
+void draw_rect(volatile uint8_t *port, uint8_t pin, uint8_t eye, uint8_t x, uint8_t y, uint8_t sizeX, uint8_t sizeY, uint16_t color) {
+    uint32_t pixels = (uint32_t)sizeX * sizeY;   
+    set_window(eye, x, y, x + sizeX - 1, y + sizeY - 1);
+    DC_HIGH();
+    *port &= ~(1 << pin);     // LOW
+    GC9A01_draw_square(pixels, color);
+    *port |= (1 << pin);     // HIGH
+    _delay_ms(500);
+
+}
+
 int main() {
     //    wdt_reset();
     
     // read reset cause
     
     uart_init();
-   
+
     setup();
-    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_GREEN);
+
+    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_BLACK);
+    GC9A01_cmd(0x29, 1);        
+    _delay_ms(1000);
 
     // gc9a01a_tearing_off();
     while (1) {
-        ;
 
-        // draw_color_screen(COLOR_BLACK);
-        // _delay_ms(500);
-        GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_BLUE);
-        _delay_ms(5000);
-        // draw_color_screen(COLOR_BLACK);
+        draw_square(&PORTB, PB4, LEFT_EYE, 90, 90, 60, GC9A01A_COLOR_BLUE);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 60, 90, 30, 60, GC9A01A_COLOR_BLACK);
+        _delay_ms(50);
+        
+        draw_square(&PORTB, PB4, LEFT_EYE, 80, 90, 60, GC9A01A_COLOR_YELLOW);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 140, 90, 10, 60, GC9A01A_COLOR_BLACK);
+        _delay_ms(50);
+        
+        
+        draw_square(&PORTB, PB4, LEFT_EYE, 70, 90, 60, GC9A01A_COLOR_RED);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 130, 90, 10, 60, GC9A01A_COLOR_BLACK);
+        _delay_ms(50);
+        
+        draw_square(&PORTB, PB4, LEFT_EYE, 60, 90, 60, GC9A01A_COLOR_GREEN);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 120, 90, 60, 60, GC9A01A_COLOR_BLACK);
+        // draw_rect(&PORTB, PB4, LEFT_EYE, 120, 90, 10, 60, GC9A01A_COLOR_BLACK);
+        _delay_ms(50);
+
+    
     }
 }
