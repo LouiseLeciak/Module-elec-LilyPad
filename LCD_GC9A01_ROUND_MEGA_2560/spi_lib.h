@@ -6,15 +6,14 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 10:31:57 by nige42            #+#    #+#             */
-/*   Updated: 2026/06/08 10:40:46 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/02 13:54:32 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPI_LIB_H
  #define SPI_LIB_H
 
- void spi_init(void);
-void spi_send(uint8_t data);
-
- 
+    void spi_init(void);
+    void spi_send(uint8_t data);
+    
 #endif

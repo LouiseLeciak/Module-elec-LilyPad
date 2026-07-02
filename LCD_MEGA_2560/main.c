@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/24 10:22:36 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/02 10:45:32 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@
 // --- FONT LCD SIZE 240 x 320 - 3,2 TFT ili9341
 
 #define SMALL_MAX_CHAR_WIDTH 40
-#define MAX_PIXEL_WIDTH 240
-#define MAX_PIXEL_HIGH 240
+#define MAX_PIXEL_WIDTH 320
+#define MAX_PIXEL_HIGH 480
 
 volatile uint8_t scale;
 volatile char hex[4];               // global for function toHex()
@@ -94,6 +94,33 @@ void ili9341_init(void) {
     ili9341_data(0x55);         // 16-bit color (RGB565)
     ili9341_cmd(0x29);          // display on
 }
+
+
+void st7796_init(void) {
+    RST_LOW();  _delay_ms(100);
+    RST_HIGH(); _delay_ms(120);
+
+    ili9341_cmd(0x01);          // software reset
+    _delay_ms(150);
+
+    ili9341_cmd(0x11);          // sleep out
+    _delay_ms(150);
+
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+
+    ili9341_cmd(0x36);          // memory access control (orientation / RGB-BGR)
+    ili9341_data(0x48);         // MX + BGR (portrait, ajustez si besoin)
+
+    // ili9341_cmd(0x21);          // display inversion ON (requis sur la plupart des ST7796)
+
+    ili9341_cmd(0x13);          // normal display mode on
+
+    ili9341_cmd(0x29);          // display on
+    _delay_ms(50);
+}
+
+
 
 // ─── Drawing primitives ──────────────────────────────────────────────────────
 
@@ -291,7 +318,8 @@ void draw_string(uint16_t x, uint16_t y, const char *str,
 void setup() {
     uart_init();
     spi_init();
-    ili9341_init();
+    // ili9341_init();
+    st7796_init();
 }
 
 int main() {

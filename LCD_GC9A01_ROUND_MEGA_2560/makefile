@@ -6,14 +6,14 @@
 #    By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/13 13:45:55 by nrobinso          #+#    #+#              #
-#    Updated: 2026/06/24 14:34:48 by nige42           ###   ########.fr        #
+#    Updated: 2026/07/02 14:00:32 by nige42           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # ------------------------- project -------------------------------------------
 NAME=main
 TOOLS=#tools.c
-LIB=spi_lib.c uart_lib.c tools.c #led_lib.c config.h 
+LIB=spi_lib.c uart_lib.c tools.c  GC9A01.c#led_lib.c config.h 
 
 # ------------------------- compiler ------------------------------------------
 CC=avr-gcc

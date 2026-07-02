@@ -6,16 +6,16 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/17 13:56:57 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/06/09 15:02:00 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/02 13:57:15 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOOLS_H
-    # define TOOLS_H
+    #include <avr/io.h>
+    #define TOOLS_H
+    typedef uint8_t bool;
     typedef unsigned char uint8_t;      // needed because not using stdlib
     typedef unsigned int uint16_t;      // needed because not using stdlib
-    typedef uint8_t bool;
-    #include <avr/io.h>
 
 
     bool is_upper(unsigned char c);
