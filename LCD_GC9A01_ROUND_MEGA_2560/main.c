@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/02 17:37:02 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/02 17:49:04 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -405,6 +405,7 @@ int main(void) {
         drawEyeLeft(80, 80, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
         _delay_ms(1000);
         draw_rect(&PORTB, PB4, LEFT_EYE, 90, 150, 60, 5, GC9A01A_COLOR_WHITE);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 80, 85, 80, 60, GC9A01A_COLOR_BLACK);
 
        
 
