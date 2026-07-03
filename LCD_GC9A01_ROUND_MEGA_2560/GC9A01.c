@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:11 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/03 10:40:57 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/03 15:51:34 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_cmd(0x3A, screen); GC9A01_data(0x05);
 
     // Memory Access Control: default scan direction
-    GC9A01_cmd(0x36, screen); GC9A01_data(0x08);
-
+    GC9A01_cmd(0x36, screen); GC9A01_data(0x08);  // 0xC8 180 deg
+ 
     // Display Function Control
     GC9A01_cmd(0xB6, screen); GC9A01_data(0x00); GC9A01_data(0x20);
 
