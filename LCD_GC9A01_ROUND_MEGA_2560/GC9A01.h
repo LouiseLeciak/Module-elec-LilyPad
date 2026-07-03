@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/02 14:17:26 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/03 17:44:38 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@
     #define GC9A01A_COLOR_GRAY     0x7BEF
     #define GC9A01A_COLOR_DARKGRAY 0x4208
     #define GC9A01A_COLOR_BROWN    0xA145
-
+    #define GC9A01A_COLOR_EYE      0XD77A
 
     
     
