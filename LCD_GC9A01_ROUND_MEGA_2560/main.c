@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/03 16:08:25 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/03 16:54:27 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1370,7 +1370,7 @@ const uint8_t new[] PROGMEM = {
     
 };
 
-
+/// function 
 
 void drawEyeLeft(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, int PosX, int PosY, uint16_t fg, uint16_t bg) {
     set_window(LEFT_EYE, 0, (uint16_t)PosY, 239, 239);
@@ -1379,9 +1379,14 @@ void drawEyeLeft(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, i
     for (int line = 0; line < maxNbrLines; line++) {
         for (int byte = 0; byte < hSizeBytes; byte++) {
             uint8_t b = pgm_read_byte(&file[((maxNbrLines - 1) - line) * hSizeBytes + byte]); // read rows bottom-up
+           
             for (int bit = 0; bit < 8; bit++) {
                 int x = byte * 8 + bit;
                 uint8_t pixel = (b >> bit) & 1;
+                if (b == 0x00)
+                    fg = GC9A01A_COLOR_WHITE;
+                else
+                    fg = GC9A01A_COLOR_YELLOW;
                 draw_pixel(PosX + x, PosY + line, pixel ? bg : fg);
             }
         }
@@ -1444,16 +1449,17 @@ int main(void) {
         // _delay_ms(4000);
         
         // drawEyeLeft(new, 120, 30, 0, 0, GC9A01A_COLOR_RED, GC9A01A_COLOR_BLACK);
-        drawEyeLeft(new, 240, 30, 0, 0, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-        // _delay_ms(1000);
+        drawEyeLeft(new, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
+        _delay_ms(3000);
         GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08);  // 0xC8 180 deg
 
-        draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 200, GC9A01A_COLOR_BLACK);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_BLACK);
             // Memory Access Control: default scan direction
         GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB);  // 0xC8 180 deg
-        drawEyeLeft(lookleft, 240, 30, 0, 0, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
+        drawEyeLeft(lookleft, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
+        _delay_ms(3000);
         GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08);  // 0xC8 180 deg
-        draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 200, GC9A01A_COLOR_BLACK);
+        draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_BLACK);
         GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB);  // 0xC8 180 deg
 
 
