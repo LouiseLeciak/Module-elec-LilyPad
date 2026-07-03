@@ -24,4 +24,9 @@
 #define MAIN_SCREEN_SS_LOW() (PORTB &= ~(MAIN_SCREEN_SS))
 #define MAIN_SCREEN_SS_HIGH() (PORTB |= MAIN_SCREEN_SS)
 
-#endif  // !PINS_H
+// --- SD CARD -----------------------------------------------------------------
+#define SD_SS (1 << PB4)
+// --- !SD CARD ----------------------------------------------------------------
+
+#define SPI_SS_MASK (MAIN_SCREEN_SS | SD_SS)
+#endif // !PINS_H

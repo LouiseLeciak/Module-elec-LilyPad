@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <util/delay.h>
 
+#include "ili9488.h"
 #include "pins.h"
 #include "structs.h"
 
@@ -20,28 +21,6 @@ void spi_master_transmit(uint8_t data);
 // level. (apetitco)
 
 // --- HIGH LEVEL COMMANDS -----------------------------------------------------
-// ------ Setup commands -------------------------------------------------------
-void main_screen_init(void) {
-  MAIN_SCREEN_RST_LOW();
-  _delay_ms(100);
-  MAIN_SCREEN_RST_HIGH();
-  _delay_ms(100);
-  main_screen_swreset();
-  _delay_ms(5);
-  main_screen_slpout();
-  _delay_ms(5);
-  main_screen_madctl(0x48); // Not really elegant for now*.
-  main_screen_colmod(CI_16B);
-  main_screen_dispon();
-
-  // *: The only bits that are different from its standard value are bit 3 and
-  // bit 7.
-  // Bit 3: Set to 1 so as to send the data in BGR as the LCD panel we
-  // have (HSD-9190J-B3) seems to be wired with Red and Blue inverted.
-  // Bit 7:
-  // Set to 1 so as to have coorinate 0 be left-hand side of the screen instead
-  // of right-hand side.
-}
 
 // ------ Drawing commands ------------------------------------------------
 void main_screen_draw_pixel(const position pos, const rgb rgb) {
@@ -53,7 +32,7 @@ void main_screen_draw_pixel(const position pos, const rgb rgb) {
 }
 
 void main_screen_draw_rectangle(const window win, const rgb rgb) {
-  uint16_t color = pack_rgb565(rgb);
+  // uint16_t color = pack_rgb565(rgb);
 
   main_screen_set_window(win);
   main_screen_ramwr();
@@ -61,8 +40,9 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
   for (uint32_t i = 0; i < (win._end._pos_x - win._start._pos_x + 1) *
                                (win._end._pos_y - win._start._pos_y + 1);
        i++) {
-    spi_master_transmit(color >> 8);
-    spi_master_transmit(color & 0xFF);
+    spi_master_transmit(rgb._red & 0xFC);
+    spi_master_transmit(rgb._green & 0xFC);
+    spi_master_transmit(rgb._blue & 0xFC);
   }
 }
 
@@ -70,6 +50,29 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
 // NOTE: Interesting bit on 16-bit pixel SPI transmission at MAIN_SCREEN's
 // datasheet p.88
 uint16_t pack_rgb565(const rgb colour) {
+  // For the red, we need to isolate the 5 most significant bits:
+  //  1 1 1 1 | 1 0 0 0 (the `1` indicate the most significant bits)
+  //  As the first half is full of 1, we know our mask starts with 0xF
+  //  Then, only a 1 for 2^3=8, so the end of the mask is 8
+  //  The mask thus is 0xF8
+
+  // For the green, we need to isolate the 6 most significant bits:
+  //  1 1 1 1 | 1 1 0 0 (the `1` indicate the most significant bits)
+  //  As the first half is full of 1, we know our mask starts with 0xF
+  //  Then, only a 1 for 2^3=8 and 2^2=4, so the end of the mask is 12 in
+  //  decimal and C in hex The mask thus is 0xFC
+
+  // For the blue we just bitshift 3 times to the right as it would be
+  // essentially the same as applying 0xF8 on it.
+
+  // In the end, this is the structure of the data to send :
+  // R  R  R  R  R  G  G G G G G B B B B B
+  // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
+  return (((colour._red & 0xF8) << 8) | ((colour._green & 0xFC) << 3) |
+          (colour._blue >> 3));
+}
+
+uint16_t pack_rgb666(const rgb colour) {
   // For the red, we need to isolate the 5 most significant bits:
   //  1 1 1 1 | 1 0 0 0 (the `1` indicate the most significant bits)
   //  As the first half is full of 1, we know our mask starts with 0xF

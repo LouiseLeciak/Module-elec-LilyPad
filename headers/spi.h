@@ -2,6 +2,7 @@
 #define SPI_H
 
 #include <avr/io.h>
+#include <stdint.h>
 
 /**
  * @typedef s_spi_sck_freq
@@ -32,7 +33,7 @@ void spi_master_init(const spi_sck_freq fspi);
  *
  * @param data The data to be transmitted.
  */
-void spi_master_transmit(char data);
+void spi_master_transmit(uint8_t data);
 
 /**
  * @brief Starts a SPI transaction, lowering the provided Slave Select pin on

@@ -23,9 +23,11 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
+			ili9488 \
 					main_screen \
 					main_screen_text \
 					mads \
+					sd \
 					spi
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
