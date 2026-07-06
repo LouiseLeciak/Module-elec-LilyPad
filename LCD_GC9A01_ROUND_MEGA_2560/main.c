@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/06 13:40:42 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/06 17:56:41 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1431,7 +1431,7 @@ void draw_rect(uint8_t sizeX, uint8_t sizeY, uint16_t color) {
     // *port &= ~(1 << pin);     // LOW
     GC9A01_draw_square(pixels, color);
     // *port |= (1 << pin);     // HIGH
-    _delay_ms(500);
+    // _delay_ms(500);
 
 }
 
@@ -1447,8 +1447,8 @@ void Frog_blink(int nbr, uint8_t screen) {
         for( int i = 0; i < nbr; i++) {
             
             // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xC8, LEFT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xC8, RIGHT_EYE);  // 0xC8 180 deg
             
             set_window(LEFT_EYE, 0, 0, 240, 220);
             set_window(RIGHT_EYE, 0, 0, 240, 220);
@@ -1456,12 +1456,11 @@ void Frog_blink(int nbr, uint8_t screen) {
             CS_LEFT_EYE_LOW();
             CS_RIGHT_EYE_LOW();
             
-            draw_rect(240, 220, GC9A01A_COLOR_OLIVE);
-            draw_rect(240, 220, GC9A01A_COLOR_OLIVE);
+            draw_rect(240, 220, GC9A01A_COLOR_LIME);
             CS_LEFT_EYE_HIGH();
             CS_RIGHT_EYE_HIGH();
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
             
             set_window(LEFT_EYE, 0, 0, 239, 239);
             set_window(RIGHT_EYE, 0, 0, 239, 239);
@@ -1471,8 +1470,8 @@ void Frog_blink(int nbr, uint8_t screen) {
             drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
             CS_LEFT_EYE_HIGH();
             CS_RIGHT_EYE_HIGH();
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xC8, LEFT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xC8, RIGHT_EYE);  // 0xC8 180 deg
 
     }
 
@@ -1528,11 +1527,15 @@ void Frog_eye_start() {
     
 }
 
-void Frog_eye_start_LEFT() {
+void Frog_start_eyes() {
 
 
-    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
-    GC9A01_cmd(0x29, 1);        
+    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_LIME);
+    // _delay_ms(200);
+    GC9A01_draw_color_screen(RIGHT_EYE, GC9A01A_COLOR_LIME);
+    // _delay_ms(200);
+    GC9A01_cmd(0x29, LEFT_EYE);        
+    GC9A01_cmd(0x29, RIGHT_EYE);        
     // _delay_ms(1000);
 
     // GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
@@ -1542,19 +1545,6 @@ void Frog_eye_start_LEFT() {
     
 }
 
-void Frog_eye_start_RIGHT() {
-
-
-    GC9A01_draw_color_screen(RIGHT_EYE, GC9A01A_COLOR_OLIVE);
-    GC9A01_cmd(0x29, 2);        
-    // _delay_ms(1000);
-
-    // GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
-    
-    // drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-    // _delay_ms(3000);
-    
-}
 
 int main(void) {
     //    wdt_reset();
@@ -1565,12 +1555,10 @@ int main(void) {
     setup();
 
     
-    // Frog_eye_start();
-    Frog_eye_start_LEFT();
-    Frog_eye_start_RIGHT();
+    Frog_start_eyes();
 
+    
     // Frog_blink(2, RIGHT_EYE);
-    Frog_blink(2, LEFT_EYE);
 
     // GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
     // GC9A01_cmd(0x29, 1);        
@@ -1579,8 +1567,9 @@ int main(void) {
 
     // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
 
-    // while (1) {
+    while (1) {
 
+    Frog_blink(10, LEFT_EYE);
   
 
     
@@ -1593,7 +1582,7 @@ int main(void) {
 
     // Frog_look_right(Eye_look_Right, 80);
     
-    _delay_ms(1000);
+    _delay_ms(3000);
 
 
     
@@ -1602,6 +1591,6 @@ int main(void) {
 
     //     // GC9A01_cmd(0x29, 1); // display on
 
-    // }
+    }
     return 0;
 }
