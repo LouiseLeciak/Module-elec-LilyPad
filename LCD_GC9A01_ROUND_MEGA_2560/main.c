@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/06 12:50:42 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/06 13:19:21 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -1380,9 +1380,9 @@ const uint8_t Eye_look_Right[] PROGMEM = {
 
 void drawEyeLeft(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg) {
     uint16_t newfg;
-    set_window(LEFT_EYE, 0, 0, 239, 239);
-    DC_HIGH();
-    CS_LEFT_EYE_LOW();
+    // set_window(LEFT_EYE, 0, 0, 239, 239);
+    // DC_HIGH();
+    // CS_LEFT_EYE_LOW();
     for (int line = 0; line < maxNbrLines; line++) {
         for (int byte = 0; byte < hSizeBytes; byte++) {
             uint8_t b = pgm_read_byte(&file[((maxNbrLines - 1) - line) * hSizeBytes + byte]); // read rows bottom-up
@@ -1398,7 +1398,8 @@ void drawEyeLeft(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, u
             }
         }
     }
-    CS_LEFT_EYE_HIGH();
+    // CS_LEFT_EYE_HIGH();
+    
 }
 
 
@@ -1428,23 +1429,45 @@ void draw_rect(volatile uint8_t *port, uint8_t pin, uint8_t eye, uint8_t x, uint
 
 
 
-void Frog_blink(int nbr) {
+void Frog_blink(int nbr, uint8_t screen) {
 
 
-    
+    if (screen == LEFT_EYE)  {
+        
+        for( int i = 0; i < nbr; i++) {
+            
+            // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+            
+            draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB, LEFT_EYE);  // 0xC8 180 deg
+            
+            set_window(LEFT_EYE, 0, 0, 239, 239);
+            DC_HIGH();
+            CS_LEFT_EYE_LOW();
+            drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
+            CS_LEFT_EYE_HIGH();
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+
+    }
+
+    } else if (screen == RIGHT_EYE)  {
 
     for( int i = 0; i < nbr; i++) {
 
         // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-        GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
 
-        draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
-        GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB, LEFT_EYE);  // 0xC8 180 deg
-
+        draw_rect(&PORTB, PB0, RIGHT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
+        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
+        set_window(RIGHT_EYE, 0, 0, 239, 239);
+        DC_HIGH();
+        CS_RIGHT_EYE_LOW();
         drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-        GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+        CS_RIGHT_EYE_HIGH();
+        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
 
-
+    }
 
        
 
@@ -1521,7 +1544,8 @@ int main(void) {
     Frog_eye_start_LEFT();
     Frog_eye_start_RIGHT();
 
-    Frog_blink(2);
+    Frog_blink(2, RIGHT_EYE);
+    Frog_blink(2, LEFT_EYE);
 
     // GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
     // GC9A01_cmd(0x29, 1);        
