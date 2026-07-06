@@ -38,7 +38,8 @@
 #define ROTARY_SW PC4
 
 static uint8_t rotaryclk_prev;
-static int counter = 0;
+// static uint8_t sw_prev = 1;
+static uint8_t menu_index = 0;
 
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
@@ -46,8 +47,13 @@ static const char keymap[ROWS_NB][COLS_NB] =
     {
         {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
         {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
-        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '\n'},
-        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', ' ', '\0', '\0'}};
+        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '\r'},   // supp here
+        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', ' ', '\0', '\0'}}; // add space and home
+
+const char *menu[] = {
+    "OPTION NUMERO 1",
+    "OPTION NUMERO 2",
+    "OPTION NUMERO 3"};
 
 static void keypad_init(void)
 {
@@ -184,8 +190,8 @@ static int keypad_read(void)
 // FONCTION POUR LE ROTARY
 void rotary_update(void)
 {
-    uint8_t clk;// etat actuel de la clock
-    uint8_t dt;// etat actuel de la pin data
+    uint8_t clk; // etat actuel de la clock
+    uint8_t dt;  // etat actuel de la pin data
 
     // on recupere l'etat actuel de la clock
     if (PINC & (1 << ROTARY_CLK))
@@ -204,20 +210,19 @@ void rotary_update(void)
         // si dt est diff de clk alors on tourne dans un sens
         if (dt != clk)
         {
-            counter++;
-
-            uart_printstr("Rotary: ");
-            uart_printint(counter);
-            uart_printstr("\r\n");
+            if (menu_index == 0)
+                menu_index = 2;
+            else
+                menu_index--;
+            draw_menu();
         }
         // sinon c'est qu'on tourne dans l'autre
         else
         {
-            counter--;
-
-            uart_printstr("Rotary: ");
-            uart_printint(counter);
-            uart_printstr("\r\n");
+            menu_index++;
+            if (menu_index > 2)
+                menu_index = 0;
+            draw_menu();
         }
     }
 
@@ -227,10 +232,10 @@ void rotary_update(void)
 //? Probablement pas opti comme verification, probablement a retaper
 void rotary_button_update(void)
 {
-    uint8_t prev_sw = 1;// etat precedent du bouton
-    uint8_t sw;// etat actuel
+    uint8_t prev_sw = 1; // etat precedent du bouton
+    uint8_t sw;          // etat actuel
 
-    //pour checker juste le bit pc4 pour le bouton
+    // pour checker juste le bit pc4 pour le bouton
     if (PINC & (1 << ROTARY_SW))
         sw = 1;
     else
@@ -239,7 +244,7 @@ void rotary_button_update(void)
     // si l'etat du bouton a change
     if (sw != prev_sw)
     {
-        _delay_ms(5);// on attend un peu a cause des fluctuations electriques
+        _delay_ms(5); // on attend un peu a cause des fluctuations electriques
 
         // puis on recheck et on met a jour sw
         if (PINC & (1 << ROTARY_SW))
@@ -250,11 +255,46 @@ void rotary_button_update(void)
         if (sw != prev_sw)
         {
             if (sw == 0)
-                uart_printstr("Rotary button pressed\r\n");
+            {
+                switch (menu_index)
+                {
+                case 0:
+                    uart_printstr("111111\n\r");
+                    break;
+                case 1:
+                    uart_printstr("222222\n\r");
+                    break;
+                case 2:
+                    uart_printstr("333333\n\r");
+                    break;
+                }
+            }
             // et on met a jout le prev ducoup
             prev_sw = sw;
             _delay_ms(20);
         }
+    }
+}
+
+// uint8_t mcp_read_gpioa(void)
+// {
+//     return mcp23017_read_register(GPIOA);
+// }
+
+void draw_menu(void)
+{
+    uart_printstr("\033[2J"); // ANSI pour effacer l'ecran
+    uart_printstr("\033[H");  // ANSI pour se mettre a l1 c1
+    uart_printstr("========== MENU ==========\r\n");
+    uart_printstr("\r\n");
+    for (uint8_t i = 0; i < 3; i++)
+    {
+        if (i == menu_index)
+            uart_printstr("> ");
+        else
+            uart_printstr("  ");
+        uart_printstr(menu[i]);
+        uart_printstr("\n\r");
     }
 }
 
@@ -266,8 +306,10 @@ int main(void)
 
     uart_init();
 
-    uart_printstr("Keyboard 4x10 ready\r\n");
+    //! print un semi menu - 1 mot au clavier, 2 image to mot et 3 jeu
+    //! par exemple
 
+    draw_menu();
     keypad_init();
 
     while (1)

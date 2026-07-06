@@ -25,6 +25,8 @@ void uart_printstr(const char* str);
 void uart_printhex(uint8_t value);
 void uart_printint(int val);
 
+void draw_menu(void);
+
 void i2c_init(void);
 void i2c_start(uint8_t state);
 void i2c_stop(void);
