@@ -8,23 +8,23 @@
 // donc j'utilise d'autres pin pour la version proto
 // Colonnes
 //
-// C1  -> PF4
-// C2  -> PF5
-// C3  -> PF6
-// C4  -> PF7
-// C5  -> PK0
-// C6  -> PK1
-// C7  -> PK2
-// C8  -> PK3
-// C9  -> PK4
-// C10 -> PK5
+// C1  -> PF0
+// C2  -> PF1
+// C3  -> PF2
+// C4  -> PF3
+// C5  -> PF4
+// C6  -> PF5
+// C7  -> PF6
+// C8  -> PF7
+// C9  -> PK0
+// C10 -> PK1
 //
 // Lignes
 //
-// R1 -> PF0
-// R2 -> PF1
-// R3 -> PF2
-// R4 -> PF3
+// R1 -> PK2
+// R2 -> PK3
+// R3 -> PK4
+// R4 -> PK5
 //
 // pour le rotary
 // CLK -> PC6
