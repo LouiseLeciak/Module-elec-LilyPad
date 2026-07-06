@@ -47,8 +47,8 @@ static const char keymap[ROWS_NB][COLS_NB] =
     {
         {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
         {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
-        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '\r'},   // supp here
-        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', ' ', '\0', '\0'}}; // add space and home
+        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '\n'},   // enter
+        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', ' ', '\0', '\0'}}; // add supp and home
 
 const char *menu[] = {
     "OPTION NUMERO 1",
@@ -59,38 +59,38 @@ static void keypad_init(void)
 {
     // les 4 lignes, elles deviennent des sorties
     // 1 sortie 0 entree
-    DDRF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+    DDRK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
 
-    PORTF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+    PORTK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
 
     // les colonnes, on les met a 0
     // car on veut els lire
     DDRF &= ~(
+        (1 << PF0) |
+        (1 << PF1) |
+        (1 << PF2) |
+        (1 << PF3) |
         (1 << PF4) |
         (1 << PF5) |
         (1 << PF6) |
         (1 << PF7));
 
     // pour les pull up
-    PORTF |= ((1 << PF4) |
+    PORTF |= ((1 << PF0) |
+              (1 << PF1) |
+              (1 << PF2) |
+              (1 << PF3) |
+              (1 << PF4) |
               (1 << PF5) |
               (1 << PF6) |
               (1 << PF7));
 
     DDRK &= ~(
         (1 << PK0) |
-        (1 << PK1) |
-        (1 << PK2) |
-        (1 << PK3) |
-        (1 << PK4) |
-        (1 << PK5));
+        (1 << PK1) );
 
     PORTK |= ((1 << PK0) |
-              (1 << PK1) |
-              (1 << PK2) |
-              (1 << PK3) |
-              (1 << PK4) |
-              (1 << PK5));
+              (1 << PK1) );
 
     // pour le rotary encoder
     DDRC &= ~(
@@ -113,26 +113,26 @@ static void keypad_init(void)
 static void select_row(uint8_t row)
 {
     // je desactive toutes les lignes
-    PORTF |= (1 << PF0) | (1 << PF1) | (1 << PF2) | (1 << PF3);
+    PORTK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
 
     // j'active une seule lgine poru "monitorer"
     // j;active celle envoye en parametre
     switch (row)
     {
     case 0:
-        PORTF &= ~(1 << PF0);
+        PORTK &= ~(1 << PK5);
         break;
 
     case 1:
-        PORTF &= ~(1 << PF1);
+        PORTK &= ~(1 << PK4);
         break;
 
     case 2:
-        PORTF &= ~(1 << PF2);
+        PORTK &= ~(1 << PK3);
         break;
 
     case 3:
-        PORTF &= ~(1 << PF3);
+        PORTK &= ~(1 << PK2);
         break;
     }
 }
@@ -140,25 +140,25 @@ static void select_row(uint8_t row)
 static int read_column(void)
 {
     // si PINF = 0 alors c'est que c'est presse
-    if (!(PINF & (1 << PF4)))
+    if (!(PINF & (1 << PF0)))
         return 0;
-    if (!(PINF & (1 << PF5)))
+    if (!(PINF & (1 << PF1)))
         return 1;
-    if (!(PINF & (1 << PF6)))
+    if (!(PINF & (1 << PF2)))
         return 2;
-    if (!(PINF & (1 << PF7)))
+    if (!(PINF & (1 << PF3)))
         return 3;
-    if (!(PINK & (1 << PK0)))
+    if (!(PINF & (1 << PF4)))
         return 4;
-    if (!(PINK & (1 << PK1)))
+    if (!(PINF & (1 << PF5)))
         return 5;
-    if (!(PINK & (1 << PK2)))
+    if (!(PINF & (1 << PF6)))
         return 6;
-    if (!(PINK & (1 << PK3)))
+    if (!(PINF & (1 << PF7)))
         return 7;
-    if (!(PINK & (1 << PK4)))
+    if (!(PINK & (1 << PK0)))
         return 8;
-    if (!(PINK & (1 << PK5)))
+    if (!(PINK & (1 << PK1)))
         return 9;
 
     return -1;
