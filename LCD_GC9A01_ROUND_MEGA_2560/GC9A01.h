@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/03 17:44:38 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/06 12:04:37 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
     
     #define CS_LEFT_EYE_LOW()   PORTB &= ~(1 << PB4)
     #define CS_LEFT_EYE_HIGH()  PORTB |=  (1 << PB4)
+    #define CS_RIGHT_EYE_LOW()   PORTB &= ~(1 << PB0)
+    #define CS_RIGHT_EYE_HIGH()  PORTB |=  (1 << PB0)
     #define DC_LOW()   PORTB &= ~(1 << PB5)
     #define DC_HIGH()  PORTB |=  (1 << PB5)
     #define RST_LOW()  PORTB &= ~(1 << PB7)
@@ -69,7 +71,7 @@
     typedef uint8_t bool;
     void GC9A01_init(uint8_t screen);
     void GC9A01_cmd(uint8_t cmd, uint8_t screen);
-    void GC9A01_data(uint8_t data);
+    void GC9A01_data(uint8_t data, uint8_t screen);
 
 
 #endif
