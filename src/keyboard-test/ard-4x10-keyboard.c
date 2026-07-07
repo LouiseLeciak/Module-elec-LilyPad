@@ -298,6 +298,41 @@ void draw_menu(void)
     }
 }
 
+#define SWITCH_PIN PL0
+#define LED_LEFT   PB0    // D53
+#define LED_RIGHT  PB2    // D51
+
+// static void switch_led_init(void)
+// {
+//     // LEDs en sortie
+//     DDRB |= (1 << LED_LEFT) | (1 << LED_RIGHT);
+
+//     // Eteindre les LEDs
+//     PORTB &= ~((1 << LED_LEFT) | (1 << LED_RIGHT));
+
+//     // Switch en entree
+//     DDRL &= ~(1 << SWITCH_PIN);
+
+//     // Pas de pull-up
+//     PORTL &= ~(1 << SWITCH_PIN);
+// }
+
+// static void switch_led_update(void)
+// {
+//     if (PINL & (1 << SWITCH_PIN))
+//     {
+//         // Le switch est cote 3,3 V
+//         PORTB |= (1 << LED_LEFT);
+//         PORTB &= ~(1 << LED_RIGHT);
+//     }
+//     else
+//     {
+//         // Le switch est cote GND
+//         PORTB &= ~(1 << LED_LEFT);
+//         PORTB |= (1 << LED_RIGHT);
+//     }
+// }
+
 int main(void)
 {
     int key;
@@ -311,11 +346,13 @@ int main(void)
 
     draw_menu();
     keypad_init();
+    // switch_led_init();
 
     while (1)
     {
         rotary_update();
         rotary_button_update();
+        // switch_led_update();
         key = keypad_read();
 
         if (key >= 0)
