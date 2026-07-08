@@ -1,7 +1,9 @@
 #include "spi.h"
 
 #include <avr/io.h>
-#include <stdint.h>
+#include <avr/iom2560.h>
+
+#include "pins.h"
 
 static void set_spi_freq(const spi_sck_freq fspi) {
   switch (fspi) {
@@ -47,6 +49,9 @@ static void set_spi_freq(const spi_sck_freq fspi) {
 }
 
 void spi_master_init(const spi_sck_freq fspi) {
+  // DDRB |= MCU_SPI_MASK;
+  // DDRB &= ~(MCU_MISO);
+
   SPCR |= ((1 << SPE) | (1 << MSTR));
   set_spi_freq(fspi);
 }

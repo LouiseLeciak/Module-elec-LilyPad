@@ -1,7 +1,7 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-PORT				:= /dev/cu.usbmodem101 #Change this to match your configuration's port
+PORT				:= /dev/ttyACM0 #Change this to match your configuration's port
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
