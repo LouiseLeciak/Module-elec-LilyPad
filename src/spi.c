@@ -6,46 +6,46 @@
 
 #include "pins.h"
 
-static void set_spi_freq(const spi_sck_freq fspi) {
+void set_spi_freq(const spi_sck_freq fspi) {
   switch (fspi) {
-    case FOSC_DIV4:
-      SPCR &= ~((1 << SPR1) | (1 << SPR0));
-      SPSR &= ~(1 << SPI2X);
-      break;
-    case FOSC_DIV16:
-      SPCR &= ~(1 << SPR1);
-      SPCR |= (1 << SPR0);
-      SPSR &= ~(1 << SPI2X);
-      break;
-    case FOSC_DIV64:
-      SPCR &= ~(1 << SPR0);
-      SPCR |= (1 << SPR1);
-      SPSR &= ~(1 << SPI2X);
-      break;
-    case FOSC_DIV128:
-      SPCR |= ((1 << SPR1) | (1 << SPR0));
-      SPSR &= ~(1 << SPI2X);
-      break;
-    case FOSC_DIV2:
-      SPCR &= ~((1 << SPR1) | (1 << SPR0));
-      SPSR |= (1 << SPI2X);
-      break;
-    case FOSC_DIV8:
-      SPCR &= ~(1 << SPR1);
-      SPCR |= (1 << SPR0);
-      SPSR |= (1 << SPI2X);
-      break;
-    case FOSC_DIV32:
-      SPCR &= ~(1 << SPR0);
-      SPCR |= (1 << SPR1);
-      SPSR |= (1 << SPI2X);
-      break;
-    case FOSC_DIV64_BIS:
-      SPCR |= ((1 << SPR1) | (1 << SPR0));
-      SPSR |= (1 << SPI2X);
-      break;
-    default:
-      break;
+  case FOSC_DIV4:
+    SPCR &= ~((1 << SPR1) | (1 << SPR0));
+    SPSR &= ~(1 << SPI2X);
+    break;
+  case FOSC_DIV16:
+    SPCR &= ~(1 << SPR1);
+    SPCR |= (1 << SPR0);
+    SPSR &= ~(1 << SPI2X);
+    break;
+  case FOSC_DIV64:
+    SPCR &= ~(1 << SPR0);
+    SPCR |= (1 << SPR1);
+    SPSR &= ~(1 << SPI2X);
+    break;
+  case FOSC_DIV128:
+    SPCR |= ((1 << SPR1) | (1 << SPR0));
+    SPSR &= ~(1 << SPI2X);
+    break;
+  case FOSC_DIV2:
+    SPCR &= ~((1 << SPR1) | (1 << SPR0));
+    SPSR |= (1 << SPI2X);
+    break;
+  case FOSC_DIV8:
+    SPCR &= ~(1 << SPR1);
+    SPCR |= (1 << SPR0);
+    SPSR |= (1 << SPI2X);
+    break;
+  case FOSC_DIV32:
+    SPCR &= ~(1 << SPR0);
+    SPCR |= (1 << SPR1);
+    SPSR |= (1 << SPI2X);
+    break;
+  case FOSC_DIV64_BIS:
+    SPCR |= ((1 << SPR1) | (1 << SPR0));
+    SPSR |= (1 << SPI2X);
+    break;
+  default:
+    break;
   }
 }
 
@@ -72,10 +72,10 @@ uint8_t spi_master_transmit(uint8_t data) {
   return (SPDR);
 }
 
-void spi_start_transaction(volatile uint8_t* port, const uint16_t ss_pin) {
+void spi_start_transaction(volatile uint8_t *port, const uint16_t ss_pin) {
   *port &= ~(ss_pin);
 }
 
-void spi_end_transaction(volatile uint8_t* port, const uint16_t ss_pin) {
+void spi_end_transaction(volatile uint8_t *port, const uint16_t ss_pin) {
   *port |= ss_pin;
 }

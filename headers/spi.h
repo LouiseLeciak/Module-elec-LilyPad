@@ -10,14 +10,14 @@
  *
  */
 typedef enum s_spi_sck_freq {
-  FOSC_DIV2 = 2,         ///< F_CPU / 2
-  FOSC_DIV4 = 4,         ///< F_CPU / 4
-  FOSC_DIV8 = 8,         ///< F_CPU / 8
-  FOSC_DIV16 = 16,       ///< F_CPU / 16
-  FOSC_DIV32 = 32,       ///< F_CPU / 32
-  FOSC_DIV64 = 64,       ///< F_CPU / 64
-  FOSC_DIV64_BIS = -64,  ///< F_CPU / 64
-  FOSC_DIV128 = 128      ///< F_CPU / 128
+  FOSC_DIV2 = 2,        ///< F_CPU / 2
+  FOSC_DIV4 = 4,        ///< F_CPU / 4
+  FOSC_DIV8 = 8,        ///< F_CPU / 8
+  FOSC_DIV16 = 16,      ///< F_CPU / 16
+  FOSC_DIV32 = 32,      ///< F_CPU / 32
+  FOSC_DIV64 = 64,      ///< F_CPU / 64
+  FOSC_DIV64_BIS = -64, ///< F_CPU / 64
+  FOSC_DIV128 = 128     ///< F_CPU / 128
 } spi_sck_freq;
 
 /**
@@ -42,7 +42,7 @@ uint8_t spi_master_transmit(uint8_t data);
  * @param port Port of the Slave Select pin.
  * @param ss_pin Slave Select pin to be pulled LOW.
  */
-void spi_start_transaction(volatile uint8_t* port, const uint16_t ss_pin);
+void spi_start_transaction(volatile uint8_t *port, const uint16_t ss_pin);
 
 /**
  * @brief Ends a SPI transaction, pulling to HIGH the provided Slave Select pin
@@ -51,6 +51,8 @@ void spi_start_transaction(volatile uint8_t* port, const uint16_t ss_pin);
  * @param port Port of the Slave Select pin.
  * @param ss_pin Slave Select pin to be pulled HIGH.
  */
-void spi_end_transaction(volatile uint8_t* port, const uint16_t ss_pin);
+void spi_end_transaction(volatile uint8_t *port, const uint16_t ss_pin);
 
-#endif  // !SPI_H
+void set_spi_freq(const spi_sck_freq fspi);
+
+#endif // !SPI_H

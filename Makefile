@@ -1,7 +1,8 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-PORT				:= /dev/ttyACM0 #Change this to match your configuration's port
+# PORT				:= /dev/ttyACM0 #For Linux computer
+PORT				:=	/dev/cu.usbmodem101 #For MacOS
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
@@ -28,6 +29,7 @@ SRC_FIL	=	main \
 					main_screen_text \
 					mads \
 					sd \
+					sd_cmd \
 					spi \
 					uart
 

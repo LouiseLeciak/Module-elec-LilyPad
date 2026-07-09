@@ -6,8 +6,8 @@
 #include "main_screen.h"
 #include "pins.h"
 #include "sd.h"
+#include "sd_cmd.h"
 #include "spi.h"
-#include "structs.h"
 #include "uart.h"
 
 static void setup(void) {
@@ -15,7 +15,7 @@ static void setup(void) {
   DDRB &= ~(MCU_MISO);
   PORTB |= (SS_MASK | MAIN_SCREEN_DC | MAIN_SCREEN_RST);
 
-  spi_master_init(FOSC_DIV128);
+  spi_master_init(FOSC_DIV16);
   // spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
   // ili9488_init_driver();
   // main_screen_init();
@@ -37,7 +37,7 @@ int main(void) {
   spi_start_transaction(&PORTB, SD_SS);
   uint8_t data[512] = {0};
   uart_printstr("Reading SD Card's first block\r\n");
-  sd_read_single_block(0x00, data);
+  sd_read_single_block(card, 0x00, data, 512);
   spi_end_transaction(&PORTB, SD_SS);
 
   uart_printstr("SD Card read, now displaying:\r\n\r\n");
