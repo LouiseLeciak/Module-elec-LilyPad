@@ -7,7 +7,7 @@
 #define MCU_SCK (1 << PB1)
 #define MCU_MOSI (1 << PB2)
 #define MCU_MISO (1 << PB3)
-#define MCU_SPI_MASK (MCU_SCK | MCU_MOSI | MCU_MISO)
+#define MCU_SPI_MASK (MCU_SCK | MCU_MOSI)
 
 // --- MAIN SCREEN (ST7796) ----------------------------------------------------
 // ------ PINS -----------------------------------------------------------------

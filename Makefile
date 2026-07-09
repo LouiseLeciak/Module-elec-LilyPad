@@ -28,7 +28,8 @@ SRC_FIL	=	main \
 					main_screen_text \
 					mads \
 					sd \
-					spi
+					spi \
+					uart
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
