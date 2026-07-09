@@ -5,7 +5,7 @@ MICROCONTROLLER	= atmega2560
 CC	= avr-gcc
 OBJCOPY	= avr-objcopy
 DUDE	= avrdude
-FILES	= ard-4x10-keyboard.c uart.c
+FILES	= ard-4x10-keyboard.c uart.c i2c-rotary.c
 
 # mmcu to tell what microcontroller we have
 # -Os for optimisation

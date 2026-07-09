@@ -33,9 +33,9 @@
 
 #define ROWS_NB 4
 #define COLS_NB 10
-#define ROTARY_CLK PC6
-#define ROTARY_DT PC5
-#define ROTARY_SW PC4
+#define ROTARY_CLK 5
+#define ROTARY_SW 6
+#define ROTARY_DT 7
 
 static uint8_t rotaryclk_prev;
 // static uint8_t sw_prev = 1;
@@ -87,10 +87,10 @@ static void keypad_init(void)
 
     DDRK &= ~(
         (1 << PK0) |
-        (1 << PK1) );
+        (1 << PK1));
 
     PORTK |= ((1 << PK0) |
-              (1 << PK1) );
+              (1 << PK1));
 
     // pour le rotary encoder
     DDRC &= ~(
@@ -193,19 +193,14 @@ void rotary_update(void)
     uint8_t clk; // etat actuel de la clock
     uint8_t dt;  // etat actuel de la pin data
 
-    // on recupere l'etat actuel de la clock
-    if (PINC & (1 << ROTARY_CLK))
-        clk = 1;
-    else
-        clk = 0;
+    uint8_t gpio = mcp_read_register(MCP_GPIOA);
+
+    clk = (gpio >> ROTARY_CLK) & 1;
 
     // si la clk a change
     if (rotaryclk_prev == 1 && clk == 0)
     {
-        if (PINC & (1 << ROTARY_DT))
-            dt = 1;
-        else
-            dt = 0;
+        dt = (gpio >> ROTARY_DT) & 1;
 
         // si dt est diff de clk alors on tourne dans un sens
         if (dt != clk)
@@ -235,22 +230,17 @@ void rotary_button_update(void)
     uint8_t prev_sw = 1; // etat precedent du bouton
     uint8_t sw;          // etat actuel
 
-    // pour checker juste le bit pc4 pour le bouton
-    if (PINC & (1 << ROTARY_SW))
-        sw = 1;
-    else
-        sw = 0;
+    uint8_t gpio = mcp_read_register(MCP_GPIOA);
+
+    sw = (gpio >> ROTARY_SW) & 1;
 
     // si l'etat du bouton a change
     if (sw != prev_sw)
     {
-        _delay_ms(5); // on attend un peu a cause des fluctuations electriques
+        _delay_ms(5);
 
-        // puis on recheck et on met a jour sw
-        if (PINC & (1 << ROTARY_SW))
-            sw = 1;
-        else
-            sw = 0;
+        gpio = mcp_read_register(MCP_GPIOA);
+        sw = (gpio >> ROTARY_SW) & 1;
         // si sw a bien change alors on print des trucs pour le moment en uart
         if (sw != prev_sw)
         {
@@ -259,13 +249,13 @@ void rotary_button_update(void)
                 switch (menu_index)
                 {
                 case 0:
-                    uart_printstr("111111\n\r");
+                    uart_printstr("You choose option 1\n\r");
                     break;
                 case 1:
-                    uart_printstr("222222\n\r");
+                    uart_printstr("You choose option 2\n\r");
                     break;
                 case 2:
-                    uart_printstr("333333\n\r");
+                    uart_printstr("You choose option 3\n\r");
                     break;
                 }
             }
@@ -275,11 +265,6 @@ void rotary_button_update(void)
         }
     }
 }
-
-// uint8_t mcp_read_gpioa(void)
-// {
-//     return mcp23017_read_register(GPIOA);
-// }
 
 void draw_menu(void)
 {
@@ -299,39 +284,39 @@ void draw_menu(void)
 }
 
 #define SWITCH_PIN PL0
-#define LED_LEFT   PB0    // D53
-#define LED_RIGHT  PB2    // D51
+#define LED_LEFT PB0  // D53
+#define LED_RIGHT PB2 // D51
 
-// static void switch_led_init(void)
-// {
-//     // LEDs en sortie
-//     DDRB |= (1 << LED_LEFT) | (1 << LED_RIGHT);
+static void switch_led_init(void)
+{
+    // LEDs en sortie
+    DDRB |= (1 << LED_LEFT) | (1 << LED_RIGHT);
 
-//     // Eteindre les LEDs
-//     PORTB &= ~((1 << LED_LEFT) | (1 << LED_RIGHT));
+    // Eteindre les LEDs
+    PORTB &= ~((1 << LED_LEFT) | (1 << LED_RIGHT));
 
-//     // Switch en entree
-//     DDRL &= ~(1 << SWITCH_PIN);
+    // Switch en entree
+    DDRL &= ~(1 << SWITCH_PIN);
 
-//     // Pas de pull-up
-//     PORTL &= ~(1 << SWITCH_PIN);
-// }
+    // Pas de pull-up
+    PORTL &= ~(1 << SWITCH_PIN);
+}
 
-// static void switch_led_update(void)
-// {
-//     if (PINL & (1 << SWITCH_PIN))
-//     {
-//         // Le switch est cote 3,3 V
-//         PORTB |= (1 << LED_LEFT);
-//         PORTB &= ~(1 << LED_RIGHT);
-//     }
-//     else
-//     {
-//         // Le switch est cote GND
-//         PORTB &= ~(1 << LED_LEFT);
-//         PORTB |= (1 << LED_RIGHT);
-//     }
-// }
+static void switch_led_update(void)
+{
+    if (PINL & (1 << SWITCH_PIN))
+    {
+        // Le switch est cote 3,3 V
+        PORTB |= (1 << LED_LEFT);
+        PORTB &= ~(1 << LED_RIGHT);
+    }
+    else
+    {
+        // Le switch est cote GND
+        PORTB &= ~(1 << LED_LEFT);
+        PORTB |= (1 << LED_RIGHT);
+    }
+}
 
 int main(void)
 {
@@ -340,19 +325,36 @@ int main(void)
     uint8_t col;
 
     uart_init();
+    uart_printstr("1\r\n");
+
+    i2c_init();
+    uart_printstr("2\r\n");
+    mcp_init();
+    uart_printstr("3\r\n");
 
     //! print un semi menu - 1 mot au clavier, 2 image to mot et 3 jeu
     //! par exemple
 
     draw_menu();
+    uart_printstr("3\r\n");
+
     keypad_init();
-    // switch_led_init();
+    uart_printstr("4\r\n");
+
+    switch_led_init();
+    uart_printstr("5\r\n");
 
     while (1)
     {
-        rotary_update();
-        rotary_button_update();
-        // switch_led_update();
+        // rotary_update();
+        uart_printstr("6\r\n");
+
+        // rotary_button_update();
+        uart_printstr("7\r\n");
+
+        switch_led_update();
+        uart_printstr("8\r\n");
+
         key = keypad_read();
 
         if (key >= 0)
