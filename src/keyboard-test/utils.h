@@ -14,6 +14,7 @@
 #define WRITE 0
 #define READ 1
 
+
 #define MCP23017_ADDR 0x20 // A0/A1/A2 = GND
 #define MCP_IODIRA 0x00 // pour config les pin GPA0-7 
 #define MCP_GPIOA 0x12 // lit ou ecrit l'etat actuel des pin GPA
@@ -30,7 +31,8 @@ void draw_menu(void);
 
 void i2c_init(void);
 void i2c_write(unsigned char data);
-void i2c_start(uint8_t addr);
+uint8_t i2c_start(uint8_t addr);
+void i2c_stop(void);
 void print_hex_value(char c);
 uint8_t i2c_read_byte(void);
 
