@@ -2,14 +2,20 @@
 #include <SD.h>
 #include <Arduino_GFX_Library.h>
 
-// Strategy is to build a small buffer (fixed size, i.e. a single row)
-// You fill that buffer
-// Translate the data and push the pixels directly to the screen driver
-// Rinse and repeat
+#define BLACK 0x0000
+#define WHITE 0xFFFF
+#define RED 0xF800
+#define GREEN 0x07E0
+#define BLUE 0x001F
 
 Sd2Card card;
 SdVolume volume;
 SdFile root;
+File myFile;
+
+Arduino_DataBus *bus = new Arduino_HWSPI(11, 53);
+// Arduino_GFX *gfx = new Arduino_ST7796(bus, 12);
+Arduino_GFX *gfx = new Arduino_ILI9488_18bit(bus, 12);
 
 const int sd_select = 10;
 const int lcd_select = 53;
@@ -19,9 +25,15 @@ void setup() {
   while (!Serial)
     ;
 
+  Serial.print("\nInitializing TFT Screen...");
+
+  gfx->begin();
+  delay(1000);
+  gfx->fillScreen(RED);
+
   Serial.print("\nInitializing SD card...");
 
-  if (!card.init(SPI_HALF_SPEED, chipSelect)) {
+  if (!card.init(SPI_HALF_SPEED, sd_select)) {
     Serial.println("initialization failed. Things to check:");
     Serial.println("* is a card inserted?");
     Serial.println("* is your wiring correct?");
@@ -78,8 +90,28 @@ void setup() {
   Serial.print("Volume size (GB):  ");
   Serial.println((float)volumesize / 1024.0);
 
-  Serial.println("\nFiles found on the card (name, date and size in bytes): ");
   root.openRoot(volume);
+
+  // Strategy is to build a small buffer (fixed size, i.e. a single row)
+  // You fill that buffer
+  // Translate the data and push the pixels directly to the screen driver
+  // Rinse and repeat
+
+  //open file
+  SD.begin(sd_select);
+  myFile = SD.open("mads.raw", FILE_READ);
+
+  if (myFile) {
+    uint8_t rowBuffer[640];
+    for (uint16_t current_row = 0 ; current_row < 480 ; current_row++) {
+      myFile.read(rowBuffer, 640);
+      gfx->draw16bitRGBBitmap(0, current_row, (uint16_t *)rowBuffer, 320, 1);
+    }
+    myFile.close();
+    Serial.println("Image drawn successfully!");
+  } else {
+    Serial.println("Error: Could not open the RAW file.");
+  }
 }
 
 void loop() {
