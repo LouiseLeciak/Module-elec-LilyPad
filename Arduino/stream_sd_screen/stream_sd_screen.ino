@@ -52,12 +52,18 @@ void setup() {
   gfx->fillScreen(BLACK);
 
   // 4. Open the file from the root directory using the low-level command
-  Serial.println("Drawing test.raw...");
-  if (myFile.open(&root, "test.raw", O_READ)) {
+  Serial.println("Drawing test.bmp...");
+  if (myFile.open(&root, "test.bmp", O_READ)) {
     
     // Your exact drawing loop (flawless logic!)
     uint8_t rowBuffer[640];
-    for (uint16_t current_row = 0; current_row < 480; current_row++) {
+
+    uint32_t imageOffset;
+    myFile.seekSet(10);                // Go to the map that tells us where the pixels start
+    myFile.read(&imageOffset, 4);      // Read that exact starting address
+    myFile.seekSet(imageOffset);       // Jump straight to the pixels!
+
+    for (int16_t current_row = 480; current_row >= 0; current_row--) {
       myFile.read(rowBuffer, 640);
       gfx->draw16bitRGBBitmap(0, current_row, (uint16_t *)rowBuffer, 320, 1);
     }
