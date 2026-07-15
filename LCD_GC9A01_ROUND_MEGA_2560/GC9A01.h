@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/15 13:00:29 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 15:34:14 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
     // ─── Pin macros ───────────────────────────────────────────────────────────────
     
-    #define CS_LOW() PORTL &= ~(1 << PL0) // CS MAIN LCD
-    #define CS_HIGH()  PORTL |=  (1 << PL0) // CD MAIN LCD
+   
     
     #define CS_LEFT_EYE_LOW()   PORTL &= ~(1 << PL1) // D10 PB4
     #define CS_LEFT_EYE_HIGH()  PORTL |=  (1 << PL1) // D10 PB4
@@ -26,8 +25,7 @@
     #define DC_HIGH()  PORTL |=  (1 << PL4) // D11 PB5
     #define RST_LOW()  PORTL &= ~(1 << PL2) // D13 PB7
     #define RST_HIGH() PORTL |=  (1 << PL2) // D13 PB7
-    #define MAIN_LCD_RST_LOW()  PORTL &= ~(1 << PL7) // D12 PB6
-    #define MAIN_LCD_RST_HIGH() PORTL |=  (1 << PL7) // D12 PB6
+
     
     
     
@@ -38,6 +36,9 @@
     
     #define LEFT_EYE 1
     #define RIGHT_EYE 2
+    #define BOTH_EYES 4
+    #define MAIN_LCD 3
+
     
     
 

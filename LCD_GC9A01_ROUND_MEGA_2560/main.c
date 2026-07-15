@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/15 13:05:19 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 15:37:17 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,36 +38,34 @@
 
 // ─── ili9341 low-level ───────────────────────────────────────────────────────
 
+#define MAIN_LCD_MAX_PIXEL_WIDTH 320
+#define MAIN_LCD_MAX_PIXEL_HIGH 480
+#define MAIN_LCD_RST_LOW()  PORTL &= ~(1 << PL7) // D12 PB6
+#define MAIN_LCD_RST_HIGH() PORTL |=  (1 << PL7) // D12 PB6 
+#define MAIN_LCD_CS_LOW() PORTL &= ~(1 << PL0) // CS MAIN LCD
+#define MAIN_LCD_CS_HIGH()  PORTL |=  (1 << PL0) // CD MAIN LCD
+
 void ili9341_cmd(uint8_t cmd) {
     DC_LOW();
-    CS_LOW();
+    MAIN_LCD_CS_LOW();
     spi_send(cmd);
-    CS_HIGH();
+    MAIN_LCD_CS_HIGH();
 }
 
 void ili9341_data(uint8_t data) {
     DC_HIGH();
-    CS_LOW();
+    MAIN_LCD_CS_LOW();
     spi_send(data);
-    CS_HIGH();
+    MAIN_LCD_CS_HIGH();
 }
 
-void ili9341_init(void) {
-    RST_LOW();  _delay_ms(100);
-    RST_HIGH(); _delay_ms(100);
-    ili9341_cmd(0x01);          // software reset
-    _delay_ms(150);
-    ili9341_cmd(0x11);          // sleep out
-    _delay_ms(150);
-    ili9341_cmd(0x3A);          // pixel format
-    ili9341_data(0x55);         // 16-bit color (RGB565)
-    ili9341_cmd(0x29);          // display on
-}
 
 
 void st7796_init(void) {
-    RST_LOW();  _delay_ms(100);
-    RST_HIGH(); _delay_ms(120);
+    MAIN_LCD_RST_LOW();  
+    _delay_ms(100);
+    MAIN_LCD_RST_HIGH(); 
+    _delay_ms(120);
 
     ili9341_cmd(0x01);          // software reset
     _delay_ms(150);
@@ -109,48 +107,10 @@ void set_window_main(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
 }
 
 
-uint8_t ft_main_strlen(const char *str) {
-     uint8_t len = 0;
-    while (str && *str) {
-        len++;
-        str++;
-    }
-    return (len);    
-}
-
-
-void draw_pixel(uint16_t x, uint16_t y, uint16_t color) {
-    set_window_main(x, y, (MAX_PIXEL_WIDTH) - 1, MAX_PIXEL_HIGH - 1);
-    DC_HIGH();
-    CS_LOW();
+void draw_pixel(uint16_t color) {
     spi_send(color >> 8);
     spi_send(color & 0xFF);
-    CS_HIGH();
 }
-
-
-
-
-void draw_color_screen(uint16_t color) {
-    set_window_main(0, 0, MAX_PIXEL_WIDTH - 1, MAX_PIXEL_HIGH - 1);
-
-    DC_HIGH();
-    CS_LOW();
-
-    uint8_t hi = color >> 8;
-    uint8_t lo = color & 0xFF;
-
-    for (uint32_t i = 0; i < (uint32_t)MAX_PIXEL_WIDTH * MAX_PIXEL_HIGH; i++) {
-        spi_send(hi);
-        spi_send(lo);
-    }
-
-    CS_HIGH();
-}
-
-
-
-
 
 void set_window(uint8_t screen, uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
     GC9A01_cmd(0x2A, screen);
@@ -160,17 +120,6 @@ void set_window(uint8_t screen, uint16_t x0, uint16_t y0, uint16_t x1, uint16_t 
     GC9A01_data(y0 >> 8, screen); GC9A01_data(y0 & 0xFF, screen);
     GC9A01_data(y1 >> 8, screen); GC9A01_data(y1 & 0xFF, screen);
     GC9A01_cmd(0x2C, screen);
-}
-
-void draw_pixel_main(uint16_t x, uint16_t y, uint16_t color) {
-    (void)x;
-    (void)y;
-    // set_window(LEFT_EYE, x, y, x, y);
-    // DC_HIGH();
-    // CS_LEFT_EYE_LOW();
-    spi_send(color >> 8);
-    spi_send(color & 0xFF);
-    // CS_LEFT_EYE_HIGH();
 }
 
 
@@ -201,54 +150,25 @@ void GC9A01_draw_color_screen(uint8_t screen, uint16_t color) {
             spi_send(lo);
         }
         CS_RIGHT_EYE_HIGH();
+    } else if (screen == MAIN_LCD) {
+        set_window_main(0, 0, MAIN_LCD_MAX_PIXEL_WIDTH - 1, MAIN_LCD_MAX_PIXEL_HIGH - 1);
+        uint8_t hi = color >> 8;
+        uint8_t lo = color & 0xFF;
+        DC_HIGH();
+        MAIN_LCD_CS_LOW();
+        for (uint32_t i = 0; i < (uint32_t)MAIN_LCD_MAX_PIXEL_WIDTH * MAIN_LCD_MAX_PIXEL_HIGH; i++) {
+        
+            spi_send(hi);
+            spi_send(lo);
+        }
+        MAIN_LCD_CS_HIGH();
+    } else {
+        return ;
     }
+
 
     
 }
-
-uint8_t reverse_bits(uint8_t b) {
-    b = (b & 0xF0) >> 4 | (b & 0x0F) << 4;
-    b = (b & 0xCC) >> 2 | (b & 0x33) << 2;
-    b = (b & 0xAA) >> 1 | (b & 0x55) << 1;
-    return b;
-}
-
-
-uint8_t img[50][50] = {
-  {0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0},
-  {0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {1,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,1},
-  {0,1,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,1,0},
-  {0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0}
-};
-
-void draw_small_image(int x0, int y0) {
-    for (int y = 0; y < 50; y++) {
-        for (int x = 0; x < 50; x++) {
-            uint16_t color = img[y][x] ? 0xFFFF : 0x0000; // white or black
-            draw_pixel(x0 + x, y0 + y, color);
-        }
-    }
-}
-
 
 void GC9A01_draw_square(uint16_t pixels, uint16_t color) {
     uint8_t hi = color >> 8;
@@ -260,31 +180,6 @@ void GC9A01_draw_square(uint16_t pixels, uint16_t color) {
 }
 
 
-void draw_circle_ring(int cx, int cy, int r, uint16_t color) {
-    int x = r;
-    int y = 0;
-    int d = 1 - r;
-
-    while (x >= y) {
-        draw_pixel(cx + x, cy + y, color);
-        draw_pixel(cx + y, cy + x, color);
-        draw_pixel(cx - y, cy + x, color);
-        draw_pixel(cx - x, cy + y, color);
-        draw_pixel(cx - x, cy - y, color);
-        draw_pixel(cx - y, cy - x, color);
-        draw_pixel(cx + y, cy - x, color);
-        draw_pixel(cx + x, cy - y, color);
-
-        y++;
-
-        if (d < 0) {
-            d += 2*y + 1;
-        } else {
-            x--;
-            d += 2*(y - x) + 1;
-        }
-    }
-}
 
 const uint8_t Eye_Front[] PROGMEM = {
    0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,
@@ -1492,30 +1387,22 @@ const uint8_t Eye_look_Right[] PROGMEM = {
    0x10, 0x49, 0x55, 0x55, 0x6d, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff 
 };
 
-/// function 
 
 void drawEyeLeft(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg) {
     uint16_t newfg;
-    // set_window(LEFT_EYE, 0, 0, 239, 239);
-    // DC_HIGH();
-    // CS_LEFT_EYE_LOW();
     for (int line = 0; line < maxNbrLines; line++) {
         for (int byte = 0; byte < hSizeBytes; byte++) {
             uint8_t b = pgm_read_byte(&file[((maxNbrLines - 1) - line) * hSizeBytes + byte]); // read rows bottom-up
-           
             for (int bit = 0; bit < 8; bit++) {
-                int x = byte * 8 + bit;
                 uint8_t pixel = (b >> bit) & 1;
                 if (b == 0x00)
                     newfg = fg;
                 else
                     newfg = GC9A01A_COLOR_YELLOW;
-                draw_pixel(x, line, pixel ? bg : newfg);
+                draw_pixel(pixel ? bg : newfg);
             }
         }
     }
-    // CS_LEFT_EYE_HIGH();
-    
 }
 
 
@@ -1523,49 +1410,27 @@ void setup() {
     
     uart_init();
     spi_init();
+    st7796_init();
     GC9A01_init(LEFT_EYE);
     GC9A01_init(RIGHT_EYE);
-    st7796_init();
-
-
 }
-
-// void draw_rect(volatile uint8_t *port, uint8_t pin, uint8_t eye, uint8_t x, uint8_t y, uint8_t sizeX, uint8_t sizeY, uint16_t color) {
-//     uint32_t pixels = (uint32_t)sizeX * sizeY;   
-//     set_window(eye, x, y, x + sizeX - 1, y + sizeY - 1);
-//     DC_HIGH();
-//     *port &= ~(1 << pin);     // LOW
-//     GC9A01_draw_square(pixels, color);
-//     *port |= (1 << pin);     // HIGH
-//     _delay_ms(500);
-
-// }
 
 void draw_rect(uint8_t sizeX, uint8_t sizeY, uint16_t color) {
     uint32_t pixels = (uint32_t)sizeX * sizeY;   
-    // set_window(eye, x, y, x + sizeX - 1, y + sizeY - 1);
-    // DC_HIGH();
-    // *port &= ~(1 << pin);     // LOW
     GC9A01_draw_square(pixels, color);
-    // *port |= (1 << pin);     // HIGH
-    // _delay_ms(500);
-
 }
-
-
-
 
 
 void Frog_blink(int nbr, uint8_t screen) {
 
 
-    if (screen == LEFT_EYE)  {
+    if (screen == BOTH_EYES)  {
         
         for( int i = 0; i < nbr; i++) {
             
             // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xC8, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xC8, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
             
             set_window(LEFT_EYE, 0, 0, 240, 220);
             set_window(RIGHT_EYE, 0, 0, 240, 220);
@@ -1576,138 +1441,48 @@ void Frog_blink(int nbr, uint8_t screen) {
             draw_rect(240, 220, GC9A01A_COLOR_LIME);
             CS_LEFT_EYE_HIGH();
             CS_RIGHT_EYE_HIGH();
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xC8, LEFT_EYE);  // 0x08 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xC8, RIGHT_EYE);  // 0x08 180 deg
             
             set_window(LEFT_EYE, 0, 0, 239, 239);
             set_window(RIGHT_EYE, 0, 0, 239, 239);
             DC_HIGH();
             CS_LEFT_EYE_LOW();
             CS_RIGHT_EYE_LOW();
+                        // draw_rect(240, 220, GC9A01A_COLOR_BLUE);
+
             drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
             CS_LEFT_EYE_HIGH();
             CS_RIGHT_EYE_HIGH();
-            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xC8, LEFT_EYE);  // 0xC8 180 deg
-            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xC8, RIGHT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg
+            GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
 
-    }
-
-    } else if (screen == RIGHT_EYE)  {
-
-    for( int i = 0; i < nbr; i++) {
-
-        // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
-
-        // draw_rect(&PORTB, PB0, RIGHT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
-        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
-        set_window(RIGHT_EYE, 0, 0, 239, 239);
-        DC_HIGH();
-        CS_RIGHT_EYE_LOW();
-        drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-        CS_RIGHT_EYE_HIGH();
-        GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0x08, RIGHT_EYE);  // 0xC8 180 deg
-
-    }
-
-       
-
-        // GC9A01_cmd(0x29, 1); // display on
-
-    }
-    
+        }
+    } 
 }
 
 
-// void Frog_look_right(const uint8_t *file, int close_lid ) {
 
-//     GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg    
-//     // draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
-//     GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB, LEFT_EYE);  // 0xC8 180 deg
-//     drawEyeLeft(file, 240, 30, GC9A01A_COLOR_LIME, GC9A01A_COLOR_BLACK);
-
-//     GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08, LEFT_EYE);  // 0xC8 180 deg    
-//     // draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, close_lid, GC9A01A_COLOR_OLIVE);
-// }
-
-void Frog_eye_start() {
-
-
-    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
-    GC9A01_cmd(0x29, 1);        
-    // _delay_ms(1000);
-
-    GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB, LEFT_EYE);  // 0xC8 180 deg
-    
-    drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-    // _delay_ms(3000);
-    
-}
 
 void Frog_start_eyes() {
 
-
-    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_LIME);
-    // _delay_ms(200);
-    GC9A01_draw_color_screen(RIGHT_EYE, GC9A01A_COLOR_LIME);
-    // _delay_ms(200);
+    GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_YELLOW);
+    GC9A01_draw_color_screen(RIGHT_EYE, GC9A01A_COLOR_YELLOW);
     GC9A01_cmd(0x29, LEFT_EYE);        
     GC9A01_cmd(0x29, RIGHT_EYE);        
-    // _delay_ms(1000);
-
-    // GC9A01_cmd(0x36, RIGHT_EYE); GC9A01_data(0xCB, RIGHT_EYE);  // 0xC8 180 deg
-    
-    // drawEyeLeft(Eye_Front, 240, 30, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_BLACK);
-    // _delay_ms(3000);
-    
 }
 
-
 int main(void) {
-    //    wdt_reset();
-    
-    // read reset cause
-    
 
     setup();
 
-    
     Frog_start_eyes();
+    GC9A01_draw_color_screen(MAIN_LCD, GC9A01A_COLOR_BLUE);
 
-    draw_color_screen(GC9A01A_COLOR_BLUE);
-
-    // Frog_blink(2, RIGHT_EYE);
-
-    // GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
-    // GC9A01_cmd(0x29, 1);        
-    // _delay_ms(1000);
-    // GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB);  // 0xC8 180 deg
-
-    // drawEyeLeft(Eye_Bottom_Left, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-
+    _delay_ms(50);
     while (1) {
-
-    Frog_blink(10, LEFT_EYE);
-  
-
-    
-    //     drawEyeLeft(Eye_Front, 240, 30, 0, 0, GC9A01A_COLOR_YELLOW, GC9A01A_COLOR_BLACK);
-    //     GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0x08);  // 0xC8 180 deg
-
-    //     draw_rect(&PORTB, PB4, LEFT_EYE, 0, 0, 240, 220, GC9A01A_COLOR_OLIVE);
-    //     GC9A01_cmd(0x36, LEFT_EYE); GC9A01_data(0xCB);  // 0xC8 180 deg
-
-
-    // Frog_look_right(Eye_look_Right, 80);
-    
+    Frog_blink(10, BOTH_EYES);    
     _delay_ms(3000);
-
-
-    
-    // Frog_blink(1);
-       
-
-    //     // GC9A01_cmd(0x29, 1); // display on
 
     }
     return 0;
