@@ -52,8 +52,8 @@ void setup() {
   gfx->fillScreen(BLACK);
 
   // 4. Open the file from the root directory using the low-level command
-  Serial.println("Drawing mads.raw...");
-  if (myFile.open(&root, "mads.raw", O_READ)) {
+  Serial.println("Drawing test.raw...");
+  if (myFile.open(&root, "test.raw", O_READ)) {
     
     // Your exact drawing loop (flawless logic!)
     uint8_t rowBuffer[640];
