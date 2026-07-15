@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/15 12:43:07 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 13:00:29 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
     // ─── Pin macros ───────────────────────────────────────────────────────────────
     
-    #define CS_LOW(eye)   CS_##eye##_EYE_LOW()
-    #define CS_HIGH(eye)  CS_##eye##_EYE_HIGH()
+    #define CS_LOW() PORTL &= ~(1 << PL0) // CS MAIN LCD
+    #define CS_HIGH()  PORTL |=  (1 << PL0) // CD MAIN LCD
     
     #define CS_LEFT_EYE_LOW()   PORTL &= ~(1 << PL1) // D10 PB4
     #define CS_LEFT_EYE_HIGH()  PORTL |=  (1 << PL1) // D10 PB4

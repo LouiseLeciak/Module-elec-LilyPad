@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/06 17:56:41 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 13:05:19 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,122 @@
 #include "tools.h"
 
 
+// ─── ili9341 low-level ───────────────────────────────────────────────────────
+
+void ili9341_cmd(uint8_t cmd) {
+    DC_LOW();
+    CS_LOW();
+    spi_send(cmd);
+    CS_HIGH();
+}
+
+void ili9341_data(uint8_t data) {
+    DC_HIGH();
+    CS_LOW();
+    spi_send(data);
+    CS_HIGH();
+}
+
+void ili9341_init(void) {
+    RST_LOW();  _delay_ms(100);
+    RST_HIGH(); _delay_ms(100);
+    ili9341_cmd(0x01);          // software reset
+    _delay_ms(150);
+    ili9341_cmd(0x11);          // sleep out
+    _delay_ms(150);
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+    ili9341_cmd(0x29);          // display on
+}
+
+
+void st7796_init(void) {
+    RST_LOW();  _delay_ms(100);
+    RST_HIGH(); _delay_ms(120);
+
+    ili9341_cmd(0x01);          // software reset
+    _delay_ms(150);
+
+    ili9341_cmd(0x11);          // sleep out
+    _delay_ms(150);
+
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+
+    ili9341_cmd(0x36);          // memory access control (orientation / RGB-BGR)
+    ili9341_data(0x48);         // MX + BGR (portrait, ajustez si besoin)
+
+    // ili9341_cmd(0x21);          // display inversion ON (requis sur la plupart des ST7796)
+
+    ili9341_cmd(0x13);          // normal display mode on
+
+    ili9341_cmd(0x29);          // display on
+    _delay_ms(50);
+}
+
+
+
+
+// ─── Drawing primitives ──────────────────────────────────────────────────────
+
+void set_window_main(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+    ili9341_cmd(0x2A);
+    ili9341_data(x0 >> 8);
+    ili9341_data(x0 & 0xFF);
+    ili9341_data(x1 >> 8);
+    ili9341_data(x1 & 0xFF);
+    ili9341_cmd(0x2B);
+    ili9341_data(y0 >> 8);
+    ili9341_data(y0 & 0xFF);
+    ili9341_data(y1 >> 8);
+    ili9341_data(y1 & 0xFF);
+    ili9341_cmd(0x2C);
+}
+
+
+uint8_t ft_main_strlen(const char *str) {
+     uint8_t len = 0;
+    while (str && *str) {
+        len++;
+        str++;
+    }
+    return (len);    
+}
+
+
+void draw_pixel(uint16_t x, uint16_t y, uint16_t color) {
+    set_window_main(x, y, (MAX_PIXEL_WIDTH) - 1, MAX_PIXEL_HIGH - 1);
+    DC_HIGH();
+    CS_LOW();
+    spi_send(color >> 8);
+    spi_send(color & 0xFF);
+    CS_HIGH();
+}
+
+
+
+
+void draw_color_screen(uint16_t color) {
+    set_window_main(0, 0, MAX_PIXEL_WIDTH - 1, MAX_PIXEL_HIGH - 1);
+
+    DC_HIGH();
+    CS_LOW();
+
+    uint8_t hi = color >> 8;
+    uint8_t lo = color & 0xFF;
+
+    for (uint32_t i = 0; i < (uint32_t)MAX_PIXEL_WIDTH * MAX_PIXEL_HIGH; i++) {
+        spi_send(hi);
+        spi_send(lo);
+    }
+
+    CS_HIGH();
+}
+
+
+
+
+
 void set_window(uint8_t screen, uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
     GC9A01_cmd(0x2A, screen);
     GC9A01_data(x0 >> 8, screen); GC9A01_data(x0 & 0xFF, screen);
@@ -46,7 +162,7 @@ void set_window(uint8_t screen, uint16_t x0, uint16_t y0, uint16_t x1, uint16_t 
     GC9A01_cmd(0x2C, screen);
 }
 
-void draw_pixel(uint16_t x, uint16_t y, uint16_t color) {
+void draw_pixel_main(uint16_t x, uint16_t y, uint16_t color) {
     (void)x;
     (void)y;
     // set_window(LEFT_EYE, x, y, x, y);
@@ -1409,6 +1525,7 @@ void setup() {
     spi_init();
     GC9A01_init(LEFT_EYE);
     GC9A01_init(RIGHT_EYE);
+    st7796_init();
 
 
 }
@@ -1557,7 +1674,8 @@ int main(void) {
     
     Frog_start_eyes();
 
-    
+    draw_color_screen(GC9A01A_COLOR_BLUE);
+
     // Frog_blink(2, RIGHT_EYE);
 
     // GC9A01_draw_color_screen(LEFT_EYE, GC9A01A_COLOR_OLIVE);
