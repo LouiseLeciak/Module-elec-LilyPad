@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/06 12:04:37 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 12:43:07 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,16 @@
     #define CS_LOW(eye)   CS_##eye##_EYE_LOW()
     #define CS_HIGH(eye)  CS_##eye##_EYE_HIGH()
     
-    #define CS_LEFT_EYE_LOW()   PORTB &= ~(1 << PB4)
-    #define CS_LEFT_EYE_HIGH()  PORTB |=  (1 << PB4)
-    #define CS_RIGHT_EYE_LOW()   PORTB &= ~(1 << PB0)
-    #define CS_RIGHT_EYE_HIGH()  PORTB |=  (1 << PB0)
-    #define DC_LOW()   PORTB &= ~(1 << PB5)
-    #define DC_HIGH()  PORTB |=  (1 << PB5)
-    #define RST_LOW()  PORTB &= ~(1 << PB7)
-    #define RST_HIGH() PORTB |=  (1 << PB7)
-    
+    #define CS_LEFT_EYE_LOW()   PORTL &= ~(1 << PL1) // D10 PB4
+    #define CS_LEFT_EYE_HIGH()  PORTL |=  (1 << PL1) // D10 PB4
+    #define CS_RIGHT_EYE_LOW()   PORTL &= ~(1 << PL6)  // D53 PB0
+    #define CS_RIGHT_EYE_HIGH()  PORTL |=  (1 << PL6) // D53 PB0
+    #define DC_LOW()   PORTL &= ~(1 << PL4) // D11 PB5
+    #define DC_HIGH()  PORTL |=  (1 << PL4) // D11 PB5
+    #define RST_LOW()  PORTL &= ~(1 << PL2) // D13 PB7
+    #define RST_HIGH() PORTL |=  (1 << PL2) // D13 PB7
+    #define MAIN_LCD_RST_LOW()  PORTL &= ~(1 << PL7) // D12 PB6
+    #define MAIN_LCD_RST_HIGH() PORTL |=  (1 << PL7) // D12 PB6
     
     
     

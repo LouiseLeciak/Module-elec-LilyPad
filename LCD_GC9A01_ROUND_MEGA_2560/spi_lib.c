@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 10:31:22 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/06 11:58:08 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/15 12:48:15 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,18 @@
 #include "spi_lib.h"
 
 // ─── SPI ---------------------------------------------------------------------
+//   | (1 << PB4)   // CS
+// | (1 << PB5)   // DC - PB5
+// | (1 << PB7);  // RST
 
 void spi_init(void) {
     DDRB |= (1 << PB2)   // MOSI
-          | (1 << PB1)   // SCK
-          | (1 << PB0)   // SS - CS2
-          | (1 << PB4)   // CS
-          | (1 << PB5)   // DC
-          | (1 << PB7);  // RST
+    | (1 << PB1)   // SCK
+    | (1 << PB0); // SS 
 
-    PORTB |= (1 << PB0);              // SS idle high
+    DDRL |= (1 << PL1) // CS LEFT EYE
+        | (1 << PL4)   // DC - PB5
+        | (1 << PL6);  // CS RIGHT EYE
 
     SPCR = (1 << SPE) | (1 << MSTR); // SPI enable, master, fosc/4
     SPSR = (1 << SPI2X);              // fosc/2 = 8MHz
