@@ -13,6 +13,7 @@ Sd2Card card;
 SdVolume volume;
 SdFile root;
 SdFile myFile; 
+uint8_t rowBuffer[640];
 
 Arduino_DataBus *bus = new Arduino_HWSPI(11, 53);
 Arduino_GFX *gfx = new Arduino_ILI9488_18bit(bus, 12);
@@ -25,15 +26,8 @@ void setup() {
   Serial.begin(9600);
   while (!Serial);
 
- // 1. Lock the SPI bus
-  pinMode(sd_select, OUTPUT);
-  digitalWrite(sd_select, HIGH);
-  pinMode(lcd_select, OUTPUT);
-  digitalWrite(lcd_select, HIGH);
-
-  // 2. Wake up the SD card FIRST (Before the screen hijacks the bus!)
   Serial.print("\nInitializing SD card...");
-  if (!card.init(SPI_HALF_SPEED, sd_select)) {
+  if (!card.init(SPI_FULL_SPEED, sd_select)) {
     Serial.println("CRITICAL ERROR: The SD card completely failed to mount at half speed!");
     while (1);
   }
@@ -45,25 +39,21 @@ void setup() {
   root.openRoot(volume);
   Serial.println("\nCard mounted ok!");
 
-  // 3. WAKE UP THE SCREEN LAST
   Serial.print("\nInitializing TFT Screen...");
   gfx->begin();
   delay(1000);
   gfx->fillScreen(BLACK);
 
-  // 4. Open the file from the root directory using the low-level command
   Serial.println("Drawing test.bmp...");
   if (myFile.open(&root, "test.bmp", O_READ)) {
-    
-    // Your exact drawing loop (flawless logic!)
-    uint8_t rowBuffer[640];
 
     uint32_t imageOffset;
-    myFile.seekSet(10);                // Go to the map that tells us where the pixels start
-    myFile.read(&imageOffset, 4);      // Read that exact starting address
-    myFile.seekSet(imageOffset);       // Jump straight to the pixels!
+    // Offset 10 tells us where the pixels start (https://en.wikipedia.org/wiki/BMP_file_format#Bitmap_file_header)
+    myFile.seekSet(10);                
+    myFile.read(&imageOffset, 4); // Read that exact starting address
+    myFile.seekSet(imageOffset);  // Jump straight to that address
 
-    for (int16_t current_row = 480; current_row >= 0; current_row--) {
+    for (int16_t current_row = 479; current_row >= 0; current_row--) {
       myFile.read(rowBuffer, 640);
       gfx->draw16bitRGBBitmap(0, current_row, (uint16_t *)rowBuffer, 320, 1);
     }
