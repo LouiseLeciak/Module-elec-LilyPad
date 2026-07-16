@@ -1,0 +1,114 @@
+#include <Wire.h>
+
+#define MCP23017_ADDR 0x20
+
+// Registres MCP23017
+#define IODIRA 0x00
+#define GPPUA  0x0C
+#define GPIOA  0x12
+
+// Broches MCP23017
+#define CLK 5
+#define SW  6
+#define DT  7
+
+byte oldCLK;
+byte oldSW;
+
+
+// Ecrit un registre du MCP23017
+void mcpWrite(byte reg, byte value)
+{
+  Wire.beginTransmission(MCP23017_ADDR);
+  Wire.write(reg);
+  Wire.write(value);
+  Wire.endTransmission();
+}
+
+
+// Lit le port GPIOA complet
+byte mcpReadGPIOA()
+{
+  Wire.beginTransmission(MCP23017_ADDR);
+  Wire.write(GPIOA);
+  Wire.endTransmission();
+
+  Wire.requestFrom(MCP23017_ADDR, 1);
+
+  if (Wire.available())
+    return Wire.read();
+
+  return 0;
+}
+
+
+void setup()
+{
+  Serial.begin(115200);
+
+  // Mega 2560 :
+  // SDA = pin 20
+  // SCL = pin 21
+  Wire.begin();
+
+
+  // Toutes les broches GPA en entrée
+  mcpWrite(IODIRA, 0b11111111);
+
+
+  // Pull-up internes sur GPA5, GPA6, GPA7
+  // bits 7 6 5 activés
+  mcpWrite(GPPUA, 0b11100000);
+
+
+  delay(100);
+
+
+  byte value = mcpReadGPIOA();
+
+  oldCLK = bitRead(value, CLK);
+  oldSW  = bitRead(value, SW);
+
+
+  Serial.println("MCP23017 + Encodeur pret");
+}
+
+
+void loop()
+{
+  byte value = mcpReadGPIOA();
+
+
+  byte clk = bitRead(value, CLK);
+  byte dt  = bitRead(value, DT);
+  byte sw  = bitRead(value, SW);
+
+
+  // Détection rotation
+  if (oldCLK == HIGH && clk == LOW)
+  {
+    if (dt == HIGH)
+    {
+      Serial.println("Rotation horaire");
+    }
+    else
+    {
+      Serial.println("Rotation antihoraire");
+    }
+  }
+
+
+  oldCLK = clk;
+
+
+  // Bouton
+  if (oldSW == HIGH && sw == LOW)
+  {
+    Serial.println("Bouton appuye");
+  }
+
+  oldSW = sw;
+
+
+  delay(2);
+}

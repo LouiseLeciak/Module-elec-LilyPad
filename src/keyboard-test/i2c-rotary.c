@@ -4,6 +4,7 @@
 void i2c_init(void)
 {
     // TWI control register, TWI Enable Bit p240
+    // TWEN - TWI enable bit
     TWCR |= (1 << TWEN);
 
     // prescaler = 1
@@ -17,14 +18,20 @@ void i2c_init(void)
 
 void mcp_init(void)
 {
+    // pour configurer tous les pins du port A en entree
+    // quand IODIRA = 1 alors entree
+    // https://www.alldatasheet.com/datasheet-pdf/download/195324/MICROCHIP/MCP23017.html
+    // p12
     mcp_write_register(MCP_IODIRA, 0xFF);
 
+    // pareil mais avec GPPUA pour les pullup internes
     mcp_write_register(MCP_GPPUA, 0xFF);
 }
 
 void i2c_stop(void)
 {
     // p225 7
+    // twsto = stop condition
     TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO);
     while (TWCR & (1 << TWSTO))
         ;
@@ -81,8 +88,12 @@ uint8_t i2c_start(uint8_t addr)
     uint32_t timeout = 100000;
 
     // Envoi de la condition START
+    // twsta demande l'emission du start
+    // et twint lance l'operayion
+    // p225
     TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
 
+    // on attend la fin du start
     while (!(TWCR & (1 << TWINT)))
     {
         if (--timeout == 0)
@@ -92,6 +103,7 @@ uint8_t i2c_start(uint8_t addr)
         }
     }
 
+    // on check si le starts ou repeted start a bien ete envoye
     if (TW_STATUS != TW_START && TW_STATUS != TW_REP_START)
     {
         uart_printstr("START ERROR : ");
@@ -102,6 +114,8 @@ uint8_t i2c_start(uint8_t addr)
 
     // Envoi de l'adresse + bit R/W
     TWDR = addr;
+
+    // lancer la transmisison
     TWCR = (1 << TWINT) | (1 << TWEN);
 
     timeout = 100000;
@@ -115,14 +129,14 @@ uint8_t i2c_start(uint8_t addr)
         }
     }
 
-    // Vérification de l'ACK suivant le type d'accès
+    // Verifier que le slave dit ack
     if ((addr & 1) == WRITE)
     {
         if (TW_STATUS != TW_MT_SLA_ACK)
         {
-            // uart_printstr("ADDRESS ERROR : ");
-            // print_hex_value(TW_STATUS);
-            // uart_printstr("\r\n");
+            uart_printstr("ADDRESS ERROR : ");
+            print_hex_value(TW_STATUS);
+            uart_printstr("\r\n");
             return 0;
         }
     }
@@ -145,22 +159,28 @@ uint8_t mcp_read_register(uint8_t reg)
 {
     uint8_t value;
 
+    // commence une ecriture, commencer par ecrire pour dire
+    // quel registre interne du mcp sera lu
     if (!i2c_start((MCP23017_ADDR << 1) | WRITE))
         return 0;
 
+    // on envois l'adresse du registre
     i2c_write(reg);
 
+    // passe en lecture
     if (!i2c_start((MCP23017_ADDR << 1) | READ))
     {
         i2c_stop();
         return 0;
     }
 
+// comme TWEA = 0 alors un nack est envoye automatiquement
     TWCR = (1 << TWINT) | (1 << TWEN);
 
     while (!(TWCR & (1 << TWINT)))
         ;
 
+    // valeur du registre
     value = TWDR;
 
     i2c_stop();
@@ -172,15 +192,19 @@ void mcp_write_register(uint8_t reg, uint8_t value)
 {
     uart_printstr("mcp start\r\n");
 
+    // debut de transaction i2c
     if (!i2c_start((MCP23017_ADDR << 1) | WRITE))
         return;
 
     uart_printstr("addr sent\r\n");
 
+    // on envois l'adresse du registre a modifier
+    // 1.3.2.1 p5 mcp datasheet
     i2c_write(reg);
 
     uart_printstr("reg sent\r\n");
 
+    // ecrire la nouvelle valeur dans le registre en question
     i2c_write(value);
 
     uart_printstr("value sent\r\n");

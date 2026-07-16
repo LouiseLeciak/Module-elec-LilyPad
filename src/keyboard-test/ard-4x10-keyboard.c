@@ -227,7 +227,7 @@ void rotary_update(void)
 //? Probablement pas opti comme verification, probablement a retaper
 void rotary_button_update(void)
 {
-    static uint8_t prev_sw = 1; // etat precedent du bouton
+    static uint8_t prev_sw = 0; // etat precedent du bouton
     uint8_t sw;          // etat actuel
 
     uint8_t gpio = mcp_read_register(MCP_GPIOA);
@@ -330,10 +330,7 @@ int main(void)
 
     mcp_init();
 
-    //! print un semi menu - 1 mot au clavier, 2 image to mot et 3 jeu
-    //! par exemple
-
-    draw_menu();
+    // draw_menu();
 
     keypad_init();
 
