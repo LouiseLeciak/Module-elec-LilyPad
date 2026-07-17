@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/17 17:16:32 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/17 20:51:29 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@
 
 // ─── ili9341 low-level ───────────────────────────────────────────────────────
 
-// #define MAIN_LCD_MAX_PIXEL_WIDTH 320
-// #define MAIN_LCD_MAX_PIXEL_HIGH 480
-#define MAIN_LCD_MAX_PIXEL_WIDTH 240
-#define MAIN_LCD_MAX_PIXEL_HIGH 320
+#define MAIN_LCD_MAX_PIXEL_WIDTH 320
+#define MAIN_LCD_MAX_PIXEL_HIGH 480
+// #define MAIN_LCD_MAX_PIXEL_WIDTH 240
+// #define MAIN_LCD_MAX_PIXEL_HIGH 320
 #define MAIN_LCD_RST_LOW()  PORTL &= ~(1 << PL7) // D12 PB6
 #define MAIN_LCD_RST_HIGH() PORTL |=  (1 << PL7) // D12 PB6 
 #define MAIN_LCD_CS_LOW() PORTL &= ~(1 << PL0) // CS MAIN LCD
@@ -60,6 +60,22 @@ void ili9341_data(uint8_t data) {
     spi_send(data);
     MAIN_LCD_CS_HIGH();
 }
+
+
+void ili9341_init(void) {
+    MAIN_LCD_RST_LOW();  
+    _delay_ms(100);
+    MAIN_LCD_RST_HIGH(); 
+    _delay_ms(100);
+    ili9341_cmd(0x01);          // software reset
+    _delay_ms(150);
+    ili9341_cmd(0x11);          // sleep out
+    _delay_ms(150);
+    ili9341_cmd(0x3A);          // pixel format
+    ili9341_data(0x55);         // 16-bit color (RGB565)
+    ili9341_cmd(0x29);          // display on
+}
+
 
 
 
@@ -152,7 +168,30 @@ void GC9A01_draw_color_screen(uint8_t screen, uint16_t color) {
             spi_send(lo);
         }
         CS_RIGHT_EYE_HIGH();
-    } else if (screen == MAIN_LCD) {
+    // } else if (screen == MAIN_LCD) {
+    //     set_window_main(0, 0, MAIN_LCD_MAX_PIXEL_WIDTH - 1, MAIN_LCD_MAX_PIXEL_HIGH - 1);
+    //     uint8_t hi = color >> 8;
+    //     uint8_t lo = color & 0xFF;
+    //     DC_HIGH();
+    //     MAIN_LCD_CS_LOW();
+    //     for (uint32_t i = 0; i < (uint32_t)MAIN_LCD_MAX_PIXEL_WIDTH * MAIN_LCD_MAX_PIXEL_HIGH; i++) {
+        
+    //         spi_send(hi);
+    //         spi_send(lo);
+    //     }
+        // MAIN_LCD_CS_HIGH();
+    } 
+    
+    // else {
+    //     return ;
+    // }
+
+
+    
+}
+
+
+void draw_color_screen(uint16_t color) {
         set_window_main(0, 0, MAIN_LCD_MAX_PIXEL_WIDTH - 1, MAIN_LCD_MAX_PIXEL_HIGH - 1);
         uint8_t hi = color >> 8;
         uint8_t lo = color & 0xFF;
@@ -164,13 +203,10 @@ void GC9A01_draw_color_screen(uint8_t screen, uint16_t color) {
             spi_send(lo);
         }
         MAIN_LCD_CS_HIGH();
-    } else {
-        return ;
-    }
-
 
     
 }
+
 
 void GC9A01_draw_square(uint16_t pixels, uint16_t color) {
     uint8_t hi = color >> 8;
@@ -1412,7 +1448,9 @@ void setup() {
     
     uart_init();
     spi_init();
-    // st7796_init();
+    // ili9341_init();
+    st7796_init();
+    _delay_ms(200);
     GC9A01_init(LEFT_EYE);
     GC9A01_init(RIGHT_EYE);
 }
@@ -1482,9 +1520,9 @@ int main(void) {
     
     _delay_ms(50);
     while (1) {
+        draw_color_screen(GC9A01A_COLOR_RED);
+        _delay_ms(500);
         Frog_blink(10, RIGHT_EYE);    
-        _delay_ms(3000);
-        GC9A01_draw_color_screen(MAIN_LCD, GC9A01A_COLOR_LIME);
         
     }
     return 0;
