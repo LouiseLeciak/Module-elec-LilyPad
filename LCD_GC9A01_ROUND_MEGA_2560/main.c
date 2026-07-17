@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/13 15:41:53 by nrobinso          #+#    #+#             */
-/*   Updated: 2026/07/15 15:37:17 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/17 17:16:32 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@
 
 // ─── ili9341 low-level ───────────────────────────────────────────────────────
 
-#define MAIN_LCD_MAX_PIXEL_WIDTH 320
-#define MAIN_LCD_MAX_PIXEL_HIGH 480
+// #define MAIN_LCD_MAX_PIXEL_WIDTH 320
+// #define MAIN_LCD_MAX_PIXEL_HIGH 480
+#define MAIN_LCD_MAX_PIXEL_WIDTH 240
+#define MAIN_LCD_MAX_PIXEL_HIGH 320
 #define MAIN_LCD_RST_LOW()  PORTL &= ~(1 << PL7) // D12 PB6
 #define MAIN_LCD_RST_HIGH() PORTL |=  (1 << PL7) // D12 PB6 
 #define MAIN_LCD_CS_LOW() PORTL &= ~(1 << PL0) // CS MAIN LCD
@@ -1410,7 +1412,7 @@ void setup() {
     
     uart_init();
     spi_init();
-    st7796_init();
+    // st7796_init();
     GC9A01_init(LEFT_EYE);
     GC9A01_init(RIGHT_EYE);
 }
@@ -1424,7 +1426,7 @@ void draw_rect(uint8_t sizeX, uint8_t sizeY, uint16_t color) {
 void Frog_blink(int nbr, uint8_t screen) {
 
 
-    if (screen == BOTH_EYES)  {
+    if (screen == RIGHT_EYE)  {
         
         for( int i = 0; i < nbr; i++) {
             
@@ -1477,13 +1479,13 @@ int main(void) {
     setup();
 
     Frog_start_eyes();
-    GC9A01_draw_color_screen(MAIN_LCD, GC9A01A_COLOR_BLUE);
-
+    
     _delay_ms(50);
     while (1) {
-    Frog_blink(10, BOTH_EYES);    
-    _delay_ms(3000);
-
+        Frog_blink(10, RIGHT_EYE);    
+        _delay_ms(3000);
+        GC9A01_draw_color_screen(MAIN_LCD, GC9A01A_COLOR_LIME);
+        
     }
     return 0;
 }
