@@ -26,20 +26,18 @@
 // R3 -> PK4
 // R4 -> PK5
 //
-// pour le rotary
-// CLK -> PC6
-// DT -> PC5
-// SW -> PC4
+
 
 #define ROWS_NB 4
 #define COLS_NB 10
-#define ROTARY_CLK 5
-#define ROTARY_SW 6
+#define ROTARY_CLK 6
+#define ROTARY_SW 5
 #define ROTARY_DT 7
 
 static uint8_t rotaryclk_prev;
 // static uint8_t sw_prev = 1;
 static uint8_t menu_index = 0;
+static uint8_t prev_sw = 1; // etat precedent du bouton
 
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
@@ -91,16 +89,6 @@ static void keypad_init(void)
 
     PORTK |= ((1 << PK0) |
               (1 << PK1));
-
-    // pour le rotary encoder
-    DDRC &= ~(
-        (1 << ROTARY_CLK) |
-        (1 << ROTARY_DT) |
-        (1 << ROTARY_SW));
-
-    PORTC |= ((1 << ROTARY_CLK) |
-              (1 << ROTARY_DT) |
-              (1 << ROTARY_SW));
 
     // on check comment on est pour savoir comment changer
     if (PINC & (1 << ROTARY_CLK))
@@ -227,8 +215,7 @@ void rotary_update(void)
 //? Probablement pas opti comme verification, probablement a retaper
 void rotary_button_update(void)
 {
-    static uint8_t prev_sw = 0; // etat precedent du bouton
-    uint8_t sw;          // etat actuel
+    uint8_t sw; // etat actuel
 
     uint8_t gpio = mcp_read_register(MCP_GPIOA);
 
@@ -283,38 +270,38 @@ void draw_menu(void)
     }
 }
 
-#define SWITCH_PIN PL0
-#define LED_LEFT PB0  // D53
-#define LED_RIGHT PB2 // D51
+#define SWITCH_PIN PA4
+#define LED_LEFT PA2
+#define LED_RIGHT PA0
 
 static void switch_led_init(void)
 {
     // LEDs en sortie
-    DDRB |= (1 << LED_LEFT) | (1 << LED_RIGHT);
+    DDRA |= (1 << LED_LEFT) | (1 << LED_RIGHT);
 
     // Eteindre les LEDs
-    PORTB &= ~((1 << LED_LEFT) | (1 << LED_RIGHT));
+    PORTA &= ~((1 << LED_LEFT) | (1 << LED_RIGHT));
 
     // Switch en entree
-    DDRL &= ~(1 << SWITCH_PIN);
+    DDRA &= ~(1 << SWITCH_PIN);
 
     // Pas de pull-up
-    PORTL &= ~(1 << SWITCH_PIN);
+    PORTA &= ~(1 << SWITCH_PIN);
 }
 
 static void switch_led_update(void)
 {
-    if (PINL & (1 << SWITCH_PIN))
+    if (PINA & (1 << SWITCH_PIN))
     {
         // Le switch est cote 3,3 V
-        PORTB |= (1 << LED_LEFT);
-        PORTB &= ~(1 << LED_RIGHT);
+        PORTA |= (1 << LED_LEFT);
+        PORTA &= ~(1 << LED_RIGHT);
     }
     else
     {
         // Le switch est cote GND
-        PORTB &= ~(1 << LED_LEFT);
-        PORTB |= (1 << LED_RIGHT);
+        PORTA &= ~(1 << LED_LEFT);
+        PORTA |= (1 << LED_RIGHT);
     }
 }
 
@@ -330,7 +317,7 @@ int main(void)
 
     mcp_init();
 
-    // draw_menu();
+    draw_menu();
 
     keypad_init();
 
