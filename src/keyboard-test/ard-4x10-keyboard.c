@@ -26,6 +26,10 @@
 // R3 -> PK4
 // R4 -> PK5
 //
+// Slide Switch
+// Led 1 - PA0
+// Led 2 - PA2
+// switch pin - PA4
 
 
 #define ROWS_NB 4
