@@ -258,7 +258,7 @@
     ]
   },
   "meta": {
-    "filename": "lilys_pad.kicad_pro",
+    "filename": "main_pcb.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -413,7 +413,7 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "lilys_pad.kicad_sch",
+        "filename": "main_pcb.kicad_sch",
         "name": "Root",
         "uuid": "346fb29b-2426-4b69-9f9a-e979b6e41832"
       }

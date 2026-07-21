@@ -2584,7 +2584,7 @@
 			(uuid "b2344535-4ce6-4752-8e21-37b8c090349f")
 		)
 		(instances
-			(project "lilys_pad"
+			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U2")
 					(unit 1)
@@ -2680,7 +2680,7 @@
 			(uuid "0dab5a4a-a123-4d3e-908e-0705383234ea")
 		)
 		(instances
-			(project "lilys_pad"
+			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U3")
 					(unit 1)
@@ -3055,7 +3055,7 @@
 			(uuid "802709fb-b609-46e7-8282-e0efe654c8ff")
 		)
 		(instances
-			(project "lilys_pad"
+			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U1")
 					(unit 1)
@@ -3184,7 +3184,7 @@
 			(uuid "dc052a29-092e-4047-a194-fc9b441a4b73")
 		)
 		(instances
-			(project "lilys_pad"
+			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U4")
 					(unit 1)
