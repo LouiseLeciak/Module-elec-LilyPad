@@ -234,7 +234,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "warning",
+      "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -296,6 +296,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -377,7 +378,14 @@
       "sort_asc": true,
       "sort_field": "Reference"
     },
-    "bus_aliases": {},
+    "bus_aliases": {
+      "SPI": [
+        "MISO",
+        "MOSI",
+        "SCK",
+        "~{SS}"
+      ]
+    },
     "connection_grid_size": 50.0,
     "drawing": {
       "dashed_lines_dash_length_ratio": 12.0,
@@ -418,7 +426,7 @@
         "uuid": "346fb29b-2426-4b69-9f9a-e979b6e41832"
       }
     ],
-    "used_designators": "#PWR1-7,U1-5",
+    "used_designators": "R1,J1,#PWR1-13,Y1,U1-7,U9,S1",
     "variants": []
   },
   "sheets": [
