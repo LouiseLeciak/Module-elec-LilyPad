@@ -1411,7 +1411,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text "TODO: Add raw 5V line from the USB"
+	(text "TODO: Add raw 5V line from the USB\n&\nadd capacitors"
 		(exclude_from_sim no)
 		(at 143.002 57.658 0)
 		(effects
