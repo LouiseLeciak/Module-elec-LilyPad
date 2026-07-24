@@ -3360,7 +3360,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin tri_state line
 					(at -10.16 -3.81 0)
 					(length 2.54)
 					(name "SDO"
@@ -3845,7 +3845,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin tri_state line
 					(at -8.89 1.27 0)
 					(length 2.54)
 					(name "SDO"
@@ -5721,6 +5721,16 @@
 		)
 		(uuid "4f3aca27-2c87-42e8-a660-67c86ca6eac3")
 	)
+	(wire
+		(pts
+			(xy 102.87 67.31) (xy 102.87 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5187d8c7-335e-4fd3-9ec6-801cb79b83a7")
+	)
 	(bus
 		(pts
 			(xy 199.39 33.02) (xy 199.39 52.07)
@@ -5843,13 +5853,23 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 55.88) (xy 158.75 80.01)
+			(xy 158.75 55.88) (xy 158.75 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "62aae509-bbe9-4c3e-ba40-a658e541c018")
+	)
+	(wire
+		(pts
+			(xy 158.75 68.58) (xy 158.75 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "63172fd4-e331-4ce7-ab19-0cef2a303aea")
 	)
 	(wire
 		(pts
@@ -5973,7 +5993,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 50.8) (xy 102.87 69.85)
+			(xy 102.87 50.8) (xy 102.87 57.15)
 		)
 		(stroke
 			(width 0)
@@ -6013,7 +6033,7 @@
 	)
 	(wire
 		(pts
-			(xy 133.35 73.66) (xy 133.35 55.88)
+			(xy 133.35 73.66) (xy 133.35 71.12)
 		)
 		(stroke
 			(width 0)
@@ -6133,7 +6153,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 52.07) (xy 64.77 78.74)
+			(xy 64.77 52.07) (xy 64.77 63.5)
 		)
 		(stroke
 			(width 0)
@@ -6333,6 +6353,16 @@
 	)
 	(wire
 		(pts
+			(xy 64.77 73.66) (xy 64.77 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c092e8e6-b261-47bf-9638-03833afb85ea")
+	)
+	(wire
+		(pts
 			(xy 58.42 57.15) (xy 67.31 57.15)
 		)
 		(stroke
@@ -6410,6 +6440,16 @@
 			(type default)
 		)
 		(uuid "cf8f5c39-81f6-480d-87a0-4291dabe5023")
+	)
+	(wire
+		(pts
+			(xy 133.35 60.96) (xy 133.35 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d129882b-ac40-4458-b587-fc45ce034a7b")
 	)
 	(wire
 		(pts
@@ -7919,6 +7959,86 @@
 		)
 	)
 	(symbol
+		(lib_id "lilys_pad:Resistor")
+		(at 102.87 62.23 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "22cb71f2-d12d-4691-b341-80b00b054e6e")
+		(property "Reference" "R5"
+			(at 105.41 62.2299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 106.934 64.008 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c4314643-e8ec-42bc-8844-efc0c6914bd0")
+		)
+		(pin "2"
+			(uuid "3c8080d9-e35c-4ffd-b7ac-8ea7e0defd9f")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "lilys_pad:GC9A01")
 		(at 180.34 53.34 0)
 		(unit 1)
@@ -8025,7 +8145,6 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "28c94be3-46df-4519-9967-bcd2b2728840")
 		(property "Reference" "#PWR02"
 			(at 165.1 68.58 0)
@@ -8039,7 +8158,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 167.005 64.77 90)
+			(at 165.1 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8987,6 +9106,86 @@
 		)
 	)
 	(symbol
+		(lib_id "lilys_pad:Resistor")
+		(at 64.77 68.58 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "61d6db12-420d-4840-96e4-a08e6b5c13ef")
+		(property "Reference" "R4"
+			(at 67.31 68.5799 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 68.834 70.358 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 64.77 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "200934da-9ca6-47a8-9219-cc77fbc98b14")
+		)
+		(pin "2"
+			(uuid "2c875f91-ee34-496b-a043-52d94afa77de")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "lilys_pad:Capacitor")
 		(at 77.47 91.44 270)
 		(unit 1)
@@ -9649,6 +9848,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:Resistor")
+		(at 133.35 66.04 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "88ab9b63-1b60-4046-b23f-395d893e8b4c")
+		(property "Reference" "R6"
+			(at 130.81 66.0401 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 129.286 64.262 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 133.35 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 133.35 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 133.35 66.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "9dd1d883-97b1-4978-84ef-c79cd9d6a3bb")
+		)
+		(pin "2"
+			(uuid "5878e532-525d-4bcf-98f4-fb0f60586fda")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -10663,6 +10942,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:Resistor")
+		(at 158.75 63.5 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a97d2a95-73bd-4676-99da-22845b83197d")
+		(property "Reference" "R7"
+			(at 161.29 63.4999 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10kΩ"
+			(at 162.814 65.278 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 158.75 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 158.75 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 158.75 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2bc08616-2c4c-47a3-8960-9fa706d7986e")
+		)
+		(pin "2"
+			(uuid "d104778d-a24c-48e4-a138-7c9cd080a70f")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "R7")
 					(unit 1)
 				)
 			)
