@@ -2161,7 +2161,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U?"
-				(at 8.636 -19.812 0)
+				(at 2.286 -12.192 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2191,7 +2191,7 @@
 					)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Screen Drivers/GC9A01A.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2215,8 +2215,8 @@
 			)
 			(symbol "GC9A01_0_1"
 				(rectangle
-					(start 0 2.54)
-					(end 12.7 -17.78)
+					(start -6.35 10.16)
+					(end 6.35 -10.16)
 					(stroke
 						(width 0)
 						(type default)
@@ -2229,7 +2229,7 @@
 			)
 			(symbol "GC9A01_1_1"
 				(pin input line
-					(at 15.24 -6.35 180)
+					(at 8.89 1.27 180)
 					(length 2.54)
 					(name "RST"
 						(effects
@@ -2247,7 +2247,7 @@
 					)
 				)
 				(pin input line
-					(at -2.54 -10.16 0)
+					(at -8.89 -2.54 0)
 					(length 2.54)
 					(name "CS"
 						(effects
@@ -2265,7 +2265,7 @@
 					)
 				)
 				(pin input line
-					(at 15.24 -8.89 180)
+					(at 8.89 -1.27 180)
 					(length 2.54)
 					(name "DC"
 						(effects
@@ -2283,7 +2283,7 @@
 					)
 				)
 				(pin input line
-					(at -2.54 -7.62 0)
+					(at -8.89 0 0)
 					(length 2.54)
 					(name "MOSI"
 						(effects
@@ -2301,7 +2301,7 @@
 					)
 				)
 				(pin input line
-					(at -2.54 -5.08 0)
+					(at -8.89 2.54 0)
 					(length 2.54)
 					(name "CLK"
 						(effects
@@ -2319,7 +2319,7 @@
 					)
 				)
 				(pin power_in line
-					(at 6.35 -20.32 90)
+					(at 0 -12.7 90)
 					(length 2.54)
 					(name "GND"
 						(effects
@@ -2337,7 +2337,7 @@
 					)
 				)
 				(pin power_in line
-					(at 6.35 5.08 270)
+					(at 0 12.7 270)
 					(length 2.54)
 					(name "VCC"
 						(effects
@@ -3395,16 +3395,18 @@
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 -3.81 0)
+			(property "Value" "PWR_FLG"
+				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -4207,7 +4209,7 @@
 						)
 					)
 				)
-				(pin output line
+				(pin power_in line
 					(at 10.16 7.62 180)
 					(length 2.54)
 					(name "V_{CCB}"
@@ -6729,6 +6731,30 @@
 			)
 		)
 	)
+	(global_label "3V3"
+		(shape input)
+		(at 33.02 182.88 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c1b64771-8d7e-4c81-b9b5-c6ab5ecd8045")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 33.02 176.3872 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "RST"
 		(shape input)
 		(at 52.07 158.75 270)
@@ -7133,7 +7159,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:GC9A01")
-		(at 173.99 45.72 0)
+		(at 180.34 53.34 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7144,7 +7170,7 @@
 		(fields_autoplaced yes)
 		(uuid "231ef075-f8e9-46bb-bec0-19523053f99d")
 		(property "Reference" "U2"
-			(at 182.4833 40.64 0)
+			(at 188.8333 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7156,7 +7182,7 @@
 			)
 		)
 		(property "Value" ""
-			(at 173.99 45.72 0)
+			(at 180.34 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7166,7 +7192,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 173.99 45.72 0)
+			(at 180.34 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7176,8 +7202,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 173.99 45.72 0)
+		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Screen Drivers/GC9A01A.pdf"
+			(at 180.34 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7188,7 +7214,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 173.99 45.72 0)
+			(at 180.34 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7308,7 +7334,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:GC9A01")
-		(at 135.89 45.72 0)
+		(at 142.24 53.34 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7319,7 +7345,7 @@
 		(fields_autoplaced yes)
 		(uuid "36656ca7-3167-4e22-b500-5cbf672214d9")
 		(property "Reference" "U3"
-			(at 144.3833 40.64 0)
+			(at 150.7333 48.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7331,7 +7357,7 @@
 			)
 		)
 		(property "Value" ""
-			(at 135.89 45.72 0)
+			(at 142.24 53.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7341,7 +7367,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 135.89 45.72 0)
+			(at 142.24 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7351,8 +7377,8 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
-			(at 135.89 45.72 0)
+		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Screen Drivers/GC9A01A.pdf"
+			(at 142.24 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7363,7 +7389,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 135.89 45.72 0)
+			(at 142.24 53.34 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9369,6 +9395,85 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:PWR_FLG")
+		(at 33.02 185.42 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e56a0274-5774-4e68-9916-76dec3202244")
+		(property "Reference" "#PWR026"
+			(at 33.02 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 33.02 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 33.02 185.42 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "81511d94-4e2c-4f4f-878e-e0ba5e577b61")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
