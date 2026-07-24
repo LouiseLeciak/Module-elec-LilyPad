@@ -6745,7 +6745,7 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 33.02 182.88 90)
+		(at 26.67 191.77 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6755,7 +6755,7 @@
 		)
 		(uuid "c1b64771-8d7e-4c81-b9b5-c6ab5ecd8045")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 33.02 176.3872 90)
+			(at 26.67 185.2772 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7007,6 +7007,85 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:PWR_FLG")
+		(at 21.59 194.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "0e055037-9855-412e-931c-900bd7784b78")
+		(property "Reference" "#PWR025"
+			(at 21.59 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 21.59 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 21.59 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 21.59 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 21.59 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1fa8ed84-3175-41f1-8eb9-90108ceeef17")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -7603,82 +7682,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:PWR_FLG")
-		(at 26.67 187.96 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5eb02cd8-b05f-4dde-b981-c41bb7021e8e")
-		(property "Reference" "#PWR025"
-			(at 26.67 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" ""
-			(at 26.67 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 26.67 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 26.67 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 26.67 187.96 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1e6f227d-34c7-42d6-8ae3-0903c3ca29db")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
-					(reference "#PWR025")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Lily's_Pad:GND")
 		(at 77.47 73.66 0)
 		(unit 1)
@@ -8022,83 +8025,6 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Lily's_Pad:PWR_FLG")
-		(at 17.78 186.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8feead1a-cc17-4b8f-816e-c08c31ef4e50")
-		(property "Reference" "#PWR04"
-			(at 17.78 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" ""
-			(at 17.78 190.5 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 17.78 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 17.78 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 17.78 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "cc3fc3d7-595c-4a54-8dc4-92da11e75d63")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
-					(reference "#PWR04")
 					(unit 1)
 				)
 			)
@@ -8567,7 +8493,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:GND")
-		(at 26.67 182.88 180)
+		(at 21.59 189.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8578,7 +8504,7 @@
 		(fields_autoplaced yes)
 		(uuid "98e6cc59-cc26-444b-81ed-2068145f5c76")
 		(property "Reference" "#PWR03"
-			(at 26.67 180.34 0)
+			(at 21.59 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8589,7 +8515,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 26.67 179.07 0)
+			(at 21.59 185.42 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8599,7 +8525,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 26.67 182.88 0)
+			(at 21.59 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8610,7 +8536,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 26.67 182.88 0)
+			(at 21.59 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8621,7 +8547,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 26.67 182.88 0)
+			(at 21.59 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8881,7 +8807,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:VCC")
-		(at 17.78 181.61 180)
+		(at 16.51 189.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8892,7 +8818,7 @@
 		(fields_autoplaced yes)
 		(uuid "aace194d-c7c0-45d4-8ee1-0b12108b9c78")
 		(property "Reference" "#PWR07"
-			(at 17.78 180.34 0)
+			(at 16.51 187.96 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8903,7 +8829,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 17.78 179.07 0)
+			(at 16.51 186.69 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8913,7 +8839,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 17.78 181.61 0)
+			(at 16.51 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8924,7 +8850,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 17.78 181.61 0)
+			(at 16.51 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8935,7 +8861,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 17.78 181.61 0)
+			(at 16.51 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9413,7 +9339,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:PWR_FLG")
-		(at 33.02 185.42 0)
+		(at 26.67 194.31 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9424,7 +9350,7 @@
 		(fields_autoplaced yes)
 		(uuid "e56a0274-5774-4e68-9916-76dec3202244")
 		(property "Reference" "#PWR026"
-			(at 33.02 185.42 0)
+			(at 26.67 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9435,7 +9361,7 @@
 			)
 		)
 		(property "Value" "PWR_FLG"
-			(at 33.02 185.42 0)
+			(at 26.67 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9446,7 +9372,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 33.02 185.42 0)
+			(at 26.67 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9457,7 +9383,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 33.02 185.42 0)
+			(at 26.67 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9468,7 +9394,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 33.02 185.42 0)
+			(at 26.67 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9778,6 +9704,85 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:PWR_FLG")
+		(at 16.51 194.31 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fb48f194-8bc7-4605-930b-46a8a8575bbd")
+		(property "Reference" "#PWR04"
+			(at 16.51 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 16.51 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 16.51 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 16.51 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 16.51 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f8f3f05e-4d23-4bef-9212-3ced8531008a")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
