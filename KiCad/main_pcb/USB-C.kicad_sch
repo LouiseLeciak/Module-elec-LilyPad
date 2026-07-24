@@ -2422,10 +2422,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "5e696bff-2955-467c-bbeb-a509ccdc6563")
 		(property "Reference" "R3"
-			(at 184.15 104.14 90)
+			(at 184.15 112.776 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2434,8 +2433,8 @@
 				)
 			)
 		)
-		(property "Value" "5.1k"
-			(at 184.15 106.68 90)
+		(property "Value" "5.1kΩ"
+			(at 184.15 115.316 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3450,10 +3449,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fcbd5254-c04c-4286-8d5a-4db4906a7503")
 		(property "Reference" "R2"
-			(at 153.67 96.52 90)
+			(at 153.67 97.79 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3462,8 +3460,8 @@
 				)
 			)
 		)
-		(property "Value" "5.1k"
-			(at 153.67 99.06 90)
+		(property "Value" "5.1kΩ"
+			(at 153.67 100.33 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
