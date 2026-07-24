@@ -4411,7 +4411,7 @@
 	)
 	(rectangle
 		(start 200.66 24.13)
-		(end 251.46 59.69)
+		(end 254 59.69)
 		(stroke
 			(width 0)
 			(type default)
@@ -4531,6 +4531,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "96609103-c53a-4177-b38d-cdd6fd60d9e3")
+	)
+	(junction
+		(at 236.22 46.99)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a69a8b59-a64a-49a7-a10a-4e1976666fe1")
 	)
 	(junction
 		(at 95.25 33.02)
@@ -5381,6 +5387,16 @@
 		)
 		(uuid "10fb79f4-500a-447a-a3d7-eabc0db6705b")
 	)
+	(wire
+		(pts
+			(xy 236.22 46.99) (xy 241.3 46.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "145b9b5b-3634-4739-ac50-010abdce8ac3")
+	)
 	(bus
 		(pts
 			(xy 39.37 115.57) (xy 74.93 115.57)
@@ -6053,6 +6069,16 @@
 	)
 	(wire
 		(pts
+			(xy 52.07 158.75) (xy 52.07 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7e5a034f-1993-401d-b75a-1780a48b2e95")
+	)
+	(wire
+		(pts
 			(xy 96.52 83.82) (xy 99.06 83.82)
 		)
 		(stroke
@@ -6123,6 +6149,16 @@
 	)
 	(wire
 		(pts
+			(xy 38.1 168.91) (xy 52.07 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "908f877e-9a39-4cb0-aed0-7c4f8312ddfa")
+	)
+	(wire
+		(pts
 			(xy 128.27 123.19) (xy 128.27 113.03)
 		)
 		(stroke
@@ -6130,6 +6166,16 @@
 			(type default)
 		)
 		(uuid "9216582b-4186-4c2e-98c6-e020d7f22d7b")
+	)
+	(wire
+		(pts
+			(xy 236.22 46.99) (xy 236.22 52.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "924e5cca-90af-48fd-bb68-79d9845f926b")
 	)
 	(wire
 		(pts
@@ -6263,7 +6309,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 43.18) (xy 236.22 52.07)
+			(xy 236.22 43.18) (xy 236.22 46.99)
 		)
 		(stroke
 			(width 0)
@@ -7191,6 +7237,30 @@
 			)
 		)
 	)
+	(global_label "uC_Reset"
+		(shape input)
+		(at 241.3 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b9ce132d-d0e3-4b52-a958-0a32ec49a090")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 252.8728 46.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
 	(global_label "3V3"
 		(shape input)
 		(at 82.55 91.44 0)
@@ -7241,7 +7311,7 @@
 	)
 	(global_label "RST"
 		(shape input)
-		(at 52.07 158.75 270)
+		(at 38.1 168.91 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7251,7 +7321,7 @@
 		)
 		(uuid "e5a3f6eb-4b86-43a7-a78b-558bfe894e54")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 52.07 165.1823 90)
+			(at 31.6677 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
