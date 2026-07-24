@@ -5068,7 +5068,7 @@
 		)
 		(uuid "5d1b4d81-0a74-4d3a-99bc-38cdf973e2f2")
 	)
-	(text "NOTE: Add capacitors for the crystal"
+	(text "NOTE: Check load capacitors values for the crystal"
 		(exclude_from_sim no)
 		(at 62.23 188.976 0)
 		(effects
@@ -6086,6 +6086,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 175.26) (xy 57.15 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d60913d-2773-45cd-943c-0fa8b791c617")
+	)
+	(wire
+		(pts
 			(xy 41.91 99.06) (xy 50.8 99.06)
 		)
 		(stroke
@@ -6106,7 +6116,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 158.7499) (xy 57.15 176.53)
+			(xy 57.15 158.7499) (xy 57.15 168.91)
 		)
 		(stroke
 			(width 0)
@@ -6216,7 +6226,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 176.53) (xy 64.77 186.69)
+			(xy 64.77 176.53) (xy 64.77 179.07)
 		)
 		(stroke
 			(width 0)
@@ -6923,6 +6933,16 @@
 			(type default)
 		)
 		(uuid "f4a19fde-f391-4941-978e-06d7631cc682")
+	)
+	(wire
+		(pts
+			(xy 64.77 185.42) (xy 64.77 186.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f59b4d8e-e684-4b47-9135-a86689758a7e")
 	)
 	(bus
 		(pts
@@ -7664,6 +7684,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 64.77 182.88 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0897664b-015e-4d9b-bdf6-a3b8a3150ceb")
+		(property "Reference" "C4"
+			(at 67.056 181.102 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "33pF"
+			(at 68.58 182.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 64.77 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 64.77 182.88 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d8eee719-a50f-47cb-8f8d-8da51f95f5fb")
+		)
+		(pin "2"
+			(uuid "06034a7a-4bad-41d5-b6c5-4b5d72bf7fbd")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -9893,6 +9993,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 57.15 172.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a8ed8d7e-b238-4478-b90b-4e34de017e73")
+		(property "Reference" "C3"
+			(at 51.816 171.958 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "33pF"
+			(at 52.832 173.736 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 57.15 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 57.15 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 57.15 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bc7fb4be-0c24-4c52-99da-b684ced3cade")
+		)
+		(pin "2"
+			(uuid "f49f365c-a849-4bae-a8c2-db1fca224564")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C3")
 					(unit 1)
 				)
 			)
