@@ -9,7 +9,7 @@
 		(company "Lily's Pad")
 	)
 	(lib_symbols
-		(symbol "Lily's_Pad:ATmega_2560"
+		(symbol "lilys_pad:ATmega_2560"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -25,8 +25,8 @@
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "ATmega 2560"
+				(at 7.62 -73.914 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -70,8 +70,8 @@
 			)
 			(symbol "ATmega_2560_0_1"
 				(rectangle
-					(start -15.2399 69.85)
-					(end 15.24 -69.85)
+					(start -15.24 69.85)
+					(end 15.2399 -69.85)
 					(stroke
 						(width 0)
 						(type default)
@@ -84,7 +84,7 @@
 			)
 			(symbol "ATmega_2560_1_1"
 				(pin bidirectional line
-					(at -17.7799 -60.96 0)
+					(at -17.78 -60.96 0)
 					(length 2.54)
 					(name "PG5"
 						(effects
@@ -282,7 +282,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -25.4 0)
+					(at -17.78 -25.4 0)
 					(length 2.54)
 					(name "PH0"
 						(effects
@@ -300,7 +300,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -27.94 0)
+					(at -17.78 -27.94 0)
 					(length 2.54)
 					(name "PH1"
 						(effects
@@ -318,7 +318,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -30.48 0)
+					(at -17.78 -30.48 0)
 					(length 2.54)
 					(name "PH2"
 						(effects
@@ -336,7 +336,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -33.02 0)
+					(at -17.78 -33.02 0)
 					(length 2.54)
 					(name "PH3"
 						(effects
@@ -354,7 +354,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -35.56 0)
+					(at -17.78 -35.56 0)
 					(length 2.54)
 					(name "PH4"
 						(effects
@@ -372,7 +372,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -38.1 0)
+					(at -17.78 -38.1 0)
 					(length 2.54)
 					(name "PH5"
 						(effects
@@ -390,7 +390,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -40.64 0)
+					(at -17.78 -40.64 0)
 					(length 2.54)
 					(name "PH6"
 						(effects
@@ -552,7 +552,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -43.18 0)
+					(at -17.78 -43.18 0)
 					(length 2.54)
 					(name "PH7"
 						(effects
@@ -570,7 +570,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -55.88 0)
+					(at -17.78 -55.88 0)
 					(length 2.54)
 					(name "PG3"
 						(effects
@@ -588,7 +588,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -58.42 0)
+					(at -17.78 -58.42 0)
 					(length 2.54)
 					(name "PG4"
 						(effects
@@ -606,7 +606,7 @@
 					)
 				)
 				(pin input line
-					(at -17.7799 66.04 0)
+					(at -17.78 66.04 0)
 					(length 2.54)
 					(name "~{RESET}"
 						(effects
@@ -661,8 +661,8 @@
 						)
 					)
 				)
-				(pin unspecified line
-					(at -17.7799 55.88 0)
+				(pin output line
+					(at -17.78 55.88 0)
 					(length 2.54)
 					(name "XTAL2"
 						(effects
@@ -679,8 +679,8 @@
 						)
 					)
 				)
-				(pin unspecified line
-					(at -17.7799 60.96 0)
+				(pin input line
+					(at -17.78 60.96 0)
 					(length 2.54)
 					(name "XTAL1"
 						(effects
@@ -698,7 +698,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 43.18 0)
+					(at -17.78 43.18 0)
 					(length 2.54)
 					(name "PL0"
 						(effects
@@ -716,7 +716,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 40.64 0)
+					(at -17.78 40.64 0)
 					(length 2.54)
 					(name "PL1"
 						(effects
@@ -734,7 +734,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 38.1 0)
+					(at -17.78 38.1 0)
 					(length 2.54)
 					(name "PL2"
 						(effects
@@ -752,7 +752,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 35.56 0)
+					(at -17.78 35.56 0)
 					(length 2.54)
 					(name "PL3"
 						(effects
@@ -770,7 +770,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 33.02 0)
+					(at -17.78 33.02 0)
 					(length 2.54)
 					(name "PL4"
 						(effects
@@ -788,7 +788,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 30.48 0)
+					(at -17.78 30.48 0)
 					(length 2.54)
 					(name "PL5"
 						(effects
@@ -806,7 +806,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 27.94 0)
+					(at -17.78 27.94 0)
 					(length 2.54)
 					(name "PL6"
 						(effects
@@ -824,7 +824,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 25.4 0)
+					(at -17.78 25.4 0)
 					(length 2.54)
 					(name "PL7"
 						(effects
@@ -986,7 +986,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -48.26 0)
+					(at -17.78 -48.26 0)
 					(length 2.54)
 					(name "PG0"
 						(effects
@@ -1004,7 +1004,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -50.8 0)
+					(at -17.78 -50.8 0)
 					(length 2.54)
 					(name "PG1"
 						(effects
@@ -1204,7 +1204,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -2.54 0)
+					(at -17.78 -2.54 0)
 					(length 2.54)
 					(name "PJ0"
 						(effects
@@ -1222,7 +1222,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -5.08 0)
+					(at -17.78 -5.08 0)
 					(length 2.54)
 					(name "PJ1"
 						(effects
@@ -1240,7 +1240,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -7.62 0)
+					(at -17.78 -7.62 0)
 					(length 2.54)
 					(name "PJ2"
 						(effects
@@ -1258,7 +1258,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -10.16 0)
+					(at -17.78 -10.16 0)
 					(length 2.54)
 					(name "PJ3"
 						(effects
@@ -1276,7 +1276,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -12.7 0)
+					(at -17.78 -12.7 0)
 					(length 2.54)
 					(name "PJ4"
 						(effects
@@ -1294,7 +1294,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -15.24 0)
+					(at -17.78 -15.24 0)
 					(length 2.54)
 					(name "PJ5"
 						(effects
@@ -1312,7 +1312,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -17.78 0)
+					(at -17.78 -17.78 0)
 					(length 2.54)
 					(name "PJ6"
 						(effects
@@ -1330,7 +1330,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -53.34 0)
+					(at -17.78 -53.34 0)
 					(length 2.54)
 					(name "PG2"
 						(effects
@@ -1492,7 +1492,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 -20.32 0)
+					(at -17.78 -20.32 0)
 					(length 2.54)
 					(name "PJ7"
 						(effects
@@ -1548,7 +1548,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 2.54 0)
+					(at -17.78 2.54 0)
 					(length 2.54)
 					(name "PK7"
 						(effects
@@ -1566,7 +1566,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 5.08 0)
+					(at -17.78 5.08 0)
 					(length 2.54)
 					(name "PK6"
 						(effects
@@ -1584,7 +1584,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 7.62 0)
+					(at -17.78 7.62 0)
 					(length 2.54)
 					(name "PK5"
 						(effects
@@ -1602,7 +1602,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 10.16 0)
+					(at -17.78 10.16 0)
 					(length 2.54)
 					(name "PK4"
 						(effects
@@ -1620,7 +1620,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 12.7 0)
+					(at -17.78 12.7 0)
 					(length 2.54)
 					(name "PK3"
 						(effects
@@ -1638,7 +1638,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 15.24 0)
+					(at -17.78 15.24 0)
 					(length 2.54)
 					(name "PK2"
 						(effects
@@ -1656,7 +1656,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 17.78 0)
+					(at -17.78 17.78 0)
 					(length 2.54)
 					(name "PK1"
 						(effects
@@ -1674,7 +1674,7 @@
 					)
 				)
 				(pin bidirectional line
-					(at -17.7799 20.32 0)
+					(at -17.78 20.32 0)
 					(length 2.54)
 					(name "PK0"
 						(effects
@@ -1836,7 +1836,7 @@
 					)
 				)
 				(pin passive line
-					(at -17.7799 50.8 0)
+					(at -17.78 50.8 0)
 					(length 2.54)
 					(name "AREF"
 						(effects
@@ -1893,7 +1893,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:Capacitor"
+		(symbol "lilys_pad:Capacitor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2018,7 +2018,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:Crystal"
+		(symbol "lilys_pad:Crystal"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2055,7 +2055,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/Y - Crystals and Oscillators/SOSET_S47SMD16.000M20PF20R30B3.pdf"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2078,21 +2078,9 @@
 				)
 			)
 			(symbol "Crystal_0_1"
-				(polyline
-					(pts
-						(xy -2.54 2.54) (xy -2.54 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(rectangle
-					(start -1.27 2.54)
-					(end 1.27 -2.54)
+					(start -2.54 1.27)
+					(end 2.54 -1.27)
 					(stroke
 						(width 0)
 						(type default)
@@ -2103,7 +2091,19 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 -2.54) (xy 2.54 2.54)
+						(xy 2.54 2.54) (xy -2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy -2.54 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -2116,7 +2116,7 @@
 			)
 			(symbol "Crystal_1_1"
 				(pin passive line
-					(at -5.08 0 0)
+					(at 0 5.08 270)
 					(length 2.54)
 					(name ""
 						(effects
@@ -2134,7 +2134,7 @@
 					)
 				)
 				(pin passive line
-					(at 5.08 0 180)
+					(at 0 -5.08 90)
 					(length 2.54)
 					(name ""
 						(effects
@@ -2154,7 +2154,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:GC9A01"
+		(symbol "lilys_pad:GC9A01"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2170,8 +2170,8 @@
 					)
 				)
 			)
-			(property "Value" ""
-				(at 0 0 0)
+			(property "Value" "GC9A01"
+				(at 0 0 90)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -2191,7 +2191,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Screen Drivers/GC9A01A.pdf"
+			(property "Datasheet" ""
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2357,7 +2357,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:GND"
+		(symbol "lilys_pad:GND"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -2457,7 +2457,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:Header_21"
+		(symbol "lilys_pad:Header_21"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3142,14 +3142,14 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:ILI9488"
+		(symbol "lilys_pad:ILI9488"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U?"
-				(at 2.286 -14.732 0)
+				(at 2.54 -12.7 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -3203,8 +3203,8 @@
 			)
 			(symbol "ILI9488_0_1"
 				(rectangle
-					(start -7.62 12.7)
-					(end 7.62 -12.7)
+					(start -7.62 10.16)
+					(end 7.62 -10.16)
 					(stroke
 						(width 0)
 						(type default)
@@ -3215,9 +3215,9 @@
 					)
 				)
 			)
-			(symbol "ILI9488_1_0"
+			(symbol "ILI9488_1_1"
 				(pin power_in line
-					(at 0 15.24 270)
+					(at 0 12.7 270)
 					(length 2.54)
 					(name "VCC"
 						(effects
@@ -3235,7 +3235,7 @@
 					)
 				)
 				(pin power_in line
-					(at 0 -15.24 90)
+					(at 0 -12.7 90)
 					(length 2.54)
 					(name "GND"
 						(effects
@@ -3381,7 +3381,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:PWR_FLG"
+		(symbol "lilys_pad:PWR_FLG"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -3482,7 +3482,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:Push-button_Switch"
+		(symbol "lilys_pad:Push-button_Switch"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3641,7 +3641,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:Resistor"
+		(symbol "lilys_pad:Resistor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3753,7 +3753,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:SD_Card_Socket"
+		(symbol "lilys_pad:SD_Card_Socket"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3826,11 +3826,11 @@
 					)
 				)
 			)
-			(symbol "SD_Card_Socket_1_0"
+			(symbol "SD_Card_Socket_1_1"
 				(pin input line
-					(at -8.89 -3.81 0)
+					(at -8.89 3.81 0)
 					(length 2.54)
-					(name "CS"
+					(name "CLK"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3838,24 +3838,6 @@
 						)
 					)
 					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -8.89 -1.27 0)
-					(length 2.54)
-					(name "SDI"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3873,6 +3855,24 @@
 							)
 						)
 					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -8.89 -1.27 0)
+					(length 2.54)
+					(name "SDI"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
 					(number "3"
 						(effects
 							(font
@@ -3882,9 +3882,9 @@
 					)
 				)
 				(pin input line
-					(at -8.89 3.81 0)
+					(at -8.89 -3.81 0)
 					(length 2.54)
-					(name "CLK"
+					(name "CS"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3902,7 +3902,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:TI TXB0104DR"
+		(symbol "lilys_pad:TI_TXB0104DR"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3939,7 +3939,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
+			(property "Datasheet" "file:///home/apetitco/Documents/school/42Chips/module/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -3961,20 +3961,21 @@
 					)
 				)
 			)
-			(symbol "TI TXB0104DR_0_1"
+			(symbol "TI_TXB0104DR_0_1"
 				(rectangle
 					(start -7.62 10.16)
 					(end 7.62 -10.16)
 					(stroke
-						(width 0.254)
+						(width 0)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type color)
+						(color 255 255 194 1)
 					)
 				)
 			)
-			(symbol "TI TXB0104DR_1_1"
+			(symbol "TI_TXB0104DR_1_1"
 				(pin power_in line
 					(at -10.16 7.62 0)
 					(length 2.54)
@@ -3993,7 +3994,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at -10.16 5.08 0)
 					(length 2.54)
 					(name "A1"
@@ -4011,7 +4012,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at -10.16 2.54 0)
 					(length 2.54)
 					(name "A2"
@@ -4029,7 +4030,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at -10.16 0 0)
 					(length 2.54)
 					(name "A3"
@@ -4047,7 +4048,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at -10.16 -2.54 0)
 					(length 2.54)
 					(name "A4"
@@ -4101,7 +4102,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at 10.16 -7.62 180)
 					(length 2.54)
 					(name "OE"
@@ -4137,7 +4138,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at 10.16 -2.54 180)
 					(length 2.54)
 					(name "B4"
@@ -4155,7 +4156,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at 10.16 0 180)
 					(length 2.54)
 					(name "B3"
@@ -4173,7 +4174,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at 10.16 2.54 180)
 					(length 2.54)
 					(name "B2"
@@ -4191,7 +4192,7 @@
 						)
 					)
 				)
-				(pin bidirectional line
+				(pin passive line
 					(at 10.16 5.08 180)
 					(length 2.54)
 					(name "B1"
@@ -4230,7 +4231,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's_Pad:VCC"
+		(symbol "lilys_pad:VCC"
 			(power global)
 			(pin_numbers
 				(hide yes)
@@ -4435,7 +4436,7 @@
 	)
 	(text "NOTE: Check load capacitors values for the crystal\nC_{1}=C_{2}=2(C_{L}-C_{stray})"
 		(exclude_from_sim no)
-		(at 62.23 188.976 0)
+		(at 62.23 189.23 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4445,7 +4446,7 @@
 	)
 	(text "     ^      ^\nJTAG DEBUGGING\n"
 		(exclude_from_sim no)
-		(at 178.562 133.35 0)
+		(at 179.07 133.35 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4454,16 +4455,58 @@
 		(uuid "e536d3de-900a-482f-bcfe-b10d1b05af0f")
 	)
 	(junction
+		(at 45.72 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1211ec5e-d0a9-48d2-8b85-d2192b05c5c0")
+	)
+	(junction
+		(at 87.63 83.82)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1d5cea01-e886-41eb-a7ef-da0673aee736")
+	)
+	(junction
+		(at 73.66 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2fece802-610c-4eaa-970a-3e4f26e2f693")
+	)
+	(junction
 		(at 124.46 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "34f3d5b0-8896-44cb-bff7-e394271d2a39")
 	)
 	(junction
+		(at 77.47 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3de15b9a-9ed1-4f13-93b3-127d6ba196ce")
+	)
+	(junction
 		(at 236.22 43.18)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3fc2924a-b3a5-4d1e-aef2-b59eb722a081")
+	)
+	(junction
+		(at 77.47 36.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5de64111-2140-48aa-80f6-ed138172c678")
+	)
+	(junction
+		(at 191.77 140.9701)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "68710223-245a-49f7-9599-242efcaed85c")
+	)
+	(junction
+		(at 191.77 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "802b9e60-e2ac-4fe4-bb6a-8e87da08528a")
 	)
 	(junction
 		(at 160.02 33.02)
@@ -4484,16 +4527,22 @@
 		(uuid "c0b92225-b242-4799-9d2b-a93a491df84b")
 	)
 	(junction
+		(at 49.53 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c45c9606-1df6-41b7-8db1-cd307a674f4e")
+	)
+	(junction
+		(at 93.98 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cf717659-b003-425e-a1d6-0a44c7e12566")
+	)
+	(junction
 		(at 156.21 116.84)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "ca0007c1-75d9-44d4-ab93-380d17ea914b")
-	)
-	(junction
-		(at 45.72 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "e937f07f-c552-43cf-a2b9-53ac0f10690e")
+		(uuid "f4ec3e6d-c88c-4ad3-85db-1efc81610646")
 	)
 	(junction
 		(at 156.21 110.49)
@@ -4504,6 +4553,10 @@
 	(no_connect
 		(at 82.55 158.75)
 		(uuid "0148d868-0148-429a-82ee-565f1620a72e")
+	)
+	(no_connect
+		(at 85.09 123.19)
+		(uuid "018a2ef4-7632-4206-ade6-d2571e082c04")
 	)
 	(no_connect
 		(at 57.15 123.19)
@@ -4562,7 +4615,7 @@
 		(uuid "1da4360f-c82e-49a2-86d6-faa85e847acd")
 	)
 	(no_connect
-		(at 166.37 158.7501)
+		(at 166.37 158.75)
 		(uuid "1f2bb1fe-5419-432e-bc3d-d18388d55ede")
 	)
 	(no_connect
@@ -4570,7 +4623,7 @@
 		(uuid "20cdc924-0395-4eb1-9bdc-98671e6419f2")
 	)
 	(no_connect
-		(at 115.57 158.7501)
+		(at 115.57 158.75)
 		(uuid "24151e2f-f62d-4336-a9e3-883d39f869d8")
 	)
 	(no_connect
@@ -4586,7 +4639,7 @@
 		(uuid "2819c585-0dc7-4597-aced-8a65ed127a1f")
 	)
 	(no_connect
-		(at 123.19 158.7501)
+		(at 123.19 158.75)
 		(uuid "2b156f21-c3c6-45ce-a6e1-32619eb6df39")
 	)
 	(no_connect
@@ -4602,7 +4655,7 @@
 		(uuid "40cebcc7-f303-4692-81b4-bdd733b5c439")
 	)
 	(no_connect
-		(at 128.27 158.7501)
+		(at 128.27 158.75)
 		(uuid "4110bf9c-2200-4160-976a-5d7449f8b837")
 	)
 	(no_connect
@@ -4618,7 +4671,7 @@
 		(uuid "45408890-a289-492c-a406-613ed8dd83bf")
 	)
 	(no_connect
-		(at 120.65 158.7501)
+		(at 120.65 158.75)
 		(uuid "4a2aaacc-eae1-48dc-b571-9c5e691af4a4")
 	)
 	(no_connect
@@ -4626,7 +4679,7 @@
 		(uuid "4ae4d016-97b8-40fb-861e-b7f03f400165")
 	)
 	(no_connect
-		(at 107.95 158.7501)
+		(at 107.95 158.75)
 		(uuid "4f3b4835-745e-46e0-ae54-0266bcd9c313")
 	)
 	(no_connect
@@ -4634,11 +4687,11 @@
 		(uuid "50b09f9d-c1eb-4c2e-9fe0-da5dfff90963")
 	)
 	(no_connect
-		(at 179.07 158.7501)
+		(at 179.07 158.75)
 		(uuid "52561165-9ce8-4f41-b0b5-8c5e524471ee")
 	)
 	(no_connect
-		(at 100.33 158.7501)
+		(at 100.33 158.75)
 		(uuid "533d5fdb-a29f-472f-8b98-c7734a42ffe6")
 	)
 	(no_connect
@@ -4650,7 +4703,7 @@
 		(uuid "5792e30d-fb7e-4df5-bbb0-b3d119a4a3ff")
 	)
 	(no_connect
-		(at 168.91 158.7501)
+		(at 168.91 158.75)
 		(uuid "5b2dd3d9-7177-4d93-840c-55926ab284f8")
 	)
 	(no_connect
@@ -4666,7 +4719,7 @@
 		(uuid "6076cd1b-e840-4abe-9db0-94290a19d2a9")
 	)
 	(no_connect
-		(at 125.73 158.7501)
+		(at 125.73 158.75)
 		(uuid "61041dfc-fb8a-4536-bcef-581f3a289619")
 	)
 	(no_connect
@@ -4678,7 +4731,7 @@
 		(uuid "64090baf-e877-46ed-aebe-c7f42f65bcfd")
 	)
 	(no_connect
-		(at 173.99 158.7501)
+		(at 173.99 158.75)
 		(uuid "640a3bd8-d5ff-4977-b419-0b0328b9ea2c")
 	)
 	(no_connect
@@ -4694,11 +4747,15 @@
 		(uuid "6fb56be3-b3ae-4d97-b2c6-b4d6a610321f")
 	)
 	(no_connect
-		(at 130.81 158.7501)
+		(at 71.12 106.68)
+		(uuid "7093a6b5-fdb9-4a12-9b49-d6e12c9cd1b4")
+	)
+	(no_connect
+		(at 130.81 158.75)
 		(uuid "74513455-ba0a-411d-b836-3d54e3825c0b")
 	)
 	(no_connect
-		(at 176.53 158.7501)
+		(at 176.53 158.75)
 		(uuid "7766a8b2-28ba-470d-a375-d725cf081763")
 	)
 	(no_connect
@@ -4730,7 +4787,7 @@
 		(uuid "819e5252-6526-446b-8192-c041dcefffa4")
 	)
 	(no_connect
-		(at 110.49 158.7501)
+		(at 110.49 158.75)
 		(uuid "81f350d8-07c0-446a-859c-b221ce09de8a")
 	)
 	(no_connect
@@ -4738,11 +4795,11 @@
 		(uuid "835073a6-856e-4329-b244-b7de8c716589")
 	)
 	(no_connect
-		(at 135.89 158.7501)
+		(at 135.89 158.75)
 		(uuid "849db9b7-f9fa-435d-8ace-23e9eb85763d")
 	)
 	(no_connect
-		(at 161.29 158.7501)
+		(at 161.29 158.75)
 		(uuid "8698df11-6f51-4540-b435-dcad34401c21")
 	)
 	(no_connect
@@ -4750,11 +4807,15 @@
 		(uuid "88a4f220-9afa-4580-8073-253d0287fe61")
 	)
 	(no_connect
+		(at 97.79 158.75)
+		(uuid "89c0685c-c1e3-41ff-ab48-e5f95bd97f58")
+	)
+	(no_connect
 		(at 80.01 158.75)
 		(uuid "8dda9491-f98c-4e54-9268-0edc9b209eaa")
 	)
 	(no_connect
-		(at 138.43 158.7501)
+		(at 138.43 158.75)
 		(uuid "8ea6665a-1a10-45b0-b6de-f07c2bfbdf6c")
 	)
 	(no_connect
@@ -4782,7 +4843,7 @@
 		(uuid "a51e007d-cd69-4a3b-990d-5c0eea12d227")
 	)
 	(no_connect
-		(at 133.35 158.7501)
+		(at 133.35 158.75)
 		(uuid "a740be06-5510-4cff-b9b2-ead6d38f7a6d")
 	)
 	(no_connect
@@ -4794,7 +4855,7 @@
 		(uuid "b4ed7522-0b8f-4989-8209-184b052d284b")
 	)
 	(no_connect
-		(at 151.13 158.7501)
+		(at 151.13 158.75)
 		(uuid "b6149db0-f1aa-448a-a371-f1f884d62c01")
 	)
 	(no_connect
@@ -4802,7 +4863,7 @@
 		(uuid "b6996112-b10b-49f1-8186-bfcd4d393af4")
 	)
 	(no_connect
-		(at 153.67 158.7501)
+		(at 153.67 158.75)
 		(uuid "ba2d3fcc-00c3-4156-8c1a-90b726139067")
 	)
 	(no_connect
@@ -4810,7 +4871,7 @@
 		(uuid "be754765-5131-4f04-a4fc-062ef93d1c37")
 	)
 	(no_connect
-		(at 143.51 158.7501)
+		(at 143.51 158.75)
 		(uuid "bfb04243-c2d0-4c4a-8e01-f7627a1105e5")
 	)
 	(no_connect
@@ -4830,7 +4891,11 @@
 		(uuid "c8ceb1a3-68c1-4aea-b251-86677ea2e574")
 	)
 	(no_connect
-		(at 105.41 158.7501)
+		(at 74.93 123.19)
+		(uuid "cc37dc35-4a3d-4d0d-9601-7b64fbfad9dc")
+	)
+	(no_connect
+		(at 105.41 158.75)
 		(uuid "ccec00d1-a8e2-49d6-a052-715277b13369")
 	)
 	(no_connect
@@ -4866,11 +4931,11 @@
 		(uuid "df802a81-fbc9-463d-b623-ef241306ed35")
 	)
 	(no_connect
-		(at 102.87 158.7501)
+		(at 102.87 158.75)
 		(uuid "e3d8f2bb-6dd5-48b0-b138-5768c2c02004")
 	)
 	(no_connect
-		(at 113.03 158.7501)
+		(at 113.03 158.75)
 		(uuid "ee93235d-2bf4-483f-91e9-6fd92952b418")
 	)
 	(no_connect
@@ -4886,7 +4951,7 @@
 		(uuid "f392c552-ff98-4e0b-812e-aeba175beea8")
 	)
 	(no_connect
-		(at 171.45 158.7501)
+		(at 171.45 158.75)
 		(uuid "fd38a023-9492-4c77-96e5-f512735f2de2")
 	)
 	(bus_entry
@@ -5043,7 +5108,7 @@
 		(uuid "a72d24aa-b9d2-4257-bb88-44b11e300181")
 	)
 	(bus_entry
-		(at 158.75 115.5701)
+		(at 158.75 115.57)
 		(size 2.54 2.54)
 		(stroke
 			(width 0)
@@ -5059,15 +5124,6 @@
 			(type default)
 		)
 		(uuid "bf7109f4-829b-45f0-b767-4447f06d7f18")
-	)
-	(bus_entry
-		(at 72.39 115.57)
-		(size 2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c0f45e76-75f2-4cb1-b77b-6945993e7c89")
 	)
 	(bus_entry
 		(at 74.93 115.57)
@@ -5195,16 +5251,6 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 158.7499) (xy 52.07 158.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0720c51e-1277-4ba4-97ee-e66b40ea9154")
-	)
-	(wire
-		(pts
 			(xy 71.12 99.06) (xy 92.71 99.06)
 		)
 		(stroke
@@ -5243,6 +5289,16 @@
 		)
 		(uuid "0de2c0a1-db31-4060-affa-28a184bd6692")
 	)
+	(wire
+		(pts
+			(xy 93.98 110.49) (xy 100.33 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ea435d8-2af1-4028-8ab5-d3799b80abf4")
+	)
 	(bus
 		(pts
 			(xy 160.02 33.02) (xy 199.39 33.02)
@@ -5253,9 +5309,19 @@
 		)
 		(uuid "0f536777-6412-4412-8d90-0b31e61e2ed9")
 	)
+	(wire
+		(pts
+			(xy 77.47 36.83) (xy 77.47 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10fb79f4-500a-447a-a3d7-eabc0db6705b")
+	)
 	(bus
 		(pts
-			(xy 39.37 115.57) (xy 63.5 115.5701)
+			(xy 39.37 115.57) (xy 74.93 115.57)
 		)
 		(stroke
 			(width 0)
@@ -5265,7 +5331,7 @@
 	)
 	(bus
 		(pts
-			(xy 80.01 115.5701) (xy 158.75 115.57)
+			(xy 80.01 115.57) (xy 158.75 115.57)
 		)
 		(stroke
 			(width 0)
@@ -5315,7 +5381,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 158.7499) (xy 148.59 165.1)
+			(xy 148.59 158.75) (xy 148.59 165.1)
 		)
 		(stroke
 			(width 0)
@@ -5335,7 +5401,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 110.49) (xy 100.33 110.49)
+			(xy 90.17 110.49) (xy 93.98 110.49)
 		)
 		(stroke
 			(width 0)
@@ -5435,16 +5501,6 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 139.7) (xy 45.72 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "36384254-3cb6-4385-ab9e-c53dbe55afc4")
-	)
-	(wire
-		(pts
 			(xy 102.87 78.74) (xy 102.87 86.36)
 		)
 		(stroke
@@ -5452,6 +5508,16 @@
 			(type default)
 		)
 		(uuid "3653f3f0-86d9-433b-8f2e-ee6dff68c0b6")
+	)
+	(wire
+		(pts
+			(xy 73.66 91.44) (xy 71.12 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3972d988-2fd7-48bb-97cc-647051852088")
 	)
 	(wire
 		(pts
@@ -5495,16 +5561,6 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 158.7499) (xy 57.15 168.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "440d5326-b603-400e-a049-b2b2ba1950fb")
-	)
-	(wire
-		(pts
 			(xy 82.55 91.44) (xy 81.28 91.44)
 		)
 		(stroke
@@ -5512,16 +5568,6 @@
 			(type default)
 		)
 		(uuid "44821637-0d4b-4ecf-bbb5-d0e74b70c7b6")
-	)
-	(wire
-		(pts
-			(xy 74.93 118.11) (xy 74.93 123.19)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48ba300b-f499-4506-880e-15f81a9e0ee5")
 	)
 	(wire
 		(pts
@@ -5602,6 +5648,16 @@
 			(type default)
 		)
 		(uuid "4f3aca27-2c87-42e8-a660-67c86ca6eac3")
+	)
+	(wire
+		(pts
+			(xy 191.77 140.97) (xy 191.77 140.9701)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "51ad4066-2a40-41ec-a3a3-62061a00c6ea")
 	)
 	(bus
 		(pts
@@ -5725,13 +5781,23 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 158.7499) (xy 158.75 166.37)
+			(xy 158.75 158.75) (xy 158.75 166.37)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "608a82cd-7d0f-411f-8204-500c5391a626")
+	)
+	(wire
+		(pts
+			(xy 191.77 140.97) (xy 200.66 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "627de5aa-7047-4d0d-800b-a7231bbdcbe6")
 	)
 	(wire
 		(pts
@@ -5745,13 +5811,23 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 158.7499) (xy 62.23 176.53)
+			(xy 87.63 83.82) (xy 90.17 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "634579b0-0b51-4143-8e5c-72f6260fac65")
+		(uuid "64c6192d-c31a-4323-a337-b92ea49a4bec")
+	)
+	(wire
+		(pts
+			(xy 57.15 158.75) (xy 57.15 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "652d3c75-eab0-4a6d-b943-acb468690cc2")
 	)
 	(wire
 		(pts
@@ -5785,16 +5861,6 @@
 	)
 	(wire
 		(pts
-			(xy 77.47 36.83) (xy 77.47 40.64)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6a2fe505-a4a8-4c41-af9e-de009cbe22ed")
-	)
-	(wire
-		(pts
 			(xy 67.31 52.07) (xy 64.77 52.07)
 		)
 		(stroke
@@ -5813,6 +5879,16 @@
 		)
 		(uuid "6bd78f51-94aa-4557-b3a7-778b6d20248d")
 	)
+	(wire
+		(pts
+			(xy 39.37 140.97) (xy 45.72 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c7e4676-2f11-4175-bdaf-faa4c7eba4ab")
+	)
 	(bus
 		(pts
 			(xy 95.25 33.02) (xy 124.46 33.02)
@@ -5825,7 +5901,17 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 110.49) (xy 92.71 110.49)
+			(xy 77.47 68.58) (xy 77.47 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "701b6eb0-e549-47af-be63-908824acd75a")
+	)
+	(wire
+		(pts
+			(xy 82.55 110.49) (xy 83.82 110.49)
 		)
 		(stroke
 			(width 0)
@@ -5865,6 +5951,16 @@
 	)
 	(wire
 		(pts
+			(xy 49.53 91.44) (xy 50.8 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "785bb89c-cc9e-44e4-8d87-819080cb50a2")
+	)
+	(wire
+		(pts
 			(xy 194.31 72.39) (xy 194.31 52.07)
 		)
 		(stroke
@@ -5883,16 +5979,6 @@
 		)
 		(uuid "795e29ab-cb70-43f7-bd6b-6b0f53438da7")
 	)
-	(bus
-		(pts
-			(xy 80.01 115.57) (xy 80.01 115.5701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "83078652-ca81-40e4-9f76-ce4da0e13404")
-	)
 	(wire
 		(pts
 			(xy 161.29 110.49) (xy 156.21 110.49)
@@ -5902,16 +5988,6 @@
 			(type default)
 		)
 		(uuid "8b085fd1-0456-4c4c-abb4-8f430877b94b")
-	)
-	(wire
-		(pts
-			(xy 77.47 71.12) (xy 77.47 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8c500a4e-d785-4c80-a942-c33795eddde4")
 	)
 	(wire
 		(pts
@@ -5975,16 +6051,6 @@
 	)
 	(wire
 		(pts
-			(xy 39.37 140.97) (xy 45.72 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a3f72d4-f499-45d7-ba0a-4a98231ffc1b")
-	)
-	(wire
-		(pts
 			(xy 64.77 52.07) (xy 64.77 78.74)
 		)
 		(stroke
@@ -6015,13 +6081,23 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 158.7499) (xy 156.21 161.29)
+			(xy 156.21 158.75) (xy 156.21 161.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a4381e40-97aa-4c06-94b4-bc361f7c0daa")
+	)
+	(wire
+		(pts
+			(xy 62.23 158.75) (xy 62.23 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4795645-a517-4427-b55d-63ab8060a763")
 	)
 	(wire
 		(pts
@@ -6062,16 +6138,6 @@
 			(type default)
 		)
 		(uuid "aa6c5ef5-1d2f-41d5-be09-ff97d44a7300")
-	)
-	(wire
-		(pts
-			(xy 45.72 140.97) (xy 45.72 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae4e2ec0-e11f-411c-b46e-b5f23595575c")
 	)
 	(wire
 		(pts
@@ -6205,7 +6271,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 140.97) (xy 200.66 140.97)
+			(xy 190.5 140.97) (xy 191.77 140.97)
 		)
 		(stroke
 			(width 0)
@@ -6222,16 +6288,6 @@
 			(type default)
 		)
 		(uuid "c9289456-7bae-4600-b007-c9ef170fc1a6")
-	)
-	(bus
-		(pts
-			(xy 74.93 115.57) (xy 74.93 115.5701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca3b5cfd-b896-4524-a091-4657dc63ee56")
 	)
 	(wire
 		(pts
@@ -6295,7 +6351,7 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 91.44) (xy 50.8 91.44)
+			(xy 44.45 91.44) (xy 49.53 91.44)
 		)
 		(stroke
 			(width 0)
@@ -6323,16 +6379,6 @@
 		)
 		(uuid "d430bbd8-88b1-4794-8407-35caf663b9d5")
 	)
-	(bus
-		(pts
-			(xy 63.5 115.5701) (xy 74.93 115.5701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4f96c8e-6127-401f-ae73-4d8fa335bb91")
-	)
 	(wire
 		(pts
 			(xy 189.23 54.61) (xy 196.85 54.61)
@@ -6345,7 +6391,7 @@
 	)
 	(wire
 		(pts
-			(xy 161.29 118.1101) (xy 161.29 123.19)
+			(xy 161.29 118.11) (xy 161.29 123.19)
 		)
 		(stroke
 			(width 0)
@@ -6385,23 +6431,13 @@
 	)
 	(bus
 		(pts
-			(xy 77.47 115.5701) (xy 80.01 115.5701)
+			(xy 77.47 115.57) (xy 80.01 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "dd9a0466-e094-4886-ad8d-89d978416bc5")
-	)
-	(bus
-		(pts
-			(xy 77.47 115.57) (xy 77.47 115.5701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "de1cfd41-6fd3-4bfd-85d2-1959692f9a26")
 	)
 	(wire
 		(pts
@@ -6425,7 +6461,7 @@
 	)
 	(wire
 		(pts
-			(xy 86.36 83.82) (xy 90.17 83.82)
+			(xy 86.36 83.82) (xy 87.63 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6435,7 +6471,7 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 91.44) (xy 71.12 91.44)
+			(xy 74.93 91.44) (xy 73.66 91.44)
 		)
 		(stroke
 			(width 0)
@@ -6462,6 +6498,16 @@
 			(type default)
 		)
 		(uuid "e7dbf4f7-3482-4f5f-80b7-d674eb04afa7")
+	)
+	(wire
+		(pts
+			(xy 45.72 140.97) (xy 45.72 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea05cf37-2a59-4b2e-a5fc-351c871ed0f4")
 	)
 	(wire
 		(pts
@@ -6505,6 +6551,16 @@
 	)
 	(wire
 		(pts
+			(xy 77.47 71.12) (xy 77.47 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eeffef8f-030f-4027-a1eb-3a0ee1f5df0d")
+	)
+	(wire
+		(pts
 			(xy 158.75 55.88) (xy 171.45 55.88)
 		)
 		(stroke
@@ -6525,7 +6581,7 @@
 	)
 	(bus
 		(pts
-			(xy 74.93 115.5701) (xy 77.47 115.5701)
+			(xy 74.93 115.57) (xy 77.47 115.57)
 		)
 		(stroke
 			(width 0)
@@ -6555,16 +6611,6 @@
 	)
 	(bus
 		(pts
-			(xy 72.39 115.57) (xy 72.39 115.5701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f8ab663f-a4c1-4f74-b7b5-69f76bc611c7")
-	)
-	(bus
-		(pts
 			(xy 55.88 33.02) (xy 95.25 33.02)
 		)
 		(stroke
@@ -6575,7 +6621,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 158.7499) (xy 146.05 162.56)
+			(xy 146.05 158.75) (xy 146.05 162.56)
 		)
 		(stroke
 			(width 0)
@@ -6612,6 +6658,16 @@
 			(type default)
 		)
 		(uuid "fdc8560b-a3dc-4e80-a4ee-856f76793ed3")
+	)
+	(wire
+		(pts
+			(xy 45.72 139.7) (xy 45.72 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff15d613-5bf1-4ca1-a16c-803d4b6e2d9d")
 	)
 	(wire
 		(pts
@@ -6654,7 +6710,7 @@
 		(uuid "0589f3be-7207-4fd3-91f0-6d50ed3cf1df")
 	)
 	(label "~{SS}"
-		(at 74.93 123.1901 90)
+		(at 74.93 123.19 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6704,7 +6760,7 @@
 		(uuid "386a0873-69b4-4cb2-bde3-a8c2fb8c4d73")
 	)
 	(label "SCK"
-		(at 77.47 123.1901 90)
+		(at 77.47 123.19 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6834,7 +6890,7 @@
 		(uuid "c2842ab9-99c4-44b0-9c5b-d892f36b6f9d")
 	)
 	(label "MOSI"
-		(at 80.01 123.1901 90)
+		(at 80.01 123.19 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6874,7 +6930,7 @@
 		(uuid "e8888a7b-15d8-4983-a186-d5c6e89a5c1c")
 	)
 	(label "MISO"
-		(at 82.55 123.1901 90)
+		(at 82.55 123.19 90)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7049,7 +7105,7 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 26.67 191.77 90)
+		(at 29.21 191.77 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7059,7 +7115,7 @@
 		)
 		(uuid "c1b64771-8d7e-4c81-b9b5-c6ab5ecd8045")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 26.67 185.2772 90)
+			(at 29.21 185.2772 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7120,7 +7176,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 204.47 140.97 90)
 		(unit 1)
 		(body_style 1)
@@ -7199,7 +7255,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:TI TXB0104DR")
+		(lib_id "lilys_pad:TI_TXB0104DR")
 		(at 60.96 99.06 0)
 		(unit 1)
 		(body_style 1)
@@ -7242,7 +7298,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
+		(property "Datasheet" "file:///home/apetitco/Documents/school/42Chips/module/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
 			(at 60.96 99.06 0)
 			(hide yes)
 			(show_name no)
@@ -7316,7 +7372,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 64.77 182.88 0)
 		(unit 1)
 		(body_style 1)
@@ -7396,7 +7452,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 93.98 83.82 90)
 		(unit 1)
 		(body_style 1)
@@ -7476,8 +7532,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:PWR_FLG")
-		(at 21.59 194.31 0)
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 22.86 194.31 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7488,7 +7544,7 @@
 		(fields_autoplaced yes)
 		(uuid "0e055037-9855-412e-931c-900bd7784b78")
 		(property "Reference" "#PWR025"
-			(at 21.59 194.31 0)
+			(at 22.86 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7499,7 +7555,7 @@
 			)
 		)
 		(property "Value" "PWR_FLG"
-			(at 21.59 194.31 0)
+			(at 22.86 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7510,7 +7566,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 21.59 194.31 0)
+			(at 22.86 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7521,7 +7577,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 21.59 194.31 0)
+			(at 22.86 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7532,7 +7588,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 21.59 194.31 0)
+			(at 22.86 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7555,7 +7611,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Push-button_Switch")
+		(lib_id "lilys_pad:Push-button_Switch")
 		(at 222.25 43.18 270)
 		(unit 1)
 		(body_style 1)
@@ -7635,8 +7691,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
-		(at 88.9 110.49 270)
+		(lib_id "lilys_pad:VCC")
+		(at 80.01 110.49 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7646,7 +7702,7 @@
 		(dnp no)
 		(uuid "1d81339e-444a-431d-807e-246d16af0c49")
 		(property "Reference" "#PWR010"
-			(at 87.63 110.49 0)
+			(at 78.74 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7657,7 +7713,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 88.138 110.49 0)
+			(at 79.248 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7667,7 +7723,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 88.9 110.49 0)
+			(at 80.01 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7678,7 +7734,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 88.9 110.49 0)
+			(at 80.01 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7689,7 +7745,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 88.9 110.49 0)
+			(at 80.01 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7712,7 +7768,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GC9A01")
+		(lib_id "lilys_pad:GC9A01")
 		(at 180.34 53.34 0)
 		(unit 1)
 		(body_style 1)
@@ -7809,7 +7865,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 167.64 68.58 270)
 		(unit 1)
 		(body_style 1)
@@ -7887,7 +7943,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GC9A01")
+		(lib_id "lilys_pad:GC9A01")
 		(at 142.24 53.34 0)
 		(unit 1)
 		(body_style 1)
@@ -7984,7 +8040,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Resistor")
+		(lib_id "lilys_pad:Resistor")
 		(at 243.84 38.1 0)
 		(unit 1)
 		(body_style 1)
@@ -8065,7 +8121,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 73.66 88.9 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3a7a5100-c413-4377-bd98-e95359f96748")
+		(property "Reference" "#PWR030"
+			(at 73.66 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 73.66 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 73.66 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 73.66 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "893d1d52-db6e-42a6-a4a8-cf986459bb62")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:Capacitor")
 		(at 36.83 140.97 90)
 		(unit 1)
 		(body_style 1)
@@ -8144,7 +8279,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 147.32 109.22 270)
 		(unit 1)
 		(body_style 1)
@@ -8224,8 +8359,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Crystal")
-		(at 59.69 181.61 270)
+		(lib_id "lilys_pad:Crystal")
+		(at 59.69 181.61 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8235,7 +8370,7 @@
 		(dnp no)
 		(uuid "4e37343b-fa8c-4ed7-bb03-6e322743f3e5")
 		(property "Reference" "Y1"
-			(at 58.42 181.61 90)
+			(at 59.69 182.88 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8304,7 +8439,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 44.45 87.63 0)
 		(unit 1)
 		(body_style 1)
@@ -8384,7 +8519,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 147.32 69.85 90)
 		(unit 1)
 		(body_style 1)
@@ -8464,7 +8599,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 77.47 91.44 270)
 		(unit 1)
 		(body_style 1)
@@ -8544,7 +8679,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 185.42 36.83 90)
 		(unit 1)
 		(body_style 1)
@@ -8624,7 +8759,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 88.9 74.93 90)
 		(unit 1)
 		(body_style 1)
@@ -8702,7 +8837,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 115.57 109.22 0)
 		(unit 1)
 		(body_style 1)
@@ -8780,7 +8915,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:TI TXB0104DR")
+		(lib_id "lilys_pad:TI_TXB0104DR")
 		(at 107.95 96.52 90)
 		(unit 1)
 		(body_style 1)
@@ -8821,7 +8956,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
+		(property "Datasheet" "file:///home/apetitco/Documents/school/42Chips/module/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
 			(at 107.95 96.52 0)
 			(hide yes)
 			(show_name no)
@@ -8895,7 +9030,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
+		(lib_id "lilys_pad:VCC")
 		(at 243.84 30.48 180)
 		(unit 1)
 		(body_style 1)
@@ -8918,13 +9053,14 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 243.84 27.94 0)
+			(at 246.38 31.1149 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -8973,7 +9109,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 87.63 81.28 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "802241e6-9f30-4c26-a9cd-a5398b8b2382")
+		(property "Reference" "#PWR033"
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 87.63 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "069b6738-2325-4df5-a326-0c664c9a2667")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR033")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:Capacitor")
 		(at 144.78 78.74 90)
 		(unit 1)
 		(body_style 1)
@@ -9053,7 +9268,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:SD_Card_Socket")
+		(lib_id "lilys_pad:SD_Card_Socket")
 		(at 111.76 46.99 0)
 		(unit 1)
 		(body_style 1)
@@ -9140,7 +9355,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:ATmega_2560")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 93.98 107.95 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "93aa8a63-89ae-44fe-bb60-2d822d325591")
+		(property "Reference" "#PWR034"
+			(at 93.98 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 93.98 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 93.98 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "85b60f04-63de-483b-b85e-6cdf8e44c288")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR034")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:ATmega_2560")
 		(at 118.11 140.97 90)
 		(unit 1)
 		(body_style 1)
@@ -9514,8 +9808,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
-		(at 21.59 189.23 180)
+		(lib_id "lilys_pad:GND")
+		(at 22.86 189.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9523,10 +9817,9 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "98e6cc59-cc26-444b-81ed-2068145f5c76")
 		(property "Reference" "#PWR03"
-			(at 21.59 186.69 0)
+			(at 22.86 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9537,17 +9830,18 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 21.59 185.42 0)
+			(at 20.828 187.198 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 21.59 189.23 0)
+			(at 22.86 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9558,7 +9852,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 21.59 189.23 0)
+			(at 22.86 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9569,7 +9863,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 21.59 189.23 0)
+			(at 22.86 189.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9592,7 +9886,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 49.53 88.9 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9f5a86a3-da26-4175-ab40-68adfa9813b7")
+		(property "Reference" "#PWR029"
+			(at 49.53 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 49.53 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 49.53 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 49.53 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 49.53 88.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "845945e8-0481-4160-9f90-1710895d89ab")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:GND")
 		(at 168.91 102.87 0)
 		(unit 1)
 		(body_style 1)
@@ -9615,13 +9988,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 168.91 106.68 0)
+			(at 171.45 103.5049 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -9670,7 +10044,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
+		(lib_id "lilys_pad:VCC")
 		(at 137.16 109.22 270)
 		(unit 1)
 		(body_style 1)
@@ -9748,7 +10122,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 57.15 172.72 0)
 		(unit 1)
 		(body_style 1)
@@ -9828,7 +10202,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
+		(lib_id "lilys_pad:VCC")
 		(at 16.51 189.23 180)
 		(unit 1)
 		(body_style 1)
@@ -9837,7 +10211,6 @@
 		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "aace194d-c7c0-45d4-8ee1-0b12108b9c78")
 		(property "Reference" "#PWR07"
 			(at 16.51 187.96 0)
@@ -9851,13 +10224,14 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 16.51 186.69 0)
+			(at 14.732 188.214 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -9906,7 +10280,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 67.31 162.56 0)
 		(unit 1)
 		(body_style 1)
@@ -9986,7 +10360,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 207.01 50.8 0)
 		(unit 1)
 		(body_style 1)
@@ -10009,13 +10383,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 207.01 54.61 0)
+			(at 209.55 51.4349 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -10064,7 +10439,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 175.26 68.58 90)
 		(unit 1)
 		(body_style 1)
@@ -10144,7 +10519,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 71.12 36.83 270)
 		(unit 1)
 		(body_style 1)
@@ -10224,8 +10599,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
-		(at 95.25 110.49 270)
+		(lib_id "lilys_pad:Capacitor")
+		(at 86.36 110.49 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10235,7 +10610,7 @@
 		(dnp no)
 		(uuid "ca32264b-b560-433b-8f63-700ce085ea41")
 		(property "Reference" "C10"
-			(at 93.472 105.918 90)
+			(at 84.582 105.918 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10246,7 +10621,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 93.98 107.696 90)
+			(at 85.09 107.696 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10256,7 +10631,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 95.25 110.49 0)
+			(at 86.36 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10267,7 +10642,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 95.25 110.49 0)
+			(at 86.36 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10278,7 +10653,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 95.25 110.49 0)
+			(at 86.36 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10304,7 +10679,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:ILI9488")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 74.93 71.12 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d394bf32-cefd-4605-bcea-a7d9363a2731")
+		(property "Reference" "#PWR032"
+			(at 74.93 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 74.93 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 74.93 71.12 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0d114c7e-fd27-46db-a0ec-bbed5baf7272")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR032")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:ILI9488")
 		(at 77.47 55.88 0)
 		(unit 1)
 		(body_style 1)
@@ -10313,10 +10767,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d4c476ea-fa7e-4518-af5a-7ed17b007828")
 		(property "Reference" "U9"
-			(at 79.6133 38.1 0)
+			(at 79.6133 40.64 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10327,7 +10780,7 @@
 			)
 		)
 		(property "Value" "ILI9488"
-			(at 79.6133 40.64 0)
+			(at 77.47 59.436 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10407,7 +10860,86 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 80.01 36.83 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d6ee3471-fc3c-438d-8467-bd09456a31fa")
+		(property "Reference" "#PWR031"
+			(at 80.01 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "PWR_FLG"
+			(at 80.01 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 80.01 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 80.01 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "cd70171d-412a-41ce-b8c2-7a18e129642f")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "lilys_pad:GND")
 		(at 67.31 171.45 0)
 		(unit 1)
 		(body_style 1)
@@ -10430,13 +10962,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 67.31 175.26 0)
+			(at 69.85 172.0849 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -10485,7 +11018,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:TI TXB0104DR")
+		(lib_id "lilys_pad:TI_TXB0104DR")
 		(at 161.29 90.17 90)
 		(unit 1)
 		(body_style 1)
@@ -10529,7 +11062,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
+		(property "Datasheet" "file:///home/apetitco/Documents/school/42Chips/module/Datasheets/U - Integrated Circuits/Level Shifters/7ebf70d32255e71aa643aae8d62d2a45.pdf"
 			(at 161.29 90.17 0)
 			(hide yes)
 			(show_name no)
@@ -10603,7 +11136,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
+		(lib_id "lilys_pad:VCC")
 		(at 44.45 81.28 180)
 		(unit 1)
 		(body_style 1)
@@ -10680,7 +11213,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 82.55 74.93 270)
 		(unit 1)
 		(body_style 1)
@@ -10760,7 +11293,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 48.26 106.68 270)
 		(unit 1)
 		(body_style 1)
@@ -10783,7 +11316,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 44.45 106.68 0)
+			(at 47.625 102.87 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10838,8 +11371,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:PWR_FLG")
-		(at 26.67 194.31 0)
+		(lib_id "lilys_pad:PWR_FLG")
+		(at 29.21 194.31 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10850,7 +11383,7 @@
 		(fields_autoplaced yes)
 		(uuid "e56a0274-5774-4e68-9916-76dec3202244")
 		(property "Reference" "#PWR026"
-			(at 26.67 194.31 0)
+			(at 29.21 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10861,7 +11394,7 @@
 			)
 		)
 		(property "Value" "PWR_FLG"
-			(at 26.67 194.31 0)
+			(at 29.21 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10872,7 +11405,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 26.67 194.31 0)
+			(at 29.21 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10883,7 +11416,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 26.67 194.31 0)
+			(at 29.21 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10894,7 +11427,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 26.67 194.31 0)
+			(at 29.21 194.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10917,7 +11450,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 152.4 69.85 90)
 		(unit 1)
 		(body_style 1)
@@ -10995,7 +11528,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:GND")
+		(lib_id "lilys_pad:GND")
 		(at 210.82 140.97 90)
 		(unit 1)
 		(body_style 1)
@@ -11018,13 +11551,14 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 214.63 140.97 0)
+			(at 213.36 140.9699 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -11073,7 +11607,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Header_21")
+		(lib_id "lilys_pad:Header_21")
 		(at 130.81 190.5 270)
 		(unit 1)
 		(body_style 1)
@@ -11210,7 +11744,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:Capacitor")
+		(lib_id "lilys_pad:Capacitor")
 		(at 137.16 36.83 90)
 		(unit 1)
 		(body_style 1)
@@ -11290,7 +11824,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:PWR_FLG")
+		(lib_id "lilys_pad:PWR_FLG")
 		(at 16.51 194.31 0)
 		(unit 1)
 		(body_style 1)
@@ -11369,7 +11903,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
+		(lib_id "lilys_pad:VCC")
 		(at 26.67 140.97 270)
 		(unit 1)
 		(body_style 1)
@@ -11392,7 +11926,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 24.13 140.97 0)
+			(at 27.305 137.16 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
