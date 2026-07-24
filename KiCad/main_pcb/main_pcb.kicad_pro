@@ -434,7 +434,7 @@
         "uuid": "346fb29b-2426-4b69-9f9a-e979b6e41832"
       }
     ],
-    "used_designators": "R1-7,J1-3,C1-21,#PWR1-15,#PWR18-42,Y1,U1-10,S1",
+    "used_designators": "R1-11,J1-3,C1-33,#PWR1-63,Y1,U1-17,S1-2",
     "variants": []
   },
   "sheets": [
@@ -445,6 +445,10 @@
     [
       "a4816677-4d4e-4f2e-882a-ab61f6eb2b02",
       "Power and UART"
+    ],
+    [
+      "f366ed97-9aa9-4dab-9fc7-1cd4f5d408d4",
+      "screens"
     ]
   ],
   "text_variables": {},
