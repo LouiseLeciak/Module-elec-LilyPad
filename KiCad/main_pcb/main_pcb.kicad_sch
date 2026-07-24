@@ -4433,7 +4433,7 @@
 		)
 		(uuid "5d1b4d81-0a74-4d3a-99bc-38cdf973e2f2")
 	)
-	(text "NOTE: Check load capacitors values for the crystal"
+	(text "NOTE: Check load capacitors values for the crystal\nC_{1}=C_{2}=2(C_{L}-C_{stray})"
 		(exclude_from_sim no)
 		(at 62.23 188.976 0)
 		(effects
@@ -4452,18 +4452,6 @@
 			)
 		)
 		(uuid "e536d3de-900a-482f-bcfe-b10d1b05af0f")
-	)
-	(junction
-		(at 190.5 140.97)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0d612969-f52e-42ed-96ca-a51aeb6c0e7c")
-	)
-	(junction
-		(at 45.72 140.9701)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "11d311a3-76fd-4036-aef6-6c336cdda4f6")
 	)
 	(junction
 		(at 124.46 33.02)
@@ -4496,16 +4484,16 @@
 		(uuid "c0b92225-b242-4799-9d2b-a93a491df84b")
 	)
 	(junction
-		(at 190.5 140.9701)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c7c83dea-1b24-451c-b985-87abf392e8b3")
-	)
-	(junction
 		(at 156.21 116.84)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "cfaee770-bff3-46e5-89d8-44a78b201d8b")
+		(uuid "ca0007c1-75d9-44d4-ab93-380d17ea914b")
+	)
+	(junction
+		(at 45.72 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e937f07f-c552-43cf-a2b9-53ac0f10690e")
 	)
 	(junction
 		(at 156.21 110.49)
@@ -5151,6 +5139,16 @@
 	)
 	(wire
 		(pts
+			(xy 29.21 140.97) (xy 33.02 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "029b156f-2331-4472-a35c-0e4800285e73")
+	)
+	(wire
+		(pts
 			(xy 158.75 123.19) (xy 158.75 118.11)
 		)
 		(stroke
@@ -5191,7 +5189,7 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 119.38) (xy 107.95 119.38)
+			(xy 195.58 119.38) (xy 107.95 119.38)
 		)
 		(stroke
 			(width 0)
@@ -5248,16 +5246,6 @@
 			(type default)
 		)
 		(uuid "0f536777-6412-4412-8d90-0b31e61e2ed9")
-	)
-	(wire
-		(pts
-			(xy 190.5 140.97) (xy 190.5 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "126cba87-505b-45ea-9929-b5d411bf3daf")
 	)
 	(bus
 		(pts
@@ -5339,6 +5327,16 @@
 		)
 		(uuid "1f978071-2a50-451a-8817-35965909a7ae")
 	)
+	(wire
+		(pts
+			(xy 99.06 110.49) (xy 100.33 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "23469f59-9fd8-47d8-90aa-199e05807225")
+	)
 	(bus
 		(pts
 			(xy 124.46 33.02) (xy 160.02 33.02)
@@ -5361,13 +5359,43 @@
 	)
 	(wire
 		(pts
-			(xy 156.21 161.29) (xy 190.5 161.29)
+			(xy 156.21 161.29) (xy 193.04 161.29)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "2e2e4d72-3172-46db-b088-55c67c76de12")
+	)
+	(wire
+		(pts
+			(xy 100.33 83.82) (xy 100.33 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e8e4881-f3e2-482a-8b96-ac3a8e69ff50")
+	)
+	(wire
+		(pts
+			(xy 135.89 78.74) (xy 140.97 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2ed3714e-bf95-4c49-b55d-8df3522b400a")
+	)
+	(wire
+		(pts
+			(xy 44.45 90.17) (xy 44.45 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "32a6395b-296c-43bb-a457-584bb1026b71")
 	)
 	(wire
 		(pts
@@ -5381,7 +5409,17 @@
 	)
 	(wire
 		(pts
-			(xy 45.72 140.9701) (xy 45.72 142.24)
+			(xy 207.01 140.97) (xy 208.28 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "343d744e-010f-407b-8943-238b41bf7aaa")
+	)
+	(wire
+		(pts
+			(xy 45.72 139.7) (xy 45.72 140.97)
 		)
 		(stroke
 			(width 0)
@@ -5401,7 +5439,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 109.22) (xy 195.58 109.22)
+			(xy 158.75 109.22) (xy 198.12 109.22)
 		)
 		(stroke
 			(width 0)
@@ -5451,7 +5489,7 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 91.44) (xy 71.12 91.44)
+			(xy 82.55 91.44) (xy 81.28 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5511,7 +5549,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 140.9701) (xy 190.5 140.97)
+			(xy 193.04 116.84) (xy 193.04 161.29)
 		)
 		(stroke
 			(width 0)
@@ -5561,6 +5599,16 @@
 	)
 	(wire
 		(pts
+			(xy 153.67 109.22) (xy 153.67 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54083ab5-c358-4e82-a889-63f876042544")
+	)
+	(wire
+		(pts
 			(xy 64.77 176.53) (xy 64.77 179.07)
 		)
 		(stroke
@@ -5568,6 +5616,16 @@
 			(type default)
 		)
 		(uuid "573e935c-76ec-4770-aa78-2f02109f3f03")
+	)
+	(wire
+		(pts
+			(xy 147.32 78.74) (xy 153.67 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "592cf8a7-e8f1-449b-a596-33afce4ce167")
 	)
 	(wire
 		(pts
@@ -5588,6 +5646,16 @@
 			(type default)
 		)
 		(uuid "5af9deb2-54c8-4364-9868-2bf966e9e2cf")
+	)
+	(wire
+		(pts
+			(xy 96.52 83.82) (xy 100.33 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e06d999-3a70-44aa-85f2-b11706d3afec")
 	)
 	(wire
 		(pts
@@ -5661,7 +5729,7 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 165.1) (xy 193.04 119.38)
+			(xy 195.58 165.1) (xy 195.58 119.38)
 		)
 		(stroke
 			(width 0)
@@ -5678,6 +5746,16 @@
 			(type default)
 		)
 		(uuid "6fed5890-25ab-4a3e-a628-4037b20a8aa1")
+	)
+	(wire
+		(pts
+			(xy 91.44 110.49) (xy 92.71 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70f27c27-0d3e-45bc-a159-8b5707cc4ca9")
 	)
 	(wire
 		(pts
@@ -5701,6 +5779,16 @@
 	)
 	(wire
 		(pts
+			(xy 139.7 109.22) (xy 144.78 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "768d823f-647e-42d0-b26f-e4d3869b275d")
+	)
+	(wire
+		(pts
 			(xy 194.31 72.39) (xy 194.31 52.07)
 		)
 		(stroke
@@ -5718,16 +5806,6 @@
 			(type default)
 		)
 		(uuid "795e29ab-cb70-43f7-bd6b-6b0f53438da7")
-	)
-	(wire
-		(pts
-			(xy 45.72 139.7) (xy 45.72 140.9701)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7dd3aab7-823e-4bf1-8a8e-2d552cf21281")
 	)
 	(bus
 		(pts
@@ -5811,13 +5889,13 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 161.29) (xy 190.5 140.9701)
+			(xy 39.37 140.97) (xy 45.72 140.97)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "984ea238-4fa0-4ea1-b3e2-1fc553ff0624")
+		(uuid "9a3f72d4-f499-45d7-ba0a-4a98231ffc1b")
 	)
 	(wire
 		(pts
@@ -5828,6 +5906,16 @@
 			(type default)
 		)
 		(uuid "9d22dd07-08d9-421d-a1e6-1442133716a4")
+	)
+	(wire
+		(pts
+			(xy 151.13 109.22) (xy 153.67 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f6e1c1f-bd8b-4a06-b427-5f5e7b280120")
 	)
 	(wire
 		(pts
@@ -5891,6 +5979,16 @@
 	)
 	(wire
 		(pts
+			(xy 45.72 140.97) (xy 45.72 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae4e2ec0-e11f-411c-b46e-b5f23595575c")
+	)
+	(wire
+		(pts
 			(xy 125.73 113.03) (xy 125.73 123.19)
 		)
 		(stroke
@@ -5911,7 +6009,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 162.56) (xy 195.58 162.56)
+			(xy 146.05 162.56) (xy 198.12 162.56)
 		)
 		(stroke
 			(width 0)
@@ -6001,7 +6099,17 @@
 	)
 	(wire
 		(pts
-			(xy 195.58 162.56) (xy 195.58 109.22)
+			(xy 190.5 140.97) (xy 200.66 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c881635f-f2c8-462f-8f94-5d4f8b64cd59")
+	)
+	(wire
+		(pts
+			(xy 198.12 162.56) (xy 198.12 109.22)
 		)
 		(stroke
 			(width 0)
@@ -6041,7 +6149,7 @@
 	)
 	(wire
 		(pts
-			(xy 190.5 116.84) (xy 156.21 116.84)
+			(xy 193.04 116.84) (xy 156.21 116.84)
 		)
 		(stroke
 			(width 0)
@@ -6058,6 +6166,16 @@
 			(type default)
 		)
 		(uuid "cf8f5c39-81f6-480d-87a0-4291dabe5023")
+	)
+	(wire
+		(pts
+			(xy 44.45 91.44) (xy 50.8 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d39e3972-1af7-4350-af33-bde2da7d4c2c")
 	)
 	(wire
 		(pts
@@ -6151,7 +6269,7 @@
 	)
 	(wire
 		(pts
-			(xy 148.59 165.1) (xy 193.04 165.1)
+			(xy 148.59 165.1) (xy 195.58 165.1)
 		)
 		(stroke
 			(width 0)
@@ -6161,13 +6279,23 @@
 	)
 	(wire
 		(pts
-			(xy 46.99 91.44) (xy 50.8 91.44)
+			(xy 86.36 83.82) (xy 90.17 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e325cb8d-353e-4798-bedd-f349cf60fa15")
+		(uuid "e1ee111e-a9e1-4778-bbc0-b88c26d81756")
+	)
+	(wire
+		(pts
+			(xy 74.93 91.44) (xy 71.12 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e20cae15-dfcf-4088-a5bf-622008684be2")
 	)
 	(wire
 		(pts
@@ -6208,6 +6336,16 @@
 			(type default)
 		)
 		(uuid "ead3862a-7a21-4328-9804-7d4a2812ca3c")
+	)
+	(wire
+		(pts
+			(xy 153.67 78.74) (xy 153.67 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebac06a9-64bd-49d0-95e6-d8d55f33f3e8")
 	)
 	(wire
 		(pts
@@ -6308,6 +6446,16 @@
 			(type default)
 		)
 		(uuid "fc8b1959-b019-4620-9095-088e1bdcefa4")
+	)
+	(wire
+		(pts
+			(xy 100.33 110.49) (xy 100.33 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fdc8560b-a3dc-4e80-a4ee-856f76793ed3")
 	)
 	(wire
 		(pts
@@ -6649,17 +6797,17 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 153.67 80.01 90)
+		(at 135.89 78.74 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "5a093ba7-393d-4352-b5eb-d2e363e28fa5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 153.67 73.5172 90)
+			(at 129.3972 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6667,7 +6815,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 	)
@@ -6697,17 +6845,17 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 100.33 86.36 90)
+		(at 86.36 83.82 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "8a0d32c6-d82b-4fdb-af18-e42f08cdc54a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 100.33 79.8672 90)
+			(at 79.8672 83.82 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6715,13 +6863,13 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 74.93 91.44 0)
+		(at 82.55 91.44 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6731,7 +6879,7 @@
 		)
 		(uuid "bae1b8b1-e09a-402d-8694-58ab79b9d4f7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 81.4228 91.44 0)
+			(at 89.0428 91.44 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6812,6 +6960,85 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 204.47 140.97 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "07dd2258-4331-46c2-b466-d8d0d15004a1")
+		(property "Reference" "C6"
+			(at 201.676 141.986 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 207.518 141.986 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 204.47 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 204.47 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 204.47 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7efd6f23-8f38-41c8-af6e-76b71267594a")
+		)
+		(pin "2"
+			(uuid "405f285c-3b44-4be4-8c85-0fd1d456516a")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C6")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -7013,6 +7240,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 93.98 83.82 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0c840e45-15b6-4b3f-ac85-a7fa59205af2")
+		(property "Reference" "C11"
+			(at 89.916 86.868 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 89.408 85.09 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6707876d-d4b5-4d92-922d-0821940616a7")
+		)
+		(pin "2"
+			(uuid "2b00647b-269c-42b9-ae36-2ea29abb7a3b")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's_Pad:PWR_FLG")
 		(at 21.59 194.31 0)
 		(unit 1)
@@ -7173,7 +7480,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:VCC")
-		(at 100.33 109.22 0)
+		(at 88.9 110.49 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7183,7 +7490,7 @@
 		(dnp no)
 		(uuid "1d81339e-444a-431d-807e-246d16af0c49")
 		(property "Reference" "#PWR010"
-			(at 100.33 110.49 0)
+			(at 87.63 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7194,7 +7501,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 100.33 109.982 0)
+			(at 88.138 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7204,7 +7511,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 100.33 109.22 0)
+			(at 88.9 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7215,7 +7522,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 100.33 109.22 0)
+			(at 88.9 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7226,7 +7533,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 100.33 109.22 0)
+			(at 88.9 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7602,6 +7909,165 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 36.83 140.97 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "46def2c9-7973-4165-8255-181f2140d682")
+		(property "Reference" "C5"
+			(at 34.036 141.986 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 39.878 141.986 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 36.83 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "d7eed8c2-2ed5-4fc5-b33e-cf4fb3a6f68e")
+		)
+		(pin "1"
+			(uuid "95a6af4c-7107-4d94-8c50-42be1df03920")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 147.32 109.22 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "481ea830-fd79-4390-bd81-ed267e78454d")
+		(property "Reference" "C12"
+			(at 146.304 111.506 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 148.336 113.284 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 147.32 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 147.32 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 147.32 109.22 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "63d4d9b4-42b9-4263-9bdf-7286982ba8d2")
+		)
+		(pin "2"
+			(uuid "33a33e97-ed7a-494b-a3df-9d829cd0c7bc")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's_Pad:Crystal")
 		(at 59.69 181.61 270)
 		(unit 1)
@@ -7676,6 +8142,166 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "Y1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 44.45 87.63 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "5a73287e-69cb-43eb-82f3-6ead1820bff7")
+		(property "Reference" "C8"
+			(at 39.116 86.106 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 39.624 87.884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 44.45 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 44.45 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 44.45 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b986cf1d-8d59-4c21-813f-9faa6ab011e8")
+		)
+		(pin "2"
+			(uuid "7454cfc5-7218-4541-95ef-ca09ab272705")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 77.47 91.44 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "65578843-876c-4baf-8818-70d40ca04f7d")
+		(property "Reference" "C9"
+			(at 77.47 86.868 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 77.978 88.646 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 77.47 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 77.47 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 77.47 91.44 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4b9e0521-47bc-4812-a9eb-ec3bfd0fcd22")
+		)
+		(pin "2"
+			(uuid "d807897f-0b7b-43ee-a77c-b6e52f1306c4")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -8025,6 +8651,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 144.78 78.74 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8ccba385-c962-4856-956c-541e8337228d")
+		(property "Reference" "C13"
+			(at 145.796 82.804 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 143.764 81.026 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.78 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 144.78 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 144.78 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5d1957f4-3a53-4e4c-9666-bdce81fc567b")
+		)
+		(pin "2"
+			(uuid "8ae21ac0-16fa-421c-a7a8-d0041464bfbc")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -8649,7 +9355,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:VCC")
-		(at 153.67 102.87 0)
+		(at 137.16 109.22 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8660,7 +9366,7 @@
 		(fields_autoplaced yes)
 		(uuid "a8b06232-9616-4ed4-99dd-af0bfa59eb15")
 		(property "Reference" "#PWR018"
-			(at 153.67 104.14 0)
+			(at 135.89 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8671,7 +9377,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 153.67 105.41 0)
+			(at 137.795 105.41 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8681,7 +9387,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 153.67 102.87 0)
+			(at 137.16 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8692,7 +9398,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.67 102.87 0)
+			(at 137.16 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8703,7 +9409,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 153.67 102.87 0)
+			(at 137.16 109.22 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8962,6 +9668,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 95.25 110.49 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca32264b-b560-433b-8f63-700ce085ea41")
+		(property "Reference" "C10"
+			(at 93.472 105.918 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 93.98 107.696 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 95.25 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 95.25 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 95.25 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d54a6ad2-1285-4f57-8f74-7f63cad61247")
+		)
+		(pin "2"
+			(uuid "1afc9c36-4cb4-4b37-a2a2-4ce4c4a65c7b")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's_Pad:ILI9488")
 		(at 77.47 55.88 0)
 		(unit 1)
@@ -9184,7 +9970,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:VCC")
-		(at 44.45 91.44 270)
+		(at 44.45 81.28 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9194,7 +9980,7 @@
 		(dnp no)
 		(uuid "ddfbc8dc-5705-4d79-89dd-717b388205df")
 		(property "Reference" "#PWR011"
-			(at 43.18 91.44 0)
+			(at 44.45 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9205,7 +9991,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 43.434 91.44 0)
+			(at 44.45 80.264 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9215,7 +10001,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 44.45 91.44 0)
+			(at 44.45 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9226,7 +10012,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 44.45 91.44 0)
+			(at 44.45 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9237,7 +10023,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 44.45 91.44 0)
+			(at 44.45 81.28 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9496,7 +10282,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:GND")
-		(at 193.04 140.9701 90)
+		(at 210.82 140.97 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9507,7 +10293,7 @@
 		(fields_autoplaced yes)
 		(uuid "e8f83e13-58d3-4190-8601-fc75bb5aa33d")
 		(property "Reference" "#PWR09"
-			(at 195.58 140.9701 0)
+			(at 213.36 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9518,7 +10304,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 196.85 140.9701 0)
+			(at 214.63 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9528,7 +10314,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 193.04 140.9701 0)
+			(at 210.82 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9539,7 +10325,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 193.04 140.9701 0)
+			(at 210.82 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9550,7 +10336,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 193.04 140.9701 0)
+			(at 210.82 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9790,7 +10576,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:VCC")
-		(at 43.18 140.9701 270)
+		(at 26.67 140.97 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9801,7 +10587,7 @@
 		(fields_autoplaced yes)
 		(uuid "fd2518b2-9ccc-41a8-bc74-53f802bfed66")
 		(property "Reference" "#PWR08"
-			(at 41.91 140.9701 0)
+			(at 25.4 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9812,7 +10598,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 40.64 140.9701 0)
+			(at 24.13 140.97 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9822,7 +10608,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 43.18 140.9701 0)
+			(at 26.67 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9833,7 +10619,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.18 140.9701 0)
+			(at 26.67 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9844,7 +10630,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.18 140.9701 0)
+			(at 26.67 140.97 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
