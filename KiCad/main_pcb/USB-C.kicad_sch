@@ -726,6 +726,107 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Lily's_Pad:PWR_FLG"
+			(power global)
+			(pin_numbers
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board no)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "PWR_FLG"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "PWR_FLG_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 2.54 -1.27) (xy 0 -2.54) (xy -2.54 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "PWR_FLG_1_1"
+				(pin power_out line
+					(at 0 2.54 270)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Lily's_Pad:Resistor"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1312,7 +1413,7 @@
 	)
 	(text "TODO: Add raw 5V line from the USB"
 		(exclude_from_sim no)
-		(at 156.21 70.358 0)
+		(at 143.002 57.658 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1329,6 +1430,18 @@
 			)
 		)
 		(uuid "f86eab7e-05a2-4ac1-80ae-5139baf6be16")
+	)
+	(junction
+		(at 93.98 97.79)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "175ca0d5-9b3c-442c-8f1a-2cc0e0e3d3d9")
+	)
+	(junction
+		(at 168.91 71.12)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "574651cb-fcb4-4ad0-9a5c-aed1e86092a7")
 	)
 	(junction
 		(at 138.43 105.41)
@@ -1400,6 +1513,26 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 64.77) (xy 168.91 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "248ea86b-f788-4fea-970b-652739afd450")
+	)
+	(wire
+		(pts
+			(xy 93.98 97.79) (xy 93.98 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "313828a6-7bce-42d7-ae0a-df69cc15f161")
+	)
+	(wire
+		(pts
 			(xy 153.67 107.95) (xy 158.75 107.95)
 		)
 		(stroke
@@ -1440,7 +1573,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 93.98) (xy 93.98 101.6)
+			(xy 93.98 93.98) (xy 93.98 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1450,7 +1583,17 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 73.66) (xy 137.16 68.58)
+			(xy 81.28 97.79) (xy 93.98 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7de78a84-3d6f-48ca-9f57-79602cf3df14")
+	)
+	(wire
+		(pts
+			(xy 158.75 73.66) (xy 153.67 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1510,6 +1653,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 71.12) (xy 168.91 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0ba6b6e-08da-414a-a670-86cc6bb84750")
+	)
+	(wire
+		(pts
 			(xy 138.43 105.41) (xy 158.75 105.41)
 		)
 		(stroke
@@ -1527,6 +1680,16 @@
 			(type default)
 		)
 		(uuid "d53d7de8-2d7f-4ee5-a7e9-cc1eca65bb3b")
+	)
+	(wire
+		(pts
+			(xy 153.67 71.12) (xy 168.91 71.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d90df2d9-8ade-42c0-8e0b-0f57899a4771")
 	)
 	(wire
 		(pts
@@ -1614,17 +1777,17 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 137.16 73.66 270)
+		(at 158.75 73.66 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "85051261-3406-4295-8143-ef38685596ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 80.1528 90)
+			(at 165.2428 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1632,7 +1795,7 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 	)
@@ -2218,84 +2381,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:VCC")
-		(at 168.91 95.25 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "77ea3c3a-7aa3-4b87-a1bf-af83aebce41e")
-		(property "Reference" "#PWR021"
-			(at 168.91 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VCC"
-			(at 168.91 92.71 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 168.91 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 168.91 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 168.91 95.25 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5ccc18b1-07b7-4340-b43e-4b3caf85bcfd")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
-					(reference "#PWR021")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Lily's_Pad:GND")
 		(at 93.98 85.09 180)
 		(unit 1)
@@ -2368,6 +2453,84 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:VCC")
+		(at 168.91 62.23 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "92bb1299-ad02-4a94-a47a-c8077c925343")
+		(property "Reference" "#PWR021"
+			(at 168.91 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VCC"
+			(at 168.91 59.69 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7b251093-94c3-4dc2-8ba0-45e24278ca63")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -2453,40 +2616,19 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's_Pad:JSMSEMI_AMS1117-3.3V")
-		(at 137.16 59.69 90)
+		(lib_id "Lily's_Pad:PWR_FLG")
+		(at 78.74 97.79 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c1dc3db9-f4cb-43a6-9dba-a8edb0cdf97f")
-		(property "Reference" "U10"
-			(at 135.8899 52.07 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "JSMSEMI AMS1117-3.3V"
-			(at 148.844 59.436 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 137.16 59.69 0)
+		(fields_autoplaced yes)
+		(uuid "9f7c7040-b44a-42cf-be8b-6d6347145017")
+		(property "Reference" "#PWR027"
+			(at 78.74 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2496,8 +2638,30 @@
 				)
 			)
 		)
-		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Voltage Regulators/JSMSEMI_AMS1117-3.3V.pdf"
-			(at 137.16 59.69 0)
+		(property "Value" "PWR_FLG"
+			(at 78.74 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2508,7 +2672,85 @@
 			)
 		)
 		(property "Description" ""
-			(at 137.16 59.69 0)
+			(at 78.74 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "af789d81-81b4-4916-af15-8bc6184dd1f5")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:JSMSEMI_AMS1117-3.3V")
+		(at 144.78 73.66 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c1dc3db9-f4cb-43a6-9dba-a8edb0cdf97f")
+		(property "Reference" "U10"
+			(at 137.16 74.9301 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "JSMSEMI AMS1117-3.3V"
+			(at 144.526 61.976 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 144.78 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Voltage Regulators/JSMSEMI_AMS1117-3.3V.pdf"
+			(at 144.78 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 144.78 73.66 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2538,7 +2780,7 @@
 	)
 	(symbol
 		(lib_id "Lily's_Pad:GND")
-		(at 134.62 71.12 0)
+		(at 156.21 76.2 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -2548,7 +2790,7 @@
 		(dnp no)
 		(uuid "c63c07b6-81db-4c07-94d3-1782f08bac6c")
 		(property "Reference" "#PWR022"
-			(at 134.62 73.66 0)
+			(at 158.75 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2559,7 +2801,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 134.62 73.406 0)
+			(at 158.496 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2569,7 +2811,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 134.62 71.12 0)
+			(at 156.21 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2580,7 +2822,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 134.62 71.12 0)
+			(at 156.21 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2591,7 +2833,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 134.62 71.12 0)
+			(at 156.21 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
