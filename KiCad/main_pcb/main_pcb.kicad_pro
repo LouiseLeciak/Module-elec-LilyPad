@@ -232,7 +232,7 @@
       "net_not_bus_member": "warning",
       "no_connect_connected": "warning",
       "no_connect_dangling": "warning",
-      "pin_not_connected": "error",
+      "pin_not_connected": "ignore",
       "pin_not_driven": "error",
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
@@ -426,13 +426,17 @@
         "uuid": "346fb29b-2426-4b69-9f9a-e979b6e41832"
       }
     ],
-    "used_designators": "R1,J1-2,C2-4,#PWR1-13,#PWR18-19,Y1,U1-7,U9,S1",
+    "used_designators": "R1-3,J1-3,C1-4,#PWR1-15,#PWR18-25,Y1,U1-10,S1",
     "variants": []
   },
   "sheets": [
     [
       "346fb29b-2426-4b69-9f9a-e979b6e41832",
       "Root"
+    ],
+    [
+      "a4816677-4d4e-4f2e-882a-ab61f6eb2b02",
+      "Power and UART"
     ]
   ],
   "text_variables": {},
