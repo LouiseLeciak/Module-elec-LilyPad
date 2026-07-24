@@ -1583,6 +1583,16 @@
 	)
 	(wire
 		(pts
+			(xy 168.91 86.36) (xy 168.91 97.79)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7508f8d3-7593-4b16-8cea-77390a04de26")
+	)
+	(wire
+		(pts
 			(xy 96.52 107.95) (xy 92.71 107.95)
 		)
 		(stroke
@@ -1643,7 +1653,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 71.12) (xy 168.91 97.79)
+			(xy 168.91 71.12) (xy 168.91 80.01)
 		)
 		(stroke
 			(width 0)
@@ -1918,6 +1928,86 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
 					(reference "J2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 168.91 83.82 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0dfdfec5-85bc-4e5f-a71e-b2db6a793eb9")
+		(property "Reference" "C20"
+			(at 170.942 82.042 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10uF"
+			(at 172.974 83.7566 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "78a8fee1-bdd6-4148-a985-838a4ab4de70")
+		)
+		(pin "2"
+			(uuid "6347f38f-05b3-4d4f-a3a8-64c99a2aa2aa")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "C20")
 					(unit 1)
 				)
 			)

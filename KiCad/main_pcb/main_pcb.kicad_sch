@@ -4886,10 +4886,6 @@
 		(uuid "f392c552-ff98-4e0b-812e-aeba175beea8")
 	)
 	(no_connect
-		(at 67.31 158.7501)
-		(uuid "f86789c4-f660-4d2d-8926-02bd7a4eb28e")
-	)
-	(no_connect
 		(at 171.45 158.7501)
 		(uuid "fd38a023-9492-4c77-96e5-f512735f2de2")
 	)
@@ -6286,6 +6282,16 @@
 			(type default)
 		)
 		(uuid "cf8f5c39-81f6-480d-87a0-4291dabe5023")
+	)
+	(wire
+		(pts
+			(xy 67.31 165.1) (xy 67.31 168.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d2d0b540-de0d-46d8-be48-cbf48de3d0dc")
 	)
 	(wire
 		(pts
@@ -9900,6 +9906,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's_Pad:Capacitor")
+		(at 67.31 162.56 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bbf6b0a2-0b93-4b94-b6fa-b69bb9492919")
+		(property "Reference" "C21"
+			(at 69.342 161.0994 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100nF"
+			(at 71.628 162.56 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 67.31 162.56 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "884f4aaf-f629-4f49-bc19-fd7fadbde056")
+		)
+		(pin "1"
+			(uuid "ef37594a-9d4e-4070-adc3-3ebbb2ae6c38")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "C21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's_Pad:GND")
 		(at 207.01 50.8 0)
 		(unit 1)
@@ -10315,6 +10401,84 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "U9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's_Pad:GND")
+		(at 67.31 171.45 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dbee73ee-465b-4916-8896-568c2b297f7b")
+		(property "Reference" "#PWR028"
+			(at 67.31 173.99 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 67.31 175.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 67.31 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "748d3aaf-f712-4abd-be1b-84b2d6390dd9")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
