@@ -1912,7 +1912,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "lilys_pad:CH340C"
 			(at 0 0 0)
 			(show_name no)
 			(do_not_autoplace no)
