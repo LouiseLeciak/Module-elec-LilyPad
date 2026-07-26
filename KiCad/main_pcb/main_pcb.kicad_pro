@@ -611,6 +611,12 @@
       "sort_field": "Reference"
     },
     "bus_aliases": {
+      "JTAG": [
+        "TCK",
+        "TMS",
+        "TDO",
+        "TDI"
+      ],
       "SPI": [
         "MISO",
         "MOSI",
