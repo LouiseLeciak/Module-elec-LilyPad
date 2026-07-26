@@ -5005,7 +5005,7 @@
 		(dnp no)
 		(uuid "a85fe6c3-07c1-48fc-90fc-801d3e0279d7")
 		(property "Reference" "U12"
-			(at 75.8033 33.02 0)
+			(at 73.66 59.436 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
