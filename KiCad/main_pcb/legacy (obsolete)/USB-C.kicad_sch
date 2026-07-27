@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20250114)
+	(version 20260306)
 	(generator "eeschema")
-	(generator_version "9.0")
+	(generator_version "10.0")
 	(uuid "13b68236-7b03-46c9-bce5-269f57c427f9")
 	(paper "A4")
 	(lib_symbols
@@ -9,8 +9,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U?"
 				(at 0 -12.7 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -19,6 +23,8 @@
 			)
 			(property "Value" "CH340C"
 				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -27,29 +33,35 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/CH340C.pdf"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "CH340C_0_1"
@@ -70,226 +82,290 @@
 				(pin power_in line
 					(at -10.16 8.89 0)
 					(length 2.54)
-					(name "GND" (effects
+					(name "GND"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin output line
 					(at -10.16 6.35 0)
 					(length 2.54)
-					(name "TXD" (effects
+					(name "TXD"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "2" (effects
+						)
+					)
+					(number "2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at -10.16 3.81 0)
 					(length 2.54)
-					(name "RXD" (effects
+					(name "RXD"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "3" (effects
+						)
+					)
+					(number "3"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at -10.16 1.27 0)
 					(length 2.54)
-					(name "V3" (effects
+					(name "V3"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "4" (effects
+						)
+					)
+					(number "4"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 -1.27 0)
 					(length 2.54)
-					(name "UD+" (effects
+					(name "UD+"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "5" (effects
+						)
+					)
+					(number "5"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 -3.81 0)
 					(length 2.54)
-					(name "UD-" (effects
+					(name "UD-"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "6" (effects
+						)
+					)
+					(number "6"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin no_connect line
 					(at -10.16 -6.35 0)
 					(length 2.54)
-					(name "NC" (effects
+					(name "NC"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "7" (effects
+						)
+					)
+					(number "7"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin output line
 					(at -10.16 -8.89 0)
 					(length 2.54)
-					(name "OUT#" (effects
+					(name "OUT#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "8" (effects
+						)
+					)
+					(number "8"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at 10.16 -8.89 180)
 					(length 2.54)
-					(name "CTS#" (effects
+					(name "CTS#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "9" (effects
+						)
+					)
+					(number "9"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at 10.16 -6.35 180)
 					(length 2.54)
-					(name "DSR#" (effects
+					(name "DSR#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "10" (effects
+						)
+					)
+					(number "10"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at 10.16 -3.81 180)
 					(length 2.54)
-					(name "RI#" (effects
+					(name "RI#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "11" (effects
+						)
+					)
+					(number "11"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at 10.16 -1.27 180)
 					(length 2.54)
-					(name "DCD#" (effects
+					(name "DCD#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "12" (effects
+						)
+					)
+					(number "12"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin output line
 					(at 10.16 1.27 180)
 					(length 2.54)
-					(name "DTR#" (effects
+					(name "DTR#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "13" (effects
+						)
+					)
+					(number "13"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin output line
 					(at 10.16 3.81 180)
 					(length 2.54)
-					(name "RTS#" (effects
+					(name "RTS#"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "14" (effects
+						)
+					)
+					(number "14"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin input line
 					(at 10.16 6.35 180)
 					(length 2.54)
-					(name "R323" (effects
+					(name "R323"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "15" (effects
+						)
+					)
+					(number "15"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 10.16 8.89 180)
 					(length 2.54)
-					(name "VCC" (effects
+					(name "VCC"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "16" (effects
+						)
+					)
+					(number "16"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
@@ -298,8 +374,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "C?"
 				(at 2.54 1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -308,6 +388,8 @@
 			)
 			(property "Value" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -316,34 +398,42 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "Capacitor_0_1"
 				(polyline
-					(pts (xy 1.27 1.27) (xy -1.27 1.27))
+					(pts
+						(xy 1.27 1.27) (xy -1.27 1.27)
+					)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -353,7 +443,9 @@
 					)
 				)
 				(polyline
-					(pts (xy 1.27 0) (xy -1.27 0))
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -367,53 +459,67 @@
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin passive line
 					(at 0 -2.54 90)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "2" (effects
+						)
+					)
+					(number "2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
 		)
 		(symbol "lilys_pad:GND"
-			(power)
+			(power global)
 			(pin_numbers
 				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board no)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "#PWR"
 				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Value" "GND"
 				(at 0 -2.54 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -422,34 +528,42 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "GND_0_1"
 				(polyline
-					(pts (xy -1.27 0) (xy 1.27 0) (xy 0 -1.27) (xy -1.27 0))
+					(pts
+						(xy -1.27 0) (xy 1.27 0) (xy 0 -1.27) (xy -1.27 0)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -463,16 +577,20 @@
 				(pin power_in line
 					(at 0 2.54 270)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
@@ -481,8 +599,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "U?"
 				(at 0 -13.97 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -491,6 +613,8 @@
 			)
 			(property "Value" "JSMSEMI AMS1117-3.3V"
 				(at 0 0 90)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -499,29 +623,35 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "JSMSEMI_AMS1117-3.3V_0_1"
@@ -542,109 +672,129 @@
 				(pin power_in line
 					(at 8.89 -2.54 180)
 					(length 2.54)
-					(name "V_{SS}" (effects
+					(name "V_{SS}"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 8.89 0 180)
 					(length 2.54)
-					(name "V_{OUT}" (effects
+					(name "V_{OUT}"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "2" (effects
+						)
+					)
+					(number "2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 8.89 2.54 180)
 					(length 2.54)
-					(name "V_{IN}" (effects
+					(name "V_{IN}"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "3" (effects
+						)
+					)
+					(number "3"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
 		)
 		(symbol "lilys_pad:PWR_FLG"
-			(power)
+			(power global)
 			(pin_numbers
 				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board no)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "#PWR"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Value" "PWR_FLG"
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "PWR_FLG_0_1"
 				(polyline
 					(pts
-						(xy 0 0)
-						(xy 2.54 -1.27)
-						(xy 0 -2.54)
-						(xy -2.54 -1.27)
-						(xy 0 0)
+						(xy 0 0) (xy 2.54 -1.27) (xy 0 -2.54) (xy -2.54 -1.27) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -659,16 +809,20 @@
 				(pin power_out line
 					(at 0 2.54 270)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
@@ -677,8 +831,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "R?"
 				(at 2.54 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -687,6 +845,8 @@
 			)
 			(property "Value" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -695,29 +855,35 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "Resistor_0_1"
@@ -737,30 +903,38 @@
 				(pin passive line
 					(at 0 5.08 270)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin passive line
 					(at 0 -5.08 90)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "2" (effects
+						)
+					)
+					(number "2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
@@ -769,8 +943,12 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "J?"
 				(at 2.286 -10.922 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -779,6 +957,8 @@
 			)
 			(property "Value" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -787,29 +967,35 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "USB_TYPE-C-31-M-14_0_1"
@@ -830,255 +1016,325 @@
 				(pin power_in line
 					(at 0 -8.89 90)
 					(length 2.54)
-					(name "GND" (effects
+					(name "GND"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A1" (effects
+						)
+					)
+					(number "A1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 8.89 270)
 					(length 2.54)
-					(name "VBUS" (effects
+					(name "VBUS"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A4" (effects
+						)
+					)
+					(number "A4"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 3.81 0)
 					(length 2.54)
-					(name "CC1" (effects
+					(name "CC1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A5" (effects
+						)
+					)
+					(number "A5"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 1.27 0)
 					(length 2.54)
-					(name "DP1" (effects
+					(name "DP1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A6" (effects
+						)
+					)
+					(number "A6"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 -1.27 0)
 					(length 2.54)
-					(name "DN1" (effects
+					(name "DN1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A7" (effects
+						)
+					)
+					(number "A7"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at -10.16 -3.81 0)
 					(length 2.54)
-					(name "SBU1" (effects
+					(name "SBU1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A8" (effects
+						)
+					)
+					(number "A8"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 8.89 270)
 					(length 2.54)
 					(hide yes)
-					(name "VBUS" (effects
+					(name "VBUS"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A9" (effects
+						)
+					)
+					(number "A9"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 -8.89 90)
 					(length 2.54)
 					(hide yes)
-					(name "GND" (effects
+					(name "GND"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "A12" (effects
+						)
+					)
+					(number "A12"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 -8.89 90)
 					(length 2.54)
 					(hide yes)
-					(name "GND" (effects
+					(name "GND"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B1" (effects
+						)
+					)
+					(number "B1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 8.89 270)
 					(length 2.54)
 					(hide yes)
-					(name "VBUS" (effects
+					(name "VBUS"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B4" (effects
+						)
+					)
+					(number "B4"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at 10.16 -3.81 180)
 					(length 2.54)
-					(name "CC2" (effects
+					(name "CC2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B5" (effects
+						)
+					)
+					(number "B5"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at 10.16 -1.27 180)
 					(length 2.54)
-					(name "DP2" (effects
+					(name "DP2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B6" (effects
+						)
+					)
+					(number "B6"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at 10.16 1.27 180)
 					(length 2.54)
-					(name "DN2" (effects
+					(name "DN2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B7" (effects
+						)
+					)
+					(number "B7"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin bidirectional line
 					(at 10.16 3.81 180)
 					(length 2.54)
-					(name "SBU2" (effects
+					(name "SBU2"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B8" (effects
+						)
+					)
+					(number "B8"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 8.89 270)
 					(length 2.54)
 					(hide yes)
-					(name "VBUS" (effects
+					(name "VBUS"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B9" (effects
+						)
+					)
+					(number "B9"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 				(pin power_in line
 					(at 0 -8.89 90)
 					(length 2.54)
 					(hide yes)
-					(name "GND" (effects
+					(name "GND"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "B12" (effects
+						)
+					)
+					(number "B12"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
 		)
 		(symbol "lilys_pad:VCC"
-			(power)
+			(power global)
 			(pin_numbers
 				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
 			(on_board no)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "#PWR"
 				(at 0 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Value" "VCC"
 				(at 0 -1.27 0)
+				(show_name no)
+				(do_not_autoplace no)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -1087,34 +1343,42 @@
 			)
 			(property "Footprint" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Datasheet" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(property "Description" ""
 				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
 			(symbol "VCC_0_1"
 				(polyline
-					(pts (xy -1.27 1.27) (xy 0 0) (xy 1.27 1.27))
+					(pts
+						(xy -1.27 1.27) (xy 0 0) (xy 1.27 1.27)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -1128,16 +1392,20 @@
 				(pin power_in line
 					(at 0 2.54 270)
 					(length 2.54)
-					(name "~" (effects
+					(name ""
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
-					(number "1" (effects
+						)
+					)
+					(number "1"
+						(effects
 							(font
 								(size 1.27 1.27)
 							)
-						))
+						)
+					)
 				)
 			)
 			(embedded_fonts no)
@@ -1236,7 +1504,9 @@
 		(uuid "d23f5e09-3c1a-4cb2-bc1b-a716b6e8f156")
 	)
 	(wire
-		(pts (xy 199.39 107.95) (xy 199.39 124.46))
+		(pts
+			(xy 199.39 107.95) (xy 199.39 124.46)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1244,7 +1514,9 @@
 		(uuid "14c0727b-fe70-4ee1-9fd0-a06dc0f12440")
 	)
 	(wire
-		(pts (xy 179.07 107.95) (xy 199.39 107.95))
+		(pts
+			(xy 179.07 107.95) (xy 199.39 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1252,7 +1524,9 @@
 		(uuid "237ed692-749d-4668-ace7-d0025204dc40")
 	)
 	(wire
-		(pts (xy 168.91 64.77) (xy 168.91 71.12))
+		(pts
+			(xy 168.91 64.77) (xy 168.91 71.12)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1260,7 +1534,9 @@
 		(uuid "248ea86b-f788-4fea-970b-652739afd450")
 	)
 	(wire
-		(pts (xy 92.71 107.95) (xy 88.9 107.95))
+		(pts
+			(xy 92.71 107.95) (xy 88.9 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1268,7 +1544,9 @@
 		(uuid "313828a6-7bce-42d7-ae0a-df69cc15f161")
 	)
 	(wire
-		(pts (xy 153.67 107.95) (xy 158.75 107.95))
+		(pts
+			(xy 153.67 107.95) (xy 158.75 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1276,7 +1554,9 @@
 		(uuid "369548e6-58f9-4b13-bc62-9167c70107ca")
 	)
 	(wire
-		(pts (xy 153.67 107.95) (xy 111.76 107.95))
+		(pts
+			(xy 153.67 107.95) (xy 111.76 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1284,7 +1564,9 @@
 		(uuid "3ab2b2f7-3f41-4007-94ac-1c374f0fdcfa")
 	)
 	(wire
-		(pts (xy 168.91 95.25) (xy 168.91 97.79))
+		(pts
+			(xy 168.91 95.25) (xy 168.91 97.79)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1292,7 +1574,9 @@
 		(uuid "5474c455-9ad5-49cc-b0d5-1df5e87cfd9b")
 	)
 	(wire
-		(pts (xy 57.15 115.57) (xy 59.69 115.57))
+		(pts
+			(xy 57.15 115.57) (xy 59.69 115.57)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1300,7 +1584,9 @@
 		(uuid "5787cd7b-d294-40e2-a6d5-5664e3efcf2f")
 	)
 	(wire
-		(pts (xy 179.07 105.41) (xy 181.61 105.41))
+		(pts
+			(xy 179.07 105.41) (xy 181.61 105.41)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1308,7 +1594,9 @@
 		(uuid "66f0d351-0cac-4e4d-b4fa-27264ec6aee0")
 	)
 	(wire
-		(pts (xy 111.76 102.87) (xy 111.76 107.95))
+		(pts
+			(xy 111.76 102.87) (xy 111.76 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1316,7 +1604,9 @@
 		(uuid "68c6d475-0e16-45e6-a509-edc08ed4f63f")
 	)
 	(wire
-		(pts (xy 168.91 86.36) (xy 168.91 95.25))
+		(pts
+			(xy 168.91 86.36) (xy 168.91 95.25)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1324,7 +1614,9 @@
 		(uuid "7508f8d3-7593-4b16-8cea-77390a04de26")
 	)
 	(wire
-		(pts (xy 96.52 107.95) (xy 92.71 107.95))
+		(pts
+			(xy 96.52 107.95) (xy 92.71 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1332,7 +1624,9 @@
 		(uuid "7da2b913-459d-4e10-bfb6-3f4128a19a38")
 	)
 	(wire
-		(pts (xy 92.71 95.25) (xy 92.71 107.95))
+		(pts
+			(xy 92.71 95.25) (xy 92.71 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1340,7 +1634,9 @@
 		(uuid "7de78a84-3d6f-48ca-9f57-79602cf3df14")
 	)
 	(wire
-		(pts (xy 158.75 73.66) (xy 153.67 73.66))
+		(pts
+			(xy 158.75 73.66) (xy 153.67 73.66)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1348,7 +1644,9 @@
 		(uuid "85c53888-4464-4457-b6cf-ae12fc4debf3")
 	)
 	(wire
-		(pts (xy 138.43 90.17) (xy 138.43 105.41))
+		(pts
+			(xy 138.43 90.17) (xy 138.43 105.41)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1356,7 +1654,9 @@
 		(uuid "8994c6ff-e109-4884-a4d5-700b93880192")
 	)
 	(wire
-		(pts (xy 153.67 124.46) (xy 153.67 107.95))
+		(pts
+			(xy 153.67 124.46) (xy 153.67 107.95)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1364,7 +1664,9 @@
 		(uuid "aaf0a5d1-95ea-44ca-97d0-a38f7f9035e0")
 	)
 	(wire
-		(pts (xy 153.67 76.2) (xy 153.67 78.74))
+		(pts
+			(xy 153.67 76.2) (xy 153.67 78.74)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1372,7 +1674,9 @@
 		(uuid "b031c22e-74e8-4b76-a801-26082166d940")
 	)
 	(wire
-		(pts (xy 67.31 115.57) (xy 68.58 115.57))
+		(pts
+			(xy 67.31 115.57) (xy 68.58 115.57)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1380,7 +1684,9 @@
 		(uuid "b8fbe52b-dbb6-4de9-b862-e3611d8af40e")
 	)
 	(wire
-		(pts (xy 88.9 105.41) (xy 138.43 105.41))
+		(pts
+			(xy 88.9 105.41) (xy 138.43 105.41)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1388,7 +1694,9 @@
 		(uuid "c39d401b-8fe8-47b3-be91-337257424183")
 	)
 	(wire
-		(pts (xy 168.91 71.12) (xy 168.91 80.01))
+		(pts
+			(xy 168.91 71.12) (xy 168.91 80.01)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1396,7 +1704,9 @@
 		(uuid "d0ba6b6e-08da-414a-a670-86cc6bb84750")
 	)
 	(wire
-		(pts (xy 138.43 105.41) (xy 158.75 105.41))
+		(pts
+			(xy 138.43 105.41) (xy 158.75 105.41)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1404,7 +1714,9 @@
 		(uuid "d14bf4e9-17d4-48a9-bced-5c2f74d2bf31")
 	)
 	(wire
-		(pts (xy 66.04 115.57) (xy 67.31 115.57))
+		(pts
+			(xy 66.04 115.57) (xy 67.31 115.57)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1412,7 +1724,9 @@
 		(uuid "d4e8934f-50fb-42d2-b43a-38380b8bedb0")
 	)
 	(wire
-		(pts (xy 88.9 102.87) (xy 111.76 102.87))
+		(pts
+			(xy 88.9 102.87) (xy 111.76 102.87)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1420,7 +1734,9 @@
 		(uuid "d53d7de8-2d7f-4ee5-a7e9-cc1eca65bb3b")
 	)
 	(wire
-		(pts (xy 153.67 71.12) (xy 168.91 71.12))
+		(pts
+			(xy 153.67 71.12) (xy 168.91 71.12)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1428,7 +1744,9 @@
 		(uuid "d90df2d9-8ade-42c0-8e0b-0f57899a4771")
 	)
 	(wire
-		(pts (xy 181.61 105.41) (xy 181.61 90.17))
+		(pts
+			(xy 181.61 105.41) (xy 181.61 90.17)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1436,7 +1754,9 @@
 		(uuid "e033ef13-baf5-498e-a535-49a199a82862")
 	)
 	(wire
-		(pts (xy 90.17 110.49) (xy 88.9 110.49))
+		(pts
+			(xy 90.17 110.49) (xy 88.9 110.49)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1444,7 +1764,9 @@
 		(uuid "ec3a7212-09f9-4c8d-ab55-bd75c2acc17c")
 	)
 	(wire
-		(pts (xy 181.61 90.17) (xy 138.43 90.17))
+		(pts
+			(xy 181.61 90.17) (xy 138.43 90.17)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1452,7 +1774,9 @@
 		(uuid "f61d65ff-e166-4804-88d6-bc1f85f36085")
 	)
 	(wire
-		(pts (xy 199.39 124.46) (xy 153.67 124.46))
+		(pts
+			(xy 199.39 124.46) (xy 153.67 124.46)
+		)
 		(stroke
 			(width 0)
 			(type default)
@@ -1472,12 +1796,14 @@
 		(uuid "693b29a9-41f2-4528-bba0-53bb69e9dd70")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 50.6572 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
-				(hide yes)
 			)
 		)
 	)
@@ -1494,12 +1820,14 @@
 		(uuid "85051261-3406-4295-8143-ef38685596ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 165.2428 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
-				(hide yes)
 			)
 		)
 	)
@@ -1529,13 +1857,17 @@
 		(lib_id "lilys_pad:USB_TYPE-C-31-M-14")
 		(at 168.91 106.68 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "01fff45f-88e1-4309-8739-a45017fc9c5b")
 		(property "Reference" "J2"
 			(at 169.164 116.332 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1545,6 +1877,8 @@
 		)
 		(property "Value" "USB-C"
 			(at 172.466 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1553,29 +1887,35 @@
 		)
 		(property "Footprint" ""
 			(at 168.91 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Voltage Regulators/JSMSEMI_AMS1117-3.3V.pdf"
 			(at 168.91 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 168.91 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "A6"
@@ -1628,7 +1968,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "J2") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "J2")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1636,13 +1979,17 @@
 		(lib_id "lilys_pad:Capacitor")
 		(at 168.91 83.82 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "0dfdfec5-85bc-4e5f-a71e-b2db6a793eb9")
 		(property "Reference" "C20"
 			(at 170.942 82.042 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1652,6 +1999,8 @@
 		)
 		(property "Value" "10uF"
 			(at 172.974 83.7566 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1660,29 +2009,35 @@
 		)
 		(property "Footprint" ""
 			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 168.91 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -1693,7 +2048,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "C20") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "C20")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1701,14 +2059,18 @@
 		(lib_id "lilys_pad:CH340C")
 		(at 78.74 106.68 180)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "214f9b03-aa39-4aa2-a12f-3a213c1a45d5")
 		(property "Reference" "U8"
 			(at 78.74 90.17 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1717,6 +2079,8 @@
 		)
 		(property "Value" "CH340C"
 			(at 78.74 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1725,29 +2089,35 @@
 		)
 		(property "Footprint" ""
 			(at 78.74 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/CH340C.pdf"
 			(at 78.74 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 78.74 106.68 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "11"
@@ -1800,7 +2170,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "U8") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "U8")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1808,13 +2181,17 @@
 		(lib_id "lilys_pad:Capacitor")
 		(at 64.77 107.95 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "439902ca-8573-4c02-b0ed-b6ccfde840d8")
 		(property "Reference" "C2"
 			(at 66.04 104.648 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1823,6 +2200,8 @@
 		)
 		(property "Value" "100nF"
 			(at 63.5 103.124 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1831,29 +2210,35 @@
 		)
 		(property "Footprint" ""
 			(at 64.77 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 64.77 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 64.77 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -1864,7 +2249,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "C2") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "C2")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1872,22 +2260,28 @@
 		(lib_id "lilys_pad:VCC")
 		(at 54.61 115.57 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "4d6fee01-1f0d-458c-8f7d-f4cfd7478892")
 		(property "Reference" "#PWR014"
 			(at 53.34 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "VCC"
 			(at 53.34 117.094 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1897,29 +2291,35 @@
 		)
 		(property "Footprint" ""
 			(at 54.61 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 54.61 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 54.61 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -1927,7 +2327,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR014") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR014")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1935,22 +2338,28 @@
 		(lib_id "lilys_pad:GND")
 		(at 91.44 115.57 90)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "586011c7-341f-403b-9d36-8399cd89931e")
 		(property "Reference" "#PWR015"
 			(at 93.98 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 93.98 113.792 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1960,29 +2369,35 @@
 		)
 		(property "Footprint" ""
 			(at 91.44 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 91.44 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 91.44 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -1990,7 +2405,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR015") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR015")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -1998,13 +2416,17 @@
 		(lib_id "lilys_pad:Resistor")
 		(at 184.15 110.49 90)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "5e696bff-2955-467c-bbeb-a509ccdc6563")
 		(property "Reference" "R3"
 			(at 184.15 112.776 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2013,6 +2435,8 @@
 		)
 		(property "Value" "5.1kΩ"
 			(at 184.15 115.316 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2021,29 +2445,35 @@
 		)
 		(property "Footprint" ""
 			(at 184.15 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 184.15 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 184.15 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -2054,7 +2484,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "R3") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "R3")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2062,22 +2495,28 @@
 		(lib_id "lilys_pad:GND")
 		(at 105.41 107.95 90)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "7aaeda15-468e-43d3-be8c-46e1b2228fbe")
 		(property "Reference" "#PWR012"
 			(at 107.95 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 107.696 106.172 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2087,29 +2526,35 @@
 		)
 		(property "Footprint" ""
 			(at 105.41 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 105.41 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 105.41 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2117,7 +2562,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR012") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR012")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2125,23 +2573,29 @@
 		(lib_id "lilys_pad:VCC")
 		(at 168.91 62.23 180)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "92bb1299-ad02-4a94-a47a-c8077c925343")
 		(property "Reference" "#PWR021"
 			(at 168.91 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "VCC"
 			(at 171.45 62.8649 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2151,29 +2605,35 @@
 		)
 		(property "Footprint" ""
 			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 168.91 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2181,7 +2641,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR021") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR021")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2189,13 +2652,17 @@
 		(lib_id "lilys_pad:Capacitor")
 		(at 99.06 107.95 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "931e652e-c412-45ee-b99f-c88a6526ebae")
 		(property "Reference" "C1"
 			(at 101.6 108.966 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2204,6 +2671,8 @@
 		)
 		(property "Value" "100nF"
 			(at 96.266 108.966 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2212,29 +2681,35 @@
 		)
 		(property "Footprint" ""
 			(at 99.06 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 99.06 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 99.06 107.95 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -2245,7 +2720,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "C1") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "C1")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2253,13 +2731,17 @@
 		(lib_id "lilys_pad:Capacitor")
 		(at 62.23 115.57 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "9a6d550d-a4cb-4b41-bc84-0db3ad142550")
 		(property "Reference" "C7"
 			(at 64.77 116.586 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2268,6 +2750,8 @@
 		)
 		(property "Value" "100nF"
 			(at 59.436 116.586 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2276,29 +2760,35 @@
 		)
 		(property "Footprint" ""
 			(at 62.23 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 62.23 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 62.23 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -2309,7 +2799,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "C7") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "C7")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2317,55 +2810,67 @@
 		(lib_id "lilys_pad:PWR_FLG")
 		(at 92.71 92.71 180)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9f7c7040-b44a-42cf-be8b-6d6347145017")
 		(property "Reference" "#PWR027"
 			(at 92.71 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "PWR_FLG"
 			(at 92.71 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" ""
 			(at 92.71 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 92.71 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 92.71 92.71 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2373,7 +2878,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR027") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR027")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2381,55 +2889,67 @@
 		(lib_id "lilys_pad:PWR_FLG")
 		(at 166.37 95.25 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bdcbcf11-a232-4b6b-a875-e1bf39bdbb04")
 		(property "Reference" "#PWR042"
 			(at 166.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "PWR_FLG"
 			(at 166.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" ""
 			(at 166.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 166.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 166.37 95.25 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2437,7 +2957,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR042") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR042")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2445,13 +2968,17 @@
 		(lib_id "lilys_pad:JSMSEMI_AMS1117-3.3V")
 		(at 144.78 73.66 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c1dc3db9-f4cb-43a6-9dba-a8edb0cdf97f")
 		(property "Reference" "U10"
 			(at 143.256 87.63 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2461,6 +2988,8 @@
 		)
 		(property "Value" "JSMSEMI AMS1117-3.3V"
 			(at 145.034 85.344 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2470,29 +2999,35 @@
 		)
 		(property "Footprint" ""
 			(at 144.78 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/Voltage Regulators/JSMSEMI_AMS1117-3.3V.pdf"
 			(at 144.78 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 144.78 73.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "3"
@@ -2506,7 +3041,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "U10") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "U10")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2514,22 +3052,28 @@
 		(lib_id "lilys_pad:GND")
 		(at 153.67 81.28 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "c63c07b6-81db-4c07-94d3-1782f08bac6c")
 		(property "Reference" "#PWR022"
 			(at 153.67 83.82 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 153.67 83.566 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2538,29 +3082,35 @@
 		)
 		(property "Footprint" ""
 			(at 153.67 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 153.67 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 153.67 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2568,7 +3118,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR022") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR022")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2576,22 +3129,28 @@
 		(lib_id "lilys_pad:GND")
 		(at 146.05 102.87 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "d3247d62-4cb3-4571-a668-522ef611c292")
 		(property "Reference" "#PWR023"
 			(at 143.51 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 143.764 102.616 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2600,29 +3159,35 @@
 		)
 		(property "Footprint" ""
 			(at 146.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 146.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 146.05 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2630,7 +3195,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR023") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR023")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2638,55 +3206,67 @@
 		(lib_id "lilys_pad:PWR_FLG")
 		(at 67.31 118.11 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d8d11444-aa65-4d1d-8490-a2d6ea830761")
 		(property "Reference" "#PWR041"
 			(at 67.31 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "PWR_FLG"
 			(at 67.31 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Footprint" ""
 			(at 67.31 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 67.31 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 67.31 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2694,7 +3274,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR041") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR041")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2702,23 +3285,29 @@
 		(lib_id "lilys_pad:GND")
 		(at 168.91 118.11 0)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e1833d22-d800-471e-822b-60708fbb73e2")
 		(property "Reference" "#PWR020"
 			(at 168.91 120.65 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 171.45 118.7449 0)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2728,29 +3317,35 @@
 		)
 		(property "Footprint" ""
 			(at 168.91 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 168.91 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 168.91 118.11 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2758,7 +3353,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR020") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR020")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2766,23 +3364,29 @@
 		(lib_id "lilys_pad:GND")
 		(at 191.77 110.49 90)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
+		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e9aa5d12-780e-4faa-8433-3eb6770b6f1d")
 		(property "Reference" "#PWR024"
 			(at 194.31 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Value" "GND"
 			(at 194.31 110.4899 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2792,29 +3396,35 @@
 		)
 		(property "Footprint" ""
 			(at 191.77 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 191.77 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 191.77 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "1"
@@ -2822,7 +3432,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "#PWR024") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR024")
+					(unit 1)
+				)
 			)
 		)
 	)
@@ -2830,13 +3443,17 @@
 		(lib_id "lilys_pad:Resistor")
 		(at 153.67 102.87 270)
 		(unit 1)
+		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
+		(in_pos_files yes)
 		(dnp no)
 		(uuid "fcbd5254-c04c-4286-8d5a-4db4906a7503")
 		(property "Reference" "R2"
 			(at 153.67 97.79 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2845,6 +3462,8 @@
 		)
 		(property "Value" "5.1kΩ"
 			(at 153.67 100.33 90)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2853,29 +3472,35 @@
 		)
 		(property "Footprint" ""
 			(at 153.67 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Datasheet" ""
 			(at 153.67 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(property "Description" ""
 			(at 153.67 102.87 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(hide yes)
 			)
 		)
 		(pin "2"
@@ -2886,7 +3511,10 @@
 		)
 		(instances
 			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02" (reference "R2") (unit 1))
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "R2")
+					(unit 1)
+				)
 			)
 		)
 	)

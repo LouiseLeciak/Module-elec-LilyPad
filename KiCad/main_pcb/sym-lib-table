@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "Lily's Pad")(type "KiCad")(uri "${KIPRJMOD}/lilys_pad.kicad_sym")(options "")(descr ""))
+)
