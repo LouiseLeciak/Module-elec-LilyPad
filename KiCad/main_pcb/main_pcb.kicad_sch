@@ -3958,6 +3958,9 @@
 	(bus_alias "JTAG"
 		(members "TDI" "TMS" "TDO" "TCK")
 	)
+	(bus_alias "Keyboard"
+		(members)
+	)
 	(bus_alias "SPI"
 		(members "SCK" "MOSI" "MISO" "SS")
 	)
@@ -4001,14 +4004,15 @@
 		(uuid 2f554108-d54a-47a1-b8e0-5489146ec138)
 	)
 	(rectangle
-		(start 212.09 109.2201)
-		(end 214.63 119.3801)
+		(start 212.09 109.2199)
+		(end 214.63 119.3799)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(fill
-			(type none)
+			(type color)
+			(color 255 0 0 1)
 		)
 		(uuid 4869839f-2a15-4c2b-8949-f054fb56115c)
 	)
@@ -4025,6 +4029,66 @@
 		)
 		(uuid 5d1b4d81-0a74-4d3a-99bc-38cdf973e2f2)
 	)
+	(text "R2"
+		(exclude_from_sim no)
+		(at 25.908 164.846 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "06782731-5062-4617-b632-f74f699da794")
+	)
+	(text "R1"
+		(exclude_from_sim no)
+		(at 25.908 167.386 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "17b5c3f9-79fb-43ab-a23f-85487f5fc1b0")
+	)
+	(text "C6"
+		(exclude_from_sim no)
+		(at 25.908 144.526 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "24c27861-db24-4155-8964-ada7d0ba8f22")
+	)
+	(text "VCC"
+		(exclude_from_sim no)
+		(at 25.4 129.286 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "40313cba-ee06-4320-978a-c53711f75c86")
+	)
+	(text "C4"
+		(exclude_from_sim no)
+		(at 25.908 149.606 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4089a7ea-b44e-4f97-818c-2378f3f43946")
+	)
+	(text "C9"
+		(exclude_from_sim no)
+		(at 25.908 136.906 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4de61304-a9f7-4785-8f20-fefc6a7650b3")
+	)
 	(text "NOTE: Check load capacitors values for the crystal\nC_{1}=C_{2}=2(C_{L}-C_{stray})"
 		(exclude_from_sim no)
 		(at 102.108 146.558 0)
@@ -4034,6 +4098,156 @@
 			)
 		)
 		(uuid "6c6cbe77-86b8-4219-902f-a6286ea62b2a")
+	)
+	(text "SLD_SW"
+		(exclude_from_sim no)
+		(at 23.622 126.746 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "7d000ec8-6bd2-40de-9e14-6c8c9cb0919b")
+	)
+	(text "C3"
+		(exclude_from_sim no)
+		(at 25.908 152.146 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8091fee2-08ec-4410-96ae-591324c2250b")
+	)
+	(text "C10"
+		(exclude_from_sim no)
+		(at 25.4 134.366 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "84dee6c0-9642-4875-8719-e0ec2a388e3e")
+	)
+	(text "SLD_SW"
+		(exclude_from_sim no)
+		(at 23.622 124.206 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "8d26c2ba-f073-4181-bbe4-725480b3fe33")
+	)
+	(text "SDA"
+		(exclude_from_sim no)
+		(at 25.4 119.126 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "9a1ab661-aefb-4074-9f59-b018aa2aa75f")
+	)
+	(text "SCL"
+		(exclude_from_sim no)
+		(at 25.4 116.586 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ad8bb118-a95b-46d7-bd80-651c40b73f76")
+	)
+	(text "R4"
+		(exclude_from_sim no)
+		(at 25.908 159.766 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c18c116f-0afe-4d50-8131-6b44e5e01d96")
+	)
+	(text "C5"
+		(exclude_from_sim no)
+		(at 25.908 147.066 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "c3c0fe24-26ce-4ecb-8a2a-c22e9984b74a")
+	)
+	(text "C8"
+		(exclude_from_sim no)
+		(at 25.908 139.446 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "cfcd8023-aba1-41a4-aeaf-fc83b888933d")
+	)
+	(text "C2"
+		(exclude_from_sim no)
+		(at 25.908 154.686 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dd158a76-d0e7-423d-a7ae-508431b4a899")
+	)
+	(text "SLD_SW"
+		(exclude_from_sim no)
+		(at 23.622 121.666 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "df2e1165-0ac7-4c5d-a354-34d5dc5ece3e")
+	)
+	(text "C1"
+		(exclude_from_sim no)
+		(at 25.908 157.226 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e0ab4745-db42-4f28-9e44-c8d212d756af")
+	)
+	(text "GND"
+		(exclude_from_sim no)
+		(at 25.4 131.826 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "e16a9f97-d8cb-4c2b-ab32-117911938f7f")
+	)
+	(text "C7"
+		(exclude_from_sim no)
+		(at 25.908 141.986 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "ec6d1da7-8259-49a7-a7ef-c9509137d5b6")
+	)
+	(text "R3"
+		(exclude_from_sim no)
+		(at 25.908 162.306 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "f13772b7-f79f-4740-b1bd-a5dbd556cf4b")
 	)
 	(junction
 		(at 93.98 121.92)
