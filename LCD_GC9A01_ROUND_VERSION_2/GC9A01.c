@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/02 13:53:11 by nige42            #+#    #+#             */
-/*   Updated: 2026/07/27 11:04:58 by nige42           ###   ########.fr       */
+/*   Updated: 2026/07/27 11:44:37 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void GC9A01_version2_init(uint8_t screen) {
     // --- POWER STABILIZATION ---
     // _delay_ms(300);
 
-      RST_HIGH();
+    RST_HIGH();
     _delay_ms(20);
     // --- HARDWARE RESET ---
     RST_LOW();
