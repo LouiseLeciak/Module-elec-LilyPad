@@ -3959,7 +3959,7 @@
 		(members "TDI" "TMS" "TDO" "TCK")
 	)
 	(bus_alias "SPI"
-		(members "SCK" "MOSI" "MISO" "~{SS}")
+		(members "SCK" "MOSI" "MISO" "SS")
 	)
 	(rectangle
 		(start 100.33 78.7401)
@@ -4378,10 +4378,6 @@
 		(uuid "c8ceb1a3-68c1-4aea-b251-86677ea2e574")
 	)
 	(no_connect
-		(at 116.84 81.28)
-		(uuid "cc37dc35-4a3d-4d0d-9601-7b64fbfad9dc")
-	)
-	(no_connect
 		(at 147.32 116.84)
 		(uuid "ccec00d1-a8e2-49d6-a052-715277b13369")
 	)
@@ -4445,15 +4441,6 @@
 			(type default)
 		)
 		(uuid "2125b7c1-0b4f-4ee4-9ff5-81b22c0b799c")
-	)
-	(bus_entry
-		(at 241.3 64.77)
-		(size 2.54 -2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28bba9f4-7801-4d8c-8bac-1c80dbac0727")
 	)
 	(bus_entry
 		(at 233.68 64.77)
@@ -4546,6 +4533,15 @@
 		(uuid "80a1483d-cf7e-468d-ad7c-9c8887963d7b")
 	)
 	(bus_entry
+		(at 241.3 64.77)
+		(size 2.54 -2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ea69f1c-c57e-44f1-a18f-313cd42e0015")
+	)
+	(bus_entry
 		(at 121.92 64.77)
 		(size 2.54 2.54)
 		(stroke
@@ -4553,6 +4549,15 @@
 			(type default)
 		)
 		(uuid "a677f9ab-58b7-4c47-b9c5-82c2af10738f")
+	)
+	(bus_entry
+		(at 114.3 64.77)
+		(size 2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a8bc574d-f252-437b-a3c2-15c75cfebef8")
 	)
 	(bus_entry
 		(at 205.74 64.77)
@@ -4831,6 +4836,16 @@
 		)
 		(uuid "4f0109d1-15f0-4490-80d1-0af59174e1c2")
 	)
+	(bus
+		(pts
+			(xy 241.3 64.77) (xy 254 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "533b0e91-aa1f-4e1f-9673-c2f8c51ae1b8")
+	)
 	(wire
 		(pts
 			(xy 238.76 43.18) (xy 238.76 62.23)
@@ -4893,16 +4908,6 @@
 	)
 	(wire
 		(pts
-			(xy 243.84 43.18) (xy 243.84 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69807194-6f83-4276-a8fa-52247bfa604b")
-	)
-	(wire
-		(pts
 			(xy 81.28 99.06) (xy 87.63 99.06)
 		)
 		(stroke
@@ -4920,6 +4925,16 @@
 			(type default)
 		)
 		(uuid "716e1b2b-82c7-45d7-9ce9-b78d2d5e8681")
+	)
+	(wire
+		(pts
+			(xy 116.84 67.31) (xy 116.84 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7df3a3d9-7500-4d31-96ac-828dde165dab")
 	)
 	(bus
 		(pts
@@ -5000,16 +5015,6 @@
 			(type default)
 		)
 		(uuid "93edab7c-d2d1-4eed-94bd-45f34573920a")
-	)
-	(bus
-		(pts
-			(xy 241.3 64.77) (xy 254 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "94596559-8856-44aa-a3bc-0f02a1a56b07")
 	)
 	(bus
 		(pts
@@ -5223,6 +5228,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 43.18) (xy 243.84 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e35aea72-1e13-4d41-a500-df521efe7a7b")
+	)
+	(wire
+		(pts
 			(xy 241.3 43.18) (xy 241.3 62.23)
 		)
 		(stroke
@@ -5281,6 +5296,16 @@
 		)
 		(uuid "f1fe881d-0c8b-46f9-825f-9fb5ab4f60f6")
 	)
+	(bus
+		(pts
+			(xy 114.3 64.77) (xy 116.84 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f244785d-1bbb-47ce-bf31-bc417385acfa")
+	)
 	(wire
 		(pts
 			(xy 104.14 142.24) (xy 104.14 143.51)
@@ -5310,16 +5335,6 @@
 			(type default)
 		)
 		(uuid "ff15d613-5bf1-4ca1-a16c-803d4b6e2d9d")
-	)
-	(label "~{SS}"
-		(at 116.84 81.28 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "05bb9a51-65bd-4588-9bb5-27e1540270d5")
 	)
 	(label "TMS"
 		(at 30.48 96.52 0)
@@ -5391,6 +5406,16 @@
 		)
 		(uuid "6fb5862c-01ac-49a2-8c35-1d2ead05bd51")
 	)
+	(label "SS"
+		(at 243.84 45.72 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7e6fd803-174f-4816-8d0b-165e4fcdbc69")
+	)
 	(label "TDO"
 		(at 30.48 101.6 0)
 		(effects
@@ -5441,6 +5466,16 @@
 		)
 		(uuid "c2842ab9-99c4-44b0-9c5b-d892f36b6f9d")
 	)
+	(label "SS"
+		(at 116.84 81.28 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "c8e0d44a-027e-456e-b700-796fee118669")
+	)
 	(label "TCK"
 		(at 218.44 81.28 90)
 		(effects
@@ -5470,16 +5505,6 @@
 			(justify left bottom)
 		)
 		(uuid "de433d8d-d99f-45f2-ab9a-b0e79027a727")
-	)
-	(label "SS"
-		(at 243.84 48.26 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "de59fd5b-03d7-41e5-8477-215044f44da6")
 	)
 	(label "{JTAG}"
 		(at 48.26 59.69 0)
