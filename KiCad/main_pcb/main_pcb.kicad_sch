@@ -9,7 +9,7 @@
 		(company "Lily's Pad")
 	)
 	(lib_symbols
-		(symbol "lilys_pad:2X5_Header"
+		(symbol "Lily's Pad:2X5_Header"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -363,7 +363,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:ATmega_2560"
+		(symbol "Lily's Pad:ATmega_2560"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2235,7 +2235,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Capacitor"
+		(symbol "Lily's Pad:Capacitor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2348,7 +2348,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Crystal"
+		(symbol "Lily's Pad:Crystal"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -2472,7 +2472,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:GND"
+		(symbol "Lily's Pad:GND"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -2560,7 +2560,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Header_21"
+		(symbol "Lily's Pad:Header_21"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3233,7 +3233,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:PWR_FLG"
+		(symbol "Lily's Pad:PWR_FLG"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -3322,7 +3322,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Push-button_Switch"
+		(symbol "Lily's Pad:Push-button_Switch"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3469,7 +3469,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Resistor"
+		(symbol "Lily's Pad:Resistor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -3569,7 +3569,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:VCC"
+		(symbol "Lily's Pad:VCC"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -3657,6 +3657,12 @@
 			)
 			(embedded_fonts no)
 		)
+	)
+	(bus_alias "JTAG"
+		(members "TDI" "TMS" "TDO" "TCK")
+	)
+	(bus_alias "SPI"
+		(members "SCK" "MOSI" "MISO")
 	)
 	(rectangle
 		(start 96.52 40.6401)
@@ -4398,6 +4404,16 @@
 	)
 	(wire
 		(pts
+			(xy 16.51 190.5) (xy 16.51 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4268abef-f26c-411b-8c50-df5c9444958e")
+	)
+	(wire
+		(pts
 			(xy 246.38 86.36) (xy 186.69 86.36)
 		)
 		(stroke
@@ -4916,6 +4932,16 @@
 		)
 		(uuid "5603c375-f357-45f3-9d13-87c4687fb62b")
 	)
+	(label "{SPI D{slash}C}"
+		(at 137.16 26.67 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6aaa3049-f626-4406-bfa2-02842ed64ba2")
+	)
 	(label "TMS"
 		(at 217.17 43.18 90)
 		(effects
@@ -5051,7 +5077,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 232.41 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5118,7 +5144,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 100.33 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5186,7 +5212,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:2X5_Header")
+		(lib_id "Lily's Pad:2X5_Header")
 		(at 22.86 57.15 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5196,7 +5222,7 @@
 		(fields_autoplaced yes)
 		(uuid "0a3e9018-2a61-4552-ae48-95c8250556b2")
 		(property "Reference" "J3"
-			(at 22.225 41.91 0)
+			(at 22.225 39.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5204,7 +5230,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 22.86 57.15 0)
+			(at 22.225 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5278,7 +5304,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
+		(lib_id "Lily's Pad:PWR_FLG")
 		(at 22.86 194.31 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5345,7 +5371,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 29.21 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5412,7 +5438,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 29.21 45.72 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5479,7 +5505,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Resistor")
+		(lib_id "Lily's Pad:Resistor")
 		(at 82.55 88.9 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5547,7 +5573,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 29.21 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5614,7 +5640,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 74.93 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5681,7 +5707,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Crystal")
+		(lib_id "Lily's Pad:Crystal")
 		(at 95.25 100.33 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5749,7 +5775,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 74.93 88.9 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5815,7 +5841,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Push-button_Switch")
+		(lib_id "Lily's Pad:Push-button_Switch")
 		(at 82.55 95.25 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5882,7 +5908,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 72.39 95.25 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5949,7 +5975,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:ATmega_2560")
+		(lib_id "Lily's Pad:ATmega_2560")
 		(at 156.21 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5959,7 +5985,7 @@
 		(fields_autoplaced yes)
 		(uuid "9684ccb8-1842-4058-8260-29491f8363c2")
 		(property "Reference" "U1"
-			(at 228.6 58.0546 90)
+			(at 228.6 55.5146 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5967,7 +5993,7 @@
 			)
 		)
 		(property "Value" "~"
-			(at 156.21 60.96 0)
+			(at 228.6 58.0546 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6311,7 +6337,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 22.86 189.23 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6377,7 +6403,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 95.25 92.71 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6445,8 +6471,8 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
-		(at 16.51 189.23 180)
+		(lib_id "Lily's Pad:VCC")
+		(at 16.51 187.96 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -6454,7 +6480,7 @@
 		(dnp no)
 		(uuid "aace194d-c7c0-45d4-8ee1-0b12108b9c78")
 		(property "Reference" "#PWR07"
-			(at 16.51 187.96 0)
+			(at 16.51 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6463,7 +6489,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 14.732 188.214 0)
+			(at 14.732 186.944 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6472,7 +6498,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 16.51 189.23 0)
+			(at 16.51 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6481,7 +6507,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 16.51 189.23 0)
+			(at 16.51 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6490,7 +6516,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 16.51 189.23 0)
+			(at 16.51 187.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6511,7 +6537,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 105.41 82.55 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6579,7 +6605,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 29.21 66.04 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6646,7 +6672,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 105.41 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6665,12 +6691,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 107.95 92.0749 0)
+			(at 105.41 95.25 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -6713,7 +6738,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
+		(lib_id "Lily's Pad:PWR_FLG")
 		(at 29.21 194.31 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6780,7 +6805,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 237.49 60.96 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6846,7 +6871,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Header_21")
+		(lib_id "Lily's Pad:Header_21")
 		(at 22.86 104.14 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6971,7 +6996,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
+		(lib_id "Lily's Pad:PWR_FLG")
 		(at 16.51 194.31 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7038,7 +7063,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 64.77 60.96 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -7057,11 +7082,12 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 65.405 57.15 90)
+			(at 63.5 60.9599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""

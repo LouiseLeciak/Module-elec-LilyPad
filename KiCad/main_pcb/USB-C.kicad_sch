@@ -5,95 +5,7 @@
 	(uuid "13b68236-7b03-46c9-bce5-269f57c427f9")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Lily's Pad:GND"
-			(power)
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board no)
-			(property "Reference" "#PWR"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "GND_0_1"
-				(polyline
-					(pts
-						(xy -1.27 0) (xy 1.27 0) (xy 0 -1.27) (xy -1.27 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_1_1"
-				(pin power_in line
-					(at 0 2.54 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "lilys_pad:CH340C"
+		(symbol "Lily's Pad:CH340C"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -113,7 +25,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "lilys_pad:CH340C"
 				(at 0 0 0)
 				(effects
 					(font
@@ -446,7 +358,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Capacitor"
+		(symbol "Lily's Pad:Capacitor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -559,7 +471,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:GND"
+		(symbol "Lily's Pad:GND"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -647,7 +559,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:JSMSEMI_AMS1117-3.3V"
+		(symbol "Lily's Pad:JSMSEMI_AMS1117-3.3V"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -766,7 +678,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:PWR_FLG"
+		(symbol "Lily's Pad:PWR_FLG"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -855,7 +767,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:Resistor"
+		(symbol "Lily's Pad:Resistor"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -955,7 +867,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:USB_TYPE-C-31-M-14"
+		(symbol "Lily's Pad:USB_TYPE-C-31-M-14"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1314,7 +1226,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "lilys_pad:VCC"
+		(symbol "Lily's Pad:VCC"
 			(power)
 			(pin_numbers
 				(hide yes)
@@ -1428,12 +1340,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0ebdcf16-89fc-4c2a-bf5c-5e73edf01780")
-	)
-	(junction
-		(at 168.91 95.25)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "11ad4dd4-abc0-4eca-94c6-f216980ca67b")
 	)
 	(junction
 		(at 92.71 107.95)
@@ -1651,7 +1557,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 95.25) (xy 168.91 97.79)
+			(xy 168.91 86.36) (xy 168.91 97.79)
 		)
 		(stroke
 			(width 0)
@@ -1778,16 +1684,6 @@
 			(type default)
 		)
 		(uuid "b8fbe52b-dbb6-4de9-b862-e3611d8af40e")
-	)
-	(wire
-		(pts
-			(xy 168.91 86.36) (xy 168.91 95.25)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c119e8b5-c061-4897-933f-5cba68fac7dd")
 	)
 	(wire
 		(pts
@@ -1976,7 +1872,7 @@
 		(uuid "fe0cc9cb-9ee8-49b8-877e-e06800f7a1aa")
 	)
 	(symbol
-		(lib_id "lilys_pad:USB_TYPE-C-31-M-14")
+		(lib_id "Lily's Pad:USB_TYPE-C-31-M-14")
 		(at 168.91 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2086,7 +1982,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 182.88 73.66 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2154,7 +2050,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:CH340C")
+		(lib_id "Lily's Pad:CH340C")
 		(at 78.74 106.68 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2179,7 +2075,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "lilys_pad:CH340C"
 			(at 78.74 106.68 0)
 			(effects
 				(font
@@ -2264,7 +2160,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 64.77 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2331,7 +2227,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 54.61 115.57 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2397,7 +2293,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 91.44 115.57 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2463,7 +2359,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Resistor")
+		(lib_id "Lily's Pad:Resistor")
 		(at 184.15 110.49 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2530,7 +2426,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 105.41 107.95 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2663,7 +2559,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:VCC")
+		(lib_id "Lily's Pad:VCC")
 		(at 168.91 62.23 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2682,12 +2578,11 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 171.45 62.8649 0)
+			(at 168.91 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -2730,7 +2625,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 99.06 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2797,7 +2692,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 62.23 115.57 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2864,7 +2759,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 182.88 86.36 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2932,7 +2827,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
+		(lib_id "Lily's Pad:PWR_FLG")
 		(at 92.71 92.71 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2999,74 +2894,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
-		(at 166.37 95.25 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bdcbcf11-a232-4b6b-a875-e1bf39bdbb04")
-		(property "Reference" "#PWR042"
-			(at 166.37 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLG"
-			(at 166.37 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 166.37 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 166.37 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 166.37 95.25 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3c58700a-969d-46d4-808e-d0c007e2917d")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
-					(reference "#PWR042")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "lilys_pad:JSMSEMI_AMS1117-3.3V")
+		(lib_id "Lily's Pad:JSMSEMI_AMS1117-3.3V")
 		(at 144.78 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3138,7 +2966,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 153.67 81.28 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3203,7 +3031,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 146.05 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3268,7 +3096,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:PWR_FLG")
+		(lib_id "Lily's Pad:PWR_FLG")
 		(at 67.31 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3335,7 +3163,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 168.91 118.11 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3354,12 +3182,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 171.45 118.7449 0)
+			(at 168.91 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -3402,7 +3229,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Capacitor")
+		(lib_id "Lily's Pad:Capacitor")
 		(at 182.88 78.74 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3470,7 +3297,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:GND")
+		(lib_id "Lily's Pad:GND")
 		(at 191.77 110.49 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -3537,7 +3364,7 @@
 		)
 	)
 	(symbol
-		(lib_id "lilys_pad:Resistor")
+		(lib_id "Lily's Pad:Resistor")
 		(at 153.67 102.87 270)
 		(unit 1)
 		(exclude_from_sim no)
