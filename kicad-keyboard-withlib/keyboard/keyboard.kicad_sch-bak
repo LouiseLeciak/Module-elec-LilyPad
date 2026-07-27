@@ -2029,6 +2029,12 @@
 		)
 	)
 	(junction
+		(at 154.94 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "023ac32c-1158-476d-a645-c04f69271064")
+	)
+	(junction
 		(at 78.74 149.86)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2123,6 +2129,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3eeb00fe-f886-4889-b67a-e8ca3c9d4ff7")
+	)
+	(junction
+		(at 170.18 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4348c4a5-eab5-47ff-90e1-190d62924b28")
 	)
 	(junction
 		(at 222.25 85.09)
@@ -2305,6 +2317,12 @@
 		(uuid "b6f2c57a-96ea-4be0-9085-3da65c7d574b")
 	)
 	(junction
+		(at 129.54 179.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "baf22814-91b1-4fe4-b2ed-1e60870e3bcb")
+	)
+	(junction
 		(at 129.54 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2443,6 +2461,12 @@
 		(uuid "f8e78873-497b-45f0-a8ed-3fe6fe8c5dfc")
 	)
 	(junction
+		(at 144.78 179.07)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fc113136-71c4-4acd-8b1c-57f2329078c9")
+	)
+	(junction
 		(at 170.18 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2568,6 +2592,16 @@
 	)
 	(wire
 		(pts
+			(xy 154.94 149.86) (xy 154.94 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "087ca8e2-69a7-4c0d-82a6-e76f36baabb7")
+	)
+	(wire
+		(pts
 			(xy 158.75 34.29) (xy 154.94 34.29)
 		)
 		(stroke
@@ -2585,6 +2619,16 @@
 			(type default)
 		)
 		(uuid "0a741780-7fbf-4029-8374-f22097aebdec")
+	)
+	(wire
+		(pts
+			(xy 129.54 179.07) (xy 144.78 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ad04c57-5dd0-4bb8-a475-5c0f75abc76a")
 	)
 	(wire
 		(pts
@@ -3068,6 +3112,16 @@
 	)
 	(wire
 		(pts
+			(xy 170.18 149.86) (xy 170.18 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "42397f65-d067-4975-bbd1-f83496ce2283")
+	)
+	(wire
+		(pts
 			(xy 63.5 38.1) (xy 63.5 102.87)
 		)
 		(stroke
@@ -3215,6 +3269,16 @@
 			(type default)
 		)
 		(uuid "53828ca3-4061-45f2-b763-42b09e5066c8")
+	)
+	(wire
+		(pts
+			(xy 144.78 179.07) (xy 160.02 179.07)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "543bb2c6-5b62-41f5-82ce-72b99d2be5c4")
 	)
 	(wire
 		(pts
@@ -3455,6 +3519,16 @@
 			(type default)
 		)
 		(uuid "6c74daf1-9bdb-474e-88c3-d8b2ebe52318")
+	)
+	(wire
+		(pts
+			(xy 160.02 179.07) (xy 160.02 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d2965a3-bcb9-4bdb-852e-6939de792a2c")
 	)
 	(wire
 		(pts
@@ -4445,6 +4519,16 @@
 			(type default)
 		)
 		(uuid "e0259e83-fce8-4a5a-9cf0-9f6799766185")
+	)
+	(wire
+		(pts
+			(xy 144.78 179.07) (xy 144.78 173.99)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e0b6ec34-f150-43d1-89a2-fd92e10dc2df")
 	)
 	(wire
 		(pts
@@ -5552,6 +5636,142 @@
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 149.86 173.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4ea7c811-6f04-4870-8b3e-78c76a86fec4")
+		(property "Reference" "SW39"
+			(at 149.86 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 149.86 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
+			(at 149.86 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 149.86 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "52491697-0390-4cee-87c7-31a074981a66")
+		)
+		(pin "2"
+			(uuid "2ba84baa-51be-4a95-8731-dc2efa3cc427")
+		)
+		(instances
+			(project "keyboard"
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "SW39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Switch:SW_Push")
+		(at 165.1 173.99 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "505ca99c-07e2-4154-afdd-a7b5ae1c4c63")
+		(property "Reference" "SW40"
+			(at 165.1 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "SW_Push"
+			(at 165.1 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm_Wuerth-430476085716"
+			(at 165.1 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 165.1 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Push button switch, generic, two pins"
+			(at 165.1 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "f4fd4503-4f3c-4252-9dda-9bdfd5826817")
+		)
+		(pin "1"
+			(uuid "aa2956a5-a9d1-46e4-95db-9fec63ff0196")
+		)
+		(instances
+			(project "keyboard"
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "SW40")
 					(unit 1)
 				)
 			)
