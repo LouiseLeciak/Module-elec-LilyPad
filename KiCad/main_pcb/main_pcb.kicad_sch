@@ -29,7 +29,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Connector_JST:JST_XH_B10B-XH-A_1x10_P2.50mm_Vertical"
 				(at 0 0 0)
 				(effects
 					(font
@@ -383,7 +383,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2665,7 +2665,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Crystal:Crystal_SMD_ECS_CSM3X-2Pin_7.6x4.1mm"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3800,7 +3800,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
 				(at 0 0 0)
 				(effects
 					(font
@@ -7710,7 +7710,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B10B-XH-A_1x10_P2.50mm_Vertical"
 			(at 26.67 95.25 0)
 			(effects
 				(font
@@ -8337,7 +8337,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Crystal:Crystal_SMD_ECS_CSM3X-2Pin_7.6x4.1mm"
 			(at 99.06 138.43 0)
 			(effects
 				(font
@@ -8744,7 +8744,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
 			(at 86.36 133.35 0)
 			(effects
 				(font
@@ -8951,7 +8951,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B8B-XH-A_1x08_P2.50mm_Vertical"
 			(at 240.03 38.1 0)
 			(effects
 				(font
