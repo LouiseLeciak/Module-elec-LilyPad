@@ -771,95 +771,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lily's Pad:PWR_FLG"
-			(power)
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom no)
-			(on_board no)
-			(property "Reference" "#PWR"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "PWR_FLG"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "PWR_FLG_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 2.54 -1.27) (xy 0 -2.54) (xy -2.54 -1.27) (xy 0 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "PWR_FLG_1_1"
-				(pin power_out line
-					(at 0 2.54 270)
-					(length 2.54)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Lily's Pad:Resistor"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1435,12 +1346,6 @@
 		(uuid "0ebdcf16-89fc-4c2a-bf5c-5e73edf01780")
 	)
 	(junction
-		(at 92.71 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "175ca0d5-9b3c-442c-8f1a-2cc0e0e3d3d9")
-	)
-	(junction
 		(at 132.08 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1459,6 +1364,12 @@
 		(uuid "656108b4-6b17-4a98-913c-b44b133ced43")
 	)
 	(junction
+		(at 62.23 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "657fb309-741a-48c6-9040-b3959c381c57")
+	)
+	(junction
 		(at 168.91 90.17)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1469,12 +1380,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "678eba8b-dfcd-4927-9fc5-f0502d18cf25")
-	)
-	(junction
-		(at 67.31 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8eba7819-9d3b-47fb-b181-6462fe7af66c")
 	)
 	(junction
 		(at 186.69 53.34)
@@ -1536,6 +1441,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 115.57) (xy 62.23 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07f9a720-23e8-432e-bb23-581e84c66192")
+	)
+	(wire
+		(pts
 			(xy 186.69 48.26) (xy 186.69 53.34)
 		)
 		(stroke
@@ -1576,13 +1491,13 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 107.95) (xy 88.9 107.95)
+			(xy 105.41 107.95) (xy 102.87 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "313828a6-7bce-42d7-ae0a-df69cc15f161")
+		(uuid "2b6d2848-e1ec-45bc-94a3-5d70d1c56b35")
 	)
 	(wire
 		(pts
@@ -1626,6 +1541,26 @@
 	)
 	(wire
 		(pts
+			(xy 62.23 128.27) (xy 62.23 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a29c963-95b6-4c00-85e5-21a8d7f5854d")
+	)
+	(wire
+		(pts
+			(xy 62.23 115.57) (xy 62.23 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a2e11b4-635b-40bf-8724-eafd132fe60a")
+	)
+	(wire
+		(pts
 			(xy 132.08 105.41) (xy 158.75 105.41)
 		)
 		(stroke
@@ -1666,13 +1601,13 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 115.57) (xy 59.69 115.57)
+			(xy 62.23 115.57) (xy 68.58 115.57)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5787cd7b-d294-40e2-a6d5-5664e3efcf2f")
+		(uuid "5310fab3-e980-4d87-9820-1aca5bb1d84c")
 	)
 	(wire
 		(pts
@@ -1716,23 +1651,13 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 107.95) (xy 92.71 107.95)
+			(xy 88.9 107.95) (xy 96.52 107.95)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "7da2b913-459d-4e10-bfb6-3f4128a19a38")
-	)
-	(wire
-		(pts
-			(xy 92.71 95.25) (xy 92.71 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7de78a84-3d6f-48ca-9f57-79602cf3df14")
 	)
 	(wire
 		(pts
@@ -1806,16 +1731,6 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 115.57) (xy 68.58 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b8fbe52b-dbb6-4de9-b862-e3611d8af40e")
-	)
-	(wire
-		(pts
 			(xy 179.07 107.95) (xy 193.04 107.95)
 		)
 		(stroke
@@ -1873,16 +1788,6 @@
 			(type default)
 		)
 		(uuid "d2abfd26-d864-4184-9635-624183d2fb05")
-	)
-	(wire
-		(pts
-			(xy 66.04 115.57) (xy 67.31 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d4e8934f-50fb-42d2-b43a-38380b8bedb0")
 	)
 	(wire
 		(pts
@@ -2566,7 +2471,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 105.41 107.95 90)
+		(at 107.95 107.95 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2574,7 +2479,7 @@
 		(dnp no)
 		(uuid "7aaeda15-468e-43d3-be8c-46e1b2228fbe")
 		(property "Reference" "#PWR012"
-			(at 107.95 107.95 0)
+			(at 110.49 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2583,7 +2488,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 107.696 106.172 0)
+			(at 110.236 106.172 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2592,7 +2497,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 105.41 107.95 0)
+			(at 107.95 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2601,7 +2506,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 105.41 107.95 0)
+			(at 107.95 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2610,7 +2515,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 105.41 107.95 0)
+			(at 107.95 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2832,7 +2737,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 62.23 115.57 270)
+		(at 62.23 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2840,7 +2745,7 @@
 		(dnp no)
 		(uuid "9a6d550d-a4cb-4b41-bc84-0db3ad142550")
 		(property "Reference" "C7"
-			(at 64.77 116.586 90)
+			(at 63.246 119.38 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2848,7 +2753,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 59.436 116.586 90)
+			(at 63.246 124.714 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2856,7 +2761,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 62.23 115.57 0)
+			(at 62.23 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2865,7 +2770,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 115.57 0)
+			(at 62.23 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2874,7 +2779,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 62.23 115.57 0)
+			(at 62.23 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2966,73 +2871,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's Pad:PWR_FLG")
-		(at 92.71 92.71 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9f7c7040-b44a-42cf-be8b-6d6347145017")
-		(property "Reference" "#PWR027"
-			(at 92.71 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLG"
-			(at 92.71 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 92.71 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 92.71 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 92.71 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "af789d81-81b4-4916-af15-8bc6184dd1f5")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
-					(reference "#PWR027")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Lily's Pad:1x1_Heaer")
 		(at 168.91 72.39 270)
 		(unit 1)
@@ -3094,6 +2932,72 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
 					(reference "J6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's Pad:GND")
+		(at 62.23 130.81 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b5c37342-bdfd-4cc7-84e0-2b8d1db28d52")
+		(property "Reference" "#PWR018"
+			(at 62.23 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 62.23 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62.23 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 62.23 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "749f0cbe-91fc-49a9-b719-6f2f8d20316e")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -3363,73 +3267,6 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
 					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Lily's Pad:PWR_FLG")
-		(at 67.31 118.11 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d8d11444-aa65-4d1d-8490-a2d6ea830761")
-		(property "Reference" "#PWR041"
-			(at 67.31 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "PWR_FLG"
-			(at 67.31 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 67.31 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "db460bd8-fd2f-492c-968a-ba7cc37ab44e")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/a4816677-4d4e-4f2e-882a-ab61f6eb2b02"
-					(reference "#PWR041")
 					(unit 1)
 				)
 			)

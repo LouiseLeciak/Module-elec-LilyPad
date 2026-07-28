@@ -7813,7 +7813,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 177.8 25.146 90)
 			(effects
 				(font
@@ -8003,7 +8003,6 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "291e4074-63dd-4ef2-94e3-ea4fbe7ef322")
 		(property "Reference" "#PWR02"
 			(at 34.29 99.06 0)
@@ -8015,7 +8014,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 34.29 99.0599 90)
+			(at 33.02 98.298 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8070,7 +8069,6 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "309ee112-e2ef-4b8c-8593-deef005f07c0")
 		(property "Reference" "#PWR010"
 			(at 35.56 83.82 0)
@@ -8082,7 +8080,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 35.56 83.8199 90)
+			(at 34.29 82.804 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8205,7 +8203,6 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3e86f71c-6bd9-44f4-aafc-77d7eab0c205")
 		(property "Reference" "#PWR06"
 			(at 34.29 91.44 0)
@@ -8217,7 +8214,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 34.29 91.4399 90)
+			(at 33.02 90.424 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8553,7 +8550,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 177.8 44.196 90)
 			(effects
 				(font
@@ -9743,7 +9740,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 177.8 31.496 90)
 			(effects
 				(font
@@ -9801,7 +9798,6 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "d63ca574-855c-4da6-82a7-03dfef4a1a48")
 		(property "Reference" "#PWR01"
 			(at 35.56 104.14 0)
@@ -9813,7 +9809,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 35.56 104.1399 90)
+			(at 34.798 103.378 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10075,7 +10071,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 177.8 37.846 90)
 			(effects
 				(font
