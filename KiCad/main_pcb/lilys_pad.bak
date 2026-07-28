@@ -3094,6 +3094,9 @@
 		(embedded_fonts no)
 	)
 	(symbol "Capacitor"
+		(pin_numbers
+			(hide yes)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -3226,7 +3229,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Crystal:Crystal_SMD_ECS_CSM3X-2Pin_7.6x4.1mm"
 			(at 0 0 0)
 			(effects
 				(font

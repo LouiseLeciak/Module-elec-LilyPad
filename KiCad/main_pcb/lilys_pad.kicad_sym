@@ -3094,6 +3094,9 @@
 		(embedded_fonts no)
 	)
 	(symbol "Capacitor"
+		(pin_numbers
+			(hide yes)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -5882,6 +5885,9 @@
 		(embedded_fonts no)
 	)
 	(symbol "Resistor"
+		(pin_numbers
+			(hide yes)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
