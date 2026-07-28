@@ -7035,6 +7035,26 @@
 		)
 		(uuid "5603c375-f357-45f3-9d13-87c4687fb62b")
 	)
+	(label "Y-"
+		(at 99.06 123.19 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "583dc9ba-1515-48e1-952f-1119b9553491")
+	)
+	(label "Y+"
+		(at 104.14 129.54 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5849605d-d4fb-4242-8e02-2352ba605492")
+	)
 	(label "C9"
 		(at 31.75 137.16 0)
 		(effects
