@@ -1368,11 +1368,28 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "I don't even know if pull-up resistors are needed\nfor CS pins since they're supposed to be driven\nHIGH when not used. But line has to be low when\nthey are used, so I feel like I'd need a pull-down\nrather"
+		(exclude_from_sim no)
+		(at 23.368 82.55 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "bf5f44e9-ae3d-44de-b268-7383fdaf6310")
+	)
 	(junction
 		(at 105.41 54.61)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0781ec83-1b18-4706-b12b-fa60dd0367d1")
+	)
+	(junction
+		(at 92.71 81.28)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "138bc9b7-3577-4df2-8400-35000b8adb7d")
 	)
 	(junction
 		(at 120.65 128.27)
@@ -1759,7 +1776,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 91.44) (xy 92.71 96.52)
+			(xy 92.71 95.25) (xy 92.71 96.52)
 		)
 		(stroke
 			(width 0)
@@ -2699,6 +2716,26 @@
 	)
 	(wire
 		(pts
+			(xy 92.71 81.28) (xy 92.71 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f313ab13-9959-4b02-a0f9-c0511efcbbbd")
+	)
+	(wire
+		(pts
+			(xy 91.44 81.28) (xy 92.71 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd322ecb-ac0f-4113-824b-7c36307e9411")
+	)
+	(wire
+		(pts
 			(xy 167.64 54.61) (xy 170.18 54.61)
 		)
 		(stroke
@@ -3166,16 +3203,15 @@
 		(dnp no)
 		(uuid "02a64ab4-3bc3-4c6f-9ae1-7db7239eb215")
 		(property "Reference" "R9"
-			(at 133.35 80.0099 0)
+			(at 130.81 80.01 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 134.874 81.788 0)
+			(at 134.62 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3359,6 +3395,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's Pad:VCC")
+		(at 78.74 81.28 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2aaa4489-7368-4984-9af9-a0ad1a5acc39")
+		(property "Reference" "#PWR041"
+			(at 77.47 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 77.47 81.2799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 78.74 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 78.74 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 78.74 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e993a318-64f3-442e-89f4-d4eb813a9607")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/f366ed97-9aa9-4dab-9fc7-1cd4f5d408d4"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's Pad:Capacitor")
 		(at 104.14 105.41 0)
 		(unit 1)
@@ -3368,16 +3471,16 @@
 		(dnp no)
 		(uuid "3c3c0930-cd49-4092-80ea-0b1625c761f4")
 		(property "Reference" "C24"
-			(at 99.568 105.41 90)
+			(at 100.076 105.156 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "100nF"
-			(at 101.346 104.902 90)
+			(at 99.568 103.378 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3527,6 +3630,73 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/f366ed97-9aa9-4dab-9fc7-1cd4f5d408d4"
 					(reference "U16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's Pad:Resistor")
+		(at 86.36 81.28 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4a2bf811-21ff-47f5-ab92-0729441706d9")
+		(property "Reference" "R12"
+			(at 86.36 81.28 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100Ω"
+			(at 86.36 83.566 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+			(at 86.36 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "fb8e3c62-e6fb-43b4-ae8e-dfd3c715b978")
+		)
+		(pin "1"
+			(uuid "d9e6124f-affc-4f88-807c-f262c691adcb")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832/f366ed97-9aa9-4dab-9fc7-1cd4f5d408d4"
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -3760,7 +3930,7 @@
 		(dnp no)
 		(uuid "576226e0-9089-49d5-94d5-8dc706cd3529")
 		(property "Reference" "R10"
-			(at 158.75 83.8201 0)
+			(at 161.29 82.042 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3769,7 +3939,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 157.226 82.042 0)
+			(at 165.1 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3894,7 +4064,7 @@
 		(dnp no)
 		(uuid "66bbfeb8-dd5e-4cea-9386-43802093de1c")
 		(property "Reference" "R11"
-			(at 189.23 81.2799 0)
+			(at 186.69 83.312 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3903,7 +4073,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 190.754 83.058 0)
+			(at 190.5 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5036,16 +5206,16 @@
 		(dnp no)
 		(uuid "b377b981-9c71-4dc7-a133-9da155f9336e")
 		(property "Reference" "C26"
-			(at 116.078 135.128 90)
+			(at 125.73 133.604 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "100nF"
-			(at 117.856 134.62 90)
+			(at 125.222 131.826 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5816,7 +5986,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Resistor")
-		(at 92.71 86.36 180)
+		(at 92.71 90.17 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5824,7 +5994,7 @@
 		(dnp no)
 		(uuid "fd131a1b-ed68-4e71-9853-99ab7efcc9b8")
 		(property "Reference" "R8"
-			(at 95.25 86.3599 0)
+			(at 92.71 88.9 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5833,7 +6003,7 @@
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 96.774 88.138 0)
+			(at 96.52 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5841,7 +6011,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 92.71 86.36 0)
+			(at 92.71 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5850,7 +6020,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 86.36 0)
+			(at 92.71 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5859,7 +6029,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 92.71 86.36 0)
+			(at 92.71 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)

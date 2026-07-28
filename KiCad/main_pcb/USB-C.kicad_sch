@@ -2392,7 +2392,7 @@
 		(dnp no)
 		(uuid "5e696bff-2955-467c-bbeb-a509ccdc6563")
 		(property "Reference" "R3"
-			(at 184.15 112.776 90)
+			(at 184.15 110.49 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2400,7 +2400,7 @@
 			)
 		)
 		(property "Value" "5.1kΩ"
-			(at 184.15 115.316 90)
+			(at 184.15 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3463,7 +3463,7 @@
 		(dnp no)
 		(uuid "fcbd5254-c04c-4286-8d5a-4db4906a7503")
 		(property "Reference" "R2"
-			(at 153.67 97.79 90)
+			(at 153.67 102.87 90)
 			(effects
 				(font
 					(size 1.27 1.27)
