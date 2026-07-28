@@ -25,7 +25,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Connector_JST:JST_XH_B1B-XH-AM_1x01_P2.50mm_Vertical"
 				(at 0 0 0)
 				(effects
 					(font
@@ -471,7 +471,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 				(at 0 0 0)
 				(effects
 					(font
@@ -791,7 +791,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1318,26 +1318,6 @@
 			)
 			(embedded_fonts no)
 		)
-	)
-	(text "TODO: Add raw 5V line from the USB\n&\nadd capacitors"
-		(exclude_from_sim no)
-		(at 143.002 32.258 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "c4dbcb69-373d-4e4e-b769-0e8d70880524")
-	)
-	(text "NOTE: I don't really know how to hook those 3 up,\nhelp would be welcome :)\n"
-		(exclude_from_sim no)
-		(at 135.382 130.81 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "f86eab7e-05a2-4ac1-80ae-5139baf6be16")
 	)
 	(junction
 		(at 143.51 107.95)
@@ -2051,7 +2031,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 182.88 48.26 0)
 			(effects
 				(font
@@ -2228,7 +2208,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 64.77 107.95 0)
 			(effects
 				(font
@@ -2427,7 +2407,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 184.15 110.49 0)
 			(effects
 				(font
@@ -2693,7 +2673,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 99.06 107.95 0)
 			(effects
 				(font
@@ -2760,7 +2740,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 62.23 121.92 0)
 			(effects
 				(font
@@ -2828,7 +2808,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 182.88 60.96 0)
 			(effects
 				(font
@@ -2898,7 +2878,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B1B-XH-AM_1x01_P2.50mm_Vertical"
 			(at 168.91 72.39 0)
 			(effects
 				(font
@@ -3233,7 +3213,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B1B-XH-AM_1x01_P2.50mm_Vertical"
 			(at 168.91 78.74 0)
 			(effects
 				(font
@@ -3364,7 +3344,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 182.88 53.34 0)
 			(effects
 				(font
@@ -3498,7 +3478,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 153.67 102.87 0)
 			(effects
 				(font
