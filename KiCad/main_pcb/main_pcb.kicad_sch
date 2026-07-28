@@ -8061,7 +8061,7 @@
 		(dnp no)
 		(uuid "46def2c9-7973-4165-8255-181f2140d682")
 		(property "Reference" "C5"
-			(at 75.946 100.076 90)
+			(at 77.978 101.346 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8069,7 +8069,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 81.788 100.076 90)
+			(at 78.486 103.124 90)
 			(effects
 				(font
 					(size 1.27 1.27)
