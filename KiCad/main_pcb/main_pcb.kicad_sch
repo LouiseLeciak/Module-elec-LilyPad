@@ -5777,6 +5777,16 @@
 		)
 		(uuid "80f91a85-ef79-407b-8635-a830bc942bc3")
 	)
+	(wire
+		(pts
+			(xy 29.21 132.08) (xy 26.67 132.08)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83790ae9-9daf-4c90-bdd1-1f88802e6e1d")
+	)
 	(bus
 		(pts
 			(xy 154.94 48.26) (xy 160.02 48.26)
@@ -8277,7 +8287,6 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "56dbf2c5-ee7d-4356-9671-6c1fee5b6ce0")
 		(property "Reference" "#PWR05"
 			(at 30.48 129.54 0)
@@ -8289,7 +8298,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 30.48 129.5399 90)
+			(at 30.226 127.508 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10380,16 +10389,15 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 29.21 132.08 90)
+		(at 31.75 132.08 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "f668b534-6000-45f1-971d-b9624cfaa333")
 		(property "Reference" "#PWR06"
-			(at 31.75 132.08 0)
+			(at 34.29 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10398,7 +10406,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 31.75 132.0799 90)
+			(at 33.782 130.048 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10407,7 +10415,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 29.21 132.08 0)
+			(at 31.75 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10416,7 +10424,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 29.21 132.08 0)
+			(at 31.75 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10425,7 +10433,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 29.21 132.08 0)
+			(at 31.75 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -1376,7 +1376,7 @@
 	)
 	(text "I don't even know if pull-up resistors are needed\nfor CS pins since they're supposed to be driven\nHIGH when not used. But line has to be low when\nthey are used, so I feel like I'd need a pull-down\nrather"
 		(exclude_from_sim no)
-		(at 23.368 82.55 0)
+		(at 105.156 45.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
