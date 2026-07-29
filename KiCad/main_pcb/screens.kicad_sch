@@ -1385,16 +1385,6 @@
 		)
 		(uuid "bf5f44e9-ae3d-44de-b268-7383fdaf6310")
 	)
-	(text "TODO: VCC or dedicated MCU pin"
-		(exclude_from_sim no)
-		(at 120.65 141.224 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "dbd87ad9-e3da-4141-be8a-dda6d1d02a9a")
-	)
 	(junction
 		(at 160.02 58.42)
 		(diameter 0)
@@ -3104,6 +3094,17 @@
 			(justify right)
 		)
 		(uuid "25f69aad-7fd1-4b91-b6f0-cc90b622b91b")
+	)
+	(hierarchical_label "LED{slash}BL"
+		(shape input)
+		(at 120.65 124.46 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2e9a552e-0a60-4db4-ae03-71d574b36b9c")
 	)
 	(hierarchical_label "{SPI D{slash}C}"
 		(shape input)
