@@ -5,7 +5,7 @@
 	(uuid "55764147-763c-452f-85b8-3be2d22c3190")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Device:Heater"
+		(symbol "Device:R"
 			(pin_numbers
 				(hide yes)
 			)
@@ -23,8 +23,8 @@
 					)
 				)
 			)
-			(property "Value" "Heater"
-				(at -2.032 0 90)
+			(property "Value" "R"
+				(at 0 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -49,7 +49,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistive heater"
+			(property "Description" "Resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -58,7 +58,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "heater R resistor"
+			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -67,19 +67,16 @@
 					(hide yes)
 				)
 			)
-			(symbol "Heater_0_1"
-				(polyline
-					(pts
-						(xy -1.016 1.524) (xy 1.016 1.524)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
 					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
+					(hide yes)
 				)
+			)
+			(symbol "R_0_1"
 				(rectangle
 					(start -1.016 -2.54)
 					(end 1.016 2.54)
@@ -91,44 +88,8 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 1.016 0.508) (xy -1.016 0.508)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -0.508) (xy -1.016 -0.508)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.016 -1.524) (xy -1.016 -1.524)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 			)
-			(symbol "Heater_1_1"
+			(symbol "R_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -2138,12 +2099,6 @@
 		(uuid "123d88dd-b8b1-400d-92fb-025367326491")
 	)
 	(junction
-		(at 196.85 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "19eae8d3-16df-43f9-97fd-54e5511a6714")
-	)
-	(junction
 		(at 109.22 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2258,6 +2213,12 @@
 		(uuid "60247e02-4afa-40da-9056-b4703da5f357")
 	)
 	(junction
+		(at 193.04 96.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "62071796-ba50-4109-b9aa-bce6384692e0")
+	)
+	(junction
 		(at 124.46 127)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2316,6 +2277,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8575f6e9-a944-4ad5-82bf-b3558c7aab59")
+	)
+	(junction
+		(at 196.85 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "870ffce9-82c0-4cd0-85c0-3b7f7562e214")
 	)
 	(junction
 		(at 38.1 132.08)
@@ -2406,12 +2373,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c0e25bb8-1aff-428b-8efa-4c488f95a748")
-	)
-	(junction
-		(at 193.04 96.52)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c2b00969-21b0-4a70-9c21-a24d2c0d414a")
 	)
 	(junction
 		(at 198.12 134.62)
@@ -3307,7 +3268,7 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 93.98) (xy 196.85 93.98)
+			(xy 186.69 93.98) (xy 196.85 93.98)
 		)
 		(stroke
 			(width 0)
@@ -3477,7 +3438,7 @@
 	)
 	(wire
 		(pts
-			(xy 204.47 96.52) (xy 193.04 96.52)
+			(xy 184.15 96.52) (xy 193.04 96.52)
 		)
 		(stroke
 			(width 0)
@@ -3894,16 +3855,6 @@
 			(type default)
 		)
 		(uuid "993e70c3-34ae-43e5-b82b-fedd015baa2a")
-	)
-	(wire
-		(pts
-			(xy 196.85 93.98) (xy 186.69 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9aea7773-0418-462b-9f08-dfcb7976bb33")
 	)
 	(wire
 		(pts
@@ -4547,13 +4498,13 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 96.52) (xy 193.04 96.52)
+			(xy 193.04 96.52) (xy 204.47 96.52)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e5283d3b-e0d2-4251-bd11-6ade26c48601")
+		(uuid "e619122d-71a3-4e85-8fe3-92db371d94c4")
 	)
 	(wire
 		(pts
@@ -4614,6 +4565,16 @@
 			(type default)
 		)
 		(uuid "ea305732-4659-48c3-978b-d0ca86949871")
+	)
+	(wire
+		(pts
+			(xy 196.85 93.98) (xy 204.47 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eada882e-91b9-4057-a839-efa1993a97f7")
 	)
 	(wire
 		(pts
@@ -4874,145 +4835,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Heater")
-		(at 193.04 92.71 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "040a1482-7394-40df-9750-3bf681686171")
-		(property "Reference" "R2"
-			(at 191.77 98.552 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Heater"
-			(at 190.246 100.076 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 191.262 92.71 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 193.04 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistive heater"
-			(at 193.04 92.71 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "d832072f-fbfc-4eff-b317-569dad193b0c")
-		)
-		(pin "1"
-			(uuid "3336b02e-033b-4abe-b741-d6cefe048bb1")
-		)
-		(instances
-			(project ""
-				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Heater")
-		(at 196.85 90.17 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0833e498-0bce-4a1a-ba0e-86be39f61049")
-		(property "Reference" "R3"
-			(at 199.39 88.8999 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Heater"
-			(at 199.39 91.4399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 195.072 90.17 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 196.85 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistive heater"
-			(at 196.85 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a68e1c19-db03-4f85-9514-8202cfce06c9")
-		)
-		(pin "2"
-			(uuid "ab378b01-8576-44d3-bf10-31946183cde1")
-		)
-		(instances
-			(project ""
-				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 73.66 149.86 0)
 		(unit 1)
@@ -5075,6 +4897,76 @@
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "SW24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 193.04 92.71 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "17ec1c87-1561-473a-98cf-0803c4b0347d")
+		(property "Reference" "R3"
+			(at 190.5 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "R"
+			(at 190.5 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 191.262 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 193.04 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "309ba703-2136-4281-af6a-2f9fde5020ee")
+		)
+		(pin "2"
+			(uuid "d49241af-78a0-4d8b-a457-b03f1c942024")
+		)
+		(instances
+			(project ""
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -5974,74 +5866,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Heater")
-		(at 194.31 116.84 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "60d25401-b02d-41e5-8f6e-768bd4d922c2")
-		(property "Reference" "R1"
-			(at 194.31 110.49 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Heater"
-			(at 194.31 113.03 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0201_0603Metric"
-			(at 194.31 118.618 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 194.31 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistive heater"
-			(at 194.31 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "e66d2f10-a5fd-4a2d-b383-2e355a614dd8")
-		)
-		(pin "1"
-			(uuid "55befc12-cb1a-4e26-b831-038b64784374")
-		)
-		(instances
-			(project ""
-				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 58.42 173.99 0)
 		(unit 1)
@@ -6512,6 +6336,74 @@
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "SW25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 194.31 116.84 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7f17a0a3-ff67-47c0-b9f7-96c61b358358")
+		(property "Reference" "R1"
+			(at 194.31 110.49 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "R"
+			(at 194.31 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 194.31 118.618 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 194.31 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 194.31 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b984a7fb-72da-47ae-9c06-3cc20695147d")
+		)
+		(pin "1"
+			(uuid "1ef5515d-ccff-4b8b-a78c-ed8af4fb342e")
+		)
+		(instances
+			(project ""
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -7332,6 +7224,76 @@
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "SW23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 196.85 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b2dfa85f-9eb7-444b-a56f-d11df1042093")
+		(property "Reference" "R2"
+			(at 199.39 88.8999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "R"
+			(at 199.39 91.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 195.072 90.17 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 196.85 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 196.85 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "48df794a-a941-439a-81e6-6d4cb5f03cbb")
+		)
+		(pin "2"
+			(uuid "5058de17-d3e5-4db4-a726-e3a219c72766")
+		)
+		(instances
+			(project ""
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "R2")
 					(unit 1)
 				)
 			)
