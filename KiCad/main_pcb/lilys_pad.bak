@@ -7619,7 +7619,7 @@
 				(justify left top)
 			)
 		)
-		(property "Footprint" "TYPE-C-31-M-12:HRO_TYPE-C-31-M-12"
+		(property "Footprint" "Lilibrary:HRO_TYPE-C-31-M-12"
 			(at 0 0 0)
 			(effects
 				(font
