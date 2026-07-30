@@ -4033,7 +4033,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:1x13 Header"
 			(at 93.98 59.69 0)
 			(effects
 				(font
@@ -4705,7 +4705,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:1x7 Header"
 			(at 132.08 55.88 0)
 			(effects
 				(font
@@ -4857,7 +4857,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:1x7 Header"
 			(at 163.83 55.88 0)
 			(effects
 				(font
