@@ -1427,13 +1427,13 @@
 		(uuid "62d54766-df38-47dd-b892-4d30ff8ded7b")
 	)
 	(junction
-		(at 111.76 105.41)
+		(at 128.27 105.41)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6432fe96-7de1-417f-86ec-162b10792413")
 	)
 	(junction
-		(at 62.23 115.57)
+		(at 88.9 115.57)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "657fb309-741a-48c6-9040-b3959c381c57")
@@ -1457,7 +1457,7 @@
 		(uuid "a5d86284-7e3c-4344-8146-49016c112a30")
 	)
 	(junction
-		(at 124.46 102.87)
+		(at 140.97 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b80b92b4-936f-485c-83ff-5df792ac7779")
@@ -1469,13 +1469,13 @@
 		(uuid "ccf41efc-fae0-44c0-b884-175efe724cea")
 	)
 	(junction
-		(at 93.98 107.95)
+		(at 120.65 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "daf22ab1-0845-4a01-a23c-773ab102c71a")
 	)
 	(no_connect
-		(at 68.58 97.79)
+		(at 95.25 97.79)
 		(uuid "238a4fec-b06c-4b2d-9bb9-1c693e178452")
 	)
 	(no_connect
@@ -1483,11 +1483,11 @@
 		(uuid "497c13ef-9c81-48e1-883e-a35aa3e83c8b")
 	)
 	(no_connect
-		(at 68.58 102.87)
+		(at 95.25 102.87)
 		(uuid "584410b9-0db2-4913-aaef-cc48a6de9728")
 	)
 	(no_connect
-		(at 68.58 100.33)
+		(at 95.25 100.33)
 		(uuid "6d7219b4-67ec-40e2-b1c2-27e68712e0fe")
 	)
 	(no_connect
@@ -1495,19 +1495,19 @@
 		(uuid "8dffc476-bbd0-4354-95ec-91f30fd40c90")
 	)
 	(no_connect
-		(at 88.9 97.79)
+		(at 115.57 97.79)
 		(uuid "96d7bb83-aada-4b55-84ba-ef40d2a265c6")
 	)
 	(no_connect
-		(at 68.58 105.41)
+		(at 95.25 105.41)
 		(uuid "ae5e0ae3-f2ac-41d8-bf37-eee16ea9336f")
 	)
 	(no_connect
-		(at 68.58 110.49)
+		(at 95.25 110.49)
 		(uuid "c1147288-8e77-4b86-9ad4-cd15903e1b5f")
 	)
 	(no_connect
-		(at 68.58 113.03)
+		(at 95.25 113.03)
 		(uuid "d23f5e09-3c1a-4cb2-bc1b-a716b6e8f156")
 	)
 	(wire
@@ -1522,7 +1522,7 @@
 	)
 	(wire
 		(pts
-			(xy 57.15 115.57) (xy 62.23 115.57)
+			(xy 83.82 115.57) (xy 88.9 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1562,7 +1562,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 102.87) (xy 124.46 102.87)
+			(xy 115.57 102.87) (xy 140.97 102.87)
 		)
 		(stroke
 			(width 0)
@@ -1572,7 +1572,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 107.95) (xy 158.75 107.95)
+			(xy 140.97 107.95) (xy 158.75 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1582,7 +1582,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 102.87) (xy 124.46 107.95)
+			(xy 140.97 102.87) (xy 140.97 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1642,7 +1642,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 93.98) (xy 111.76 105.41)
+			(xy 128.27 93.98) (xy 128.27 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1652,7 +1652,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 128.27) (xy 62.23 124.46)
+			(xy 88.9 128.27) (xy 88.9 124.46)
 		)
 		(stroke
 			(width 0)
@@ -1662,7 +1662,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 115.57) (xy 62.23 118.11)
+			(xy 88.9 115.57) (xy 88.9 118.11)
 		)
 		(stroke
 			(width 0)
@@ -1692,7 +1692,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 115.57) (xy 68.58 115.57)
+			(xy 88.9 115.57) (xy 95.25 115.57)
 		)
 		(stroke
 			(width 0)
@@ -1712,7 +1712,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 95.25) (xy 93.98 107.95)
+			(xy 120.65 95.25) (xy 120.65 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1722,7 +1722,7 @@
 	)
 	(wire
 		(pts
-			(xy 189.23 93.98) (xy 111.76 93.98)
+			(xy 189.23 93.98) (xy 128.27 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1732,7 +1732,7 @@
 	)
 	(wire
 		(pts
-			(xy 88.9 107.95) (xy 93.98 107.95)
+			(xy 115.57 107.95) (xy 120.65 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1772,7 +1772,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 96.52) (xy 186.69 96.52)
+			(xy 140.97 96.52) (xy 186.69 96.52)
 		)
 		(stroke
 			(width 0)
@@ -1792,7 +1792,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 105.41) (xy 158.75 105.41)
+			(xy 128.27 105.41) (xy 158.75 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1802,7 +1802,7 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 107.95) (xy 105.41 107.95)
+			(xy 129.54 107.95) (xy 132.08 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1822,7 +1822,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 107.95) (xy 96.52 107.95)
+			(xy 120.65 107.95) (xy 123.19 107.95)
 		)
 		(stroke
 			(width 0)
@@ -1872,7 +1872,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 102.87) (xy 124.46 96.52)
+			(xy 140.97 102.87) (xy 140.97 96.52)
 		)
 		(stroke
 			(width 0)
@@ -1882,7 +1882,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 105.41) (xy 88.9 105.41)
+			(xy 128.27 105.41) (xy 115.57 105.41)
 		)
 		(stroke
 			(width 0)
@@ -1892,7 +1892,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 110.49) (xy 88.9 110.49)
+			(xy 116.84 110.49) (xy 115.57 110.49)
 		)
 		(stroke
 			(width 0)
@@ -1932,7 +1932,7 @@
 	)
 	(global_label "uC_Reset"
 		(shape input)
-		(at 62.23 107.95 180)
+		(at 88.9 107.95 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1942,7 +1942,7 @@
 		)
 		(uuid "693b29a9-41f2-4528-bba0-53bb69e9dd70")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 50.6572 107.95 0)
+			(at 77.3272 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1976,7 +1976,7 @@
 	)
 	(hierarchical_label "UART_RX"
 		(shape input)
-		(at 90.17 110.49 0)
+		(at 116.84 110.49 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1987,7 +1987,7 @@
 	)
 	(hierarchical_label "UART_TX"
 		(shape output)
-		(at 88.9 113.03 0)
+		(at 115.57 113.03 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2176,16 +2176,15 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:CH340C")
-		(at 78.74 106.68 180)
+		(at 105.41 106.68 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "214f9b03-aa39-4aa2-a12f-3a213c1a45d5")
 		(property "Reference" "U2"
-			(at 78.74 90.17 0)
+			(at 105.41 94.234 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2193,7 +2192,7 @@
 			)
 		)
 		(property "Value" "CH340C"
-			(at 78.74 92.71 0)
+			(at 105.41 106.68 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2201,7 +2200,7 @@
 			)
 		)
 		(property "Footprint" "Lilibrary:SOIC127P600X180-16N"
-			(at 78.74 106.68 0)
+			(at 105.41 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2210,7 +2209,7 @@
 			)
 		)
 		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/U - Integrated Circuits/CH340C.pdf"
-			(at 78.74 106.68 0)
+			(at 105.41 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2219,7 +2218,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 78.74 106.68 0)
+			(at 105.41 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2286,7 +2285,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:PWR_FLG")
-		(at 93.98 92.71 180)
+		(at 120.65 92.71 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2295,7 +2294,7 @@
 		(fields_autoplaced yes)
 		(uuid "25fab7eb-ca51-4679-94e2-1871bb2014bf")
 		(property "Reference" "#PWR051"
-			(at 93.98 92.71 0)
+			(at 120.65 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2304,7 +2303,7 @@
 			)
 		)
 		(property "Value" "PWR_FLG"
-			(at 93.98 92.71 0)
+			(at 120.65 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2313,7 +2312,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 93.98 92.71 0)
+			(at 120.65 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2322,7 +2321,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 93.98 92.71 0)
+			(at 120.65 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2331,7 +2330,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 93.98 92.71 0)
+			(at 120.65 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2353,7 +2352,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 64.77 107.95 270)
+		(at 91.44 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2361,7 +2360,7 @@
 		(dnp no)
 		(uuid "439902ca-8573-4c02-b0ed-b6ccfde840d8")
 		(property "Reference" "C7"
-			(at 64.77 103.886 90)
+			(at 91.44 103.886 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2369,7 +2368,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 64.77 105.664 90)
+			(at 91.44 105.664 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2377,7 +2376,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 64.77 107.95 0)
+			(at 91.44 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2386,7 +2385,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 64.77 107.95 0)
+			(at 91.44 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2395,7 +2394,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 64.77 107.95 0)
+			(at 91.44 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2420,7 +2419,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:VCC")
-		(at 54.61 115.57 270)
+		(at 81.28 115.57 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2428,7 +2427,7 @@
 		(dnp no)
 		(uuid "4d6fee01-1f0d-458c-8f7d-f4cfd7478892")
 		(property "Reference" "#PWR021"
-			(at 53.34 115.57 0)
+			(at 80.01 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2437,7 +2436,7 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 53.34 117.094 0)
+			(at 80.01 117.094 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2446,7 +2445,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 54.61 115.57 0)
+			(at 81.28 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2455,7 +2454,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 54.61 115.57 0)
+			(at 81.28 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2464,7 +2463,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 54.61 115.57 0)
+			(at 81.28 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2486,7 +2485,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 91.44 115.57 90)
+		(at 118.11 115.57 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2494,7 +2493,7 @@
 		(dnp no)
 		(uuid "586011c7-341f-403b-9d36-8399cd89931e")
 		(property "Reference" "#PWR023"
-			(at 93.98 115.57 0)
+			(at 120.65 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2503,7 +2502,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 93.98 113.792 0)
+			(at 120.65 113.792 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2512,7 +2511,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 115.57 0)
+			(at 118.11 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2521,7 +2520,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 115.57 0)
+			(at 118.11 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2530,7 +2529,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 91.44 115.57 0)
+			(at 118.11 115.57 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2619,7 +2618,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 107.95 107.95 90)
+		(at 134.62 107.95 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -2627,7 +2626,7 @@
 		(dnp no)
 		(uuid "7aaeda15-468e-43d3-be8c-46e1b2228fbe")
 		(property "Reference" "#PWR024"
-			(at 110.49 107.95 0)
+			(at 137.16 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2636,7 +2635,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 110.236 106.172 0)
+			(at 136.906 106.172 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2645,7 +2644,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 107.95 107.95 0)
+			(at 134.62 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2654,7 +2653,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 107.95 107.95 0)
+			(at 134.62 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2663,7 +2662,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 107.95 107.95 0)
+			(at 134.62 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2817,7 +2816,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 99.06 107.95 270)
+		(at 125.73 107.95 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2825,7 +2824,7 @@
 		(dnp no)
 		(uuid "931e652e-c412-45ee-b99f-c88a6526ebae")
 		(property "Reference" "C8"
-			(at 101.6 108.966 90)
+			(at 128.27 108.966 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2833,7 +2832,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 96.266 108.966 90)
+			(at 122.936 108.966 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2841,7 +2840,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 99.06 107.95 0)
+			(at 125.73 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2850,7 +2849,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 107.95 0)
+			(at 125.73 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2859,7 +2858,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 99.06 107.95 0)
+			(at 125.73 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2884,7 +2883,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 62.23 121.92 0)
+		(at 88.9 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -2892,7 +2891,7 @@
 		(dnp no)
 		(uuid "9a6d550d-a4cb-4b41-bc84-0db3ad142550")
 		(property "Reference" "C6"
-			(at 65.786 120.396 0)
+			(at 92.456 120.396 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2900,7 +2899,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 66.548 122.174 0)
+			(at 93.218 122.174 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2908,7 +2907,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 62.23 121.92 0)
+			(at 88.9 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2917,7 +2916,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 121.92 0)
+			(at 88.9 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2926,7 +2925,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 62.23 121.92 0)
+			(at 88.9 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3086,7 +3085,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 62.23 130.81 0)
+		(at 88.9 130.81 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -3095,7 +3094,7 @@
 		(fields_autoplaced yes)
 		(uuid "b5c37342-bdfd-4cc7-84e0-2b8d1db28d52")
 		(property "Reference" "#PWR022"
-			(at 62.23 133.35 0)
+			(at 88.9 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3104,7 +3103,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 62.23 134.62 0)
+			(at 88.9 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3112,7 +3111,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 62.23 130.81 0)
+			(at 88.9 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3121,7 +3120,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 62.23 130.81 0)
+			(at 88.9 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3130,7 +3129,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 62.23 130.81 0)
+			(at 88.9 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
