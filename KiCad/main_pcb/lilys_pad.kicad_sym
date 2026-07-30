@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_XH_B1B-XH-AM_1x01_P2.50mm_Vertical"
+		(property "Footprint" "Lilibrary:1x1 Header"
 			(at 0 0 0)
 			(effects
 				(font
@@ -212,6 +212,244 @@
 							(size 1.27 1.27)
 						)
 					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
+	(symbol "1x6_Header"
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J?"
+			(at 0 -10.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1x6 Header"
+			(at 0 0 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Lilibrary:1x6 Header"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "1x6_Header_0_0"
+			(pin passive line
+				(at -6.35 6.35 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "6"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -6.35 3.81 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "5"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -6.35 1.27 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -6.35 -1.27 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -6.35 -3.81 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at -6.35 -6.35 0)
+				(length 2.54)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(symbol "1x6_Header_0_1"
+			(rectangle
+				(start -3.81 8.89)
+				(end 3.81 -8.89)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 6.604)
+				(end -1.778 6.096)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 4.064)
+				(end -1.778 3.556)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 1.524)
+				(end -1.778 1.016)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 -1.016)
+				(end -1.778 -1.524)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 -3.556)
+				(end -1.778 -4.064)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(rectangle
+				(start -3.81 -6.096)
+				(end -1.778 -6.604)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
 				)
 			)
 		)
@@ -3029,7 +3267,7 @@
 				)
 			)
 		)
-		(property "Footprint" "lilys_pad:CH340C"
+		(property "Footprint" "Lilibrary:SOIC127P600X180-16N"
 			(at 0 0 0)
 			(effects
 				(font
@@ -4801,7 +5039,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:SOT229P700X180-4N"
 			(at 0 0 0)
 			(effects
 				(font
@@ -6618,7 +6856,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:SOIC127P600X175-14N"
 			(at 0 0 0)
 			(effects
 				(font
@@ -6935,7 +7173,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:HRO_TYPE-C-31-M-12"
 			(at 0 0 0)
 			(effects
 				(font

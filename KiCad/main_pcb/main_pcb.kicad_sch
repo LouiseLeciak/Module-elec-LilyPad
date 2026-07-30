@@ -9,19 +9,19 @@
 		(company "Lily's Pad")
 	)
 	(lib_symbols
-		(symbol "Lily's Pad:1x7_Header"
+		(symbol "Lily's Pad:1x6_Header"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J?"
-				(at 0 -11.43 0)
+				(at 0 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "1X7 Header"
+			(property "Value" "1x6 Header"
 				(at 0 0 90)
 				(effects
 					(font
@@ -29,7 +29,7 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Lilibrary:1x6 Header"
 				(at 0 0 0)
 				(effects
 					(font
@@ -56,9 +56,27 @@
 					(hide yes)
 				)
 			)
-			(symbol "1x7_Header_0_0"
+			(symbol "1x6_Header_0_0"
 				(pin passive line
-					(at -6.35 2.54 0)
+					(at -6.35 6.35 0)
+					(length 2.54)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -6.35 3.81 0)
 					(length 2.54)
 					(name ""
 						(effects
@@ -76,7 +94,7 @@
 					)
 				)
 				(pin passive line
-					(at -6.35 0 0)
+					(at -6.35 1.27 0)
 					(length 2.54)
 					(name ""
 						(effects
@@ -94,7 +112,7 @@
 					)
 				)
 				(pin passive line
-					(at -6.35 -2.54 0)
+					(at -6.35 -1.27 0)
 					(length 2.54)
 					(name ""
 						(effects
@@ -112,7 +130,7 @@
 					)
 				)
 				(pin passive line
-					(at -6.35 -5.08 0)
+					(at -6.35 -3.81 0)
 					(length 2.54)
 					(name ""
 						(effects
@@ -130,7 +148,7 @@
 					)
 				)
 				(pin passive line
-					(at -6.35 -7.62 0)
+					(at -6.35 -6.35 0)
 					(length 2.54)
 					(name ""
 						(effects
@@ -148,10 +166,10 @@
 					)
 				)
 			)
-			(symbol "1x7_Header_0_1"
+			(symbol "1x6_Header_0_1"
 				(rectangle
-					(start -3.81 10.16)
-					(end 3.81 -10.16)
+					(start -3.81 8.89)
+					(end 3.81 -8.89)
 					(stroke
 						(width 0)
 						(type default)
@@ -161,8 +179,8 @@
 					)
 				)
 				(rectangle
-					(start -3.81 7.874)
-					(end -2.032 7.366)
+					(start -3.81 6.604)
+					(end -1.778 6.096)
 					(stroke
 						(width 0)
 						(type default)
@@ -172,8 +190,8 @@
 					)
 				)
 				(rectangle
-					(start -3.81 5.334)
-					(end -2.032 4.826)
+					(start -3.81 4.064)
+					(end -1.778 3.556)
 					(stroke
 						(width 0)
 						(type default)
@@ -183,8 +201,8 @@
 					)
 				)
 				(rectangle
-					(start -3.81 2.794)
-					(end -2.032 2.286)
+					(start -3.81 1.524)
+					(end -1.778 1.016)
 					(stroke
 						(width 0)
 						(type default)
@@ -194,8 +212,8 @@
 					)
 				)
 				(rectangle
-					(start -3.81 0.254)
-					(end -2.032 -0.254)
+					(start -3.81 -1.016)
+					(end -1.778 -1.524)
 					(stroke
 						(width 0)
 						(type default)
@@ -205,8 +223,8 @@
 					)
 				)
 				(rectangle
-					(start -3.81 -2.286)
-					(end -2.032 -2.794)
+					(start -3.81 -3.556)
+					(end -1.778 -4.064)
 					(stroke
 						(width 0)
 						(type default)
@@ -216,63 +234,14 @@
 					)
 				)
 				(rectangle
-					(start -3.81 -4.826)
-					(end -2.032 -5.334)
+					(start -3.81 -6.096)
+					(end -1.778 -6.604)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
 						(type none)
-					)
-				)
-				(rectangle
-					(start -3.81 -7.366)
-					(end -2.032 -7.874)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "1x7_Header_1_0"
-				(pin passive line
-					(at -6.35 7.62 0)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -6.35 5.08 0)
-					(length 2.54)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
 					)
 				)
 			)
@@ -4247,10 +4216,6 @@
 		(uuid "640a3bd8-d5ff-4977-b419-0b0328b9ea2c")
 	)
 	(no_connect
-		(at 228.6 43.18)
-		(uuid "65c5ba19-9bd1-405a-8dbb-f443be81ba9e")
-	)
-	(no_connect
 		(at 190.5 81.28)
 		(uuid "6c58d3b3-1991-4b94-a428-404322ba827f")
 	)
@@ -7940,6 +7905,88 @@
 		)
 	)
 	(symbol
+		(lib_id "Lily's Pad:1x6_Header")
+		(at 237.49 36.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "35933792-1fba-426c-a076-56a57b9ee9a2")
+		(property "Reference" "J3"
+			(at 247.65 35.5599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1x6 Header"
+			(at 247.65 38.0999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Lilibrary:1x6 Header"
+			(at 237.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 237.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 237.49 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "6"
+			(uuid "da3c5942-b7f5-4d95-9311-a1ba159b093c")
+		)
+		(pin "5"
+			(uuid "dce6fa55-2435-46d8-bd3a-84d91f99f816")
+		)
+		(pin "2"
+			(uuid "3f5a6024-8f73-4672-a3ee-b9ae2246f204")
+		)
+		(pin "4"
+			(uuid "f8819ec1-b703-4d56-ae29-bdf810d6eb22")
+		)
+		(pin "3"
+			(uuid "855e85ad-0d24-4011-8e94-00ae6db0db93")
+		)
+		(pin "1"
+			(uuid "59b4ff1e-b9d1-4303-b3bd-8b1d8a60b1b2")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Lily's Pad:Resistor")
 		(at 86.36 127 90)
 		(unit 1)
@@ -9837,91 +9884,6 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Lily's Pad:1x7_Header")
-		(at 236.22 36.83 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "deb07d89-ad83-4567-8f7a-3dff97268791")
-		(property "Reference" "J3"
-			(at 247.65 35.5599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1X7 Header"
-			(at 247.65 38.0999 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 236.22 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 236.22 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 236.22 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "7"
-			(uuid "0079ff5d-f6f8-49b2-97ad-46c1a51c2009")
-		)
-		(pin "6"
-			(uuid "b967db54-e6d8-42b2-8808-aadaa6a2efea")
-		)
-		(pin "5"
-			(uuid "bd4b46c4-ec7e-43e8-9bd2-6cfad7dbdcb1")
-		)
-		(pin "4"
-			(uuid "ee9ba59b-978c-45aa-8a8b-e7eb6ee91b02")
-		)
-		(pin "3"
-			(uuid "a8523e8a-4104-4418-bba7-213918996a18")
-		)
-		(pin "2"
-			(uuid "dda0abd4-57a7-4ff3-a13c-24a244c5134c")
-		)
-		(pin "1"
-			(uuid "4f7ef16c-b390-4683-bd55-e9f691a102c1")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
-					(reference "J3")
 					(unit 1)
 				)
 			)
