@@ -2590,11 +2590,17 @@
 			(embedded_fonts no)
 		)
 		(symbol "Lily's Pad:Crystal"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "Y?"
-				(at 0 0 0)
+				(at 0 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2637,9 +2643,69 @@
 				)
 			)
 			(symbol "Crystal_0_1"
+				(polyline
+					(pts
+						(xy -2.54 2.286) (xy -2.54 3.556) (xy 2.54 3.556) (xy 2.54 2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -2.286) (xy -2.54 -3.556) (xy 2.54 -3.556) (xy 2.54 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 -1.27) (xy -2.032 1.27)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(rectangle
-					(start -2.54 1.27)
-					(end 2.54 -1.27)
+					(start -1.143 2.54)
+					(end 1.143 -2.54)
+					(stroke
+						(width 0.3048)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 3.81) (xy 0 3.556)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -2650,7 +2716,7 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 2.54) (xy -2.54 2.54)
+						(xy 0 -3.81) (xy 0 -3.556)
 					)
 					(stroke
 						(width 0)
@@ -2662,10 +2728,22 @@
 				)
 				(polyline
 					(pts
-						(xy 2.54 -2.54) (xy -2.54 -2.54)
+						(xy 2.032 0) (xy 2.54 0)
 					)
 					(stroke
 						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.032 -1.27) (xy 2.032 1.27)
+					)
+					(stroke
+						(width 0.508)
 						(type default)
 					)
 					(fill
@@ -2675,9 +2753,9 @@
 			)
 			(symbol "Crystal_1_1"
 				(pin passive line
-					(at 0 5.08 270)
-					(length 2.54)
-					(name "~"
+					(at -3.81 0 0)
+					(length 1.27)
+					(name "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2692,10 +2770,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 0 -5.08 90)
-					(length 2.54)
-					(name "~"
+				(pin power_in line
+					(at 0 5.08 270)
+					(length 1.27)
+					(name "G"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2703,6 +2781,42 @@
 						)
 					)
 					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -5.08 90)
+					(length 1.27)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 1.27)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4079,7 +4193,7 @@
 	)
 	(text "NOTE: Check load capacitors values for the crystal\nC_{1}=C_{2}=2(C_{L}-C_{stray})"
 		(exclude_from_sim no)
-		(at 102.108 146.558 0)
+		(at 102.108 149.352 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4912,16 +5026,6 @@
 		)
 		(uuid "0be037a3-ed35-469c-b782-0fb4b24b8854")
 	)
-	(wire
-		(pts
-			(xy 104.14 143.51) (xy 99.06 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0cc30ccc-9fee-48e4-89c5-888bdd9ec507")
-	)
 	(bus
 		(pts
 			(xy 38.1 142.24) (xy 38.1 139.7)
@@ -5444,6 +5548,16 @@
 	)
 	(wire
 		(pts
+			(xy 110.49 146.05) (xy 99.06 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54775fef-1bb3-499e-a104-e9c5e660f9fb")
+	)
+	(wire
+		(pts
 			(xy 43.18 93.98) (xy 58.42 93.98)
 		)
 		(stroke
@@ -5451,16 +5565,6 @@
 			(type default)
 		)
 		(uuid "558de5f7-50a8-431a-bd30-d1aea0a54f89")
-	)
-	(wire
-		(pts
-			(xy 104.14 116.84) (xy 104.14 135.89)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "573e935c-76ec-4770-aa78-2f02109f3f03")
 	)
 	(wire
 		(pts
@@ -5504,6 +5608,16 @@
 	)
 	(wire
 		(pts
+			(xy 110.49 137.16) (xy 110.49 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e493c31-1111-4028-b854-f120782c9537")
+	)
+	(wire
+		(pts
 			(xy 106.68 50.8) (xy 106.68 81.28)
 		)
 		(stroke
@@ -5531,16 +5645,6 @@
 			(type default)
 		)
 		(uuid "641e123f-f823-45af-955a-baaf4833e9ff")
-	)
-	(wire
-		(pts
-			(xy 99.06 116.84) (xy 99.06 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "652d3c75-eab0-4a6d-b943-acb468690cc2")
 	)
 	(bus
 		(pts
@@ -5664,6 +5768,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 116.84) (xy 104.14 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7859958f-7bb8-49b5-ae62-9da9bd93d691")
+	)
+	(wire
+		(pts
 			(xy 186.69 35.56) (xy 186.69 62.23)
 		)
 		(stroke
@@ -5782,6 +5896,16 @@
 		)
 		(uuid "87422242-1c1c-4725-8692-4914647b2d24")
 	)
+	(wire
+		(pts
+			(xy 102.87 139.7) (xy 104.14 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "88ac35bf-7a15-4d9c-a334-ef82cb11c33f")
+	)
 	(bus
 		(pts
 			(xy 160.02 48.26) (xy 162.56 48.26)
@@ -5884,6 +6008,16 @@
 	)
 	(wire
 		(pts
+			(xy 109.22 118.11) (xy 109.22 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "948d5434-ff5b-47af-a869-2aaa53eedb55")
+	)
+	(wire
+		(pts
 			(xy 213.36 116.84) (xy 213.36 148.59)
 		)
 		(stroke
@@ -5951,6 +6085,16 @@
 			(type default)
 		)
 		(uuid "9cdd0dbb-a06e-4077-8428-33654eb91cb0")
+	)
+	(wire
+		(pts
+			(xy 99.06 146.05) (xy 99.06 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d30ed98-74fc-4c3c-84f6-55fcb91afc0d")
 	)
 	(wire
 		(pts
@@ -6334,7 +6478,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 123.19) (xy 109.22 127)
+			(xy 109.22 124.46) (xy 109.22 125.73)
 		)
 		(stroke
 			(width 0)
@@ -6351,6 +6495,16 @@
 			(type default)
 		)
 		(uuid "d408a9c7-af40-4df9-843d-2baa82889b11")
+	)
+	(wire
+		(pts
+			(xy 93.98 139.7) (xy 95.25 139.7)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d80cc920-99c3-4b49-a67f-b41311b994c2")
 	)
 	(bus
 		(pts
@@ -6391,6 +6545,16 @@
 			(type default)
 		)
 		(uuid "dbf5e6e9-b009-48c9-b734-ba654fc33672")
+	)
+	(wire
+		(pts
+			(xy 99.06 116.84) (xy 99.06 134.62)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dc790067-5f0c-4407-aead-5b04df997c44")
 	)
 	(wire
 		(pts
@@ -6504,6 +6668,16 @@
 	)
 	(wire
 		(pts
+			(xy 104.14 137.16) (xy 110.49 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8c7e45e-fcee-4166-b4ad-ced8ab44b99a")
+	)
+	(wire
+		(pts
 			(xy 87.63 99.06) (xy 87.63 100.33)
 		)
 		(stroke
@@ -6584,7 +6758,7 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 142.24) (xy 104.14 143.51)
+			(xy 128.27 142.24) (xy 128.27 143.51)
 		)
 		(stroke
 			(width 0)
@@ -7415,7 +7589,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 104.14 139.7 0)
+		(at 128.27 139.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7423,7 +7597,7 @@
 		(dnp no)
 		(uuid "0897664b-015e-4d9b-bdf6-a3b8a3150ceb")
 		(property "Reference" "C3"
-			(at 106.426 137.922 0)
+			(at 130.556 137.922 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7432,7 +7606,7 @@
 			)
 		)
 		(property "Value" "27pF"
-			(at 107.95 139.7 0)
+			(at 132.08 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7440,7 +7614,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 104.14 139.7 0)
+			(at 128.27 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7449,7 +7623,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 104.14 139.7 0)
+			(at 128.27 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7458,7 +7632,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 104.14 139.7 0)
+			(at 128.27 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8188,75 +8362,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Lily's Pad:Crystal")
-		(at 99.06 138.43 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4e37343b-fa8c-4ed7-bb03-6e322743f3e5")
-		(property "Reference" "Y1"
-			(at 98.044 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "~"
-			(at 99.06 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Crystal:Crystal_SMD_ECS_CSM3X-2Pin_7.6x4.1mm"
-			(at 99.06 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "file:///Users/apetitco/Documents/Module Elec - Lily's Pad/Datasheets/Y - Crystals and Oscillators/SOSET_S47SMD16.000M20PF20R30B3.pdf"
-			(at 99.06 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 99.06 138.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1ee8d054-6f4e-446c-95ea-1a70e4b5b69d")
-		)
-		(pin "2"
-			(uuid "5e3c8fb2-39dd-48c9-9fc4-efcd9d12f100")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
-					(reference "Y1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Lily's Pad:LED")
 		(at 167.64 35.56 270)
 		(unit 1)
@@ -8387,6 +8492,80 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR05")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's Pad:Crystal")
+		(at 99.06 139.7 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "5d61f093-8c4b-467f-a721-1115ef3d7afb")
+		(property "Reference" "Y1"
+			(at 99.06 139.7 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 96.6468 133.35 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Crystal:Crystal_SMD_ECS_CSM3X-2Pin_7.6x4.1mm"
+			(at 99.06 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 99.06 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c82c2f40-12b1-49cf-9b8b-4fec2e1de28a")
+		)
+		(pin "3"
+			(uuid "c2bc00a6-6066-47ce-b8cd-2e5edb7d25c6")
+		)
+		(pin "4"
+			(uuid "31963e56-9d76-45cf-b4d1-02955288cf6b")
+		)
+		(pin "2"
+			(uuid "70801bf4-1c4c-4531-9c1a-c7eadcc3f809")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "Y1")
 					(unit 1)
 				)
 			)
@@ -9295,7 +9474,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 99.06 130.81 0)
+		(at 123.19 139.7 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9303,7 +9482,7 @@
 		(dnp no)
 		(uuid "a8ed8d7e-b238-4478-b90b-4e34de017e73")
 		(property "Reference" "C2"
-			(at 100.33 129.286 90)
+			(at 124.46 138.176 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9312,7 +9491,7 @@
 			)
 		)
 		(property "Value" "27pF"
-			(at 100.076 133.35 90)
+			(at 124.206 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9320,7 +9499,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 99.06 130.81 0)
+			(at 123.19 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9329,7 +9508,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 99.06 130.81 0)
+			(at 123.19 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9338,7 +9517,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 99.06 130.81 0)
+			(at 123.19 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9429,6 +9608,72 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
+		(at 106.68 139.7 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(uuid "ae83bb41-4752-481f-82dc-0fdb42aea417")
+		(property "Reference" "#PWR052"
+			(at 109.22 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 108.966 137.668 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 106.68 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 106.68 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 106.68 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "93f6d28a-67de-42c5-bbfe-d6a9b6f36530")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's Pad:GND")
 		(at 160.02 41.91 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9494,7 +9739,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:Capacitor")
-		(at 109.22 120.65 0)
+		(at 109.22 121.92 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9502,7 +9747,7 @@
 		(dnp no)
 		(uuid "bbf6b0a2-0b93-4b94-b6fa-b69bb9492919")
 		(property "Reference" "C4"
-			(at 111.252 119.1894 0)
+			(at 111.252 120.4594 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9511,7 +9756,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 113.538 120.65 0)
+			(at 113.538 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9519,7 +9764,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
-			(at 109.22 120.65 0)
+			(at 109.22 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9528,7 +9773,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 120.65 0)
+			(at 109.22 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9537,7 +9782,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 109.22 120.65 0)
+			(at 109.22 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9760,7 +10005,7 @@
 	)
 	(symbol
 		(lib_id "Lily's Pad:GND")
-		(at 109.22 129.54 0)
+		(at 109.22 128.27 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom no)
@@ -9769,7 +10014,7 @@
 		(fields_autoplaced yes)
 		(uuid "dbee73ee-465b-4916-8896-568c2b297f7b")
 		(property "Reference" "#PWR015"
-			(at 109.22 132.08 0)
+			(at 109.22 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9778,7 +10023,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 109.22 133.35 0)
+			(at 109.22 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9786,7 +10031,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 109.22 129.54 0)
+			(at 109.22 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9795,7 +10040,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 109.22 129.54 0)
+			(at 109.22 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9804,7 +10049,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 109.22 129.54 0)
+			(at 109.22 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9819,6 +10064,72 @@
 			(project "main_pcb"
 				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
 					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Lily's Pad:GND")
+		(at 91.44 139.7 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
+		(dnp no)
+		(uuid "dc2d94c4-781e-4065-84cb-ee014f36d1c8")
+		(property "Reference" "#PWR053"
+			(at 88.9 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 89.408 141.732 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.44 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 91.44 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 91.44 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ec5bd53b-adde-44f5-bf67-bcda484d1d4d")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/346fb29b-2426-4b69-9f9a-e979b6e41832"
+					(reference "#PWR053")
 					(unit 1)
 				)
 			)

@@ -3717,11 +3717,17 @@
 		(embedded_fonts no)
 	)
 	(symbol "Crystal"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(hide yes)
+		)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(property "Reference" "Y?"
-			(at 0 0 0)
+			(at 0 0 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3764,9 +3770,69 @@
 			)
 		)
 		(symbol "Crystal_0_1"
+			(polyline
+				(pts
+					(xy -2.54 2.286) (xy -2.54 3.556) (xy 2.54 3.556) (xy 2.54 2.286)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 0) (xy -2.032 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.54 -2.286) (xy -2.54 -3.556) (xy 2.54 -3.556) (xy 2.54 -2.286)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy -2.032 -1.27) (xy -2.032 1.27)
+				)
+				(stroke
+					(width 0.508)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
 			(rectangle
-				(start -2.54 1.27)
-				(end 2.54 -1.27)
+				(start -1.143 2.54)
+				(end 1.143 -2.54)
+				(stroke
+					(width 0.3048)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0 3.81) (xy 0 3.556)
+				)
 				(stroke
 					(width 0)
 					(type default)
@@ -3777,7 +3843,7 @@
 			)
 			(polyline
 				(pts
-					(xy 2.54 2.54) (xy -2.54 2.54)
+					(xy 0 -3.81) (xy 0 -3.556)
 				)
 				(stroke
 					(width 0)
@@ -3789,10 +3855,22 @@
 			)
 			(polyline
 				(pts
-					(xy 2.54 -2.54) (xy -2.54 -2.54)
+					(xy 2.032 0) (xy 2.54 0)
 				)
 				(stroke
 					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.032 -1.27) (xy 2.032 1.27)
+				)
+				(stroke
+					(width 0.508)
 					(type default)
 				)
 				(fill
@@ -3802,9 +3880,9 @@
 		)
 		(symbol "Crystal_1_1"
 			(pin passive line
-				(at 0 5.08 270)
-				(length 2.54)
-				(name "~"
+				(at -3.81 0 0)
+				(length 1.27)
+				(name "1"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3820,9 +3898,9 @@
 				)
 			)
 			(pin passive line
-				(at 0 -5.08 90)
-				(length 2.54)
-				(name "~"
+				(at 0 5.08 270)
+				(length 1.27)
+				(name "G"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -3830,6 +3908,42 @@
 					)
 				)
 				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 0 -5.08 90)
+				(length 1.27)
+				(name "G"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "4"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 3.81 0 180)
+				(length 1.27)
+				(name "3"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "3"
 					(effects
 						(font
 							(size 1.27 1.27)
@@ -6856,7 +6970,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilibrary:SOIC127P600X175-14N"
 			(at 0 0 0)
 			(effects
 				(font
