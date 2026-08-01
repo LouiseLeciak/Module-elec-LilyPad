@@ -3707,7 +3707,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 59.3852 113.03 0)
 			(effects
 				(font
@@ -3759,7 +3759,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c7cbad6-0813-4f58-9c37-bedacf03a16e")
-		(property "Reference" "#PWR020"
+		(property "Reference" "#PWR019"
 			(at 58.42 99.06 0)
 			(effects
 				(font
@@ -3809,7 +3809,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR020")
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -3825,7 +3825,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0e7741a1-3b30-4b6d-9177-6ec600352c5c")
-		(property "Reference" "#PWR034"
+		(property "Reference" "#PWR033"
 			(at 204.47 55.88 0)
 			(effects
 				(font
@@ -3875,7 +3875,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR034")
+					(reference "#PWR033")
 					(unit 1)
 				)
 			)
@@ -3891,7 +3891,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1250a52f-7d1a-48f0-b30e-71350130baba")
-		(property "Reference" "#PWR027"
+		(property "Reference" "#PWR026"
 			(at 138.43 64.77 0)
 			(effects
 				(font
@@ -3941,7 +3941,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR027")
+					(reference "#PWR026")
 					(unit 1)
 				)
 			)
@@ -3973,7 +3973,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 134.62 62.5348 0)
 			(effects
 				(font
@@ -4025,7 +4025,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19a26330-02e7-42c8-b2f1-ea2a871c3b74")
-		(property "Reference" "#PWR035"
+		(property "Reference" "#PWR034"
 			(at 217.17 64.77 0)
 			(effects
 				(font
@@ -4075,7 +4075,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR035")
+					(reference "#PWR034")
 					(unit 1)
 				)
 			)
@@ -4195,7 +4195,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "23f08ba3-f72e-47ea-bd7d-819752c6408c")
-		(property "Reference" "#PWR036"
+		(property "Reference" "#PWR035"
 			(at 242.57 116.84 0)
 			(effects
 				(font
@@ -4246,7 +4246,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR036")
+					(reference "#PWR035")
 					(unit 1)
 				)
 			)
@@ -4262,7 +4262,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2990fda5-2ed4-43e8-8b77-adb7e8cd0d7a")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR022"
 			(at 123.19 119.38 0)
 			(effects
 				(font
@@ -4313,7 +4313,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR023")
+					(reference "#PWR022")
 					(unit 1)
 				)
 			)
@@ -4328,7 +4328,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "29e8beab-a5fa-47ac-beeb-7ef6075d49f2")
-		(property "Reference" "R7"
+		(property "Reference" "R6"
 			(at 165.1 97.79 90)
 			(effects
 				(font
@@ -4344,7 +4344,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
 			(at 165.1 99.568 90)
 			(effects
 				(font
@@ -4380,7 +4380,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "R7")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -4396,7 +4396,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2d734a90-cae9-4553-83c4-0b0040db88b2")
-		(property "Reference" "#PWR026"
+		(property "Reference" "#PWR025"
 			(at 125.73 55.88 0)
 			(effects
 				(font
@@ -4446,7 +4446,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR026")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -4479,7 +4479,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 191.4652 113.03 0)
 			(effects
 				(font
@@ -4548,7 +4548,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 121.6152 113.03 0)
 			(effects
 				(font
@@ -4617,7 +4617,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 57.4548 120.65 0)
 			(effects
 				(font
@@ -4685,7 +4685,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
 			(at 189.23 53.34 0)
 			(effects
 				(font
@@ -4752,7 +4752,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4acd5fb6-0e51-4012-88ee-e79e794ca093")
-		(property "Reference" "#PWR028"
+		(property "Reference" "#PWR027"
 			(at 172.72 116.84 0)
 			(effects
 				(font
@@ -4803,7 +4803,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR028")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -4835,7 +4835,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 180.34 62.5348 0)
 			(effects
 				(font
@@ -4887,7 +4887,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "59d845d6-d809-4e18-905c-ea509eea3045")
-		(property "Reference" "#PWR029"
+		(property "Reference" "#PWR028"
 			(at 171.45 55.88 0)
 			(effects
 				(font
@@ -4937,7 +4937,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR029")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -4969,7 +4969,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
 			(at 222.25 53.34 0)
 			(effects
 				(font
@@ -5036,7 +5036,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "60c2c032-af31-42a8-bc49-975d93f48a57")
-		(property "Reference" "#PWR022"
+		(property "Reference" "#PWR021"
 			(at 110.49 116.84 0)
 			(effects
 				(font
@@ -5087,7 +5087,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR022")
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -5103,7 +5103,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "61a6ff25-dc2e-434c-a603-300cda56d0e8")
-		(property "Reference" "#PWR033"
+		(property "Reference" "#PWR032"
 			(at 190.5 134.62 0)
 			(effects
 				(font
@@ -5153,7 +5153,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR033")
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -5169,7 +5169,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "69e0a9d4-44b8-4db6-9829-ec71fa77eada")
-		(property "Reference" "#PWR032"
+		(property "Reference" "#PWR031"
 			(at 190.5 99.06 0)
 			(effects
 				(font
@@ -5219,7 +5219,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR032")
+					(reference "#PWR031")
 					(unit 1)
 				)
 			)
@@ -5235,7 +5235,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7de1981d-19eb-45dc-8f1c-a7cb9124fe07")
-		(property "Reference" "#PWR031"
+		(property "Reference" "#PWR030"
 			(at 193.04 119.38 0)
 			(effects
 				(font
@@ -5286,7 +5286,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR031")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -5318,7 +5318,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x13_P2.54mm_Vertical"
 			(at 151.13 53.34 0)
 			(effects
 				(font
@@ -5507,7 +5507,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a9e9d6a5-db18-4f71-8bcb-1bea63e40b0f")
-		(property "Reference" "#PWR030"
+		(property "Reference" "#PWR029"
 			(at 184.15 64.77 0)
 			(effects
 				(font
@@ -5557,7 +5557,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR030")
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -5590,7 +5590,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 189.5348 120.65 0)
 			(effects
 				(font
@@ -5659,7 +5659,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 119.6848 120.65 0)
 			(effects
 				(font
@@ -5711,7 +5711,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b2b11b5c-e6cb-488b-98bf-33e4dcd9f4ed")
-		(property "Reference" "#PWR024"
+		(property "Reference" "#PWR023"
 			(at 120.65 99.06 0)
 			(effects
 				(font
@@ -5761,7 +5761,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR024")
+					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -5777,7 +5777,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b86fa470-46d6-4708-9a74-437586c0f5bb")
-		(property "Reference" "#PWR021"
+		(property "Reference" "#PWR020"
 			(at 58.42 134.62 0)
 			(effects
 				(font
@@ -5827,7 +5827,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR021")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -5859,7 +5859,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 213.36 62.5348 0)
 			(effects
 				(font
@@ -6015,7 +6015,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ee54aab7-54d5-4cf9-ae0a-4680b673660f")
-		(property "Reference" "#PWR025"
+		(property "Reference" "#PWR024"
 			(at 120.65 134.62 0)
 			(effects
 				(font
@@ -6065,7 +6065,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR025")
+					(reference "#PWR024")
 					(unit 1)
 				)
 			)
@@ -6081,7 +6081,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f9b63199-b300-4fda-85e4-671466b996e3")
-		(property "Reference" "#PWR019"
+		(property "Reference" "#PWR018"
 			(at 60.96 119.38 0)
 			(effects
 				(font
@@ -6132,7 +6132,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "#PWR019")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)

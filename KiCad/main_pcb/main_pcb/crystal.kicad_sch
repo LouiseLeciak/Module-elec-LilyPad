@@ -698,7 +698,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 109.5248 90.17 0)
 			(effects
 				(font
@@ -767,7 +767,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 			(at 128.5748 90.17 0)
 			(effects
 				(font
@@ -819,7 +819,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3ab22406-0d21-4c6f-8b0a-b1a4e5bee2f4")
-		(property "Reference" "#PWR018"
+		(property "Reference" "#PWR017"
 			(at 120.65 106.68 0)
 			(effects
 				(font
@@ -869,7 +869,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/4c1a0284-1742-4ed4-9190-6f37324df6a7"
-					(reference "#PWR018")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -901,7 +901,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm_HandSoldering"
 			(at 120.65 88.9 0)
 			(effects
 				(font
