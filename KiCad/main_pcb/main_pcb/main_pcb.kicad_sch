@@ -9365,7 +9365,7 @@
 			)
 		)
 		(pin "Main_Screen_RST" input
-			(at 172.72 66.04 180)
+			(at 172.72 78.74 180)
 			(uuid "477b1f10-d85d-4e84-a520-f779079fd2cd")
 			(effects
 				(font
@@ -9375,7 +9375,7 @@
 			)
 		)
 		(pin "Main_Screen_LED{slash}BL" input
-			(at 172.72 81.28 180)
+			(at 172.72 76.2 180)
 			(uuid "5c9b1bf9-30c1-4d51-83ca-ecb0b4e38356")
 			(effects
 				(font
@@ -9385,7 +9385,7 @@
 			)
 		)
 		(pin "Left_Eye_CS" input
-			(at 172.72 73.66 180)
+			(at 172.72 63.5 180)
 			(uuid "13cd64da-6fb1-4fcf-b079-9b9ea9fd7040")
 			(effects
 				(font
@@ -9395,7 +9395,7 @@
 			)
 		)
 		(pin "Eyes_RST" input
-			(at 172.72 63.5 180)
+			(at 172.72 66.04 180)
 			(uuid "f37be40b-e6be-43eb-8efb-e123ed205615")
 			(effects
 				(font
@@ -9405,7 +9405,7 @@
 			)
 		)
 		(pin "SD_CS" input
-			(at 172.72 76.2 180)
+			(at 172.72 73.66 180)
 			(uuid "8228f44d-bc36-43e8-8a81-d4a4f29296f4")
 			(effects
 				(font
@@ -9415,7 +9415,7 @@
 			)
 		)
 		(pin "Right_Eye_CS" input
-			(at 172.72 78.74 180)
+			(at 172.72 68.58 180)
 			(uuid "809c7065-add4-4ab0-97e1-82aa8775072e")
 			(effects
 				(font
@@ -9425,7 +9425,7 @@
 			)
 		)
 		(pin "Main_Screen_CS" input
-			(at 172.72 71.12 180)
+			(at 172.72 81.28 180)
 			(uuid "0e64a528-937b-420a-a6fa-d255a9ede7fe")
 			(effects
 				(font
@@ -9435,7 +9435,7 @@
 			)
 		)
 		(pin "DC" input
-			(at 172.72 68.58 180)
+			(at 172.72 71.12 180)
 			(uuid "8d96ddb8-60e9-402b-869a-8e3a97221fd4")
 			(effects
 				(font

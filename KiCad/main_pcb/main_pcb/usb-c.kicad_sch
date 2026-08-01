@@ -2015,6 +2015,16 @@
 	)
 	(wire
 		(pts
+			(xy 130.81 96.52) (xy 125.73 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "52eb3998-0144-4c17-b4ea-cd3124c57d2e")
+	)
+	(wire
+		(pts
 			(xy 156.21 99.06) (xy 160.02 99.06)
 		)
 		(stroke
@@ -2233,6 +2243,16 @@
 		)
 		(uuid "f4210301-7f45-48ff-b7be-e9ce4a0a4cab")
 	)
+	(label "VBUS"
+		(at 125.73 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "15ff621c-d1e1-4548-9f68-4521ea3205fc")
+	)
 	(label "VCC"
 		(at 140.97 72.39 0)
 		(effects
@@ -2242,6 +2262,26 @@
 			(justify left bottom)
 		)
 		(uuid "4fe39f30-c7e3-48c6-93ff-3402e89ab7e3")
+	)
+	(label "D-"
+		(at 127 110.49 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "98bff336-8609-456d-a899-d94ebf933b08")
+	)
+	(label "D+"
+		(at 127 115.57 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "db89116a-60b8-4d90-ae68-9b48b7ab4535")
 	)
 	(global_label "3V3"
 		(shape input)
@@ -3182,7 +3222,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_Amphenol_12401548E4-2A"
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
 			(at 114.3 111.76 0)
 			(effects
 				(font
@@ -3940,7 +3980,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
-		(at 130.81 96.52 0)
+		(at 135.89 96.52 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3949,7 +3989,7 @@
 		(fields_autoplaced yes)
 		(uuid "f0dbb01d-b43b-4a4d-8459-a87b0674baae")
 		(property "Reference" "J8"
-			(at 133.35 95.2499 0)
+			(at 138.43 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3958,7 +3998,7 @@
 			)
 		)
 		(property "Value" "Conn_01x01"
-			(at 133.35 97.7899 0)
+			(at 138.43 97.7899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3967,7 +4007,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 130.81 96.52 0)
+			(at 135.89 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3976,7 +4016,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 130.81 96.52 0)
+			(at 135.89 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3985,7 +4025,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 130.81 96.52 0)
+			(at 135.89 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
