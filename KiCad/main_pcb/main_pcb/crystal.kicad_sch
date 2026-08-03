@@ -511,6 +511,16 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Check capacitor value for Lab's crystals\n"
+		(exclude_from_sim no)
+		(at 93.98 103.632 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "bdb6f4de-7175-48e2-ba1f-2844843628e3")
+	)
 	(junction
 		(at 129.54 88.9)
 		(diameter 0)
@@ -689,7 +699,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "33pF"
+		(property "Value" "22pF"
 			(at 103.124 95.504 0)
 			(effects
 				(font
@@ -758,7 +768,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "33pF"
+		(property "Value" "22pF"
 			(at 132.334 95.504 0)
 			(effects
 				(font
