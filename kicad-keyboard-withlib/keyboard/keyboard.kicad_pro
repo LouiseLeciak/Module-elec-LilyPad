@@ -493,7 +493,7 @@
         "diff_pair_width": 0.2,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "P1-VCC",
+        "name": "VCC",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
@@ -509,8 +509,8 @@
     "netclass_assignments": null,
     "netclass_patterns": [
       {
-        "netclass": "P1-VCC",
-        "pattern": "Net-(P1-VCC)"
+        "netclass": "VCC",
+        "pattern": "VCC"
       }
     ]
   },
