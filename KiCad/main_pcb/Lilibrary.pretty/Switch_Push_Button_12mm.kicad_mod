@@ -1,4 +1,4 @@
-(footprint "Sans titre"
+(footprint "Switch_Push_Button_12mm"
 	(version 20241229)
 	(generator "pcbnew")
 	(generator_version "9.0")
@@ -15,7 +15,7 @@
 			)
 		)
 	)
-	(property "Value" "Sans titre"
+	(property "Value" "Switch_Push_Button_12mm"
 		(at 0 1 0)
 		(unlocked yes)
 		(layer "F.Fab")
