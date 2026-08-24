@@ -1,4 +1,4 @@
-27291851649119341
+27295427793571467
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71812,6 +71812,20 @@ MCP23017
 0
 28
 28
+Lilyspad
+Resistance
+
+
+0
+2
+2
+Lilyspad
+led
+
+
+0
+2
+2
 Lilyspad
 pin_socket
 
