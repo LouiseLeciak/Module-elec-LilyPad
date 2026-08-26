@@ -699,7 +699,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "22pF"
+		(property "Value" "12pF"
 			(at 103.124 95.504 0)
 			(effects
 				(font
@@ -727,6 +727,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 110.49 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 110.49 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 110.49 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C107034"
 			(at 110.49 93.98 0)
 			(effects
 				(font
@@ -768,7 +795,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "22pF"
+		(property "Value" "12pF"
 			(at 132.334 95.504 0)
 			(effects
 				(font
@@ -796,6 +823,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 129.54 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 129.54 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 129.54 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C107034"
 			(at 129.54 93.98 0)
 			(effects
 				(font
@@ -951,6 +1005,15 @@
 		(property private "KLC_S4.1" "Some pins are on 50mil grid to make the symbol small"
 			(at 120.65 104.14 0)
 			(show_name yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C13738"
+			(at 120.65 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)

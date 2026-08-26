@@ -1881,7 +1881,7 @@
 	)
 	(text "Use of a pull-up resistor\nbecause SD Cards tend to\nmess with the SPI lines."
 		(exclude_from_sim no)
-		(at 171.704 91.186 0)
+		(at 171.704 96.266 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1894,12 +1894,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0f165d6d-b8ef-48c0-bad8-1cfb173f8fae")
-	)
-	(junction
-		(at 158.75 97.79)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0fc6eedd-4355-4b4c-9ad3-b3c4693fbc69")
 	)
 	(junction
 		(at 146.05 81.28)
@@ -1972,6 +1966,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "d30f9d7c-1790-4f94-8ec9-038155e29e5b")
+	)
+	(junction
+		(at 158.75 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ea542372-8bb8-4d89-9ff3-334dd15d7f04")
 	)
 	(junction
 		(at 214.63 63.5)
@@ -2209,7 +2209,7 @@
 	)
 	(wire
 		(pts
-			(xy 210.82 106.68) (xy 210.82 78.74)
+			(xy 210.82 78.74) (xy 210.82 106.68)
 		)
 		(stroke
 			(width 0)
@@ -2269,16 +2269,6 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 106.68) (xy 140.97 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "22299321-2ba1-4933-b7f9-d560df20d8a3")
-	)
-	(wire
-		(pts
 			(xy 219.71 58.42) (xy 219.71 69.85)
 		)
 		(stroke
@@ -2316,16 +2306,6 @@
 			(type default)
 		)
 		(uuid "2eda25be-4984-47da-81e3-63fbd7fe8702")
-	)
-	(wire
-		(pts
-			(xy 158.75 72.39) (xy 158.75 97.79)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "325cdea4-4c9c-4c4a-9255-ed8ec696c723")
 	)
 	(wire
 		(pts
@@ -2429,7 +2409,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 105.41) (xy 158.75 97.79)
+			(xy 158.75 105.41) (xy 158.75 102.87)
 		)
 		(stroke
 			(width 0)
@@ -2456,6 +2436,16 @@
 			(type default)
 		)
 		(uuid "4392fba4-3f8b-4d1f-bb38-7e8d8011444c")
+	)
+	(wire
+		(pts
+			(xy 140.97 58.42) (xy 140.97 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "456a759a-a1d1-4dde-b120-300d5e1b96d9")
 	)
 	(wire
 		(pts
@@ -2509,7 +2499,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 97.79) (xy 168.91 97.79)
+			(xy 170.18 102.87) (xy 168.91 102.87)
 		)
 		(stroke
 			(width 0)
@@ -2686,16 +2676,6 @@
 			(type default)
 		)
 		(uuid "7e6cf09b-fa0b-47da-acac-4ce5a8a35d75")
-	)
-	(wire
-		(pts
-			(xy 220.98 106.68) (xy 220.98 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7e6ff67a-8126-4d55-93a3-3e7c64cd64ce")
 	)
 	(wire
 		(pts
@@ -3029,6 +3009,16 @@
 	)
 	(wire
 		(pts
+			(xy 220.98 83.82) (xy 220.98 106.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c575d90d-fd9b-45f2-a891-d2c9b0b946a4")
+	)
+	(wire
+		(pts
 			(xy 88.9 97.79) (xy 88.9 106.68)
 		)
 		(stroke
@@ -3069,7 +3059,7 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 97.79) (xy 161.29 97.79)
+			(xy 158.75 102.87) (xy 161.29 102.87)
 		)
 		(stroke
 			(width 0)
@@ -3257,6 +3247,16 @@
 		)
 		(uuid "fb85760d-1d99-4338-aa37-c4cfd74957fc")
 	)
+	(wire
+		(pts
+			(xy 158.75 72.39) (xy 158.75 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffb86444-947e-43d6-b38b-5508090a37f2")
+	)
 	(label "MOSI"
 		(at 88.9 127 270)
 		(effects
@@ -3429,7 +3429,7 @@
 	)
 	(global_label "3V3"
 		(shape input)
-		(at 170.18 97.79 0)
+		(at 170.18 102.87 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3439,7 +3439,7 @@
 		)
 		(uuid "18e1b1a8-f549-444a-8ce9-9e90a34597ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 176.6728 97.79 0)
+			(at 176.6728 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3734,6 +3734,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 58.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 58.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 58.42 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ee36f07a-792b-4d5c-b8c4-e5a27cfcf95e")
 		)
@@ -4000,6 +4027,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 130.81 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 130.81 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 130.81 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "b5e014b8-d400-466f-ba59-617c9f197ec0")
 		)
@@ -4127,6 +4181,33 @@
 		)
 		(property "Description" "4-Bit Bidirectional Voltage-Level Translator, Auto Direction Sensing and ±15-kV ESD Protection, 1.2 - 3.6V APort, 1.65 - 5.5V BPort, SOIC-14"
 			(at 218.44 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 218.44 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 218.44 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2652946"
+			(at 218.44 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4321,7 +4402,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 165.1 97.79 90)
+		(at 165.1 102.87 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4329,7 +4410,7 @@
 		(dnp no)
 		(uuid "29e8beab-a5fa-47ac-beeb-7ef6075d49f2")
 		(property "Reference" "R6"
-			(at 165.1 97.79 90)
+			(at 165.1 102.87 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4337,7 +4418,7 @@
 			)
 		)
 		(property "Value" "100kΩ"
-			(at 165.1 95.758 90)
+			(at 165.1 100.838 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4345,7 +4426,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 165.1 99.568 90)
+			(at 165.1 104.648 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4354,7 +4435,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 165.1 97.79 0)
+			(at 165.1 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4363,7 +4444,34 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 165.1 97.79 0)
+			(at 165.1 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 165.1 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 165.1 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2906980"
+			(at 165.1 102.87 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4506,6 +4614,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 190.5 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 190.5 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 190.5 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "47ea9f3c-c425-4c39-81a3-a1b36a84a667")
 		)
@@ -4567,6 +4702,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 120.65 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 120.65 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 120.65 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 120.65 109.22 0)
 			(effects
 				(font
@@ -4644,6 +4806,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 58.42 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 58.42 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 58.42 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "90953e07-6660-4933-9864-11de068b1548")
 		)
@@ -4705,6 +4894,33 @@
 		)
 		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 189.23 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 189.23 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 189.23 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 189.23 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4862,6 +5078,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 176.53 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 176.53 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 176.53 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d324117a-0e8b-40c9-9783-201761dfe535")
 		)
@@ -4989,6 +5232,33 @@
 		)
 		(property "Description" "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)"
 			(at 222.25 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 222.25 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 222.25 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 222.25 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5345,6 +5615,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 151.13 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 151.13 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 151.13 53.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "9"
 			(uuid "46b57dae-f664-4eae-a8e6-c6ad65d8d166")
 		)
@@ -5439,6 +5736,33 @@
 		)
 		(property "Description" "4-Bit Bidirectional Voltage-Level Translator, Auto Direction Sensing and ±15-kV ESD Protection, 1.2 - 3.6V APort, 1.65 - 5.5V BPort, SOIC-14"
 			(at 86.36 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 86.36 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 86.36 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2652946"
+			(at 86.36 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5617,6 +5941,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 190.5 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 190.5 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 190.5 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "28d13cb4-a0a2-4f4c-bdf6-f302715f19f3")
 		)
@@ -5678,6 +6029,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor"
+			(at 120.65 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 120.65 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 120.65 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
 			(at 120.65 124.46 0)
 			(effects
 				(font
@@ -5886,6 +6264,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 209.55 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 209.55 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 209.55 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a21baa19-73a4-4400-9de3-7d04a3de28dd")
 		)
@@ -5947,6 +6352,33 @@
 		)
 		(property "Description" "4-Bit Bidirectional Voltage-Level Translator, Auto Direction Sensing and ±15-kV ESD Protection, 1.2 - 3.6V APort, 1.65 - 5.5V BPort, SOIC-14"
 			(at 148.59 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 148.59 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 148.59 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2652946"
+			(at 148.59 116.84 90)
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -5,6 +5,113 @@
 	(uuid "ecf3cf27-e370-4cc5-86a4-628206277f58")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector:TestPoint"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.762)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "TP"
+				(at 0 6.858 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "TestPoint"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "test point"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "test point tp"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Pin* Test*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TestPoint_0_1"
+				(circle
+					(center 0 3.302)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "TestPoint_1_1"
+				(pin passive line
+					(at 0 0 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Connector_Generic:Conn_01x06"
 			(pin_names
 				(offset 1.016)
@@ -3784,8 +3891,8 @@
 		(members "SCK" "MOSI" "MISO" "SS")
 	)
 	(rectangle
-		(start 233.68 118.11)
-		(end 280.67 158.75)
+		(start 234.95 138.43)
+		(end 281.94 162.56)
 		(stroke
 			(width 0)
 			(type default)
@@ -3795,11 +3902,41 @@
 		)
 		(uuid 9bf834a1-ee8a-4a99-843c-5a0275265326)
 	)
+	(rectangle
+		(start 234.95 113.03)
+		(end 269.24 135.89)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid cf26a455-0676-49f1-bdd1-24750f3cadaf)
+	)
+	(junction
+		(at 170.18 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "00b355fb-9b61-4e3f-a7b8-a036b10067fb")
+	)
+	(junction
+		(at 160.02 152.4)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "14e32d36-b1d7-4c66-9833-72731af5e597")
+	)
 	(junction
 		(at 82.55 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "31ae1ecb-f200-4954-9f9b-b10d75c86d08")
+	)
+	(junction
+		(at 157.48 82.55)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3992c6aa-9c50-448b-8629-bb18ba85ea26")
 	)
 	(junction
 		(at 72.39 33.02)
@@ -3830,6 +3967,18 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c3cd8224-285e-4b5b-920e-b66951cea578")
+	)
+	(junction
+		(at 152.4 72.39)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d264ee89-c2ad-4839-ac04-3ccfde69b76a")
+	)
+	(junction
+		(at 162.56 163.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e3377ec8-6468-49a9-9c88-ed8155d38be2")
 	)
 	(junction
 		(at 106.68 22.86)
@@ -4135,7 +4284,7 @@
 		(uuid "2c6611a2-2e42-4c81-b3d1-3dbdb0bef504")
 	)
 	(bus_entry
-		(at 240.03 134.62)
+		(at 241.3 154.94)
 		(size 2.54 2.54)
 		(stroke
 			(width 0)
@@ -4162,7 +4311,7 @@
 		(uuid "3c4587ba-789a-4d77-a2c5-5d6e7c14a5c6")
 	)
 	(bus_entry
-		(at 240.03 124.46)
+		(at 241.3 144.78)
 		(size 2.54 2.54)
 		(stroke
 			(width 0)
@@ -4277,6 +4426,24 @@
 			(type default)
 		)
 		(uuid "9135c6ca-66fd-4f73-a39a-e51884a42036")
+	)
+	(bus_entry
+		(at 243.84 123.19)
+		(size 2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cc0c0e9-7eb2-47bc-a433-8c750477f45a")
+	)
+	(bus_entry
+		(at 243.84 128.27)
+		(size 2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9cffc1a7-abb2-451c-be6c-5ac6602f1100")
 	)
 	(bus_entry
 		(at 78.74 106.68)
@@ -4489,6 +4656,16 @@
 	)
 	(wire
 		(pts
+			(xy 152.4 72.39) (xy 152.4 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0425a22a-a69f-494a-9465-eb20c58b2ca3")
+	)
+	(wire
+		(pts
 			(xy 74.93 139.7) (xy 85.09 139.7)
 		)
 		(stroke
@@ -4559,7 +4736,7 @@
 	)
 	(wire
 		(pts
-			(xy 242.57 127) (xy 246.38 127)
+			(xy 243.84 147.32) (xy 247.65 147.32)
 		)
 		(stroke
 			(width 0)
@@ -4579,7 +4756,7 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 71.12) (xy 160.02 182.88)
+			(xy 160.02 71.12) (xy 160.02 152.4)
 		)
 		(stroke
 			(width 0)
@@ -4609,6 +4786,16 @@
 	)
 	(wire
 		(pts
+			(xy 157.48 82.55) (xy 157.48 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "182e4bff-73be-4fe4-a13e-8de5cf2eff5d")
+	)
+	(wire
+		(pts
 			(xy 106.68 21.59) (xy 106.68 22.86)
 		)
 		(stroke
@@ -4626,6 +4813,16 @@
 			(type default)
 		)
 		(uuid "1e0bee1b-1283-411c-99a5-43dedad84b7e")
+	)
+	(bus
+		(pts
+			(xy 243.84 118.11) (xy 243.84 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e2e7276-4df2-4652-a157-7016f64304c1")
 	)
 	(wire
 		(pts
@@ -4819,7 +5016,17 @@
 	)
 	(wire
 		(pts
-			(xy 242.57 137.16) (xy 246.38 137.16)
+			(xy 160.02 152.4) (xy 160.02 182.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2eab6b0c-bf09-4010-bc4d-2896550017ef")
+	)
+	(wire
+		(pts
+			(xy 243.84 157.48) (xy 247.65 157.48)
 		)
 		(stroke
 			(width 0)
@@ -4877,9 +5084,19 @@
 		)
 		(uuid "394276f4-25a9-49b4-b4f9-b702df41e86e")
 	)
+	(wire
+		(pts
+			(xy 153.67 163.83) (xy 162.56 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39a33ead-93c8-49bb-a791-bc0616b87dc9")
+	)
 	(bus
 		(pts
-			(xy 240.03 120.65) (xy 240.03 124.46)
+			(xy 241.3 140.97) (xy 241.3 144.78)
 		)
 		(stroke
 			(width 0)
@@ -4916,6 +5133,16 @@
 			(type default)
 		)
 		(uuid "3cc115fe-bedb-4c53-af51-e0cc2863442b")
+	)
+	(wire
+		(pts
+			(xy 148.59 82.55) (xy 157.48 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d074cf9-9fb7-44da-b642-141c0ba2e85c")
 	)
 	(bus
 		(pts
@@ -5109,7 +5336,7 @@
 	)
 	(bus
 		(pts
-			(xy 240.03 124.46) (xy 240.03 134.62)
+			(xy 241.3 144.78) (xy 241.3 154.94)
 		)
 		(stroke
 			(width 0)
@@ -5139,7 +5366,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 185.42) (xy 162.56 73.66)
+			(xy 162.56 185.42) (xy 162.56 163.83)
 		)
 		(stroke
 			(width 0)
@@ -5227,6 +5454,16 @@
 		)
 		(uuid "6e90f20c-c2b4-40b0-9858-b1be7cc12720")
 	)
+	(wire
+		(pts
+			(xy 160.02 152.4) (xy 156.21 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6f489ac3-cadf-4d9f-a5b2-31e0ba8d66fe")
+	)
 	(bus
 		(pts
 			(xy 137.16 78.74) (xy 137.16 81.28)
@@ -5279,7 +5516,7 @@
 	)
 	(wire
 		(pts
-			(xy 157.48 68.58) (xy 157.48 142.24)
+			(xy 157.48 68.58) (xy 157.48 82.55)
 		)
 		(stroke
 			(width 0)
@@ -5399,7 +5636,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 63.5) (xy 152.4 137.16)
+			(xy 152.4 63.5) (xy 152.4 72.39)
 		)
 		(stroke
 			(width 0)
@@ -5416,6 +5653,16 @@
 			(type default)
 		)
 		(uuid "8e79e36d-71de-4c8c-9055-28355c60f791")
+	)
+	(wire
+		(pts
+			(xy 170.18 152.4) (xy 172.72 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8eee1703-6a17-4717-a5c3-8861d369f42e")
 	)
 	(bus
 		(pts
@@ -5459,7 +5706,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 81.28) (xy 170.18 193.04)
+			(xy 170.18 81.28) (xy 170.18 152.4)
 		)
 		(stroke
 			(width 0)
@@ -5516,6 +5763,16 @@
 			(type default)
 		)
 		(uuid "a231a98c-469e-4941-831d-22aa9f2c44c8")
+	)
+	(bus
+		(pts
+			(xy 243.84 123.19) (xy 243.84 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2e1189f-7d72-48a3-82b1-fff7bec66635")
 	)
 	(wire
 		(pts
@@ -5586,6 +5843,16 @@
 			(type default)
 		)
 		(uuid "a9d75060-f303-4f9c-b448-9c052c4c5d26")
+	)
+	(wire
+		(pts
+			(xy 152.4 72.39) (xy 149.86 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ace71a2b-e63b-48ab-b189-1dd00dc52771")
 	)
 	(wire
 		(pts
@@ -5669,6 +5936,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 125.73) (xy 252.73 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6858b9b-f5e0-4f80-846d-0db7d6aa260b")
+	)
+	(wire
+		(pts
 			(xy 172.72 78.74) (xy 167.64 78.74)
 		)
 		(stroke
@@ -5687,6 +5964,16 @@
 		)
 		(uuid "b778bd91-7e6c-4424-ab0e-416b341d4fdf")
 	)
+	(bus
+		(pts
+			(xy 238.76 118.11) (xy 243.84 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "baedd353-d057-437a-9491-e4cabfa43c05")
+	)
 	(wire
 		(pts
 			(xy 165.1 53.34) (xy 165.1 52.07)
@@ -5699,7 +5986,7 @@
 	)
 	(bus
 		(pts
-			(xy 234.95 120.65) (xy 240.03 120.65)
+			(xy 236.22 140.97) (xy 241.3 140.97)
 		)
 		(stroke
 			(width 0)
@@ -5826,6 +6113,16 @@
 			(type default)
 		)
 		(uuid "d1c71677-0c34-4435-99f1-b2fba5906a22")
+	)
+	(wire
+		(pts
+			(xy 246.38 130.81) (xy 252.73 130.81)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d59484a4-2187-4929-a5d8-de9e53e0cee7")
 	)
 	(bus
 		(pts
@@ -5987,6 +6284,16 @@
 		)
 		(uuid "f2320736-22d2-4681-a1a8-38ae97067941")
 	)
+	(wire
+		(pts
+			(xy 162.56 163.83) (xy 162.56 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f2a9c8bd-8412-45f2-8f40-5d8c692350f2")
+	)
 	(bus
 		(pts
 			(xy 213.36 49.53) (xy 213.36 52.07)
@@ -6046,6 +6353,16 @@
 			(type default)
 		)
 		(uuid "fad53517-3f27-4a6e-9336-e5c3166482bd")
+	)
+	(wire
+		(pts
+			(xy 170.18 152.4) (xy 170.18 193.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe4e33df-8700-4e44-b683-ef642aaa130c")
 	)
 	(bus
 		(pts
@@ -6166,6 +6483,16 @@
 			(justify right bottom)
 		)
 		(uuid "25a4501c-12dd-495f-b41a-0c1fa41b8599")
+	)
+	(label "MOSI"
+		(at 246.38 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2a6a6968-62df-4db1-a27e-6e01f9cc9c91")
 	)
 	(label "C5"
 		(at 125.73 50.8 0)
@@ -6347,6 +6674,16 @@
 		)
 		(uuid "77abd725-c183-465c-8015-4b359aea9ecf")
 	)
+	(label "{SPI}"
+		(at 243.84 118.11 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7cda27f3-6708-4f8f-a8cc-38afefd21a29")
+	)
 	(label "R4"
 		(at 224.79 39.37 180)
 		(effects
@@ -6388,7 +6725,7 @@
 		(uuid "97ecd830-61d7-4888-b842-7dec6ad426e1")
 	)
 	(label "{SPI}"
-		(at 240.03 120.65 180)
+		(at 241.3 140.97 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6437,6 +6774,16 @@
 		)
 		(uuid "a9d98143-b8c0-4d22-ace2-d9cb4059a4d4")
 	)
+	(label "MISO"
+		(at 246.38 130.81 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "b2697c0e-7bc1-4d03-9d2a-70a06d52265f")
+	)
 	(label "SDA"
 		(at 224.79 80.01 180)
 		(effects
@@ -6468,7 +6815,7 @@
 		(uuid "c450f1a9-aa6d-4911-a70e-b05e76517341")
 	)
 	(label "MOSI"
-		(at 246.38 137.16 180)
+		(at 247.65 157.48 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6548,7 +6895,7 @@
 		(uuid "e7116283-e7d6-4365-a76a-3430e1f86d42")
 	)
 	(label "SCK"
-		(at 246.38 127 180)
+		(at 247.65 147.32 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6777,7 +7124,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 261.62 137.16 90)
+		(at 262.89 157.48 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6786,7 +7133,7 @@
 		(fields_autoplaced yes)
 		(uuid "32d58953-d252-4b31-a404-71df7e9c3377")
 		(property "Reference" "#PWR016"
-			(at 267.97 137.16 0)
+			(at 269.24 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6795,7 +7142,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 265.43 137.1599 90)
+			(at 266.7 157.4799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6804,7 +7151,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 261.62 137.16 0)
+			(at 262.89 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6813,7 +7160,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 137.16 0)
+			(at 262.89 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6822,7 +7169,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 261.62 137.16 0)
+			(at 262.89 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6969,6 +7316,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 180.34 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 180.34 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C19171394"
+			(at 180.34 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "cbfbe4d0-0c8e-496f-95cf-fa7942281310")
 		)
@@ -6979,6 +7353,98 @@
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 148.59 82.55 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39636794-ad64-43c3-9013-c719e89ff6aa")
+		(property "Reference" "TP4"
+			(at 145.288 77.47 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Test Right Eye CS"
+			(at 145.288 80.01 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 148.59 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 148.59 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 148.59 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 148.59 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 148.59 82.55 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8afc66d7-f335-4b7b-83d2-bce0a56552e8")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP4")
 					(unit 1)
 				)
 			)
@@ -7029,6 +7495,33 @@
 		)
 		(property "Description" "Resistor"
 			(at 180.34 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 180.34 120.65 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 180.34 120.65 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2933198"
+			(at 180.34 120.65 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7105,6 +7598,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 60.96 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 60.96 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C84931"
+			(at 60.96 25.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "712c72c4-534c-45d0-84c3-52f0513961ba")
 		)
@@ -7122,7 +7642,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 257.81 127 180)
+		(at 259.08 147.32 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7131,7 +7651,7 @@
 		(fields_autoplaced yes)
 		(uuid "3ddc531b-57c8-4749-979e-27c64a647f6d")
 		(property "Reference" "D3"
-			(at 259.3975 119.38 0)
+			(at 260.6675 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7139,7 +7659,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 259.3975 121.92 0)
+			(at 260.6675 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7147,7 +7667,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 257.81 127 0)
+			(at 259.08 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7156,7 +7676,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 257.81 127 0)
+			(at 259.08 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7165,7 +7685,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 257.81 127 0)
+			(at 259.08 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7174,7 +7694,34 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 257.81 127 0)
+			(at 259.08 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 259.08 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 259.08 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C19171394"
+			(at 259.08 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7192,6 +7739,100 @@
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
 					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 252.73 125.73 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "41a9ed03-7aa6-4ae9-b5ef-fa9a51226a2a")
+		(property "Reference" "TP1"
+			(at 257.81 124.4599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 257.81 126.9999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 252.73 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 252.73 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 252.73 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 252.73 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 252.73 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 252.73 125.73 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "28cf4750-2d1e-4d8b-8a3c-fc1a924da47d")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP1")
 					(unit 1)
 				)
 			)
@@ -7311,6 +7952,33 @@
 			)
 		)
 		(property "Description" "16MHz, 256kB Flash, 8kB SRAM, 4kB EEPROM, JTAG, TQFP-100"
+			(at 105.41 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 105.41 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 105.41 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22460"
 			(at 105.41 99.06 0)
 			(effects
 				(font
@@ -7695,8 +8363,100 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 156.21 152.4 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "58358949-3bbc-4976-a432-d358980c0565")
+		(property "Reference" "TP7"
+			(at 152.908 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Test DC"
+			(at 152.908 149.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 156.21 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 156.21 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 156.21 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 156.21 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 156.21 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 156.21 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a22274c7-0492-480d-b96e-2419bac53f4b")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
-		(at 261.62 127 90)
+		(at 262.89 147.32 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7705,7 +8465,7 @@
 		(fields_autoplaced yes)
 		(uuid "58a3be51-0c3a-4be1-9a73-9e4207a0fc5d")
 		(property "Reference" "#PWR015"
-			(at 267.97 127 0)
+			(at 269.24 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7714,7 +8474,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 265.43 126.9999 90)
+			(at 266.7 147.3199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7723,7 +8483,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 261.62 127 0)
+			(at 262.89 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7732,7 +8492,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 261.62 127 0)
+			(at 262.89 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7741,7 +8501,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 261.62 127 0)
+			(at 262.89 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7827,6 +8587,98 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 153.67 163.83 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "688a17ce-3038-4b88-9226-d41742d91256")
+		(property "Reference" "TP3"
+			(at 150.368 158.75 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Test SD CS"
+			(at 150.368 161.29 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 153.67 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 153.67 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 153.67 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 153.67 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 153.67 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 153.67 163.83 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "618dd5cb-64a5-4b6f-b5a5-274d13ec9460")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R")
 		(at 180.34 130.81 0)
 		(unit 1)
@@ -7871,6 +8723,33 @@
 		)
 		(property "Description" "Resistor"
 			(at 180.34 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 180.34 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 180.34 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2933198"
+			(at 180.34 130.81 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8013,6 +8892,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 72.39 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 72.39 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C98220"
+			(at 72.39 26.67 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b1852cd8-637e-4756-a8bd-b2ebb92abf0e")
 		)
@@ -8030,7 +8936,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 250.19 137.16 90)
+		(at 251.46 157.48 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8038,7 +8944,7 @@
 		(dnp no)
 		(uuid "81417e60-ed3b-4672-bac5-ae6681582814")
 		(property "Reference" "R5"
-			(at 250.19 137.16 90)
+			(at 251.46 157.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8046,7 +8952,7 @@
 			)
 		)
 		(property "Value" "330Ω"
-			(at 252.984 139.446 90)
+			(at 254.254 159.766 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8055,7 +8961,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 250.19 138.938 90)
+			(at 251.46 159.258 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8064,7 +8970,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 250.19 137.16 0)
+			(at 251.46 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8073,7 +8979,34 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 250.19 137.16 0)
+			(at 251.46 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 251.46 157.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 251.46 157.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2933198"
+			(at 251.46 157.48 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8280,6 +9213,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 80.01 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 80.01 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 80.01 48.26 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "015c7291-e52b-417d-8322-c7b8fc39b169")
 		)
@@ -8348,6 +9308,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 157.48 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 157.48 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 157.48 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "6"
 			(uuid "a77314a2-b869-4513-a40d-fee1d84c5930")
 		)
@@ -8377,7 +9364,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 250.19 127 90)
+		(at 251.46 147.32 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8385,7 +9372,7 @@
 		(dnp no)
 		(uuid "b5b2835d-57ce-486b-8ce3-e570d009627c")
 		(property "Reference" "R4"
-			(at 250.19 127 90)
+			(at 251.46 147.32 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8393,7 +9380,7 @@
 			)
 		)
 		(property "Value" "330Ω"
-			(at 252.984 134.366 90)
+			(at 254.254 149.606 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8402,7 +9389,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 250.19 128.778 90)
+			(at 251.46 149.098 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8411,7 +9398,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 250.19 127 0)
+			(at 251.46 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8420,7 +9407,34 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 250.19 127 0)
+			(at 251.46 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 251.46 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 251.46 147.32 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C2933198"
+			(at 251.46 147.32 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8759,6 +9773,33 @@
 				(hide yes)
 			)
 		)
+		(property "KLC_S3.3" ""
+			(at 115.57 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 115.57 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14663"
+			(at 115.57 22.86 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "250df528-6e01-4a75-a75d-dfb11094f829")
 		)
@@ -8769,6 +9810,286 @@
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 252.73 130.81 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c9cc70dc-ad39-4534-a188-4c09105dbf2b")
+		(property "Reference" "TP2"
+			(at 257.81 129.5399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 257.81 132.0799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 252.73 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 252.73 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 252.73 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 252.73 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 252.73 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 252.73 130.81 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "17e228ce-4c95-48b6-ab06-e08c2559a9f6")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 149.86 72.39 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ccb2aa81-5900-4b9d-929d-c2d9d50c238a")
+		(property "Reference" "TP5"
+			(at 146.558 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Test Left Eye CS"
+			(at 146.558 69.85 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 149.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 149.86 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 149.86 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 149.86 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 149.86 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 149.86 72.39 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "382c747d-e71c-4565-918a-2ccb7d222e7d")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 172.72 152.4 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cfcc238c-78bf-410c-b014-bd1e6626dc37")
+		(property "Reference" "TP6"
+			(at 177.8 151.1299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Test Main Screen CS"
+			(at 177.8 153.6699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 172.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 172.72 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 172.72 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 172.72 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 172.72 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 172.72 152.4 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bc51b046-7d34-4cb6-ade1-0e0a1f09c575")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "TP6")
 					(unit 1)
 				)
 			)
@@ -8828,6 +10149,33 @@
 		)
 		(property "Sim.Pins" "1=K 2=A"
 			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 180.34 138.43 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 180.34 138.43 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C19171394"
+			(at 180.34 138.43 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8918,7 +10266,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 257.81 137.16 180)
+		(at 259.08 157.48 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -8927,7 +10275,7 @@
 		(fields_autoplaced yes)
 		(uuid "eb11dde0-65ed-418f-86a6-b4ee6637a800")
 		(property "Reference" "D4"
-			(at 259.3975 129.54 0)
+			(at 260.6675 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8935,7 +10283,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 259.3975 132.08 0)
+			(at 260.6675 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8943,7 +10291,7 @@
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 257.81 137.16 0)
+			(at 259.08 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8952,7 +10300,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 257.81 137.16 0)
+			(at 259.08 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8961,7 +10309,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode"
-			(at 257.81 137.16 0)
+			(at 259.08 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8970,7 +10318,34 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 257.81 137.16 0)
+			(at 259.08 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 259.08 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 259.08 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C19171394"
+			(at 259.08 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9106,6 +10481,33 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x21, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 229.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S3.3" ""
+			(at 229.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "KLC_S4.1" ""
+			(at 229.87 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
 			(at 229.87 57.15 0)
 			(effects
 				(font
