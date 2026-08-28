@@ -7869,7 +7869,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_CK_JS202011CQN_DPDT_Straight"
+		(property "Footprint" "Lilyspad:slide_switch"
 			(at 175.26 63.5 0)
 			(effects
 				(font
