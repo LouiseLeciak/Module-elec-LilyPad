@@ -1,4 +1,4 @@
-27300791522593594
+27300791527168769
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71820,13 +71820,6 @@ Resistance
 2
 2
 Lilyspad
-button
-
-
-0
-1
-1
-Lilyspad
 led
 
 
@@ -71840,6 +71833,13 @@ pin_socket
 0
 21
 21
+Lilyspad
+push_switch
+
+
+0
+4
+4
 Lilyspad
 rotary_encoder
 
