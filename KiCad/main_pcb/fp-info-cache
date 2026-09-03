@@ -1,4 +1,4 @@
-27430996730228672
+27445304290474193
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71848,6 +71848,13 @@ LED_0603
 2
 2
 Lilibrary
+MCP23017
+
+
+0
+28
+28
+Lilibrary
 Male Header
 
 
@@ -71897,6 +71904,13 @@ Pin_1x21_2.54mm_Vertical
 21
 21
 Lilibrary
+Resistance
+
+
+0
+2
+2
+Lilibrary
 Resistor_0603
 
 
@@ -71924,6 +71938,48 @@ USB-C
 0
 16
 16
+Lilibrary
+led
+
+
+0
+2
+2
+Lilibrary
+male_header
+
+
+0
+26
+26
+Lilibrary
+pin_socket
+
+
+0
+21
+21
+Lilibrary
+push_switch
+
+
+0
+4
+4
+Lilibrary
+rotary_encoder
+
+
+0
+7
+6
+Lilibrary
+slide_switch
+
+
+0
+6
+6
 Module
 A20_OLINUXINO_LIME2
 A20 Olinuxino LIME2, 1.2GHz, 512-1024MB RAM, Micro-SD, NAND or eMMC, 1000Mbit Ethernet
