@@ -1351,23 +1351,24 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "SW"
-				(at 0 0 0)
+			(property "Reference" "SW40"
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" ""
+			(property "Value" "~"
 				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(hide yes)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Lilyspad:rotary_encoder"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1744,7 +1745,7 @@
 							)
 						)
 					)
-					(number "S1"
+					(number "D"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1762,7 +1763,7 @@
 							)
 						)
 					)
-					(number "S2"
+					(number "E"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -9074,13 +9075,13 @@
 		(pin "C"
 			(uuid "c41f00f0-9e77-4375-800f-98e5c2f28073")
 		)
-		(pin "S2"
+		(pin "D"
 			(uuid "4beb8d7d-1833-4150-9a5c-9208f5e31b9d")
 		)
 		(pin "B"
 			(uuid "4e2daf81-04c1-4301-a02b-64aeba72f6d9")
 		)
-		(pin "S1"
+		(pin "E"
 			(uuid "048b7540-ee22-452d-a439-21794c533723")
 		)
 		(pin "A"
