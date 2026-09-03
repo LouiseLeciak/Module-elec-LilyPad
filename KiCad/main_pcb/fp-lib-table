@@ -1,4 +1,4 @@
 (fp_lib_table
   (version 7)
-  (lib (name "Lilibrary")(type "KiCad")(uri "${KIPRJMOD}/Lilibrary.pretty")(options "")(descr ""))
+  (lib (name "Lilibrary")(type "KiCad")(uri "/Users/apetitco/Documents/Module Elec - Lily's Pad/Kicad Libraries/Lilibrary.pretty")(options "")(descr ""))
 )

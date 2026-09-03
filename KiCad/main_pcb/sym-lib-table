@@ -1,4 +1,4 @@
 (sym_lib_table
   (version 7)
-  (lib (name "Lilybrary")(type "KiCad")(uri "${KIPRJMOD}/Lilybrary.kicad_sym")(options "")(descr ""))
+  (lib (name "Lilybrary")(type "KiCad")(uri "/Users/apetitco/Documents/Module Elec - Lily's Pad/Kicad Libraries/Lilybrary.kicad_sym")(options "")(descr ""))
 )
