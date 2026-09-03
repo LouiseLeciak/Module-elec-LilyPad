@@ -2,6 +2,7 @@
 
 # KiCad files
 *.lck
+*-backups/
 
 # Dev
 *.json
