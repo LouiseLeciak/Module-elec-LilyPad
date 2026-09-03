@@ -57,13 +57,13 @@ int main(void) {
 
   DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
   DDRB |= (CS | SCK | MOSI | MISO);
-  DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3);
+  DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3 | KB_R4);
   DDRD |= (SCL | SDA);
   DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   DDRG |= (KB_C6);
   DDRH |=
       (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
-  DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 | KB_R4);
+  DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
 
   // PORTA |= (KB_C1);
   // PORTB |= (SCK);
@@ -73,6 +73,8 @@ int main(void) {
   // PORTG |= (KB_C6);
   // PORTH |= (SD_CS);
   // PORTJ |= (KB:_R1);
+  // PORTC |= (KB_R4);
+   PORTH |= (MAIN_SCREEN_RST); 
 
   while (1) {
     // PORTJ |= (KB_R3);

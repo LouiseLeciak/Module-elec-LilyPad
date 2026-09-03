@@ -1,7 +1,8 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
+# PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
+PORT				:= /dev/cu.usbserial-1430 #Change this to match your configuration's port
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
