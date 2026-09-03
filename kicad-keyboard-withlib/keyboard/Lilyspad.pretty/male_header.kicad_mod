@@ -109,12 +109,12 @@
 		(start -4 2.5)
 		(end 2.5 37)
 		(stroke
-			(width 0.1)
+			(width 0.05)
 			(type default)
 		)
 		(fill no)
-		(layer "Margin")
-		(uuid "ee51bc0e-4824-4589-bf23-bced99a0ee24")
+		(layer "F.CrtYd")
+		(uuid "3383451b-255b-4902-b3f1-6644658c3526")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 0 2.5 0)

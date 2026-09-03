@@ -905,11 +905,11 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Lilyspad:pin_socket"
+		(symbol "Lilyspad:header_26"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "P"
+			(property "Reference" "U"
 				(at 0 0 0)
 				(effects
 					(font
@@ -952,10 +952,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "pin_socket_0_1"
+			(symbol "header_26_0_1"
 				(rectangle
-					(start 0 -1.27)
-					(end 5.588 -54.864)
+					(start -1.27 -1.27)
+					(end 4.318 -67.564)
 					(stroke
 						(width 0)
 						(type default)
@@ -965,9 +965,9 @@
 					)
 				)
 			)
-			(symbol "pin_socket_1_1"
+			(symbol "header_26_1_1"
 				(pin passive line
-					(at -2.54 -2.54 0)
+					(at -3.81 -2.54 0)
 					(length 2.54)
 					(name "R1"
 						(effects
@@ -985,7 +985,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -5.08 0)
+					(at -3.81 -5.08 0)
 					(length 2.54)
 					(name "R2"
 						(effects
@@ -1003,7 +1003,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -7.62 0)
+					(at -3.81 -7.62 0)
 					(length 2.54)
 					(name "R3"
 						(effects
@@ -1021,7 +1021,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -10.16 0)
+					(at -3.81 -10.16 0)
 					(length 2.54)
 					(name "R4"
 						(effects
@@ -1039,7 +1039,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -12.7 0)
+					(at -3.81 -12.7 0)
 					(length 2.54)
 					(name "C1"
 						(effects
@@ -1057,7 +1057,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -15.24 0)
+					(at -3.81 -15.24 0)
 					(length 2.54)
 					(name "C2"
 						(effects
@@ -1075,7 +1075,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -17.78 0)
+					(at -3.81 -17.78 0)
 					(length 2.54)
 					(name "C3"
 						(effects
@@ -1093,7 +1093,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -20.32 0)
+					(at -3.81 -20.32 0)
 					(length 2.54)
 					(name "C4"
 						(effects
@@ -1111,7 +1111,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -22.86 0)
+					(at -3.81 -22.86 0)
 					(length 2.54)
 					(name "C5"
 						(effects
@@ -1129,7 +1129,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -25.4 0)
+					(at -3.81 -25.4 0)
 					(length 2.54)
 					(name "C6"
 						(effects
@@ -1147,7 +1147,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -27.94 0)
+					(at -3.81 -27.94 0)
 					(length 2.54)
 					(name "C7"
 						(effects
@@ -1165,7 +1165,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -30.48 0)
+					(at -3.81 -30.48 0)
 					(length 2.54)
 					(name "C8"
 						(effects
@@ -1183,7 +1183,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -33.02 0)
+					(at -3.81 -33.02 0)
 					(length 2.54)
 					(name "C9"
 						(effects
@@ -1201,7 +1201,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -35.56 0)
+					(at -3.81 -35.56 0)
 					(length 2.54)
 					(name "C10"
 						(effects
@@ -1219,7 +1219,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -38.1 0)
+					(at -3.81 -38.1 0)
 					(length 2.54)
 					(name "GND"
 						(effects
@@ -1237,7 +1237,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -40.64 0)
+					(at -3.81 -40.64 0)
 					(length 2.54)
 					(name "VCC"
 						(effects
@@ -1255,7 +1255,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -43.18 0)
+					(at -3.81 -43.18 0)
 					(length 2.54)
 					(name "SLD_SW"
 						(effects
@@ -1273,7 +1273,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -45.72 0)
+					(at -3.81 -45.72 0)
 					(length 2.54)
 					(name "SLD_SW"
 						(effects
@@ -1291,7 +1291,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -48.26 0)
+					(at -3.81 -48.26 0)
 					(length 2.54)
 					(name "SLD_SW"
 						(effects
@@ -1309,7 +1309,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -50.8 0)
+					(at -3.81 -50.8 0)
 					(length 2.54)
 					(name "SDA"
 						(effects
@@ -1327,7 +1327,7 @@
 					)
 				)
 				(pin passive line
-					(at -2.54 -53.34 0)
+					(at -3.81 -53.34 0)
 					(length 2.54)
 					(name "SCL"
 						(effects
@@ -1337,6 +1337,96 @@
 						)
 					)
 					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -55.88 0)
+					(length 2.54)
+					(name "extra"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -58.42 0)
+					(length 2.54)
+					(name "extra"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -60.96 0)
+					(length 2.54)
+					(name "extra"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -63.5 0)
+					(length 2.54)
+					(name "extra"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+					(number "25"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -66.04 0)
+					(length 2.54)
+					(name "extra"
+						(effects
+							(font
+								(size 0.762 0.762)
+							)
+						)
+					)
+					(number "26"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -2949,6 +3039,10 @@
 		(uuid "ffc3f1b5-17d9-40f8-92f6-c182b8f619ee")
 	)
 	(no_connect
+		(at 180.34 27.94)
+		(uuid "13729b3b-9810-4c71-882e-cd69fc092da0")
+	)
+	(no_connect
 		(at 240.03 124.46)
 		(uuid "1d3c1188-f10c-425c-bac4-efcbea9c3b08")
 	)
@@ -2959,6 +3053,10 @@
 	(no_connect
 		(at 175.26 54.61)
 		(uuid "1ef10ee3-662e-41ca-b516-43c72709e109")
+	)
+	(no_connect
+		(at 182.88 27.94)
+		(uuid "2a8b97b8-cf5f-4d5e-89f7-88fd7d341467")
 	)
 	(no_connect
 		(at 240.03 104.14)
@@ -2989,6 +3087,10 @@
 		(uuid "775b6e24-4596-43af-ba16-0dc6ed380e8a")
 	)
 	(no_connect
+		(at 177.8 27.94)
+		(uuid "77952882-7a7d-4f20-bb39-91e71f41cdd5")
+	)
+	(no_connect
 		(at 240.03 121.92)
 		(uuid "7b7ee560-06b5-4e6c-a892-c21b0edeec3a")
 	)
@@ -3003,6 +3105,14 @@
 	(no_connect
 		(at 240.03 93.98)
 		(uuid "8d66bef4-5db5-4f2b-8f29-0b8fcf150fe7")
+	)
+	(no_connect
+		(at 172.72 27.94)
+		(uuid "aac776e3-d098-4f42-80f3-920bfaa64e07")
+	)
+	(no_connect
+		(at 175.26 27.94)
+		(uuid "b1e7847e-1382-4f35-b3f6-66d7f44d6253")
 	)
 	(no_connect
 		(at 204.47 109.22)
@@ -7513,6 +7623,146 @@
 		)
 	)
 	(symbol
+		(lib_id "Lilyspad:header_26")
+		(at 116.84 24.13 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9032141c-6de0-4ca3-8d7b-978db11dec39")
+		(property "Reference" "U1"
+			(at 151.257 15.24 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "~"
+			(at 151.257 17.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Lilyspad:male_header"
+			(at 116.84 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 116.84 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 116.84 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "30d839e5-2dbe-4e98-a2f4-8887e5d676d8")
+		)
+		(pin "3"
+			(uuid "4dcd9352-5e3e-49e8-8f84-ccec9907cbad")
+		)
+		(pin "13"
+			(uuid "35728811-3571-4de2-97ae-298cda537596")
+		)
+		(pin "11"
+			(uuid "e65abfc0-4d46-440c-a6f7-3703ce6e6b15")
+		)
+		(pin "21"
+			(uuid "95d120db-38e8-4640-9202-1e54399ef0ab")
+		)
+		(pin "22"
+			(uuid "0caf9ff2-042c-49e2-b29b-bd92135d589a")
+		)
+		(pin "19"
+			(uuid "1a367d25-46e3-4a05-a4d2-3e111adbb5a7")
+		)
+		(pin "20"
+			(uuid "f956088c-25ed-42d8-8f8f-1238313e2ccb")
+		)
+		(pin "17"
+			(uuid "96858b56-47d3-4692-837d-2f281e6ea4d3")
+		)
+		(pin "5"
+			(uuid "0e75b0c7-d92c-44c0-afa9-c0f2f5b0bbec")
+		)
+		(pin "2"
+			(uuid "b5a79197-a059-4e49-b07b-08d0eef2cd8c")
+		)
+		(pin "4"
+			(uuid "a8e5f918-909b-44a9-8964-d33696b32a73")
+		)
+		(pin "23"
+			(uuid "2a9e8a70-379d-4b06-93e0-8cf012c9ef4b")
+		)
+		(pin "24"
+			(uuid "a7372d29-4b8a-431f-a28b-96e36f0bcc84")
+		)
+		(pin "14"
+			(uuid "be9d5e96-1112-42ee-9edf-e482a0f762ec")
+		)
+		(pin "1"
+			(uuid "8ad6164c-e4d7-4534-a0ca-404ccf8a33c2")
+		)
+		(pin "7"
+			(uuid "4260aa17-0135-440f-b28d-a3af93c102fa")
+		)
+		(pin "6"
+			(uuid "3fe0082f-7928-4ed7-9121-0167404b5d44")
+		)
+		(pin "10"
+			(uuid "546bf76f-9ee7-46cb-b8f4-95b3795ecc61")
+		)
+		(pin "16"
+			(uuid "89b193c1-b775-48b7-a9ef-4fdadbcb6d0c")
+		)
+		(pin "12"
+			(uuid "9f645eef-ab3c-4cb6-84e4-9e4da4043c0a")
+		)
+		(pin "9"
+			(uuid "25262250-33b3-4038-a756-0d9955a15aaa")
+		)
+		(pin "26"
+			(uuid "7525abd3-09a3-4a00-8b27-f1d95dab4685")
+		)
+		(pin "15"
+			(uuid "f710c5d4-b1e8-401f-8d12-735b6a2be8a0")
+		)
+		(pin "25"
+			(uuid "03fa49e0-1941-4639-b2d3-658e38646892")
+		)
+		(pin "18"
+			(uuid "e6dc0f26-6a7e-4b88-802f-f190e0c15ab4")
+		)
+		(instances
+			(project ""
+				(path "/55764147-763c-452f-85b8-3be2d22c3190"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 119.38 102.87 0)
 		(unit 1)
@@ -7575,132 +7825,6 @@
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "SW7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Lilyspad:pin_socket")
-		(at 116.84 25.4 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "99015957-b0df-483f-be55-bdd59760df16")
-		(property "Reference" "P1"
-			(at 144.907 15.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "~"
-			(at 144.907 17.78 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Lilyspad:pin_socket"
-			(at 116.84 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 116.84 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 116.84 25.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "9"
-			(uuid "0df86984-c369-43d5-b2b4-429679d17da8")
-		)
-		(pin "2"
-			(uuid "5abccc9a-430a-41b4-9abf-13e34cd9fb66")
-		)
-		(pin "16"
-			(uuid "595f3690-1ef2-4fc9-b4c3-304ce4a524e4")
-		)
-		(pin "13"
-			(uuid "ce3f0157-1373-4f5e-a885-806b8e2298e5")
-		)
-		(pin "12"
-			(uuid "419ce670-9eb9-4ceb-8f2d-98b299197c23")
-		)
-		(pin "14"
-			(uuid "452dca66-e111-43cd-85ce-e6957285dbee")
-		)
-		(pin "21"
-			(uuid "ae098bef-5f42-4c4d-9229-09ee4982caa0")
-		)
-		(pin "19"
-			(uuid "87cb90ee-6c6c-46a8-828a-985bfcf7d8e6")
-		)
-		(pin "4"
-			(uuid "60ba48ed-57d2-4708-bc5f-c1773388d946")
-		)
-		(pin "5"
-			(uuid "c16f3520-2da0-427c-98dc-911cbf2d6a9e")
-		)
-		(pin "1"
-			(uuid "d56a13f8-29b0-4932-91e8-c84d97a1210f")
-		)
-		(pin "11"
-			(uuid "873925b1-b2d4-4807-a6f7-055d953001b9")
-		)
-		(pin "15"
-			(uuid "b6c724b6-562e-4032-b5e8-d8ac9089dd5e")
-		)
-		(pin "20"
-			(uuid "5e8461c1-119a-4350-b971-ee719b7efb6e")
-		)
-		(pin "17"
-			(uuid "21fe148d-fcb4-4a39-9f77-ea83d75ce484")
-		)
-		(pin "10"
-			(uuid "997f3965-fa20-4704-a678-5598579aab09")
-		)
-		(pin "6"
-			(uuid "3e5f65f2-bdc3-4d04-92f0-7cf0a73b0a20")
-		)
-		(pin "7"
-			(uuid "841b0342-b9a9-4ea8-861f-0cc3d4a64c91")
-		)
-		(pin "8"
-			(uuid "2aa5bc48-d654-47da-9a0c-70a19abda9bc")
-		)
-		(pin "18"
-			(uuid "8fc8c895-efc9-45f4-97d2-3c466a1c96de")
-		)
-		(pin "3"
-			(uuid "c14d779e-454b-46e4-9bc5-d37fd37c7ae0")
-		)
-		(instances
-			(project ""
-				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "P1")
 					(unit 1)
 				)
 			)

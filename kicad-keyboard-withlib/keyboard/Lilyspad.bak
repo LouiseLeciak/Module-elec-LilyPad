@@ -1894,7 +1894,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilyspad:push_switch"
 			(at 0 0 0)
 			(effects
 				(font
