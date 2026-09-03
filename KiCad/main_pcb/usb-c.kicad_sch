@@ -2526,7 +2526,7 @@
 	)
 	(hierarchical_label "RXD"
 		(shape input)
-		(at 168.91 118.11 0)
+		(at 168.91 115.57 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2537,7 +2537,7 @@
 	)
 	(hierarchical_label "TXD"
 		(shape output)
-		(at 168.91 115.57 0)
+		(at 168.91 118.11 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4670,7 +4670,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "10uF"
 			(at 162.306 60.96 0)
 			(effects
 				(font
