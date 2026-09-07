@@ -3862,6 +3862,10 @@
 		(uuid "42e57f38-55bd-4225-8938-bd666c4675fb")
 	)
 	(no_connect
+		(at 224.79 90.17)
+		(uuid "441565cb-9865-4578-9605-62c09584e279")
+	)
+	(no_connect
 		(at 125.73 149.86)
 		(uuid "4b981386-257f-4e62-bc91-3c943138023c")
 	)
@@ -3942,8 +3946,16 @@
 		(uuid "84a8f74c-c2fa-4770-9907-907f45a5d62a")
 	)
 	(no_connect
+		(at 224.79 85.09)
+		(uuid "8ca9a6d1-379f-4169-a4d1-2a4c7960c92e")
+	)
+	(no_connect
 		(at 85.09 157.48)
 		(uuid "8e513fa4-3523-4462-a9ad-d17eaa2da467")
+	)
+	(no_connect
+		(at 224.79 95.25)
+		(uuid "9385f083-e37c-4beb-9056-16101763a8ed")
 	)
 	(no_connect
 		(at 85.09 93.98)
@@ -3982,6 +3994,10 @@
 		(uuid "b3575942-8f9e-41ff-a0c9-0809071d385a")
 	)
 	(no_connect
+		(at 224.79 87.63)
+		(uuid "bbcf4bd2-751c-4f18-8a71-85318a86885a")
+	)
+	(no_connect
 		(at 85.09 73.66)
 		(uuid "bc5f5ef7-66e9-4b91-9c82-c8ad770343a3")
 	)
@@ -3992,6 +4008,10 @@
 	(no_connect
 		(at 85.09 68.58)
 		(uuid "c38f93e7-d6c6-46d8-88a9-a16ac3b77250")
+	)
+	(no_connect
+		(at 224.79 92.71)
+		(uuid "c42c85cb-74e3-418e-86ae-85bbd32fc1bd")
 	)
 	(no_connect
 		(at 85.09 142.24)
@@ -4024,6 +4044,10 @@
 	(no_connect
 		(at 85.09 96.52)
 		(uuid "e721e057-0cb7-4528-a222-1021d380bab7")
+	)
+	(no_connect
+		(at 125.73 48.26)
+		(uuid "ed729351-83d1-465c-bacf-b8ad4cc76d17")
 	)
 	(no_connect
 		(at 125.73 38.1)
@@ -4198,15 +4222,6 @@
 			(type default)
 		)
 		(uuid "601761dc-fdfa-4873-bd29-970615494fa0")
-	)
-	(bus_entry
-		(at 137.16 45.72)
-		(size -2.54 2.54)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "64f2b784-403a-4876-92e8-4079b90f0654")
 	)
 	(bus_entry
 		(at 213.36 34.29)
@@ -4900,7 +4915,7 @@
 	)
 	(bus
 		(pts
-			(xy 137.16 45.72) (xy 137.16 48.26)
+			(xy 137.16 27.94) (xy 137.16 48.26)
 		)
 		(stroke
 			(width 0)
@@ -5067,16 +5082,6 @@
 			(type default)
 		)
 		(uuid "4ed2b65f-1229-43b3-b790-a6e5b23cd655")
-	)
-	(wire
-		(pts
-			(xy 125.73 48.26) (xy 134.62 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "501a0178-ecd0-4d98-bcc9-9aa5916cd931")
 	)
 	(wire
 		(pts
@@ -5817,16 +5822,6 @@
 			(type default)
 		)
 		(uuid "c05ae09a-9798-4af6-b6aa-6e84adb2288f")
-	)
-	(bus
-		(pts
-			(xy 137.16 27.94) (xy 137.16 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c18704e5-6e81-4eda-bbad-0f2e04f3c23e")
 	)
 	(wire
 		(pts
@@ -7416,7 +7411,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3a8a352a-944c-4f5c-9547-bd9bf65b73c3")
 		(property "Reference" "SW1"
 			(at 62.23 24.1299 90)
@@ -10035,7 +10029,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "TestPoint:TestPoint_Pad_D4.0mm"
 			(at 172.72 157.48 0)
 			(effects
 				(font
