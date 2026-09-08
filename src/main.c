@@ -1,8 +1,11 @@
 #include "pinout.h"
 #include "spi.h"
 #include "state_machine.h"
-
+#include "GC9A01.h"
 #include <util/delay.h>
+
+void testPINS(void);
+
 
 t_state current_state = INIT;
 
@@ -41,31 +44,49 @@ void init(void) {
   // TODO: Init I2C
   //  DDRD |= (SCL | SDA); // Not sure if necessary after i2c_init
 
+
+  // DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+  // DDRG |= (KB_C6);
+  // DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3 | KB_R4);
+  // DDRD |= (SCL | SDA);
+  // DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
+  // DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
+  // DDRB |= (MISO);
+
+  DDRB |= (CS | SCK | MOSI);
+  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
+
+
+
   spi_master_init();
   // spi_master_init
 
-  screens_init();
-  sd_init();
-  keyboard_init();
+  // screens_init();
+  // sd_init();
+  // keyboard_init();
 }
 
-// WARNING: CHECKER PIN 12 ATMEGA2560 (Main Screen CS), PIN 60 ATMEGA2560
-// (KB_R4)
+
+
+
 
 int main(void) {
-  // init();
+  init();
 
-  DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
-  DDRB |= (CS | SCK | MOSI | MISO);
-  DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3 | KB_R4);
-  DDRD |= (SCL | SDA);
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
-  DDRG |= (KB_C6);
-  DDRH |=
-      (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
-  DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
+  while (1) {
+   
+  }
+}
 
-  
+
+
+
+
+
+
+void testPINS(void) {
+
+  //  KEYBOARD
   // PORTA |= (KB_C1);
   // PORTA |= (KB_C2);
   // PORTA |= (KB_C3);
@@ -86,16 +107,29 @@ int main(void) {
   // PORTC |= (SDL_SW2);
   // PORTC |= (SDL_SW3);
   // PORTB |= (SCK);
+
+  // SD_READER
   // PORTH &= ~(SD_CS);
   // PORTH |= (SD_CS);
+
+  // MAIN SCREEN
   // PORTH |= (MAIN_SCREEN_RST); 
   // PORTH |= (MAIN_SCREEN_CS); 
+  // PORTB |= (SCK | MISO | MOSI);
+  // PORTH |= (SCREENS_DC);
+  
+  // EYE_RIGHT_SCREEN
+  // PORTE |= (RIGHT_EYE_CS);
+  // PORTE |= (EYES_RST);
+  // PORTB |= (SCK);
+  // PORTB |= (MOSI);
+  // PORTH |= (SCREENS_DC);
+  
+  // EYE_LEFT_SCREEN
   // PORTE |= (LEFT_EYE_CS);
+  // PORTE |= (EYES_RST);
+  // PORTB |= (SCK);
+  // PORTB |= (MOSI);
+  // PORTH |= (SCREENS_DC);
 
-  while (1) {
-    
-    // PORTH |= (SCREENS_DC);
-    // PORTB |= (SCK | MISO | MOSI);
-    // PORTE |= (RIGHT_EYE_CS | EYES_RST);
-  }
 }
