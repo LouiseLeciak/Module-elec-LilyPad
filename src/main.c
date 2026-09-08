@@ -65,22 +65,37 @@ int main(void) {
       (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
   DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
 
+  
   // PORTA |= (KB_C1);
-  // PORTB |= (SCK);
-  // PORTC |= (SDL_SW3);
-  // PORTD |= (SDA);
-  // PORTE |= (LEFT_EYE_CS);
+  // PORTA |= (KB_C2);
+  // PORTA |= (KB_C3);
+  // PORTA |= (KB_C4);
+  // PORTA |= (KB_C5);
   // PORTG |= (KB_C6);
-  // PORTH |= (SD_CS);
-  // PORTJ |= (KB:_R1);
+  // PORTJ |= (KB_C7);
+  // PORTJ |= (KB_C8);
+  // PORTJ |= (KB_C9);
+  // PORTJ |= (KB_C10);
+  // PORTJ |= (KB_R1);
+  // PORTJ |= (KB_R2);
+  // PORTJ |= (KB_R3);
   // PORTC |= (KB_R4);
-   PORTH |= (MAIN_SCREEN_RST); 
+  // PORTD |= (SCL);
+  // PORTD |= (SDA);
+  // PORTC |= (SDL_SW1);
+  // PORTC |= (SDL_SW2);
+  // PORTC |= (SDL_SW3);
+  // PORTB |= (SCK);
+  // PORTH &= ~(SD_CS);
+  // PORTH |= (SD_CS);
+  // PORTH |= (MAIN_SCREEN_RST); 
+  // PORTH |= (MAIN_SCREEN_CS); 
+  // PORTE |= (LEFT_EYE_CS);
 
   while (1) {
-    // PORTJ |= (KB_R3);
-    // PORTC |= (SDL_SW3);
-    // PORTB |= (CS | SCK | MISO | MOSI);
-    // PORTE |= (RIGHT_EYE_CS | EYES_RST);
+    
     // PORTH |= (SCREENS_DC);
+    // PORTB |= (SCK | MISO | MOSI);
+    // PORTE |= (RIGHT_EYE_CS | EYES_RST);
   }
 }
