@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/08 14:38:33 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/08 16:15:58 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,32 +78,25 @@
 #define GC9A01A_INREGEN1 0xFE  ///< Inter register enable 1
 
 
-
-
 void GC9A01_init(uint8_t screen) {
-
-    // --- POWER STABILIZATION ---
-    _delay_ms(300);
-
+    // 1. Hardware Reset
     RST_HIGH();
-    _delay_ms(20);
-    // --- HARDWARE RESET ---
+    _delay_ms(10);
     RST_LOW();
     _delay_ms(20);
     RST_HIGH();
-    _delay_ms(120);
-    
-    // // --- SOFTWARE RESET ---
+    _delay_ms(150);
+
+    // 2. Software Reset & Wake-up
     GC9A01_cmd(0x01, screen);
     _delay_ms(150);
-    // --- BEGIN TABLE CONVERSION ---
 
-    GC9A01_cmd(GC9A01A_INREGEN2, screen);
+    GC9A01_cmd(0x11, screen); // Exit Sleep first so charge pumps activate
+    _delay_ms(120);
 
-    GC9A01_cmd(0xEB, screen); GC9A01_data(0x14, screen);
-
-    GC9A01_cmd(GC9A01A_INREGEN1, screen);
-    GC9A01_cmd(GC9A01A_INREGEN2, screen);
+    // 3. Unlock internal command registers
+    GC9A01_cmd(0xFE, screen);
+    GC9A01_cmd(0xEF, screen);
 
     GC9A01_cmd(0xEB, screen); GC9A01_data(0x14, screen);
 
@@ -120,16 +113,20 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_cmd(0x8E, screen); GC9A01_data(0xFF, screen);
     GC9A01_cmd(0x8F, screen); GC9A01_data(0xFF, screen);
 
+    // Display Function Control: Scan direction
     GC9A01_cmd(0xB6, screen);
     GC9A01_data(0x00, screen);
     GC9A01_data(0x00, screen);
 
-    GC9A01_cmd(GC9A01A_MADCTL, screen);
-    GC9A01_data(MADCTL_MX | MADCTL_BGR, screen);
+    // Memory Access Control
+    GC9A01_cmd(0x36, screen);
+    GC9A01_data(0x08, screen); // BGR order
 
-    GC9A01_cmd(GC9A01A_COLMOD, screen);
+    // Pixel Format: 16-bit RGB565
+    GC9A01_cmd(0x3A, screen);
     GC9A01_data(0x05, screen);
 
+    // VREG / Power Setup
     GC9A01_cmd(0x90, screen);
     GC9A01_data(0x08, screen);
     GC9A01_data(0x08, screen);
@@ -144,9 +141,9 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_data(0x01, screen);
     GC9A01_data(0x04, screen);
 
-    GC9A01_cmd(GC9A01A1_POWER2, screen); GC9A01_data(0x13, screen);
-    GC9A01_cmd(GC9A01A1_POWER3, screen); GC9A01_data(0x13, screen);
-    GC9A01_cmd(GC9A01A1_POWER4, screen); GC9A01_data(0x22, screen);
+    GC9A01_cmd(0xC3, screen); GC9A01_data(0x13, screen);
+    GC9A01_cmd(0xC4, screen); GC9A01_data(0x13, screen);
+    GC9A01_cmd(0xC9, screen); GC9A01_data(0x22, screen);
 
     GC9A01_cmd(0xBE, screen); GC9A01_data(0x11, screen);
 
@@ -159,23 +156,23 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_data(0x0C, screen);
     GC9A01_data(0x02, screen);
 
-    // GAMMA SETS
-    GC9A01_cmd(GC9A01A_GAMMA1, screen);
+    // Gamma Curves
+    GC9A01_cmd(0xF0, screen);
     GC9A01_data(0x45, screen); GC9A01_data(0x09, screen);
     GC9A01_data(0x08, screen); GC9A01_data(0x08, screen);
     GC9A01_data(0x26, screen); GC9A01_data(0x2A, screen);
 
-    GC9A01_cmd(GC9A01A_GAMMA2, screen);
+    GC9A01_cmd(0xF1, screen);
     GC9A01_data(0x43, screen); GC9A01_data(0x70, screen);
     GC9A01_data(0x72, screen); GC9A01_data(0x36, screen);
     GC9A01_data(0x37, screen); GC9A01_data(0x6F, screen);
 
-    GC9A01_cmd(GC9A01A_GAMMA3, screen);
+    GC9A01_cmd(0xF2, screen);
     GC9A01_data(0x45, screen); GC9A01_data(0x09, screen);
     GC9A01_data(0x08, screen); GC9A01_data(0x08, screen);
     GC9A01_data(0x26, screen); GC9A01_data(0x2A, screen);
 
-    GC9A01_cmd(GC9A01A_GAMMA4, screen);
+    GC9A01_cmd(0xF3, screen);
     GC9A01_data(0x43, screen); GC9A01_data(0x70, screen);
     GC9A01_data(0x72, screen); GC9A01_data(0x36, screen);
     GC9A01_data(0x37, screen); GC9A01_data(0x6F, screen);
@@ -187,10 +184,9 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_cmd(0xAE, screen); GC9A01_data(0x77, screen);
     GC9A01_cmd(0xCD, screen); GC9A01_data(0x63, screen);
 
-    GC9A01_cmd(GC9A01A_FRAMERATE, screen);
-    GC9A01_data(0x34, screen);
+    GC9A01_cmd(0xE8, screen); GC9A01_data(0x34, screen);
 
-    // SOURCE TIMING
+    // Source Timing Configuration
     GC9A01_cmd(0x62, screen);
     GC9A01_data(0x18, screen); GC9A01_data(0x0D, screen);
     GC9A01_data(0x71, screen); GC9A01_data(0xED, screen);
@@ -237,20 +233,20 @@ void GC9A01_init(uint8_t screen) {
     GC9A01_data(0x3E, screen);
     GC9A01_data(0x07, screen);
 
-    // TE ON
-    GC9A01_cmd(GC9A01A_TEON, screen);
+    // Inversion and Tearing
+    GC9A01_cmd(0x35, screen); // TEON
+    GC9A01_cmd(0x21, screen); // INVON
 
-    // INVERSION ON
-    GC9A01_cmd(GC9A01A_INVON, screen);
+    // 4. Re-lock inner registers
+    GC9A01_cmd(0xFE, screen);
+    GC9A01_cmd(0xEF, screen);
 
-    // SLEEP OUT
-    GC9A01_cmd(GC9A01A_SLPOUT, screen);
-    _delay_ms(150);
-
-    // DISPLAY ON
-    GC9A01_cmd(GC9A01A_DISPON, screen);
-    _delay_ms(150);
+    // 5. Display ON
+    GC9A01_cmd(0x29, screen);
+    _delay_ms(120);
 }
+
+
 void GC9A01_cmd(uint8_t cmd, uint8_t screen) {
     DC_LOW();    
     if (screen == LEFT_EYE)  {

@@ -61,12 +61,66 @@ void init(void) {
   spi_master_init();
   // spi_master_init
 
-  // screens_init();
+  screens_init();
   // sd_init();
   // keyboard_init();
 }
 
 
+#define GC9A01_WIDTH   240
+#define GC9A01_HEIGHT  240
+
+// RGB565 pure blue = 0x001F
+#define COLOR_BLUE_HI  0x00
+#define COLOR_BLUE_LO  0x1F
+
+void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t screen) {
+    // Column Address Set
+    GC9A01_cmd(0x2A, screen);
+    GC9A01_data(0x00, screen);
+    GC9A01_data(x0, screen);
+    GC9A01_data(0x00, screen);
+    GC9A01_data(x1, screen);
+
+    // Row Address Set
+    GC9A01_cmd(0x2B, screen);
+    GC9A01_data(0x00, screen);
+    GC9A01_data(y0, screen);
+    GC9A01_data(0x00, screen);
+    GC9A01_data(y1, screen);
+
+    // Memory Write (start RAM write)
+    GC9A01_cmd(0x2C, screen);
+}
+
+// Fast raw pixel push: keeps CS low and DC high for the whole burst
+static void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
+    uint8_t hi = color >> 8;
+    uint8_t lo = color & 0xFF;
+
+    DC_HIGH();
+
+    if (screen == LEFT_EYE) {
+        CS_LEFT_EYE_LOW();
+        while (count--) {
+            spi_master_transmit(hi);
+            spi_master_transmit(lo);
+        }
+        CS_LEFT_EYE_HIGH();
+    } else if (screen == RIGHT_EYE) {
+        CS_RIGHT_EYE_LOW();
+        while (count--) {
+            spi_master_transmit(hi);
+            spi_master_transmit(lo);
+        }
+        CS_RIGHT_EYE_HIGH();
+    }
+}
+
+void GC9A01_fillScreenBlue(uint8_t screen) {
+    GC9A01_setAddrWindow(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1, screen);
+    GC9A01_pushColor(0x001F, (uint32_t)GC9A01_WIDTH * GC9A01_HEIGHT, screen);
+}
 
 
 
@@ -74,8 +128,9 @@ int main(void) {
   init();
 
   GC9A01_init(LEFT_EYE);
-  while (1) {
-   
+
+    while (1) {
+   GC9A01_fillScreenBlue(LEFT_EYE);
   }
 }
 
