@@ -12,7 +12,7 @@ void spi_master_init(void) {
 
   // Enables SPI, Master, set clock rate fck/16
   SPCR = ((1 << SPE) | (1 << MSTR) | (1 << SPR0));
-  SPSR = 0x00;
+  // SPSR = 0x00;
 }
 
 void spi_master_transmit(char data) {

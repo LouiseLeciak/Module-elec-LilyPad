@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/08 16:15:58 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/08 18:44:16 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -253,10 +253,12 @@ void GC9A01_cmd(uint8_t cmd, uint8_t screen) {
         CS_LEFT_EYE_LOW();
         spi_master_transmit(cmd);
         CS_LEFT_EYE_HIGH();
+        return;
     } else if (screen == RIGHT_EYE)  {
         CS_RIGHT_EYE_LOW();
         spi_master_transmit(cmd);
         CS_RIGHT_EYE_HIGH();
+        return;
     }
 }
 
@@ -268,10 +270,12 @@ void GC9A01_data(uint8_t data, uint8_t screen){
         CS_LEFT_EYE_LOW();
         spi_master_transmit(data);
         CS_LEFT_EYE_HIGH();
+        return;
     } else if (screen == RIGHT_EYE)  {
 
         CS_RIGHT_EYE_LOW();
         spi_master_transmit(data);
         CS_RIGHT_EYE_HIGH();
+        return;
     }
 }

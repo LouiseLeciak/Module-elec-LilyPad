@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/08 14:39:05 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/08 19:03:45 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
     #define MAX_PIXEL_WIDTH 240
     #define MAX_PIXEL_HIGH 240
     
-    #define LEFT_EYE 1
-    #define RIGHT_EYE 2
+    #define LEFT_EYE 0
+    #define RIGHT_EYE 9
     
     
 

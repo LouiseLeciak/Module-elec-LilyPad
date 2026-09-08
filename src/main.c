@@ -5,6 +5,7 @@
 #include <util/delay.h>
 
 void testPINS(void);
+void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
 
 t_state current_state = INIT;
@@ -50,20 +51,24 @@ void init(void) {
   // DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3 | KB_R4);
   // DDRD |= (SCL | SDA);
   // DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
+  DDRH |= (MAIN_SCREEN_CS | SCREENS_DC);
   // DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
   // DDRB |= (MISO);
 
   DDRB |= (CS | SCK | MOSI);
   DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
 
-
+  // GC9A01_init(LEFT_EYE);
+  // GC9A01_init(RIGHT_EYE);
 
   spi_master_init();
   // spi_master_init
 
-  screens_init();
+  // screens_init();
   // sd_init();
   // keyboard_init();
+  // GC9A01_fillScreen(GC9A01A_COLOR_BLACK, LEFT_EYE);
+  // GC9A01_fillScreen(GC9A01A_COLOR_BLACK, RIGHT_EYE);
 }
 
 
@@ -98,39 +103,85 @@ static void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
     uint8_t hi = color >> 8;
     uint8_t lo = color & 0xFF;
 
-    DC_HIGH();
-
+    
     if (screen == LEFT_EYE) {
+        DC_HIGH();
         CS_LEFT_EYE_LOW();
         while (count--) {
             spi_master_transmit(hi);
             spi_master_transmit(lo);
         }
         CS_LEFT_EYE_HIGH();
+        // DC_LOW();
+        return;
+
     } else if (screen == RIGHT_EYE) {
+        DC_HIGH();
+  
         CS_RIGHT_EYE_LOW();
+        CS_LEFT_EYE_HIGH();
+        _delay_ms(150);
         while (count--) {
             spi_master_transmit(hi);
             spi_master_transmit(lo);
         }
         CS_RIGHT_EYE_HIGH();
+        // DC_LOW();
+        return;
     }
 }
 
-void GC9A01_fillScreenBlue(uint8_t screen) {
+void GC9A01_fillScreen(uint16_t color, uint8_t screen) {
+      // if (screen == LEFT_EYE)
+      //   return;
     GC9A01_setAddrWindow(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1, screen);
-    GC9A01_pushColor(0x001F, (uint32_t)GC9A01_WIDTH * GC9A01_HEIGHT, screen);
+      _delay_ms(1000);
+    GC9A01_pushColor(color, (uint32_t)GC9A01_WIDTH * GC9A01_HEIGHT, screen);
+      _delay_ms(1000);
+
 }
 
+void resetEyes(void) {
+  RST_LOW();
+  _delay_ms(20);
+  RST_HIGH();
+  _delay_ms(150);
+}
 
 
 int main(void) {
   init();
+  
+   GC9A01_init(LEFT_EYE);
+  GC9A01_init(RIGHT_EYE);
+  // PORTH |= (1 << PH0);
+  // PORTH &= ~(1 << PH0);
+  _delay_ms(1000);
+  // CS_RIGHT_EYE_HIGH();
 
-  GC9A01_init(LEFT_EYE);
+  while (1) {
+  
+    GC9A01_fillScreen(GC9A01A_COLOR_RED, RIGHT_EYE);
+    // CS_LEFT_EYE_LOW();
+    // CS_RIGHT_EYE_LOW();
 
-    while (1) {
-   GC9A01_fillScreenBlue(LEFT_EYE);
+  PORTH |= (1 << PH0);
+  // PORTH &= ~(1 << PH0);
+
+    // PORTE &= ~(1 << PE7);
+    // PORTE &= ~(1 << PE5);
+    // _delay_ms(1000);
+
+    // PORTE |= (1 << PE7);
+    // PORTE |= (1 << PE5);
+    // CS_RIGHT_EYE_HIGH();
+    // CS_LEFT_EYE_HIGH();
+    // _delay_ms(1000);   // <-- add this
+
+
+    // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+      resetEyes();
+
   }
 }
 
