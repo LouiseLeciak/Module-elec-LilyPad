@@ -1,7 +1,7 @@
+#include "GC9A01.h"
 #include "pinout.h"
 #include "spi.h"
 #include "state_machine.h"
-#include "GC9A01.h"
 #include <util/delay.h>
 
 void testPINS(void);
@@ -73,6 +73,7 @@ void init(void) {
 int main(void) {
   init();
 
+  GC9A01_init(LEFT_EYE);
   while (1) {
    
   }

@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/08 14:19:41 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/08 14:39:05 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@
     typedef unsigned char uint8_t;      // needed because not using stdlib
     typedef unsigned int uint16_t;      // needed because not using stdlib
     typedef uint8_t bool;
-    // void GC9A01_init(uint8_t screen);
+    
     void GC9A01_init(uint8_t screen);
     void GC9A01_cmd(uint8_t cmd, uint8_t screen);
     void GC9A01_data(uint8_t data, uint8_t screen);

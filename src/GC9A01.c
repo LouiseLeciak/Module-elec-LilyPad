@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/08 14:19:22 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/08 14:38:33 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@
 void GC9A01_init(uint8_t screen) {
 
     // --- POWER STABILIZATION ---
-    // _delay_ms(300);
+    _delay_ms(300);
 
     RST_HIGH();
     _delay_ms(20);
@@ -255,11 +255,11 @@ void GC9A01_cmd(uint8_t cmd, uint8_t screen) {
     DC_LOW();    
     if (screen == LEFT_EYE)  {
         CS_LEFT_EYE_LOW();
-        spi_send(cmd);
+        spi_master_transmit(cmd);
         CS_LEFT_EYE_HIGH();
     } else if (screen == RIGHT_EYE)  {
         CS_RIGHT_EYE_LOW();
-        spi_send(cmd);
+        spi_master_transmit(cmd);
         CS_RIGHT_EYE_HIGH();
     }
 }
@@ -270,12 +270,12 @@ void GC9A01_data(uint8_t data, uint8_t screen){
     if (screen == LEFT_EYE)  {
 
         CS_LEFT_EYE_LOW();
-        spi_send(data);
+        spi_master_transmit(data);
         CS_LEFT_EYE_HIGH();
     } else if (screen == RIGHT_EYE)  {
 
         CS_RIGHT_EYE_LOW();
-        spi_send(data);
+        spi_master_transmit(data);
         CS_RIGHT_EYE_HIGH();
     }
 }
