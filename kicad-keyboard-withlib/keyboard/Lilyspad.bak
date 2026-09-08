@@ -6,8 +6,8 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "U"
-			(at 0 0 0)
+		(property "Reference" "D"
+			(at 0 0.508 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilyspad:diode"
 			(at 0 0 0)
 			(effects
 				(font
@@ -52,7 +52,7 @@
 		(symbol "diode_0_1"
 			(polyline
 				(pts
-					(xy 0.508 -1.27) (xy 0.508 -3.81)
+					(xy -1.27 -2.54) (xy -1.016 -2.54)
 				)
 				(stroke
 					(width 0)
@@ -64,7 +64,7 @@
 			)
 			(polyline
 				(pts
-					(xy 0.508 -2.54) (xy -0.254 -2.54)
+					(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
 				)
 				(stroke
 					(width 0)
@@ -76,7 +76,7 @@
 			)
 			(polyline
 				(pts
-					(xy 0.508 -2.54) (xy 2.286 -2.54)
+					(xy 0.762 -2.54) (xy -1.016 -2.54)
 				)
 				(stroke
 					(width 0)
@@ -88,7 +88,7 @@
 			)
 			(polyline
 				(pts
-					(xy 2.286 -1.27) (xy 0.508 -2.54) (xy 2.286 -3.81) (xy 2.286 -2.54) (xy 2.286 -1.27)
+					(xy 0.762 -2.54) (xy 1.524 -2.54)
 				)
 				(stroke
 					(width 0)
@@ -100,7 +100,7 @@
 			)
 			(polyline
 				(pts
-					(xy 2.54 -2.54) (xy 2.286 -2.54)
+					(xy 0.762 -3.81) (xy 0.762 -1.27)
 				)
 				(stroke
 					(width 0)
@@ -113,25 +113,7 @@
 		)
 		(symbol "diode_1_1"
 			(pin passive line
-				(at -1.27 -2.54 0)
-				(length 1.27)
-				(name ""
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at 3.81 -2.54 180)
+				(at -2.54 -2.54 0)
 				(length 1.27)
 				(name ""
 					(effects
@@ -141,6 +123,24 @@
 					)
 				)
 				(number "2"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 -2.54 180)
+				(length 1.27)
+				(name ""
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "1"
 					(effects
 						(font
 							(size 1.27 1.27)

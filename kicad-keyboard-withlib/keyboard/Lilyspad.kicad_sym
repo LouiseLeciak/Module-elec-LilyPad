@@ -22,7 +22,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilyspad:diode"
 			(at 0 0 0)
 			(effects
 				(font
