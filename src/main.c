@@ -50,8 +50,8 @@ void init(void) {
   // DDRG |= (KB_C6);
   // DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3 | KB_R4);
   // DDRD |= (SCL | SDA);
-  // DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
-  DDRH |= (MAIN_SCREEN_CS | SCREENS_DC);
+  DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_RST | MAIN_SCREEN_BL | SCREENS_DC | SD_CS);
+  // DDRH |= (MAIN_SCREEN_CS | SCREENS_DC);
   // DDRJ |= (KB_C7 | KB_C8 | KB_C9 | KB_C10 | KB_R1 | KB_R2 | KB_R3 );
   // DDRB |= (MISO);
 
@@ -152,20 +152,21 @@ void resetEyes(void) {
 int main(void) {
   init();
   
-   GC9A01_init(LEFT_EYE);
+  // GC9A01_init(LEFT_EYE);
   GC9A01_init(RIGHT_EYE);
+  
   // PORTH |= (1 << PH0);
   // PORTH &= ~(1 << PH0);
-  _delay_ms(1000);
+  _delay_ms(5000);
   // CS_RIGHT_EYE_HIGH();
 
+   GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
   while (1) {
   
-    GC9A01_fillScreen(GC9A01A_COLOR_RED, RIGHT_EYE);
     // CS_LEFT_EYE_LOW();
     // CS_RIGHT_EYE_LOW();
 
-  PORTH |= (1 << PH0);
+  //PORTH |= (1 << PH0);
   // PORTH &= ~(1 << PH0);
 
     // PORTE &= ~(1 << PE7);
@@ -180,8 +181,8 @@ int main(void) {
 
 
     // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
-      resetEyes();
-
+      //resetEyes();
+  testPINS();
   }
 }
 
@@ -216,27 +217,28 @@ void testPINS(void) {
   // PORTB |= (SCK);
 
   // SD_READER
-  // PORTH &= ~(SD_CS);
-  // PORTH |= (SD_CS);
+  PORTH &= ~(SD_CS);
+  PORTH |= (SD_CS);
 
   // MAIN SCREEN
   // PORTH |= (MAIN_SCREEN_RST); 
-  // PORTH |= (MAIN_SCREEN_CS); 
+  PORTH |= (MAIN_SCREEN_BL);
+  PORTH |= (MAIN_SCREEN_CS); 
   // PORTB |= (SCK | MISO | MOSI);
   // PORTH |= (SCREENS_DC);
   
   // EYE_RIGHT_SCREEN
-  // PORTE |= (RIGHT_EYE_CS);
-  // PORTE |= (EYES_RST);
-  // PORTB |= (SCK);
-  // PORTB |= (MOSI);
-  // PORTH |= (SCREENS_DC);
+  PORTE |= (RIGHT_EYE_CS);
+  PORTE |= (EYES_RST);
+  PORTB |= (SCK);
+  PORTB |= (MOSI);
+  PORTH |= (SCREENS_DC);
   
   // EYE_LEFT_SCREEN
-  // PORTE |= (LEFT_EYE_CS);
-  // PORTE |= (EYES_RST);
-  // PORTB |= (SCK);
-  // PORTB |= (MOSI);
-  // PORTH |= (SCREENS_DC);
+  PORTE |= (LEFT_EYE_CS);
+  PORTE |= (EYES_RST);
+  PORTB |= (SCK);
+  PORTB |= (MOSI);
+  PORTH |= (SCREENS_DC);
 
 }
