@@ -3916,7 +3916,7 @@
 		(uuid "84a8f74c-c2fa-4770-9907-907f45a5d62a")
 	)
 	(no_connect
-		(at 224.79 85.09)
+		(at 224.79 82.55)
 		(uuid "8ca9a6d1-379f-4169-a4d1-2a4c7960c92e")
 	)
 	(no_connect
@@ -4212,7 +4212,7 @@
 		(uuid "72b1c2d9-6084-47c9-917d-d44149889c63")
 	)
 	(bus_entry
-		(at 213.36 80.01)
+		(at 213.36 82.55)
 		(size 2.54 2.54)
 		(stroke
 			(width 0)
@@ -4545,7 +4545,7 @@
 	)
 	(wire
 		(pts
-			(xy 215.9 82.55) (xy 224.79 82.55)
+			(xy 215.9 85.09) (xy 224.79 85.09)
 		)
 		(stroke
 			(width 0)
@@ -5735,7 +5735,7 @@
 	)
 	(bus
 		(pts
-			(xy 213.36 77.47) (xy 213.36 80.01)
+			(xy 213.36 77.47) (xy 213.36 82.55)
 		)
 		(stroke
 			(width 0)
@@ -6114,7 +6114,7 @@
 		(uuid "0f52bc26-3115-4316-85b1-b20cbd4cb391")
 	)
 	(label "C5"
-		(at 224.79 52.07 180)
+		(at 224.79 54.61 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6134,7 +6134,7 @@
 		(uuid "1655537d-b132-4853-b3ab-7548b3dbaf6e")
 	)
 	(label "R1"
-		(at 224.79 31.75 180)
+		(at 224.79 34.29 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6164,7 +6164,7 @@
 		(uuid "1ea9c6aa-66ec-445b-af4a-71685362105e")
 	)
 	(label "C4"
-		(at 224.79 49.53 180)
+		(at 224.79 46.99 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6174,7 +6174,7 @@
 		(uuid "2097a619-18b0-4c60-8b2b-36927c756bc5")
 	)
 	(label "C3"
-		(at 224.79 46.99 180)
+		(at 224.79 49.53 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6184,7 +6184,7 @@
 		(uuid "222469f0-f149-4a3e-b9b4-df2aa549c7fd")
 	)
 	(label "R2"
-		(at 224.79 34.29 180)
+		(at 224.79 31.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6214,7 +6214,7 @@
 		(uuid "2c4e251c-a4c7-4745-ab2d-fd1f1cd83593")
 	)
 	(label "C2"
-		(at 224.79 44.45 180)
+		(at 224.79 41.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6254,7 +6254,7 @@
 		(uuid "3420c516-2c3a-49a5-978e-551ac41af19f")
 	)
 	(label "SDL_SW3"
-		(at 224.79 77.47 180)
+		(at 224.79 80.01 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6304,7 +6304,7 @@
 		(uuid "4cc05fc5-0352-41cb-8d99-e517a948afdb")
 	)
 	(label "R3"
-		(at 224.79 36.83 180)
+		(at 224.79 39.37 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6344,7 +6344,7 @@
 		(uuid "59781fb4-3f4a-4320-b971-d6b2223dcb3a")
 	)
 	(label "C1"
-		(at 224.79 41.91 180)
+		(at 224.79 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6354,7 +6354,7 @@
 		(uuid "66b80f78-32d3-42ae-9109-8c2dea7ef46f")
 	)
 	(label "C10"
-		(at 224.79 64.77 180)
+		(at 224.79 62.23 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6374,7 +6374,7 @@
 		(uuid "7359586f-a461-423a-8239-abe65cdfade3")
 	)
 	(label "SDL_SW1"
-		(at 224.79 72.39 180)
+		(at 224.79 74.93 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6394,7 +6394,7 @@
 		(uuid "7cda27f3-6708-4f8f-a8cc-38afefd21a29")
 	)
 	(label "R4"
-		(at 224.79 39.37 180)
+		(at 224.79 36.83 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6454,7 +6454,7 @@
 		(uuid "99a73b2d-0027-45fd-b2e8-0efab56f4534")
 	)
 	(label "SCL"
-		(at 224.79 82.55 180)
+		(at 224.79 85.09 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6494,7 +6494,7 @@
 		(uuid "b2697c0e-7bc1-4d03-9d2a-70a06d52265f")
 	)
 	(label "SDA"
-		(at 224.79 80.01 180)
+		(at 224.79 77.47 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6504,7 +6504,7 @@
 		(uuid "bb4603c8-dc81-407c-82c2-37fce02094d0")
 	)
 	(label "C8"
-		(at 224.79 59.69 180)
+		(at 224.79 57.15 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6514,7 +6514,7 @@
 		(uuid "c24cd107-96a3-466e-9db3-8cf434c1f6ae")
 	)
 	(label "C6"
-		(at 224.79 54.61 180)
+		(at 224.79 52.07 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6574,7 +6574,7 @@
 		(uuid "d3c25aff-9804-4d16-975a-ef148d251c25")
 	)
 	(label "SDL_SW2"
-		(at 224.79 74.93 180)
+		(at 224.79 72.39 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6614,7 +6614,7 @@
 		(uuid "f09f7335-0b96-46d9-9934-a48374742f20")
 	)
 	(label "C7"
-		(at 224.79 57.15 180)
+		(at 224.79 59.69 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6624,7 +6624,7 @@
 		(uuid "fab664f4-45a3-4664-bbe5-9c471e038e17")
 	)
 	(label "C9"
-		(at 224.79 62.23 180)
+		(at 224.79 64.77 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -6641,6 +6641,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "1b440de4-98a0-4453-96cc-433b3b9072e2")
 		(property "Reference" "#PWR014"
 			(at 228.6 69.85 0)
@@ -6652,12 +6653,11 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 220.98 69.8499 90)
+			(at 223.52 67.31 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -6707,6 +6707,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "1cddfd92-b058-411e-90c5-a6d267a0c602")
 		(property "Reference" "#PWR011"
 			(at 180.34 102.87 0)
@@ -6718,7 +6719,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 178.308 105.918 0)
+			(at 182.88 107.9499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6785,11 +6786,12 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 27.94 186.69 0)
+			(at 30.48 190.4999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -6918,7 +6920,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 105.41 177.8 0)
+			(at 105.41 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6972,21 +6974,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "37cd4747-b8d6-4bcf-a107-f1e9df829d4e")
 		(property "Reference" "D1"
-			(at 175.768 112.776 90)
+			(at 176.53 110.1724 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "LED"
-			(at 175.768 110.236 90)
+			(at 176.53 112.7124 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
@@ -7075,21 +7080,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "3a10cf2c-65eb-4d3a-836c-bdcbd857a70d")
 		(property "Reference" "R2"
-			(at 180.34 120.65 90)
+			(at 182.88 119.3799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "330Ω"
-			(at 184.15 120.65 0)
+			(at 182.88 121.9199 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
@@ -7169,31 +7177,33 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "3a8a352a-944c-4f5c-9547-bd9bf65b73c3")
 		(property "Reference" "SW1"
-			(at 62.23 24.1299 90)
+			(at 57.15 22.8599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "SW_Push"
-			(at 62.23 26.6699 90)
+			(at 57.15 25.3999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
-			(at 55.88 25.4 0)
+			(at 57.15 27.9399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Datasheet" "~"
@@ -7932,11 +7942,12 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 27.94 196.85 0)
+			(at 30.48 193.0399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -8053,6 +8064,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "65c31a15-1cef-44b2-a50b-ad69d84c33fe")
 		(property "Reference" "#FLG01"
 			(at 17.78 193.675 0)
@@ -8064,11 +8076,12 @@
 			)
 		)
 		(property "Value" "PWR_FLAG"
-			(at 17.78 196.85 0)
+			(at 15.24 193.0399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -8118,21 +8131,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "70e3d0c1-2df7-47f5-9b0e-67d4f4e71f2a")
 		(property "Reference" "R3"
-			(at 180.34 130.81 90)
+			(at 182.88 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "330Ω"
-			(at 184.15 130.81 0)
+			(at 182.88 132.0799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
@@ -8279,17 +8295,19 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "79ac7b29-5e17-4723-8b7f-5058b8e80a8b")
 		(property "Reference" "R1"
-			(at 72.39 26.67 90)
+			(at 74.93 25.3999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "10kΩ"
-			(at 73.66 26.67 0)
+			(at 74.93 27.9399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8516,9 +8534,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "81417e60-ed3b-4672-bac5-ae6681582814")
 		(property "Reference" "R5"
-			(at 251.46 157.48 90)
+			(at 251.46 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8526,12 +8545,11 @@
 			)
 		)
 		(property "Value" "330Ω"
-			(at 254.254 159.766 90)
+			(at 251.46 153.67 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
@@ -8611,6 +8629,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "8720dcd5-2c81-4621-b8f7-3fdb57ecbc24")
 		(property "Reference" "#PWR013"
 			(at 218.44 67.31 0)
@@ -8622,12 +8641,11 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 220.98 67.3099 90)
+			(at 223.52 63.5 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -8689,11 +8707,12 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 72.39 17.78 0)
+			(at 74.93 21.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -8743,9 +8762,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "b098c4c8-bcec-4dea-bb2f-578a53291664")
 		(property "Reference" "C1"
-			(at 80.01 51.562 90)
+			(at 80.01 53.34 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8753,7 +8773,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 80.01 54.102 90)
+			(at 80.01 55.88 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8944,9 +8964,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "b5b2835d-57ce-486b-8ce3-e570d009627c")
 		(property "Reference" "R4"
-			(at 251.46 147.32 90)
+			(at 251.46 140.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8954,12 +8975,11 @@
 			)
 		)
 		(property "Value" "330Ω"
-			(at 254.254 149.606 90)
+			(at 251.46 143.51 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
@@ -9039,6 +9059,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "ba76f6be-33a4-4726-bc24-d2281d74d273")
 		(property "Reference" "#PWR012"
 			(at 180.34 148.59 0)
@@ -9050,7 +9071,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 182.372 145.796 0)
+			(at 177.8 143.5099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9117,11 +9138,12 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 154.94 57.15 0)
+			(at 157.48 53.3399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -9183,11 +9205,12 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 17.78 186.69 0)
+			(at 20.32 190.4999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -9249,11 +9272,12 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 152.4 58.42 0)
+			(at 149.86 54.6099 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -9303,9 +9327,10 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "c91fadb6-e2b3-4435-af84-228141426097")
 		(property "Reference" "C2"
-			(at 115.57 17.272 90)
+			(at 115.57 13.97 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9313,7 +9338,7 @@
 			)
 		)
 		(property "Value" "100nF"
-			(at 115.57 19.812 90)
+			(at 115.57 16.51 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9491,21 +9516,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "d406b839-25cb-4d95-a37a-f6ac872de7bd")
 		(property "Reference" "D2"
-			(at 184.912 137.668 90)
+			(at 184.15 138.7474 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "LED"
-			(at 184.912 140.208 90)
+			(at 184.15 141.2874 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
@@ -9606,11 +9634,12 @@
 			)
 		)
 		(property "Value" "VCC"
-			(at 73.66 55.88 0)
+			(at 71.12 52.0699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
@@ -9776,11 +9805,12 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 60.96 15.24 0)
+			(at 63.5 19.0499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
