@@ -1,4 +1,4 @@
-27306158283033796
+27334793769102977
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71805,70 +71805,182 @@ Yellow 5381 Series LED
 0
 2
 2
-Lilyspad
+Lilibrary
+AMS1117-3V3
+
+
+0
+4
+4
+Lilibrary
+ATmega2560-16AU
+
+
+0
+100
+100
+Lilibrary
+CH340C
+
+
+0
+16
+16
+Lilibrary
+Capacitor_0603
+
+
+0
+2
+2
+Lilibrary
+Crystal_0603
+
+
+0
+4
+4
+Lilibrary
+LED_0603
+
+
+0
+2
+2
+Lilibrary
 MCP23017
 
 
 0
 28
 28
-Lilyspad
+Lilibrary
+Male Header
+
+
+0
+26
+26
+Lilibrary
+Mounting_Hole_3.2mm_M3
+
+
+0
+0
+0
+Lilibrary
+Pin_1x01_2.54mm_Vertical
+
+
+0
+1
+1
+Lilibrary
+Pin_1x06_2.54mm_Vertical
+
+
+0
+6
+6
+Lilibrary
+Pin_1x07_2.54mm_Vertical
+
+
+0
+7
+7
+Lilibrary
+Pin_1x13_2.54mm_Vertical
+
+
+0
+13
+13
+Lilibrary
+Pin_1x21_2.54mm_Vertical
+
+
+0
+21
+21
+Lilibrary
 Resistance
 
 
 0
 2
 2
-Lilyspad
-diode
+Lilibrary
+Resistor_0603
 
 
 0
 2
 2
-Lilyspad
-hole
+Lilibrary
+Switch_Push_Button_12mm
 
 
 0
+4
+2
+Lilibrary
+TXB0104D
+
+
 0
+14
+14
+Lilibrary
+USB-C
+
+
 0
-Lilyspad
+16
+16
+Lilibrary
+USB-C (Home-brew)
+
+
+0
+12
+12
+Lilibrary
 led
 
 
 0
 2
 2
-Lilyspad
+Lilibrary
 male_header
 
 
 0
 26
 26
-Lilyspad
+Lilibrary
 pin_socket
 
 
 0
 21
 21
-Lilyspad
+Lilibrary
 push_switch
 
 
 0
 4
 4
-Lilyspad
+Lilibrary
 rotary_encoder
 
 
 0
 7
 6
-Lilyspad
+Lilibrary
 slide_switch
 
 
