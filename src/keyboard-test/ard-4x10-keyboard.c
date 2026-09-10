@@ -31,7 +31,6 @@
 // Led 2 - PA2
 // switch pin - PA4
 
-
 #define ROWS_NB 4
 #define COLS_NB 10
 #define ROTARY_CLK 6
@@ -277,6 +276,7 @@ void draw_menu(void)
 #define SWITCH_PIN PA4
 #define LED_LEFT PA2
 #define LED_RIGHT PA0
+static uint8_t prev_switch = 0;
 
 static void switch_led_init(void)
 {
@@ -291,21 +291,35 @@ static void switch_led_init(void)
 
     // Pas de pull-up
     PORTA &= ~(1 << SWITCH_PIN);
+
+    if (PINA & (1 << SWITCH_PIN))
+    {
+        prev_switch = 1;
+    }
+    else
+    {
+        prev_switch = 0;
+    }
 }
 
 static void switch_led_update(void)
 {
-    if (PINA & (1 << SWITCH_PIN))
+    uint8_t current_switch = (PINA & (1 << SWITCH_PIN)) ? 1 : 0;
+
+    // Le switch chnage d'etat
+    if (current_switch != prev_switch)
     {
-        // Le switch est cote 3,3 V
-        PORTA |= (1 << LED_LEFT);
-        PORTA &= ~(1 << LED_RIGHT);
-    }
-    else
-    {
-        // Le switch est cote GND
-        PORTA &= ~(1 << LED_LEFT);
-        PORTA |= (1 << LED_RIGHT);
+        if (current_switch)
+        {
+            uart_printstr("English mode\n\r");
+        }
+        else
+        {
+            uart_printstr("French mode\n\r");
+        }
+
+        // nouvel eta<t
+        prev_switch = current_switch;
     }
 }
 
