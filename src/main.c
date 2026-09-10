@@ -160,7 +160,8 @@ int main(void) {
   _delay_ms(5000);
   // CS_RIGHT_EYE_HIGH();
 
-   GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
   while (1) {
   
     // CS_LEFT_EYE_LOW();
@@ -182,7 +183,7 @@ int main(void) {
 
     // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
       //resetEyes();
-  testPINS();
+  //testPINS();
   }
 }
 
