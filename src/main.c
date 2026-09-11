@@ -1,4 +1,5 @@
 #include "GC9A01.h"
+#include "ili9488.h"
 #include "pinout.h"
 #include "spi.h"
 #include "state_machine.h"
@@ -11,10 +12,7 @@ void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
 t_state current_state = INIT;
 
-void main_screen_init() {
-  DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_BL | MAIN_SCREEN_RST);
-  PORTH |= (MAIN_SCREEN_BL);
-}
+
 
 void sd_init() { DDRH |= (SD_CS); }
 
