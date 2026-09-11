@@ -1,7 +1,8 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-PORT				:= /dev/cu.usbmodem101 #Change this to match your configuration's port
+PORT				:= /dev/cu.usbserial-1430 #Change this to match your configuration's port
+# PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
@@ -23,10 +24,11 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
+					ili9488 \
 					main_screen \
-					main_screen_text \
-					mads \
-					spi
+					spi \
+					GC9A01 \
+					dev_tools
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

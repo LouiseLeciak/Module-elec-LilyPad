@@ -1,40 +1,67 @@
-#include <avr/io.h>
-
-#include "main_screen.h"
-#include "pins.h"
+#include "GC9A01.h"
+#include "ili9488.h"
+#include "pinout.h"
 #include "spi.h"
-#include "structs.h"
+#include "state_machine.h"
+#include "dev_tools.h"
+#include <util/delay.h>
 
-static void setup(void) {
-  DDRB |= (MAIN_SCREEN_SS | MAIN_SCREEN_DC | MAIN_SCREEN_RST | MCU_SPI_MASK);
-  PORTB |= (MAIN_SCREEN_SS | MAIN_SCREEN_DC | MAIN_SCREEN_RST);
+// void testPINS(void);
+void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
-  spi_master_init(FOSC_DIV2);
-  spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
-  main_screen_init();
-  spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
+
+t_state current_state = INIT;
+
+
+
+void sd_init() { DDRH |= (SD_CS); }
+
+void eyes_init() { 
+
+  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST); 
+  GC9A01_init(LEFT_EYE);
+  GC9A01_init(RIGHT_EYE);
 }
 
+void screens_init() {
+  DDRH |= (SCREENS_DC);
+  main_screen_init();
+  eyes_init();
+}
+
+void keyboard_init(void) {
+  DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+  DDRC |= (KB_R4);
+  DDRG |= (KB_C6);
+  DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+
+  PORTA &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+  PORTC &= ~(KB_R4);
+  PORTG &= ~(KB_C6);
+  PORTJ &= ~(KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+}
+
+void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
+
+void init(void) {
+
+    spi_master_init();
+    screens_init();
+    // spi_master_init
+    // sd_init();
+    // keyboard_init();
+}
+
+
+
 int main(void) {
-  setup();
+  init();
 
-  window tmp = {{0, 0}, {MAIN_SCREEN_HEIGHT - 1, MAIN_SCREEN_WIDTH - 1}};
-  rgb colour = {0, 0, 0};
-  spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
-  main_screen_draw_rectangle(tmp, colour);
-  spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
-
-  rgb fg = {255, 255, 255};
-  rgb bg = {0, 0, 0};
-  position str_pos = {0, 0};
-  spi_start_transaction(&PORTB, MAIN_SCREEN_SS);
-  main_screen_draw_string(str_pos, "ABCDEFGHIKLMNOPQRSTUVWXYZYXWVUTSRQPO", fg,
-                          bg, 2);
-  spi_end_transaction(&PORTB, MAIN_SCREEN_SS);
-
+  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
   while (1) {
     ;
+  
+   // testPINS();
   }
-
-  return (0);
 }

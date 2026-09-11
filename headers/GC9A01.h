@@ -1,0 +1,75 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   GC9A01.h                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
+/*   Updated: 2026/09/11 11:42:17 by nige42           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef GC9A01_H
+ #define GC9A01_H
+
+    // ─── Pin macros ───────────────────────────────────────────────────────────────
+    
+    
+    #define CS_LEFT_EYE_LOW()   PORTE &= ~LEFT_EYE_CS
+    #define CS_LEFT_EYE_HIGH()  PORTE |=  LEFT_EYE_CS
+    #define CS_RIGHT_EYE_LOW()   PORTE &= ~RIGHT_EYE_CS
+    #define CS_RIGHT_EYE_HIGH()  PORTE |=  RIGHT_EYE_CS
+    #define DC_LOW()   PORTH &= ~SCREENS_DC
+    #define DC_HIGH()  PORTH |=  SCREENS_DC
+    #define RST_LOW()  PORTE &= ~EYES_RST
+    #define RST_HIGH() PORTE |= EYES_RST
+    
+    // --- FONT LCD SIZE 240 x 320 - 3,2 TFT GC9A01
+    
+    #define GC9A01_WIDTH   240
+    #define GC9A01_HEIGHT  240
+    
+    // --- EYES
+    #define LEFT_EYE 1
+    #define RIGHT_EYE 9
+    
+    // ─── Colors (RGB-565) ───────────────────────────────────<──────────────────────
+    #define GC9A01A_COLOR_BLACK    0x0000
+    #define GC9A01A_COLOR_WHITE    0xFFFF
+    #define GC9A01A_COLOR_RED      0xF800
+    #define GC9A01A_COLOR_GREEN    0x07E0
+    #define GC9A01A_COLOR_BLUE     0x001F
+    #define GC9A01A_COLOR_YELLOW   0xFFE0
+    #define GC9A01A_COLOR_MAGENTA  0xF81F
+    #define GC9A01A_COLOR_CYAN     0x07FF
+    #define GC9A01A_COLOR_ORANGE   0xFD20
+    #define GC9A01A_COLOR_PURPLE   0x8010
+    #define GC9A01A_COLOR_PINK     0xFC18
+    #define GC9A01A_COLOR_LIME     0xBFE0
+    #define GC9A01A_COLOR_NAVY     0x000F
+    #define GC9A01A_COLOR_MAROON   0x7800
+    #define GC9A01A_COLOR_OLIVE    0x7BE0
+    #define GC9A01A_COLOR_TEAL     0x03EF
+    #define GC9A01A_COLOR_SILVER   0xC618
+    #define GC9A01A_COLOR_GRAY     0x7BEF
+    #define GC9A01A_COLOR_DARKGRAY 0x4208
+    #define GC9A01A_COLOR_BROWN    0xA145
+    #define GC9A01A_COLOR_EYE      0XD77A
+
+    
+    
+    typedef unsigned char uint8_t;      // needed because not using stdlib
+    typedef unsigned int uint16_t;      // needed because not using stdlib
+    typedef unsigned long uint32_t;     // needed because not using stdlib
+
+    typedef uint8_t bool;
+    
+    void GC9A01_init(uint8_t screen);
+    void GC9A01_cmd(uint8_t cmd, uint8_t screen);
+    void GC9A01_data(uint8_t data, uint8_t screen);
+    void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t screen);
+    void GC9A01_fillScreen(uint16_t color, uint8_t screen);
+    void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen);
+    
+#endif
