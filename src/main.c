@@ -1,29 +1,3 @@
-<<<<<<< HEAD
-#include "GC9A01.h"
-#include "ili9488.h"
-#include "pinout.h"
-#include "spi.h"
-#include "state_machine.h"
-#include "dev_tools.h"
-#include <util/delay.h>
-
-// void testPINS(void);
-void GC9A01_fillScreen(uint16_t color, uint8_t screen);
-
-
-t_state current_state = INIT;
-
-
-
-void sd_init() { DDRH |= (SD_CS); }
-
-void eyes_init() { 
-
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST); 
-  GC9A01_init(LEFT_EYE);
-  GC9A01_init(RIGHT_EYE);
-=======
-#include <avr/io.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <util/delay.h>
@@ -241,13 +215,6 @@ void test_driver(driver_t d) {
     return;
   }
   lcd_fill_screen(0xF800); // rouge plein écran, par ex. en RGB565
->>>>>>> 16db5fa (feat(screens): Makes TFT01 screen work.)
-}
-
-void screens_init() {
-  DDRH |= (SCREENS_DC);
-  main_screen_init();
-  eyes_init();
 }
 
 void keyboard_init(void) {
@@ -264,21 +231,7 @@ void keyboard_init(void) {
 
 void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
-void init(void) {
-
-    spi_master_init();
-    screens_init();
-    // spi_master_init
-    // sd_init();
-    // keyboard_init();
-}
-
-
-
 int main(void) {
-<<<<<<< HEAD
-  init();
-=======
   DDRH |= MAIN_SCREEN_BL;
   PORTH |= MAIN_SCREEN_BL;
 
@@ -287,21 +240,12 @@ int main(void) {
   lcd_reset();
   lcd_run_init_sequence(ili9486_init, ILI9486_N);
   lcd_fill_screen(0xF800); // rouge plein écran, par ex. en RGB565
->>>>>>> 16db5fa (feat(screens): Makes TFT01 screen work.)
-
-  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
-  GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
   while (1) {
-<<<<<<< HEAD
-    ;
-  
-   // testPINS();
-=======
+
     //   char c = uart_rx();
     //   if (c >= '1' && c <= '4') {
     //     uart_tx(c);
     //     test_driver((driver_t)(c - '1'));
     //   }
->>>>>>> 16db5fa (feat(screens): Makes TFT01 screen work.)
   }
 }

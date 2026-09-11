@@ -19,7 +19,6 @@
 // level. (apetitco)
 
 // --- HIGH LEVEL COMMANDS -----------------------------------------------------
-<<<<<<< HEAD
 
 // ------ Drawing commands ------------------------------------------------
 void main_screen_draw_pixel(const position pos, const rgb rgb) {
@@ -44,7 +43,6 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
     spi_master_transmit(rgb._blue & 0xFC);
   }
 }
-=======
 // ------ Setup commands -------------------------------------------------------
 void main_screen_init(void) {
   PORTH &= ~(MAIN_SCREEN_RST);
@@ -90,7 +88,6 @@ void main_screen_init(void) {
 //     spi_master_transmit(color & 0xFF);
 //   }
 // }
->>>>>>> 16db5fa (feat(screens): Makes TFT01 screen work.)
 
 // ------ Utilitaries commands --------------------------------------------
 // NOTE: Interesting bit on 16-bit pixel SPI transmission at MAIN_SCREEN's
