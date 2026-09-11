@@ -1,15 +1,25 @@
 #ifndef ILI9488_H
 #define ILI9488_H
 
-#include "pinout.h"
 #include <avr/io.h>
 
-#define MAIN_SCREEN_DC_COMMAND() (PORTB &= ~(SCREENS_DC))
-#define MAIN_SCREEN_DC_DATA() ((PORTB |= SCREENS_DC))
-#define MAIN_SCREEN_RST_LOW() (PORTB &= ~(MAIN_SCREEN_RST))
-#define MAIN_SCREEN_RST_HIGH() (PORTB |= MAIN_SCREEN_RST)
-#define MAIN_SCREEN_SS_LOW() (PORTB &= ~(MAIN_SCREEN_CS))
-#define MAIN_SCREEN_SS_HIGH() (PORTB |= MAIN_SCREEN_CS)
+#include "pinout.h"
+
+#define CS_DDR DDRH
+#define CS_PORT PORTH
+#define CS_PIN MAIN_SCREEN_CS
+
+#define DC_DDR DDRH
+#define DC_PORT PORTH
+#define DC_PIN SCREENS_DC
+
+#define RST_DDR DDRH
+#define RST_PORT PORTH
+#define RST_PIN MAIN_SCREEN_RST
+
+#define BL_DDR DDRH
+#define BL_PORT PORTH
+#define BL_PIN MAIN_SCREEN_BL
 
 typedef struct s_ili9488 {
   volatile uint8_t *port;
@@ -101,7 +111,24 @@ typedef enum e_ili9488_cmd {
 } ST7796_cmd;
 
 // --- Setup commands --------------------------------------------------------
-void main_screen_init(void);
 void ili9488_init_driver();
+void ili9488_reset(void);
+
+// Native commands
+void ili9488_sleep_out();
+void ili9488_positive_gamma_control();
+void ili9488_negative_gamma_control();
+void ili9488_power_control_1();
+void ili9488_power_control_2();
+void ili9488_vcom_control();
+void ili9488_memory_access_control();
+void ili9488_interface_pixel_format();
+void ili9488_interface_mode_control();
+void ili9488_frame_rate_control_normal();
+void il9488_display_inversion_control();
+void ili9488_display_function_control();
+void ili9488_entry_mode_set();
+void ili9488_adjust_control_3();
+void ili9488_display_on();
 
 #endif // !ILI9488_H

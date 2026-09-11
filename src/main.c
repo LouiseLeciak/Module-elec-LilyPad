@@ -1,24 +1,22 @@
+#include <util/delay.h>
+
 #include "GC9A01.h"
-#include "ili9488.h"
+#include "main_screen.h"
 #include "pinout.h"
 #include "spi.h"
 #include "state_machine.h"
-#include "dev_tools.h"
-#include <util/delay.h>
+#include "uart.h"
 
 // void testPINS(void);
 void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
-
 t_state current_state = INIT;
-
-
 
 void sd_init() { DDRH |= (SD_CS); }
 
-void eyes_init() { 
+void eyes_init() {
 
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST); 
+  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   GC9A01_init(LEFT_EYE);
   GC9A01_init(RIGHT_EYE);
 }
@@ -45,23 +43,23 @@ void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
 void init(void) {
 
-    spi_master_init();
-    screens_init();
-    // spi_master_init
-    // sd_init();
-    // keyboard_init();
+  spi_master_init();
+  uart_init(MYUBRR);
+
+  screens_init();
+  // sd_init();
+  // keyboard_init();
 }
-
-
 
 int main(void) {
   init();
 
   GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
   GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
+  ili9488_fill_screen(0xF800);
   while (1) {
     ;
-  
-   // testPINS();
+
+    // testPINS();
   }
 }

@@ -1,16 +1,15 @@
 #ifndef MAIN_SCREEN_H
 #define MAIN_SCREEN_H
 
-#include <stdint.h>
-
 #include "structs.h"
-
-// NOTE: It is assumed the screen is using a ST7796 as driver.
 
 #define MAIN_SCREEN_WIDTH 320
 #define MAIN_SCREEN_HEIGHT 480
 
 // --- High-level commands ---------------------------------------------------
+// --- Setup commands --------------------------------------------------------
+void main_screen_init();
+
 // --------- Drawing commands ------------------------------------------------
 /**
  * @brief Draws the provided string inside the driver's RAM.
@@ -33,6 +32,8 @@ void main_screen_draw_string(position pos, const char *str, const rgb fg,
  * @param rgb RGB colour to fill the rectangle with.
  */
 void main_screen_draw_rectangle(const window win, const rgb rgb);
+
+void ili9488_fill_screen(uint16_t color565);
 // --------- Utilitaries commands --------------------------------------------
 /**
  * @brief Packs a RGB colour stored in 3*8 bits in a uint16_t for the ST7796
