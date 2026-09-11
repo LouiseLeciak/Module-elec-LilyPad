@@ -26,7 +26,9 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 SRC_FIL	=	main \
 					ili9488 \
 					main_screen \
-					spi
+					spi \
+					GC9A01 \
+					dev_tools
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

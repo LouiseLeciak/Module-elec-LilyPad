@@ -1,15 +1,69 @@
-#include "ili9488.h"
+#include "GC9A01.h"
 #include "pinout.h"
 #include "spi.h"
-
+#include "state_machine.h"
+#include "dev_tools.h"
 #include <util/delay.h>
 
-int main(void) {
-  spi_master_init();
-  main_screen_init();
-  ili9488_init_driver();
+// void testPINS(void);
+void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
+
+t_state current_state = INIT;
+
+void main_screen_init() {
+  DDRH |= (MAIN_SCREEN_CS | MAIN_SCREEN_BL | MAIN_SCREEN_RST);
+  PORTH |= (MAIN_SCREEN_BL);
+}
+
+void sd_init() { DDRH |= (SD_CS); }
+
+void eyes_init() { 
+
+  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST); 
+  GC9A01_init(LEFT_EYE);
+  GC9A01_init(RIGHT_EYE);
+}
+
+void screens_init() {
+  DDRH |= (SCREENS_DC);
+  main_screen_init();
+  eyes_init();
+}
+
+void keyboard_init(void) {
+  DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+  DDRC |= (KB_R4);
+  DDRG |= (KB_C6);
+  DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+
+  PORTA &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+  PORTC &= ~(KB_R4);
+  PORTG &= ~(KB_C6);
+  PORTJ &= ~(KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+}
+
+void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
+
+void init(void) {
+
+    spi_master_init();
+    screens_init();
+    // spi_master_init
+    // sd_init();
+    // keyboard_init();
+}
+
+
+
+int main(void) {
+  init();
+
+  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
   while (1) {
     ;
+  
+   // testPINS();
   }
 }
