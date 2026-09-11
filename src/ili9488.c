@@ -1,161 +1,201 @@
 #include "ili9488.h"
 
-#include <stddef.h>
 #include <util/delay.h>
 
-#include "main_screen.h"
 #include "spi.h"
+
+static inline void dc_cmd(void) { DC_PORT &= ~(DC_PIN); }
+static inline void dc_data(void) { DC_PORT |= (DC_PIN); }
+static inline void cs_low(void) { CS_PORT &= ~(CS_PIN); }
+static inline void cs_high(void) { CS_PORT |= (CS_PIN); }
 
 // NOTE: Command functions have hardcoded arguments for now, will make it more
 // modular later. -Maddie
 
 void ili9488_positive_gamma_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)PGC);
-  MAIN_SCREEN_DC_DATA();
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)PGC);
+  dc_data();
   // The following arguments are the anchor values for the positive gamma scale
-  spi_master_transmit(0x00);
-  spi_master_transmit(0x03);
-  spi_master_transmit(0x09);
-  spi_master_transmit(0x08);
-  spi_master_transmit(0x16);
-  spi_master_transmit(0x0A);
-  spi_master_transmit(0x3F);
-  spi_master_transmit(0x78);
-  spi_master_transmit(0x4C);
-  spi_master_transmit(0x09);
-  spi_master_transmit(0x0A);
-  spi_master_transmit(0x08);
-  spi_master_transmit(0x16);
-  spi_master_transmit(0x1A);
-  spi_master_transmit(0x0F);
+  spi_txrx(0x00);
+  spi_txrx(0x03);
+  spi_txrx(0x09);
+  spi_txrx(0x08);
+  spi_txrx(0x16);
+  spi_txrx(0x0A);
+  spi_txrx(0x3F);
+  spi_txrx(0x78);
+  spi_txrx(0x4C);
+  spi_txrx(0x09);
+  spi_txrx(0x0A);
+  spi_txrx(0x08);
+  spi_txrx(0x16);
+  spi_txrx(0x1A);
+  spi_txrx(0x0F);
+  cs_high();
 }
 
 void ili9488_negative_gamma_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)NGC);
-  spi_master_transmit(0x00);
-  spi_master_transmit(0x16);
-  spi_master_transmit(0x19);
-  spi_master_transmit(0x03);
-  spi_master_transmit(0x0F);
-  spi_master_transmit(0x05);
-  spi_master_transmit(0x32);
-  spi_master_transmit(0x45);
-  spi_master_transmit(0x46);
-  spi_master_transmit(0x04);
-  spi_master_transmit(0x0E);
-  spi_master_transmit(0x0D);
-  spi_master_transmit(0x35);
-  spi_master_transmit(0x37);
-  spi_master_transmit(0x0F);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)NGC);
+  dc_data();
+  spi_txrx(0x00);
+  spi_txrx(0x16);
+  spi_txrx(0x19);
+  spi_txrx(0x03);
+  spi_txrx(0x0F);
+  spi_txrx(0x05);
+  spi_txrx(0x32);
+  spi_txrx(0x45);
+  spi_txrx(0x46);
+  spi_txrx(0x04);
+  spi_txrx(0x0E);
+  spi_txrx(0x0D);
+  spi_txrx(0x35);
+  spi_txrx(0x37);
+  spi_txrx(0x0F);
+  cs_high();
 }
 
 void ili9488_power_control_1() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)PWR1);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x17);
-  spi_master_transmit(0x15);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)PWR1);
+  dc_data();
+  spi_txrx(0x17);
+  spi_txrx(0x15);
+  cs_high();
 }
 
 void ili9488_power_control_2() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)PWR2);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x41);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)PWR2);
+  dc_data();
+  spi_txrx(0x41);
+  cs_high();
 }
 
 void ili9488_vcom_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)VCMPCTL);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x00);
-  spi_master_transmit(0x12);
-  spi_master_transmit(0x80);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)VCMPCTL);
+  dc_data();
+  spi_txrx(0x00);
+  spi_txrx(0x12);
+  spi_txrx(0x80);
+  cs_high();
 }
 
 void ili9488_memory_access_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit(MADCTL);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x48); // Might make display inverted
+  cs_low();
+  dc_cmd();
+  spi_txrx(MADCTL);
+  dc_data();
+  spi_txrx(0x48); // Might make display inverted
+  cs_high();
 }
 
 void ili9488_interface_pixel_format() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit(COLMOD);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x66);
+  cs_low();
+  dc_cmd();
+  spi_txrx(COLMOD);
+  dc_data();
+  spi_txrx(0x66);
+  cs_high();
 }
 
 void ili9488_interface_mode_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)IFMODE);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x00);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)IFMODE);
+  dc_data();
+  spi_txrx(0x00);
+  cs_high();
 }
 
 void ili9488_frame_rate_control_normal() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)FRMCTR1);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0xA0);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)FRMCTR1);
+  dc_data();
+  spi_txrx(0xA0);
+  cs_high();
 }
 
 void il9488_display_inversion_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)INVTR);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x02);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)INVTR);
+  dc_data();
+  spi_txrx(0x02);
+  cs_high();
 }
 
 void ili9488_display_function_control() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)DFC);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0x02);
-  spi_master_transmit(0x02);
-  spi_master_transmit(0x3B);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)DFC);
+  dc_data();
+  spi_txrx(0x02);
+  spi_txrx(0x02);
+  spi_txrx(0x3B);
+  cs_high();
 }
 
 void ili9488_entry_mode_set() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)EM);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0xC6);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)EM);
+  dc_data();
+  spi_txrx(0xC6);
+  cs_high();
 }
 
 void ili9488_adjust_control_3() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit((char)ADJC3);
-  MAIN_SCREEN_DC_DATA();
-  spi_master_transmit(0xA9);
-  spi_master_transmit(0x51);
-  spi_master_transmit(0x2C);
-  spi_master_transmit(0x82);
+  cs_low();
+  dc_cmd();
+  spi_txrx((char)ADJC3);
+  dc_data();
+  spi_txrx(0xA9);
+  spi_txrx(0x51);
+  spi_txrx(0x2C);
+  spi_txrx(0x82);
+  cs_high();
 }
 
 void ili9488_sleep_out() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit(SLPOUT);
+  cs_low();
+  dc_cmd();
+  spi_txrx(SLPOUT);
   _delay_ms(120);
+  cs_high();
 }
 
 void ili9488_display_on() {
-  MAIN_SCREEN_DC_COMMAND();
-  spi_master_transmit(DISPON);
+  cs_low();
+  dc_cmd();
+  spi_txrx(DISPON);
   _delay_ms(50);
+  cs_high();
 }
 
+void ili9488_reset(void) {
+  RST_PORT |= MAIN_SCREEN_RST;
+  _delay_ms(5);
+  RST_PORT &= ~(MAIN_SCREEN_RST);
+  _delay_ms(20);
+  RST_PORT |= MAIN_SCREEN_RST;
+  _delay_ms(150); // wait out internal reset per most datasheets
+}
+
+// Initialisation sequence from
+// https://github.com/Bodmer/TFT_eSPI/blob/master/TFT_Drivers/ILI9488_Init.h
 void ili9488_init_driver() {
-  MAIN_SCREEN_RST_LOW();
-  _delay_ms(100);
-  MAIN_SCREEN_RST_HIGH();
-  _delay_ms(120);
-  main_screen_swreset();
   ili9488_positive_gamma_control();
-  ili9488_negative_gamma_control(); // Blanks the screen.
+  ili9488_negative_gamma_control();
   ili9488_power_control_1();
   ili9488_power_control_2();
   ili9488_vcom_control();
@@ -169,26 +209,4 @@ void ili9488_init_driver() {
   ili9488_adjust_control_3();
   ili9488_sleep_out();
   ili9488_display_on();
-}
-
-void main_screen_init(void) {
-  MAIN_SCREEN_RST_LOW();
-  _delay_ms(100);
-  MAIN_SCREEN_RST_HIGH();
-  _delay_ms(120);
-  main_screen_swreset();
-  _delay_ms(5);
-  main_screen_slpout();
-  _delay_ms(5);
-  main_screen_madctl(0x48); // Not really elegant for now*.
-  main_screen_colmod(CI_16B);
-  main_screen_dispon();
-
-  // *: The only bits that are different from its standard value are bit 3 and
-  // bit 7.
-  // Bit 3: Set to 1 so as to send the data in BGR as the LCD panel we
-  // have (HSD-9190J-B3) seems to be wired with Red and Blue inverted.
-  // Bit 7:
-  // Set to 1 so as to have coorinate 0 be left-hand side of the screen instead
-  // of right-hand side.
 }
