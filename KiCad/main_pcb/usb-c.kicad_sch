@@ -4080,7 +4080,7 @@
 				)
 			)
 		)
-		(property "Value" "330Ω"
+		(property "Value" "10kΩ"
 			(at 126.746 61.976 90)
 			(effects
 				(font
@@ -4715,7 +4715,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14663"
+		(property "LCSC" "C19702"
 			(at 160.02 59.69 0)
 			(effects
 				(font
