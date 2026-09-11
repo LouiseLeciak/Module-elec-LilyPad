@@ -1,5 +1,6 @@
 #include "main_screen.h"
 
+#include <avr/io.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <util/delay.h>
@@ -18,6 +19,7 @@
 // level. (apetitco)
 
 // --- HIGH LEVEL COMMANDS -----------------------------------------------------
+<<<<<<< HEAD
 
 // ------ Drawing commands ------------------------------------------------
 void main_screen_draw_pixel(const position pos, const rgb rgb) {
@@ -42,6 +44,53 @@ void main_screen_draw_rectangle(const window win, const rgb rgb) {
     spi_master_transmit(rgb._blue & 0xFC);
   }
 }
+=======
+// ------ Setup commands -------------------------------------------------------
+void main_screen_init(void) {
+  PORTH &= ~(MAIN_SCREEN_RST);
+  _delay_ms(100);
+  PORTH |= MAIN_SCREEN_RST;
+  _delay_ms(100);
+  main_screen_swreset();
+  _delay_ms(5);
+  main_screen_slpout();
+  _delay_ms(5);
+  main_screen_madctl(0x48); // Not really elegant for now*.
+  main_screen_colmod(CI_16B);
+  main_screen_dispon();
+
+  // *: The only bits that are different from its standard value are bit 3 and
+  // bit 7.
+  // Bit 3: Set to 1 so as to send the data in BGR as the LCD panel we
+  // have (HSD-9190J-B3) seems to be wired with Red and Blue inverted.
+  // Bit 7:
+  // Set to 1 so as to have coorinate 0 be left-hand side of the screen instead
+  // of right-hand side.
+}
+
+// ------ Drawing commands ------------------------------------------------
+// void main_screen_draw_pixel(const position pos, const rgb rgb) {
+//   window win = {{pos._pos_x, pos._pos_y}, {pos._pos_x + 1, pos._pos_y + 1}};
+//   main_screen_set_window(win);
+//   main_screen_ramwr();
+//   MAIN_SCREEN_DC_DATA();
+//   spi_master_transmit(pack_rgb565(rgb));
+// }
+//
+// void main_screen_draw_rectangle(const window win, const rgb rgb) {
+//   uint16_t color = pack_rgb565(rgb);
+//
+//   main_screen_set_window(win);
+//   main_screen_ramwr();
+//   MAIN_SCREEN_DC_DATA();
+//   for (uint32_t i = 0; i < (win._end._pos_x - win._start._pos_x + 1) *
+//                                (win._end._pos_y - win._start._pos_y + 1);
+//        i++) {
+//     spi_master_transmit(color >> 8);
+//     spi_master_transmit(color & 0xFF);
+//   }
+// }
+>>>>>>> 16db5fa (feat(screens): Makes TFT01 screen work.)
 
 // ------ Utilitaries commands --------------------------------------------
 // NOTE: Interesting bit on 16-bit pixel SPI transmission at MAIN_SCREEN's
