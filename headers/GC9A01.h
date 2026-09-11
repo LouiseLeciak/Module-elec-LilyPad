@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/10 14:48:45 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/11 11:42:17 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,14 @@
     #define RST_LOW()  PORTE &= ~EYES_RST
     #define RST_HIGH() PORTE |= EYES_RST
     
-    
-    
-    
     // --- FONT LCD SIZE 240 x 320 - 3,2 TFT GC9A01
     
-    #define MAX_PIXEL_WIDTH 240
-    #define MAX_PIXEL_HIGH 240
+    #define GC9A01_WIDTH   240
+    #define GC9A01_HEIGHT  240
     
+    // --- EYES
     #define LEFT_EYE 1
     #define RIGHT_EYE 9
-    
-    
-
     
     // ─── Colors (RGB-565) ───────────────────────────────────<──────────────────────
     #define GC9A01A_COLOR_BLACK    0x0000
@@ -66,11 +61,15 @@
     
     typedef unsigned char uint8_t;      // needed because not using stdlib
     typedef unsigned int uint16_t;      // needed because not using stdlib
+    typedef unsigned long uint32_t;     // needed because not using stdlib
+
     typedef uint8_t bool;
     
     void GC9A01_init(uint8_t screen);
     void GC9A01_cmd(uint8_t cmd, uint8_t screen);
     void GC9A01_data(uint8_t data, uint8_t screen);
-
-
+    void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t screen);
+    void GC9A01_fillScreen(uint16_t color, uint8_t screen);
+    void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen);
+    
 #endif

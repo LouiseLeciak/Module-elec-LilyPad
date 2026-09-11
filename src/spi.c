@@ -8,8 +8,7 @@
 // system interprets this as another master selecting the SPI as a slave
 void spi_master_init(void) {
   // Sets MOSI and SCK output, the rest is input (p.172)
-  DDRB |= (MOSI | SCK);
-
+  DDRB |= (CS |  MOSI | SCK);
   // Enables SPI, Master, set clock rate fck/16
   SPCR = ((1 << SPE) | (1 << MSTR) | (1 << SPR0));
   // SPSR = 0x00;
