@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/12 08:56:58 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 09:26:36 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@
     void GC9A01_data(uint8_t data, uint8_t screen);
     void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1, uint8_t screen);
     void GC9A01_fillScreen(uint16_t color, uint8_t screen);
-    void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen);
+    void GC9A01_pushColor(uint16_t color, uint16_t count, uint8_t screen);
 
 
 
@@ -79,7 +79,7 @@
     // functions that send to both eyes
     
     void GC9A01_fillScreen_eyes(uint16_t color);
-    void GC9A01_pushColor_eyes(uint16_t color, uint32_t count);
+    void GC9A01_pushColor_eyes(uint16_t color, uint16_t count);
     void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
     void GC9A01_data_eyes(uint8_t data);
     void GC9A01_cmd_eyes(uint8_t cmd);

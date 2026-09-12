@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/12 08:57:23 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 09:35:47 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,11 +301,11 @@ void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
 void GC9A01_fillScreen(uint16_t color, uint8_t screen) {
 
   GC9A01_setAddrWindow(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1, screen);
-  GC9A01_pushColor(color, (uint32_t)GC9A01_WIDTH * GC9A01_HEIGHT, screen);
+  GC9A01_pushColor(color,FULLSCREEN, screen);
 }
 
 // pixel push
-void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
+void GC9A01_pushColor(uint16_t color, uint16_t count, uint8_t screen) {
   uint8_t hi = color >> 8;
   uint8_t lo = color & 0xFF;
 
@@ -323,8 +323,6 @@ void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
     DC_HIGH();
 
     CS_RIGHT_EYE_LOW();
-    CS_LEFT_EYE_HIGH();
-    _delay_ms(150);
     while (count--) {
       spi_txrx(hi);
       spi_txrx(lo);
@@ -369,8 +367,10 @@ void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
 }
 
 
+
+
 // pixel push
-void GC9A01_pushColor_eyes(uint16_t color, uint32_t count) {
+void GC9A01_pushColor_eyes(uint16_t color, uint16_t count) {
   
   uint8_t hi = color >> 8;
   uint8_t lo = color & 0xFF;
