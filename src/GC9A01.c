@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/12 13:09:04 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 15:09:23 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void GC9A01_init(uint8_t screen) {
   // Pixel Format: 16-bit RGB565
   GC9A01_cmd(0x3A, screen);
   GC9A01_data(0x05, screen);
+
 
   // VREG / Power Setup
   GC9A01_cmd(0x90, screen);
