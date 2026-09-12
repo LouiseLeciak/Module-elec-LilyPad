@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/11 11:53:22 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 15:09:23 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "spi.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/pgmspace.h>  //memory 
 
 void GC9A01_init(uint8_t screen) {
   // 1. Hardware Reset
@@ -75,6 +76,7 @@ void GC9A01_init(uint8_t screen) {
   // Pixel Format: 16-bit RGB565
   GC9A01_cmd(0x3A, screen);
   GC9A01_data(0x05, screen);
+
 
   // VREG / Power Setup
   GC9A01_cmd(0x90, screen);
@@ -301,11 +303,11 @@ void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
 void GC9A01_fillScreen(uint16_t color, uint8_t screen) {
 
   GC9A01_setAddrWindow(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1, screen);
-  GC9A01_pushColor(color, (uint32_t)GC9A01_WIDTH * GC9A01_HEIGHT, screen);
+  GC9A01_pushColor(color,FULLSCREEN, screen);
 }
 
 // pixel push
-void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
+void GC9A01_pushColor(uint16_t color, uint16_t count, uint8_t screen) {
   uint8_t hi = color >> 8;
   uint8_t lo = color & 0xFF;
 
@@ -323,8 +325,6 @@ void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
     DC_HIGH();
 
     CS_RIGHT_EYE_LOW();
-    CS_LEFT_EYE_HIGH();
-    _delay_ms(150);
     while (count--) {
       spi_txrx(hi);
       spi_txrx(lo);
@@ -333,3 +333,105 @@ void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
     return;
   }
 }
+
+
+/// Alls Eyes together functions
+
+void GC9A01_cmd_eyes(uint8_t cmd) {
+  DC_LOW();
+  spi_txrx(cmd);
+  return;
+}
+
+
+void GC9A01_data_eyes(uint8_t data) {
+  DC_HIGH();
+  spi_txrx(data);
+  return;
+}
+
+
+void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
+  
+  GC9A01_cmd_eyes(0x2A);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(x0);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(x1);
+
+  GC9A01_cmd_eyes(0x2B);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(y0);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(y1);
+  // Memory Write (start RAM write)
+  GC9A01_cmd_eyes(0x2C);
+}
+
+
+
+
+// pixel push
+void GC9A01_pushColor_eyes(uint16_t color, uint16_t count) {
+  
+  uint8_t hi = color >> 8;
+  uint8_t lo = color & 0xFF;
+  
+  DC_HIGH();
+  while (count--) {
+    spi_txrx(hi);
+    spi_txrx(lo);
+  }
+  return;
+}
+
+
+void GC9A01_fillScreen_eyes(uint16_t color) {
+
+  CS_LEFT_EYE_LOW();
+  CS_RIGHT_EYE_LOW();
+
+  GC9A01_setAddrWindow_eyes(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1);
+  GC9A01_pushColor_eyes(color, FULLSCREEN);
+  
+  CS_LEFT_EYE_HIGH();
+  CS_RIGHT_EYE_HIGH();
+}
+
+
+
+
+
+// Helper function of GC9A01_drawEye_img()
+// Sends the color to be drawn
+
+void draw_pixel(uint16_t color) {
+    spi_txrx(color >> 8);
+    spi_txrx(color & 0xFF);
+}
+
+
+void GC9A01_drawImg_eyes(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg) {
+    uint16_t newfg;
+    DC_HIGH();
+    CS_LEFT_EYE_LOW();
+    CS_RIGHT_EYE_LOW();
+    for (int line = 0; line < maxNbrLines; line++) {
+        for (int byte = 0; byte < hSizeBytes; byte++) {
+            uint8_t b = pgm_read_byte(&file[((maxNbrLines - 1) - line) * hSizeBytes + byte]); // read rows bottom-up
+            for (int bit = 0; bit < 8; bit++) {
+                uint8_t pixel = (b >> bit) & 1;
+                if (b == 0x00)
+                    newfg = fg;
+                else
+                    newfg = GC9A01A_COLOR_YELLOW;
+                draw_pixel(pixel ? bg : newfg);
+            }
+        }
+    }
+    CS_LEFT_EYE_HIGH();
+    CS_RIGHT_EYE_HIGH();
+}
+
+
+

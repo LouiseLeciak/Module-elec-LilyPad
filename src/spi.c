@@ -11,7 +11,9 @@ void spi_master_init(void) {
   DDRB |= (CS | MOSI | SCK);
   // Enables SPI, Master, set clock rate fck/16
   SPCR = ((1 << SPE) | (1 << MSTR) | (1 << SPR0));
-  // SPSR = 0x00;
+  // double speed -> /2 = 8 MHz effective - speeds up the display time
+  SPSR = (1 << SPI2X);
+
 }
 
 uint8_t spi_txrx(uint8_t data) {
