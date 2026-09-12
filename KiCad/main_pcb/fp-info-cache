@@ -1,4 +1,4 @@
-27285865134061487
+27284076095496118
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71812,13 +71812,6 @@ ATmega2560-16AU
 0
 100
 100
-Lilibrary
-CH340C
-
-
-0
-16
-16
 Lilibrary
 Capacitor_0603
 
