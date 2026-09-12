@@ -6976,7 +6976,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "37cd4747-b8d6-4bcf-a107-f1e9df829d4e")
-		(property "Reference" "D1"
+		(property "Reference" "D4"
 			(at 176.53 110.1724 90)
 			(effects
 				(font
@@ -7066,7 +7066,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "D1")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -7082,7 +7082,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a10cf2c-65eb-4d3a-836c-bdcbd857a70d")
-		(property "Reference" "R2"
+		(property "Reference" "R5"
 			(at 182.88 119.3799 0)
 			(effects
 				(font
@@ -7091,7 +7091,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 182.88 121.9199 0)
 			(effects
 				(font
@@ -7163,7 +7163,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "R2")
+					(reference "R5")
 					(unit 1)
 				)
 			)
@@ -7276,7 +7276,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3ddc531b-57c8-4749-979e-27c64a647f6d")
-		(property "Reference" "D3"
+		(property "Reference" "D1"
 			(at 260.6675 139.7 0)
 			(effects
 				(font
@@ -7364,7 +7364,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "D3")
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -7540,7 +7540,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4fe8c009-5d9b-46fd-a996-87c52259e00e")
-		(property "Reference" "U1"
+		(property "Reference" "U4"
 			(at 107.5533 171.45 0)
 			(effects
 				(font
@@ -7916,7 +7916,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "U1")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -8133,7 +8133,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "70e3d0c1-2df7-47f5-9b0e-67d4f4e71f2a")
-		(property "Reference" "R3"
+		(property "Reference" "R6"
 			(at 182.88 129.5399 0)
 			(effects
 				(font
@@ -8142,7 +8142,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 182.88 132.0799 0)
 			(effects
 				(font
@@ -8214,7 +8214,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "R3")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -8297,7 +8297,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "79ac7b29-5e17-4723-8b7f-5058b8e80a8b")
-		(property "Reference" "R1"
+		(property "Reference" "R3"
 			(at 74.93 25.3999 0)
 			(effects
 				(font
@@ -8378,7 +8378,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "R1")
+					(reference "R3")
 					(unit 1)
 				)
 			)
@@ -8394,7 +8394,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7ac363c3-70ae-4eec-abb7-d7e6fbe1377c")
-		(property "Reference" "U7"
+		(property "Reference" "U6"
 			(at 233.68 62.3569 0)
 			(effects
 				(font
@@ -8520,7 +8520,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "U7")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -8536,7 +8536,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "81417e60-ed3b-4672-bac5-ae6681582814")
-		(property "Reference" "R5"
+		(property "Reference" "R4"
 			(at 251.46 151.13 90)
 			(effects
 				(font
@@ -8544,7 +8544,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 251.46 153.67 90)
 			(effects
 				(font
@@ -8615,7 +8615,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "R5")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -8764,7 +8764,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b098c4c8-bcec-4dea-bb2f-578a53291664")
-		(property "Reference" "C1"
+		(property "Reference" "C14"
 			(at 80.01 53.34 90)
 			(effects
 				(font
@@ -8843,7 +8843,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "C1")
+					(reference "C14")
 					(unit 1)
 				)
 			)
@@ -8859,7 +8859,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b529b6df-ccc1-4b42-8223-a20b636e131b")
-		(property "Reference" "J1"
+		(property "Reference" "J4"
 			(at 158.75 40.64 90)
 			(effects
 				(font
@@ -8950,7 +8950,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "J1")
+					(reference "J4")
 					(unit 1)
 				)
 			)
@@ -8966,7 +8966,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b5b2835d-57ce-486b-8ce3-e570d009627c")
-		(property "Reference" "R4"
+		(property "Reference" "R2"
 			(at 251.46 140.97 90)
 			(effects
 				(font
@@ -8974,7 +8974,7 @@
 				)
 			)
 		)
-		(property "Value" "10kΩ"
+		(property "Value" "330Ω"
 			(at 251.46 143.51 90)
 			(effects
 				(font
@@ -9045,7 +9045,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "R4")
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -9329,7 +9329,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c91fadb6-e2b3-4435-af84-228141426097")
-		(property "Reference" "C2"
+		(property "Reference" "C13"
 			(at 115.57 13.97 90)
 			(effects
 				(font
@@ -9408,7 +9408,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "C2")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -9518,7 +9518,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d406b839-25cb-4d95-a37a-f6ac872de7bd")
-		(property "Reference" "D2"
+		(property "Reference" "D3"
 			(at 184.15 138.7474 90)
 			(effects
 				(font
@@ -9608,7 +9608,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "D2")
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -9691,7 +9691,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eb11dde0-65ed-418f-86a6-b4ee6637a800")
-		(property "Reference" "D4"
+		(property "Reference" "D2"
 			(at 260.6675 149.86 0)
 			(effects
 				(font
@@ -9779,7 +9779,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "D4")
+					(reference "D2")
 					(unit 1)
 				)
 			)

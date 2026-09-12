@@ -464,7 +464,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "Lilibrary"
+    ],
     "pinned_symbol_libs": [
       "Lilybrary"
     ]

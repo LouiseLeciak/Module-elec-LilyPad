@@ -690,7 +690,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "03fcf1a0-8f25-4bef-80be-c6191f41f8bd")
-		(property "Reference" "C3"
+		(property "Reference" "C12"
 			(at 103.124 92.964 0)
 			(effects
 				(font
@@ -771,7 +771,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/4c1a0284-1742-4ed4-9190-6f37324df6a7"
-					(reference "C3")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -786,7 +786,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2729f627-2f72-4a6a-b409-d414b056afe5")
-		(property "Reference" "C4"
+		(property "Reference" "C11"
 			(at 132.334 92.964 0)
 			(effects
 				(font
@@ -867,7 +867,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/4c1a0284-1742-4ed4-9190-6f37324df6a7"
-					(reference "C4")
+					(reference "C11")
 					(unit 1)
 				)
 			)
@@ -985,26 +985,6 @@
 		)
 		(property "Description" "Four pin crystal, GND on pins 2 and 4"
 			(at 120.65 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property private "KLC_S3.3" "The rectangle is not a symbol body but a graphical element"
-			(at 120.65 101.6 0)
-			(show_name yes)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property private "KLC_S4.1" "Some pins are on 50mil grid to make the symbol small"
-			(at 120.65 104.14 0)
-			(show_name yes)
 			(effects
 				(font
 					(size 1.27 1.27)

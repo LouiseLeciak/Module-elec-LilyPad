@@ -3937,7 +3937,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "05fe61cc-3c9a-4f59-b522-0e9e8c1e4790")
-		(property "Reference" "C5"
+		(property "Reference" "C4"
 			(at 54.61 107.9499 0)
 			(effects
 				(font
@@ -4018,7 +4018,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C5")
+					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -4233,7 +4233,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1561cb5e-139f-49da-a9af-babedd6402af")
-		(property "Reference" "C9"
+		(property "Reference" "C8"
 			(at 130.81 68.58 90)
 			(effects
 				(font
@@ -4312,7 +4312,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C9")
+					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -4395,7 +4395,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1dd52367-59dc-4410-bde7-0edc3278767d")
-		(property "Reference" "U4"
+		(property "Reference" "U1"
 			(at 240.03 110.4198 90)
 			(effects
 				(font
@@ -4411,7 +4411,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
 			(at 237.49 116.84 0)
 			(effects
 				(font
@@ -4510,7 +4510,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "U4")
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -4659,7 +4659,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "29e8beab-a5fa-47ac-beeb-7ef6075d49f2")
-		(property "Reference" "R6"
+		(property "Reference" "R1"
 			(at 165.1 97.79 90)
 			(effects
 				(font
@@ -4738,7 +4738,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "R6")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -4820,7 +4820,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3885a1b9-415a-4245-8fab-478d19e18068")
-		(property "Reference" "C11"
+		(property "Reference" "C3"
 			(at 186.69 107.9499 0)
 			(effects
 				(font
@@ -4901,7 +4901,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C11")
+					(reference "C3")
 					(unit 1)
 				)
 			)
@@ -5011,7 +5011,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3d31c888-3585-4c6d-81c2-7dce31464014")
-		(property "Reference" "C7"
+		(property "Reference" "C9"
 			(at 116.84 107.9499 0)
 			(effects
 				(font
@@ -5092,7 +5092,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C7")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -5108,7 +5108,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "48ac8b24-caca-4757-acc1-6d062ce16c7e")
-		(property "Reference" "C6"
+		(property "Reference" "C5"
 			(at 62.23 123.1899 0)
 			(effects
 				(font
@@ -5189,7 +5189,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C6")
+					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -5205,7 +5205,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "494d6014-dc21-40e7-a166-067f1c7eae6d")
-		(property "Reference" "J4"
+		(property "Reference" "J1"
 			(at 189.23 46.99 90)
 			(effects
 				(font
@@ -5299,7 +5299,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "J4")
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -5382,7 +5382,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "581afe5b-47cb-44ea-ab1d-318df3712870")
-		(property "Reference" "C10"
+		(property "Reference" "C1"
 			(at 176.53 68.58 90)
 			(effects
 				(font
@@ -5461,7 +5461,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C10")
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -5637,7 +5637,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5dc94896-b2bc-4bad-91ab-b9eae5103957")
-		(property "Reference" "J5"
+		(property "Reference" "J2"
 			(at 222.25 46.99 90)
 			(effects
 				(font
@@ -5731,7 +5731,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "J5")
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -6252,7 +6252,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
 			(at 105.41 116.84 0)
 			(effects
 				(font
@@ -6433,7 +6433,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ae914d7f-ff1f-4b7a-9fa8-e46deffe93d7")
-		(property "Reference" "C12"
+		(property "Reference" "C2"
 			(at 194.31 123.1899 0)
 			(effects
 				(font
@@ -6514,7 +6514,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C12")
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -6530,7 +6530,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af0a07da-1ca0-4828-8769-8e341b27302a")
-		(property "Reference" "C8"
+		(property "Reference" "C10"
 			(at 124.46 123.1899 0)
 			(effects
 				(font
@@ -6611,7 +6611,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C8")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -6759,7 +6759,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c79b41c1-dcab-4b24-9021-42c3082bdbc7")
-		(property "Reference" "C13"
+		(property "Reference" "C6"
 			(at 209.55 55.88 90)
 			(effects
 				(font
@@ -6838,7 +6838,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/b75c720d-c507-4908-ace0-f9d76db017d1"
-					(reference "C13")
+					(reference "C6")
 					(unit 1)
 				)
 			)
@@ -6871,7 +6871,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
+		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
 			(at 167.64 116.84 0)
 			(effects
 				(font

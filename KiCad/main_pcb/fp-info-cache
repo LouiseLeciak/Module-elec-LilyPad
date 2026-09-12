@@ -1,4 +1,4 @@
-27447101385061977
+27285865134061487
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71806,13 +71806,6 @@ Yellow 5381 Series LED
 2
 2
 Lilibrary
-AMS1117-3V3
-
-
-0
-4
-4
-Lilibrary
 ATmega2560-16AU
 
 
@@ -71918,6 +71911,27 @@ Resistor_0603
 2
 2
 Lilibrary
+SOIC-14_TXB0104DR
+
+
+0
+14
+14
+Lilibrary
+SOP-16_CH340C
+
+
+0
+16
+16
+Lilibrary
+SOT-223-3_TabPin2_AMS1117
+
+
+0
+4
+3
+Lilibrary
 Switch_Push_Button_12mm
 
 
@@ -71925,26 +71939,12 @@ Switch_Push_Button_12mm
 4
 2
 Lilibrary
-TXB0104D
-
-
-0
-14
-14
-Lilibrary
-USB-C
-
-
-0
-16
-16
-Lilibrary
 USB-C (Home-brew)
 
 
 0
-12
-12
+16
+16
 Lilibrary
 led
 
