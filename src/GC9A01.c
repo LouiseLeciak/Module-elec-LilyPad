@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/12 12:33:53 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 13:09:04 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "spi.h"
 #include <avr/io.h>
 #include <util/delay.h>
+#include <avr/pgmspace.h>  //memory 
 
 void GC9A01_init(uint8_t screen) {
   // 1. Hardware Reset
@@ -395,3 +396,41 @@ void GC9A01_fillScreen_eyes(uint16_t color) {
   CS_LEFT_EYE_HIGH();
   CS_RIGHT_EYE_HIGH();
 }
+
+
+
+
+
+// Helper function of GC9A01_drawEye_img()
+// Sends the color to be drawn
+
+void draw_pixel(uint16_t color) {
+    spi_txrx(color >> 8);
+    spi_txrx(color & 0xFF);
+}
+
+
+void GC9A01_drawImg_eyes(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg) {
+    uint16_t newfg;
+    DC_HIGH();
+    CS_LEFT_EYE_LOW();
+    CS_RIGHT_EYE_LOW();
+    for (int line = 0; line < maxNbrLines; line++) {
+        for (int byte = 0; byte < hSizeBytes; byte++) {
+            uint8_t b = pgm_read_byte(&file[((maxNbrLines - 1) - line) * hSizeBytes + byte]); // read rows bottom-up
+            for (int bit = 0; bit < 8; bit++) {
+                uint8_t pixel = (b >> bit) & 1;
+                if (b == 0x00)
+                    newfg = fg;
+                else
+                    newfg = GC9A01A_COLOR_YELLOW;
+                draw_pixel(pixel ? bg : newfg);
+            }
+        }
+    }
+    CS_LEFT_EYE_HIGH();
+    CS_RIGHT_EYE_HIGH();
+}
+
+
+

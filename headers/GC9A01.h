@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/12 12:37:32 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 13:06:52 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
    // ─── Images for eyes stored here ──────────────────────────────────────────
     
-    #include "eye_imgs.h"
 
     // ─── Pin macros ──────────────────────────────────────────────────────────
     
@@ -87,5 +86,8 @@
     void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1);
     void GC9A01_data_eyes(uint8_t data);
     void GC9A01_cmd_eyes(uint8_t cmd);
+    void draw_pixel(uint16_t color);
+    void GC9A01_drawImg_eyes(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg);
+
     
 #endif
