@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/11 11:53:22 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/12 08:57:23 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,4 +332,66 @@ void GC9A01_pushColor(uint16_t color, uint32_t count, uint8_t screen) {
     CS_RIGHT_EYE_HIGH();
     return;
   }
+}
+
+
+/// Alls Eyes together functions
+
+void GC9A01_cmd_eyes(uint8_t cmd) {
+  DC_LOW();
+  spi_txrx(cmd);
+  return;
+}
+
+
+void GC9A01_data_eyes(uint8_t data) {
+  DC_HIGH();
+  spi_txrx(data);
+  return;
+}
+
+
+void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1) {
+  
+  GC9A01_cmd_eyes(0x2A);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(x0);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(x1);
+
+  GC9A01_cmd_eyes(0x2B);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(y0);
+  GC9A01_data_eyes(0x00);
+  GC9A01_data_eyes(y1);
+  // Memory Write (start RAM write)
+  GC9A01_cmd_eyes(0x2C);
+}
+
+
+// pixel push
+void GC9A01_pushColor_eyes(uint16_t color, uint32_t count) {
+  
+  uint8_t hi = color >> 8;
+  uint8_t lo = color & 0xFF;
+  
+  DC_HIGH();
+  while (count--) {
+    spi_txrx(hi);
+    spi_txrx(lo);
+  }
+  return;
+}
+
+
+void GC9A01_fillScreen_eyes(uint16_t color) {
+
+  CS_LEFT_EYE_LOW();
+  CS_RIGHT_EYE_LOW();
+
+  GC9A01_setAddrWindow_eyes(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1);
+  GC9A01_pushColor_eyes(color, FULLSCREEN);
+  
+  CS_LEFT_EYE_HIGH();
+  CS_RIGHT_EYE_HIGH();
 }

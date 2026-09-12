@@ -54,8 +54,9 @@ void init(void) {
 int main(void) {
   init();
 
-  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
-  GC9A01_fillScreen(GC9A01A_COLOR_GREEN, LEFT_EYE);
+  // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   ili9488_fill_screen(0xF800);
   while (1) {
     ;
