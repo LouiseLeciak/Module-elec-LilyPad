@@ -535,7 +535,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "gerber_files/",
+      "plot": "../../../../../../Pictures/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
