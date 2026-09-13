@@ -6,14 +6,14 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:56 by nige42            #+#    #+#             */
-/*   Updated: 2026/09/13 09:46:42 by nige42           ###   ########.fr       */
+/*   Updated: 2026/09/13 09:59:54 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GC9A01_H
  #define GC9A01_H
 
-    // ─── GC09A01 Pin macros ─────────────────────────────────────────────────────────
+    // ─── GC09A01 Pin control macros ─────────────────────────────────────────────────────────
     
     
     #define CS_LEFT_EYE_LOW()   PORTE &= ~LEFT_EYE_CS
@@ -145,10 +145,23 @@
     /// @param bg background color to use for "on" bits
     void GC9A01_drawImg_eyes(const uint8_t *file, uint8_t maxNbrLines, uint8_t hSizeBytes, uint16_t fg, uint16_t bg);
 
-    
+    /// @brief draws a rectrangle number of pixel in a color
+    /// @param pixels Number of pixels to be written to ex: 48000 is about 80% of the screen
+    /// @param color Color to be drawn to screen format RGB-565
     void GC9A01_draw_eye_Lids(uint16_t pixels, uint16_t color);
+
+    /// @brief Sets the direction of the drawing to start bottom to the top
+    /// @param void
     void GC9A01_eye_Lids_up(void);
+
+
+    /// @brief Sets the direction of the drawing to start top to the bottom
+    /// @param void
     void GC9A01_eye_Lids_down(void);
+    
+    /// @brief Makes the eyes blink, eye lid up,adding image eye from file
+    /// @param file pointer to the bitmap data in flash/PROGMEM (1 bit per pixel, packed into bytes)
+    /// @param nbr  Number of it repeats the action
     void GC9A01_blink(const uint8_t *file, int nbr);
 
 
