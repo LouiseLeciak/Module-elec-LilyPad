@@ -128,5 +128,5 @@
 	(layer outer)
 #	(condition "(A.Type == 'Pad' || A.Type == 'Via') && (B.Type == 'Pad' || B.Type == 'Via') && A.Net != B.Net")	
 	(condition "A.isPlated() && B.isPlated() && A.Net != B.Net")
-	(constraint clearance (min 0.127mm))
+	(constraint clearance (min 0.1mm))
 )

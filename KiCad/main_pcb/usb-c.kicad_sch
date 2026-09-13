@@ -2591,7 +2591,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 176.53 132.3848 0)
 			(effects
 				(font
@@ -2688,7 +2688,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 211.7852 72.39 0)
 			(effects
 				(font
@@ -2917,7 +2917,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 149.5552 63.5 0)
 			(effects
 				(font
@@ -3014,7 +3014,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:LED_0603"
 			(at 124.46 54.61 0)
 			(effects
 				(font
@@ -3555,7 +3555,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 167.64 108.2548 0)
 			(effects
 				(font
@@ -3650,7 +3650,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Lilibrary:USB-C (Home-brew)"
+		(property "Footprint" "Lilibrary:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
 			(at 116.84 106.68 0)
 			(effects
 				(font
@@ -3794,7 +3794,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 167.64 98.0948 0)
 			(effects
 				(font
@@ -3955,7 +3955,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 126.238 64.77 90)
 			(effects
 				(font
@@ -4117,7 +4117,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 180.0352 72.39 0)
 			(effects
 				(font
@@ -4211,7 +4211,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 129.54 105.918 90)
 			(effects
 				(font
@@ -4374,7 +4374,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 138.1252 63.5 0)
 			(effects
 				(font
@@ -4536,7 +4536,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 160.9852 63.5 0)
 			(effects
 				(font
@@ -4700,7 +4700,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 129.54 103.378 90)
 			(effects
 				(font

@@ -1,4 +1,4 @@
-27284076095496118
+27285865810985935
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71932,12 +71932,19 @@ Switch_Push_Button_12mm
 4
 2
 Lilibrary
-USB-C (Home-brew)
+Test point
 
 
 0
-16
-16
+1
+1
+Lilibrary
+USB_C_Receptacle_HRO_TYPE-C-31-M-12
+
+
+0
+20
+20
 Lilibrary
 led
 

@@ -6994,7 +6994,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:LED_0603"
 			(at 180.34 113.03 0)
 			(effects
 				(font
@@ -7100,7 +7100,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 182.118 120.65 90)
 			(effects
 				(font
@@ -7197,7 +7197,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Button_Switch_THT:SW_PUSH-12mm"
+		(property "Footprint" "Lilibrary:Switch_Push_Button_12mm"
 			(at 57.15 27.9399 90)
 			(effects
 				(font
@@ -7292,7 +7292,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:LED_0603"
 			(at 259.08 147.32 0)
 			(effects
 				(font
@@ -7398,7 +7398,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 252.73 130.81 0)
 			(effects
 				(font
@@ -8151,7 +8151,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 178.562 130.81 90)
 			(effects
 				(font
@@ -8315,7 +8315,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 70.612 26.67 90)
 			(effects
 				(font
@@ -8552,7 +8552,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 251.46 159.258 90)
 			(effects
 				(font
@@ -8780,7 +8780,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 83.82 47.2948 0)
 			(effects
 				(font
@@ -8982,7 +8982,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 251.46 149.098 90)
 			(effects
 				(font
@@ -9345,7 +9345,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 119.38 21.8948 0)
 			(effects
 				(font
@@ -9442,7 +9442,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 252.73 135.89 0)
 			(effects
 				(font
@@ -9536,7 +9536,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:LED_0603"
 			(at 180.34 138.43 0)
 			(effects
 				(font
@@ -9707,7 +9707,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:LED_0603"
 			(at 259.08 157.48 0)
 			(effects
 				(font

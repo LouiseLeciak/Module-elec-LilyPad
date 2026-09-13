@@ -3955,7 +3955,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 59.3852 113.03 0)
 			(effects
 				(font
@@ -4249,7 +4249,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 134.62 62.5348 0)
 			(effects
 				(font
@@ -4675,7 +4675,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 165.1 95.758 90)
 			(effects
 				(font
@@ -4838,7 +4838,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 191.4652 113.03 0)
 			(effects
 				(font
@@ -4935,7 +4935,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 222.25 78.74 0)
 			(effects
 				(font
@@ -5029,7 +5029,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 121.6152 113.03 0)
 			(effects
 				(font
@@ -5126,7 +5126,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 57.4548 120.65 0)
 			(effects
 				(font
@@ -5398,7 +5398,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 180.34 62.5348 0)
 			(effects
 				(font
@@ -5495,7 +5495,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 93.98 97.79 0)
 			(effects
 				(font
@@ -5898,7 +5898,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 158.75 82.55 0)
 			(effects
 				(font
@@ -6451,7 +6451,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 189.5348 120.65 0)
 			(effects
 				(font
@@ -6548,7 +6548,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 119.6848 120.65 0)
 			(effects
 				(font
@@ -6775,7 +6775,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 213.36 62.5348 0)
 			(effects
 				(font
@@ -7002,7 +7002,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 194.31 83.82 0)
 			(effects
 				(font
@@ -7096,7 +7096,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+		(property "Footprint" "Lilibrary:Test point"
 			(at 140.97 72.39 0)
 			(effects
 				(font

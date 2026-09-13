@@ -708,7 +708,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 109.5248 90.17 0)
 			(effects
 				(font
@@ -804,7 +804,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 128.5748 90.17 0)
 			(effects
 				(font
