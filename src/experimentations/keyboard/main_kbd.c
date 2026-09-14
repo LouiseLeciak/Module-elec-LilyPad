@@ -216,42 +216,79 @@ void rotary_update(void)
 }
 
 //? Probablement pas opti comme verification, probablement a retaper
+// void rotary_button_update(void)
+// {
+//     uint8_t sw; // etat actuel
+
+//     uint8_t gpio = mcp_read_register(MCP_GPIOA);
+
+//     sw = (gpio >> ROTARY_SW) & 1;
+
+//     // si l'etat du bouton a change
+//     if (sw != prev_sw)
+//     {
+//         _delay_ms(5);
+
+//         gpio = mcp_read_register(MCP_GPIOA);
+//         sw = (gpio >> ROTARY_SW) & 1;
+//         // si sw a bien change alors on print des trucs pour le moment en uart
+//         if (sw != prev_sw)
+//         {
+//             if (sw == 0)
+//             {
+//                 switch (menu_index)
+//                 {
+//                 case 0:
+//                     uart_printstr("You choose option 1\n\r");
+//                     break;
+//                 case 1:
+//                     uart_printstr("You choose option 2\n\r");
+//                     break;
+//                 case 2:
+//                     uart_printstr("You choose option 3\n\r");
+//                     break;
+//                 }
+//             }
+//             // et on met a jout le prev ducoup
+//             prev_sw = sw;
+//             _delay_ms(20);
+//         }
+//     }
+// }
+
+static uint8_t eye_state = 0;
+
 void rotary_button_update(void)
 {
-    uint8_t sw; // etat actuel
-
+    uint8_t sw;
     uint8_t gpio = mcp_read_register(MCP_GPIOA);
 
     sw = (gpio >> ROTARY_SW) & 1;
 
-    // si l'etat du bouton a change
     if (sw != prev_sw)
     {
         _delay_ms(5);
 
         gpio = mcp_read_register(MCP_GPIOA);
         sw = (gpio >> ROTARY_SW) & 1;
-        // si sw a bien change alors on print des trucs pour le moment en uart
+
         if (sw != prev_sw)
         {
             if (sw == 0)
             {
-                switch (menu_index)
+                if (eye_state == 0)
                 {
-                case 0:
-                    uart_printstr("You choose option 1\n\r");
-                    break;
-                case 1:
-                    uart_printstr("You choose option 2\n\r");
-                    break;
-                case 2:
-                    uart_printstr("You choose option 3\n\r");
-                    break;
+                    GC9A01_blink(Eye_look_Right, 1);
+                    eye_state = 1;
+                }
+                else
+                {
+                    GC9A01_blink(Eye_Front, 1);
+                    eye_state = 0;
                 }
             }
-            // et on met a jout le prev ducoup
+
             prev_sw = sw;
-            _delay_ms(20);
         }
     }
 }

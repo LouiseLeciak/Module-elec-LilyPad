@@ -56,7 +56,19 @@ void init(void) {
 }
 
 
-
+void change_eye(void)
+{
+    if (eye_state == 0)
+    {
+        GC9A01_blink(Eye_look_Right, 1);
+        eye_state = 1;
+    }
+    else
+    {
+        GC9A01_blink(Eye_Front, 1);
+        eye_state = 0;
+    }
+}
 
 int main(void) {
   init();
@@ -67,15 +79,18 @@ int main(void) {
   _delay_ms(1000);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
+  while (1){
+    rotary_button_update();
+  }
  
   //ili9488_fill_screen(0xF800);
-  while (1) {
-    GC9A01_blink(Eye_look_Right, 1);
-    GC9A01_blink(Eye_Front, 1);
-    ;
+  // while (1) {
+  //   GC9A01_blink(Eye_look_Right, 1);
+  //   GC9A01_blink(Eye_Front, 1);
+  //   ;
 
-    // testPINS();
-  }
+  //   // testPINS();
+  // }
 }
 
 
