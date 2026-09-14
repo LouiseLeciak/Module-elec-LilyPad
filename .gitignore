@@ -2,3 +2,17 @@
 
 # KiCad files
 *.lck
+*-backups/
+
+# Dev
+*.json
+*.a
+*.d
+*.o
+*.bin
+*.hex
+test_runner
+build/
+
+# Doxygen files
+Doxygen/
