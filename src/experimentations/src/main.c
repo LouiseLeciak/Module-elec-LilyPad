@@ -63,7 +63,7 @@ int main(void) {
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   _delay_ms(1000);
-  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
   _delay_ms(1000);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
