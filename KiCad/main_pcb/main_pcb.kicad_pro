@@ -535,7 +535,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../../../../../Pictures/",
+      "plot": "../Gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "main_pcb.stl",
