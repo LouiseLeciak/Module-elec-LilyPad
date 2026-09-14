@@ -16,7 +16,7 @@
 		)
 	)
 	(property "Value" "Pin_1x07_2.54mm_Vertical"
-		(at 0 8.62 0)
+		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "9c87cb13-b5af-4bd5-a67d-fec8e3257477")
@@ -147,7 +147,7 @@
 		(uuid "cc2c564d-e5c6-48e6-bc5f-972cf1f92edc")
 	)
 	(fp_text user "${REFERENCE}"
-		(at 0 10.12 0)
+		(at 0 1.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "6407de0c-94e6-4c52-a059-31686862093d")

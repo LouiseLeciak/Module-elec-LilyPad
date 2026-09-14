@@ -1,4 +1,4 @@
-27448895003733675
+27450685060070929
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71834,6 +71834,13 @@ IDC-TH_26P-P2.54_OMRON_XG4C-2631
 26
 26
 Lilibrary
+JST XH 2 pins
+
+
+0
+2
+2
+Lilibrary
 LED_0603
 
 
@@ -71951,7 +71958,7 @@ USB_C_Receptacle_HRO_TYPE-C-31-M-12
 
 0
 20
-20
+17
 Lilibrary
 led
 

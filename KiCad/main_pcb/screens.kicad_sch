@@ -5425,7 +5425,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
+		(property "Footprint" "Lilibrary:Pin_1x07_2.54mm_Vertical"
 			(at 189.23 53.34 0)
 			(effects
 				(font
@@ -5857,7 +5857,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x07_P2.54mm_Vertical"
+		(property "Footprint" "Lilibrary:Pin_1x07_2.54mm_Vertical"
 			(at 222.25 53.34 0)
 			(effects
 				(font
@@ -6327,7 +6327,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x13_P2.54mm_Vertical"
+		(property "Footprint" "Lilibrary:Pin_1x13_2.54mm_Vertical"
 			(at 151.13 53.34 0)
 			(effects
 				(font
@@ -7394,7 +7394,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
+		(property "Footprint" "Lilibrary:JST XH 2 pins"
 			(at 127 91.44 0)
 			(effects
 				(font

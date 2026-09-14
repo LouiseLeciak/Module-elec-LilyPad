@@ -1109,6 +1109,42 @@
 			)
 			(symbol "USB-C_1_1"
 				(pin passive line
+					(at -8.89 8.89 0)
+					(length 2.54)
+					(name "SBU2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 6.35 0)
+					(length 2.54)
+					(name "SBU1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
 					(at -3.81 -15.24 90)
 					(length 2.54)
 					(name "SHIELD"
@@ -1119,63 +1155,6 @@
 						)
 					)
 					(number "S1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 -15.24 90)
-					(length 2.54)
-					(hide yes)
-					(name "SHIELD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 -15.24 90)
-					(length 2.54)
-					(hide yes)
-					(name "SHIELD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -3.81 -15.24 90)
-					(length 2.54)
-					(hide yes)
-					(name "SHIELD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S4"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1911,12 +1890,20 @@
 		(uuid "3db14e32-8d0d-4a87-a4e2-6ba5567686f6")
 	)
 	(no_connect
+		(at 107.95 97.79)
+		(uuid "6103f74d-4b54-4699-a6ec-579441be9c17")
+	)
+	(no_connect
 		(at 168.91 123.19)
 		(uuid "69e230a0-86ca-48aa-8b1b-5348d92e344c")
 	)
 	(no_connect
 		(at 168.91 130.81)
 		(uuid "a5d82f39-2aba-4ea5-bfaf-07e6ac621ada")
+	)
+	(no_connect
+		(at 107.95 100.33)
+		(uuid "eb7e5b25-208d-405b-ac31-637b779245df")
 	)
 	(wire
 		(pts
@@ -3749,14 +3736,11 @@
 		(pin "A7"
 			(uuid "e21a95a3-e704-4505-a99e-4893d05ec20f")
 		)
-		(pin "S2"
+		(pin "B8"
 			(uuid "05deb630-2406-4231-86e1-b768acc45da0")
 		)
-		(pin "S3"
+		(pin "A8"
 			(uuid "8d4ba2da-2645-4a11-9209-7d80d422643f")
-		)
-		(pin "S4"
-			(uuid "6b224d7d-d119-4838-a731-707817b64c6d")
 		)
 		(instances
 			(project "main_pcb"
@@ -4633,7 +4617,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical"
+		(property "Footprint" "Lilibrary:JST XH 2 pins"
 			(at 135.89 93.98 0)
 			(effects
 				(font
