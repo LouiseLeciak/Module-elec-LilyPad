@@ -1,4 +1,4 @@
-27447104975724935
+27448895003733675
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71820,12 +71820,19 @@ Capacitor_0603
 2
 2
 Lilibrary
-Crystal_0603
+Crystal_3225
 
 
 0
 4
 4
+Lilibrary
+IDC-TH_26P-P2.54_OMRON_XG4C-2631
+
+
+0
+26
+26
 Lilibrary
 LED_0603
 

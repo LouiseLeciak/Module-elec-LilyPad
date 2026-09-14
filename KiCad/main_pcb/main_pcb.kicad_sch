@@ -6635,6 +6635,206 @@
 	)
 	(symbol
 		(lib_id "power:VCC")
+		(at 262.89 157.48 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "049f410b-65fa-49a6-8740-e097cb0694bd")
+		(property "Reference" "#PWR016"
+			(at 259.08 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 266.7 157.4799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 262.89 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 262.89 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 262.89 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b91763a9-2d71-4e3d-97af-5fc6c0456c8e")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 262.89 147.32 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "051af6a6-e91a-4abe-b0c4-ef0a0e9777c6")
+		(property "Reference" "#PWR015"
+			(at 259.08 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 266.7 147.3199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 262.89 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 262.89 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 262.89 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7c1a6d73-fcc0-47c0-b689-a751fb8154b0")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
+		(at 180.34 142.24 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "17a460bc-1b14-485f-8697-255d4546a3d0")
+		(property "Reference" "#PWR012"
+			(at 180.34 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 180.34 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 180.34 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a9e86590-c024-46d5-9b1e-d4762b66b0ea")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:VCC")
 		(at 224.79 69.85 90)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6694,73 +6894,6 @@
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
 					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 180.34 109.22 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1cddfd92-b058-411e-90c5-a6d267a0c602")
-		(property "Reference" "#PWR011"
-			(at 180.34 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 182.88 107.9499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 180.34 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 180.34 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 180.34 109.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c40a961d-b796-4196-848e-16a64a1e4d10")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -6835,73 +6968,6 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 262.89 157.48 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "32d58953-d252-4b31-a404-71df7e9c3377")
-		(property "Reference" "#PWR016"
-			(at 269.24 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 266.7 157.4799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 262.89 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 262.89 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 262.89 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "74b99285-18bf-4ff9-9134-fdd34418bc10")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "#PWR016")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
 		(at 105.41 172.72 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -6968,7 +7034,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 180.34 113.03 270)
+		(at 180.34 113.03 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6977,7 +7043,7 @@
 		(fields_autoplaced yes)
 		(uuid "37cd4747-b8d6-4bcf-a107-f1e9df829d4e")
 		(property "Reference" "D4"
-			(at 176.53 110.1724 90)
+			(at 184.15 113.3474 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6986,7 +7052,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 176.53 112.7124 90)
+			(at 184.15 115.8874 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7268,7 +7334,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 259.08 147.32 180)
+		(at 259.08 147.32 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7277,7 +7343,7 @@
 		(fields_autoplaced yes)
 		(uuid "3ddc531b-57c8-4749-979e-27c64a647f6d")
 		(property "Reference" "D1"
-			(at 260.6675 139.7 0)
+			(at 257.4925 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7285,7 +7351,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 260.6675 142.24 0)
+			(at 257.4925 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7531,6 +7597,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VCC")
+		(at 180.34 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4f495a06-fbfd-445f-b253-773c80df5c49")
+		(property "Reference" "#PWR011"
+			(at 180.34 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VCC"
+			(at 180.34 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 180.34 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "58ae22b0-3232-4808-8d4e-89988efc8a3f")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
+					(reference "#PWR011")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "MCU_Microchip_ATmega:ATmega2560-16A")
 		(at 105.41 99.06 0)
 		(unit 1)
@@ -7558,7 +7690,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_QFP:TQFP-100_14x14mm_P0.5mm"
+		(property "Footprint" "Lilibrary:ATmega2560-16AU"
 			(at 105.41 99.06 0)
 			(effects
 				(font
@@ -7984,73 +8116,6 @@
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
 					(reference "#FLG02")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 262.89 147.32 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "58a3be51-0c3a-4be1-9a73-9e4207a0fc5d")
-		(property "Reference" "#PWR015"
-			(at 269.24 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 266.7 147.3199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 262.89 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 262.89 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 262.89 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c8360e0d-c258-4ec5-8740-f392358b978b")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -9061,73 +9126,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 180.34 142.24 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ba76f6be-33a4-4726-bc24-d2281d74d273")
-		(property "Reference" "#PWR012"
-			(at 180.34 148.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 177.8 143.5099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 180.34 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 180.34 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 180.34 142.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5aa03dea-8ddd-4dab-907e-3eabc1699544")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VCC")
 		(at 154.94 52.07 180)
 		(unit 1)
@@ -9519,7 +9517,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 180.34 138.43 90)
+		(at 180.34 138.43 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9528,21 +9526,21 @@
 		(fields_autoplaced yes)
 		(uuid "d406b839-25cb-4d95-a37a-f6ac872de7bd")
 		(property "Reference" "D3"
-			(at 184.15 138.7474 90)
+			(at 182.88 135.5724 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Value" "LED"
-			(at 184.15 141.2874 90)
+			(at 182.88 138.1124 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Lilibrary:LED_0603"
@@ -9692,7 +9690,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 259.08 157.48 180)
+		(at 259.08 157.48 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9701,7 +9699,7 @@
 		(fields_autoplaced yes)
 		(uuid "eb11dde0-65ed-418f-86a6-b4ee6637a800")
 		(property "Reference" "D2"
-			(at 260.6675 149.86 0)
+			(at 257.4925 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9709,7 +9707,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 260.6675 152.4 0)
+			(at 257.4925 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)

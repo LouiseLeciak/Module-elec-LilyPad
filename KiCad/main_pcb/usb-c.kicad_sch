@@ -3185,7 +3185,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
+		(property "Footprint" "Lilibrary:SOT-223-3_TabPin2_AMS1117"
 			(at 198.12 67.31 0)
 			(effects
 				(font

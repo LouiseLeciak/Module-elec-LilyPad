@@ -965,7 +965,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm_HandSoldering"
+		(property "Footprint" "Lilibrary:Crystal_3225"
 			(at 120.65 88.9 0)
 			(effects
 				(font
