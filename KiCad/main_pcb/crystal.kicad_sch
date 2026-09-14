@@ -690,7 +690,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "03fcf1a0-8f25-4bef-80be-c6191f41f8bd")
-		(property "Reference" "C12"
+		(property "Reference" "C15"
 			(at 103.124 92.964 0)
 			(effects
 				(font
@@ -726,7 +726,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 110.49 93.98 0)
 			(effects
 				(font
@@ -771,7 +771,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/4c1a0284-1742-4ed4-9190-6f37324df6a7"
-					(reference "C12")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -786,7 +786,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2729f627-2f72-4a6a-b409-d414b056afe5")
-		(property "Reference" "C11"
+		(property "Reference" "C13"
 			(at 132.334 92.964 0)
 			(effects
 				(font
@@ -822,7 +822,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 129.54 93.98 0)
 			(effects
 				(font
@@ -867,7 +867,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/4c1a0284-1742-4ed4-9190-6f37324df6a7"
-					(reference "C11")
+					(reference "C13")
 					(unit 1)
 				)
 			)
@@ -983,7 +983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Four pin crystal, GND on pins 2 and 4"
+		(property "Description" ""
 			(at 120.65 88.9 0)
 			(effects
 				(font
@@ -994,24 +994,6 @@
 		)
 		(property "LCSC" "C13738"
 			(at 120.65 88.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property private "KLC_S3.3" "The rectangle is not a symbol body but a graphical element"
-			(at 120.65 101.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property private "KLC_S4.1" "Some pins are on 50mil grid to make the symbol small"
-			(at 120.65 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
