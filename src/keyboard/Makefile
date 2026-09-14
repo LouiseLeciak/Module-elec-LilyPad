@@ -5,7 +5,7 @@ MICROCONTROLLER	= atmega2560
 CC	= avr-gcc
 OBJCOPY	= avr-objcopy
 DUDE	= avrdude
-FILES	= main.c uart.c i2c-rotary.c
+FILES	= main_kbd.c uart.c i2c-rotary.c
 
 # mmcu to tell what microcontroller we have
 # -Os for optimisation
