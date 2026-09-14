@@ -4615,7 +4615,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 237.49 116.84 0)
 			(effects
 				(font
@@ -6456,7 +6456,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 105.41 116.84 0)
 			(effects
 				(font
@@ -7075,7 +7075,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Lilibrary:SOIC-14_TXB0104DR"
+		(property "Footprint" "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm"
 			(at 167.64 116.84 0)
 			(effects
 				(font

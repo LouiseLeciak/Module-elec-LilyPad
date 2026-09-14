@@ -7690,7 +7690,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Lilibrary:ATmega2560-16AU"
+		(property "Footprint" "Package_QFP:TQFP-100_14x14mm_P0.5mm"
 			(at 105.41 99.06 0)
 			(effects
 				(font

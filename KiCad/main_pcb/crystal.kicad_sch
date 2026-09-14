@@ -1001,6 +1001,24 @@
 				(hide yes)
 			)
 		)
+		(property private "KLC_S3.3" "The rectangle is not a symbol body but a graphical element"
+			(at 120.65 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property private "KLC_S4.1" "Some pins are on 50mil grid to make the symbol small"
+			(at 120.65 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dc2c4646-6c8b-42d6-82b4-0d4ba1811464")
 		)

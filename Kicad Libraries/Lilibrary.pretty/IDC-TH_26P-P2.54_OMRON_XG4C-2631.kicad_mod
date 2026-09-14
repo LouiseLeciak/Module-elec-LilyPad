@@ -367,4 +367,15 @@
 		(uuid "d4b324f2-7a42-40e8-8cbe-79a2d846e18a")
 	)
 	(embedded_fonts no)
+	(model "/Users/apetitco/Documents/Module Elec - Lily's Pad/Kicad Libraries/3D Models/XG4C-2631--3DModel-STEP-273799.STEP"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 90 180 -90)
+		)
+	)
 )

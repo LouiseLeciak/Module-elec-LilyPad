@@ -3172,7 +3172,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Lilibrary:SOT-223-3_TabPin2_AMS1117"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
 			(at 198.12 67.31 0)
 			(effects
 				(font
@@ -3271,7 +3271,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Lilibrary:SOP-16_CH340C"
+		(property "Footprint" "Package_SO:SOIC-16_3.9x9.9mm_P1.27mm"
 			(at 140.208 95.504 0)
 			(effects
 				(font
@@ -3655,7 +3655,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "USB 2.0-only 14P Type-C Receptacle connector"
+		(property "Description" ""
 			(at 116.84 106.68 0)
 			(effects
 				(font
