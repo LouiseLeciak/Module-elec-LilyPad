@@ -8477,7 +8477,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Lilibrary:IDC-TH_26P-P2.54_OMRON_XG4C-2631"
+		(property "Footprint" "Lilibrary:AMPHENOL_69830-026LF"
 			(at 228.6 29.21 0)
 			(effects
 				(font
