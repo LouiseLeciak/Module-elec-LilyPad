@@ -538,7 +538,7 @@
       "plot": "../../../../../../Pictures/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "main_pcb.stl",
       "svg": "",
       "vrml": ""
     },

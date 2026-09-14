@@ -8412,7 +8412,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Lilibrary:male_header"
+		(property "Footprint" "Lilibrary:IDC-TH_26P-P2.54_OMRON_XG4C-2631"
 			(at 228.6 29.21 0)
 			(effects
 				(font
@@ -8431,6 +8431,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 228.6 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C397108"
 			(at 228.6 29.21 0)
 			(effects
 				(font
