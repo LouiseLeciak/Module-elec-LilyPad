@@ -9,6 +9,8 @@
 *.a
 *.d
 *.o
+*.bin
+*.hex
 test_runner
 build/
 
