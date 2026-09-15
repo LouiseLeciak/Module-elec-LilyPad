@@ -8,28 +8,32 @@
 // donc j'utilise d'autres pin pour la version proto
 // Colonnes
 //
-// C1  -> PF0
-// C2  -> PF1
-// C3  -> PF2
-// C4  -> PF3
-// C5  -> PF4
-// C6  -> PF5
-// C7  -> PF6
-// C8  -> PF7
-// C9  -> PK0
-// C10 -> PK1
+// C1  -> PC4
+// C2  -> PC5
+// C3  -> PC6
+// C4  -> PC7
+// C5  -> PJ0
+// C6  -> PJ1
+// C7  -> PJ2
+// C8  -> PJ3
+// C9  -> PJ4
+// C10 -> PJ5
 //
 // Lignes
 //
-// R1 -> PK2
-// R2 -> PK3
-// R3 -> PK4
-// R4 -> PK5
+// R1 -> PC0
+// R2 -> PC1
+// R3 -> PC2
+// R4 -> PC3
 //
 // Slide Switch
-// Led 1 - PA0
-// Led 2 - PA2
-// switch pin - PA4
+// sw1 - PJ6
+// sw2 - PG2
+// sw3 - PA7
+//
+// I2C
+// SDA - PD1
+// SCL - PD0
 
 #define ROWS_NB 4
 #define COLS_NB 10
@@ -60,70 +64,70 @@ static void keypad_init(void)
 {
     // les 4 lignes, elles deviennent des sorties
     // 1 sortie 0 entree
-    DDRK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
+    DDRC |= (1 << PC0) | (1 << PC1) | (1 << PC2) | (1 << PC3);
 
-    PORTK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
+    PORTC |= (1 << PC0) | (1 << PC1) | (1 << PC2) | (1 << PC3);
 
     // les colonnes, on les met a 0
     // car on veut els lire
-    DDRF &= ~(
-        (1 << PF0) |
-        (1 << PF1) |
-        (1 << PF2) |
-        (1 << PF3) |
-        (1 << PF4) |
-        (1 << PF5) |
-        (1 << PF6) |
-        (1 << PF7));
+    DDRC &= ~(
+        (1 << PC4) |
+        (1 << PC5) |
+        (1 << PC6) |
+        (1 << PC7));
 
     // pour les pull up
-    PORTF |= ((1 << PF0) |
-              (1 << PF1) |
-              (1 << PF2) |
-              (1 << PF3) |
-              (1 << PF4) |
-              (1 << PF5) |
-              (1 << PF6) |
-              (1 << PF7));
+    PORTC |= ((1 << PC4) |
+              (1 << PC5) |
+              (1 << PC6) |
+              (1 << PC7));
 
-    DDRK &= ~(
-        (1 << PK0) |
-        (1 << PK1));
+    DDRJ &= ~(
+        (1 << PJ0) |
+        (1 << PJ1) |
+        (1 << PJ2) |
+        (1 << PJ3) |
+        (1 << PJ4) |
+        (1 << PJ5));
 
-    PORTK |= ((1 << PK0) |
-              (1 << PK1));
+    PORTJ |= ((1 << PJ0) |
+              (1 << PJ1) |
+              (1 << PJ2) |
+              (1 << PJ3) |
+              (1 << PJ4) |
+              (1 << PJ5));
 
-    // on check comment on est pour savoir comment changer
-    if (PINC & (1 << ROTARY_CLK))
-        rotaryclk_prev = 1;
-    else
-        rotaryclk_prev = 0;
+    // // on check comment on est pour savoir comment changer
+    // if (PINC & (1 << ROTARY_CLK))
+    //     rotaryclk_prev = 1;
+    // else
+    //     rotaryclk_prev = 0;
 }
 
 // je veux selectionner qu'une seule ligne a la fois
 static void select_row(uint8_t row)
 {
     // je desactive toutes les lignes
-    PORTK |= (1 << PK2) | (1 << PK3) | (1 << PK4) | (1 << PK5);
+    PORTC |= (1 << PC0) | (1 << PC1) | (1 << PC2) | (1 << PC3);
 
     // j'active une seule lgine poru "monitorer"
     // j;active celle envoye en parametre
     switch (row)
     {
     case 0:
-        PORTK &= ~(1 << PK5);
+        PORTK &= ~(1 << PC3);
         break;
 
     case 1:
-        PORTK &= ~(1 << PK4);
+        PORTK &= ~(1 << PC2);
         break;
 
     case 2:
-        PORTK &= ~(1 << PK3);
+        PORTK &= ~(1 << PC1);
         break;
 
     case 3:
-        PORTK &= ~(1 << PK2);
+        PORTK &= ~(1 << PC0);
         break;
     }
 }
@@ -131,25 +135,25 @@ static void select_row(uint8_t row)
 static int read_column(void)
 {
     // si PINF = 0 alors c'est que c'est presse
-    if (!(PINF & (1 << PF0)))
+    if (!(PINF & (1 << PC4)))
         return 0;
-    if (!(PINF & (1 << PF1)))
+    if (!(PINF & (1 << PC5)))
         return 1;
-    if (!(PINF & (1 << PF2)))
+    if (!(PINF & (1 << PC6)))
         return 2;
-    if (!(PINF & (1 << PF3)))
+    if (!(PINF & (1 << PC7)))
         return 3;
-    if (!(PINF & (1 << PF4)))
+    if (!(PINF & (1 << PJ0)))
         return 4;
-    if (!(PINF & (1 << PF5)))
+    if (!(PINF & (1 << PJ1)))
         return 5;
-    if (!(PINF & (1 << PF6)))
+    if (!(PINF & (1 << PJ2)))
         return 6;
-    if (!(PINF & (1 << PF7)))
+    if (!(PINF & (1 << PJ3)))
         return 7;
-    if (!(PINK & (1 << PK0)))
+    if (!(PINK & (1 << PJ4)))
         return 8;
-    if (!(PINK & (1 << PK1)))
+    if (!(PINK & (1 << PJ5)))
         return 9;
 
     return -1;
@@ -310,9 +314,9 @@ void draw_menu(void)
     }
 }
 
-#define SWITCH_PIN PA4
-#define LED_LEFT PA2
-#define LED_RIGHT PA0
+#define SWITCH_PIN PJ6
+#define LED_LEFT PG2
+#define LED_RIGHT PA7
 static uint8_t prev_switch = 0;
 
 static void switch_led_init(void)

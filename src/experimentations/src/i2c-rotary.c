@@ -64,7 +64,7 @@ void i2c_write(unsigned char data)
 
     if (TW_STATUS != TW_MT_DATA_ACK)
     {
-        uart_printstr("error MT_DATA_ACK\n\r");
+        // //uart_printstr("error MT_DATA_ACK\n\r");
         i2c_stop();
     }
 }
@@ -79,8 +79,8 @@ void print_hex_value(char c)
     buf[0] = hex[value / 16];
     buf[1] = hex[value % 16];
     buf[2] = '\0';
-
-    uart_printstr(buf);
+    (void)buf;
+    //uart_printstr(buf);
 }
 
 uint8_t i2c_start(uint8_t addr)
@@ -98,7 +98,7 @@ uint8_t i2c_start(uint8_t addr)
     {
         if (--timeout == 0)
         {
-            uart_printstr("START TIMEOUT\r\n");
+            //uart_printstr("START TIMEOUT\r\n");
             return 0;
         }
     }
@@ -106,9 +106,9 @@ uint8_t i2c_start(uint8_t addr)
     // on check si le starts ou repeted start a bien ete envoye
     if (TW_STATUS != TW_START && TW_STATUS != TW_REP_START)
     {
-        uart_printstr("START ERROR : ");
+        //uart_printstr("START ERROR : ");
         print_hex_value(TW_STATUS);
-        uart_printstr("\r\n");
+        //uart_printstr("\r\n");
         return 0;
     }
 
@@ -124,7 +124,7 @@ uint8_t i2c_start(uint8_t addr)
     {
         if (--timeout == 0)
         {
-            uart_printstr("ADDR TIMEOUT\r\n");
+            //uart_printstr("ADDR TIMEOUT\r\n");
             return 0;
         }
     }
@@ -134,9 +134,9 @@ uint8_t i2c_start(uint8_t addr)
     {
         if (TW_STATUS != TW_MT_SLA_ACK)
         {
-            uart_printstr("ADDRESS ERROR : ");
+            //uart_printstr("ADDRESS ERROR : ");
             print_hex_value(TW_STATUS);
-            uart_printstr("\r\n");
+            //uart_printstr("\r\n");
             return 0;
         }
     }
@@ -144,9 +144,9 @@ uint8_t i2c_start(uint8_t addr)
     {
         if (TW_STATUS != TW_MR_SLA_ACK)
         {
-            uart_printstr("ADDRESS ERROR : ");
+            //uart_printstr("ADDRESS ERROR : ");
             print_hex_value(TW_STATUS);
-            uart_printstr("\r\n");
+            //uart_printstr("\r\n");
             return 0;
         }
     }
@@ -190,26 +190,26 @@ uint8_t mcp_read_register(uint8_t reg)
 
 void mcp_write_register(uint8_t reg, uint8_t value)
 {
-    uart_printstr("mcp start\r\n");
+    //uart_printstr("mcp start\r\n");
 
     // debut de transaction i2c
     if (!i2c_start((MCP23017_ADDR << 1) | WRITE))
         return;
 
-    uart_printstr("addr sent\r\n");
+    //uart_printstr("addr sent\r\n");
 
     // on envois l'adresse du registre a modifier
     // 1.3.2.1 p5 mcp datasheet
     i2c_write(reg);
 
-    uart_printstr("reg sent\r\n");
+    //uart_printstr("reg sent\r\n");
 
     // ecrire la nouvelle valeur dans le registre en question
     i2c_write(value);
 
-    uart_printstr("value sent\r\n");
+    //uart_printstr("value sent\r\n");
 
     i2c_stop();
 
-    uart_printstr("stop\r\n");
+    //uart_printstr("stop\r\n");
 }

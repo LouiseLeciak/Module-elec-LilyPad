@@ -32,6 +32,9 @@ SRC_FIL	=	main \
 					spi \
 					uart \
 					i2c-rotary \
+					screen_text \
+					small_font
+
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
