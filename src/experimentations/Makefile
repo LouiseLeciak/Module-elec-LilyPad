@@ -30,7 +30,8 @@ SRC_FIL	=	main \
 					ili9488 \
 					main_screen \
 					spi \
-					uart
+					uart \
+					i2c-rotary \
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))

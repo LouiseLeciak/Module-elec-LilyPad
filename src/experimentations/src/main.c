@@ -55,6 +55,15 @@ void init(void) {
   // keyboard_init();
 }
 
+#include "utils.h"
+
+#define ROTARY_CLK 6
+#define ROTARY_SW 5
+#define ROTARY_DT 7
+
+static uint8_t eye_state = 0;
+static uint8_t prev_sw = 1; // etat precedent du bouton
+
 
 void change_eye(void)
 {
@@ -70,8 +79,46 @@ void change_eye(void)
     }
 }
 
+
+void rotary_button_update(void)
+{
+    uint8_t sw;
+    uint8_t gpio = mcp_read_register(MCP_GPIOA);
+
+    sw = (gpio >> ROTARY_SW) & 1;
+
+    if (sw != prev_sw)
+    {
+        _delay_ms(5);
+
+        gpio = mcp_read_register(MCP_GPIOA);
+        sw = (gpio >> ROTARY_SW) & 1;
+
+        if (sw != prev_sw)
+        {
+            if (sw == 0)
+            {
+                if (eye_state == 0)
+                {
+                    GC9A01_blink(Eye_look_Right, 1);
+                    eye_state = 1;
+                }
+                else
+                {
+                    GC9A01_blink(Eye_Front, 1);
+                    eye_state = 0;
+                }
+            }
+
+            prev_sw = sw;
+        }
+    }
+}
+
 int main(void) {
   init();
+  i2c_init();
+  mcp_init();
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   _delay_ms(1000);
