@@ -94,7 +94,8 @@ void ili9488_memory_access_control() {
   dc_cmd();
   spi_txrx(MADCTL);
   dc_data();
-  spi_txrx(0x48); // Might make display inverted
+  spi_txrx(0x48); // Activate for TFT02
+  // spi_txrx(0x88); // Activate for TFT01
   cs_high();
 }
 
