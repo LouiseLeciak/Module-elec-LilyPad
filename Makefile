@@ -28,6 +28,8 @@ SRC_FIL	=	main \
 					ili9488 \
 					main_screen \
 					spi \
+					small_font \
+					screen_text \
 					uart
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))

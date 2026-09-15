@@ -7,11 +7,14 @@
 #include "state_machine.h"
 #include "uart.h"
 #include "eye_imgs.h"
-
-// void testPINS(void);
-// void GC9A01_fillScreen(uint16_t color, uint8_t screen);
+#include "screen_text.h"
 
 
+
+// #define CS_MAIN_LOW()  PORTH &= ~(1 << PH0);
+// #define CS_MAIN_HIGH() PORTH |=(1 << PH0);
+#define MAX_PIXEL_WIDTH 240
+#define MAX_PIXEL_HIGH 320
 
 
 t_state current_state = INIT;
@@ -58,21 +61,50 @@ void init(void) {
 
 
 
+
+
+// ─── Text rendering ──────────────────────────────────────────────────────────
+// ─── Text rendering ──────────────────────────────────────────────────────────
+
+
+
+
+
 int main(void) {
   init();
 
-  GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
-  _delay_ms(1000);
-  GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
-  _delay_ms(1000);
-  GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
+  // GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
+  // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
+  // GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
  
-  //ili9488_fill_screen(0xF800);
+  ili9488_fill_screen(GC9A01A_COLOR_RED);
+
+
+
+  draw_pixel(250, 320, GC9A01A_COLOR_GREEN );
+
+    draw_string(30, 120,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 1, 1);
+    draw_string(30, 160,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 2, 2); // MAX H CHARS
+    draw_string(30, 220,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 3, 3); // MAX H CHARS
+    draw_string(30, 260,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 4, 4); // MAX H CHARS
+
+
   while (1) {
-    GC9A01_blink(Eye_look_Right, 1);
-    GC9A01_blink(Eye_Front, 1);
+    //GC9A01_blink(Eye_look_Right, 1);
+    //GC9A01_blink(Eye_Front, 1);
+    for (uint8_t i = 32; i < 127; i++) {
+        draw_char_small(120,180, i,GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 5);
+        // _delay_ms(300);
+    }
+
     ;
+
+
+    
+
+
+
 
     // testPINS();
   }

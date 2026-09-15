@@ -11,6 +11,11 @@
 void main_screen_init();
 
 // --------- Drawing commands ------------------------------------------------
+
+  void main_screen_draw_pixel(const position pos, const rgb rgb);
+
+
+
 /**
  * @brief Draws the provided string inside the driver's RAM.
  *
