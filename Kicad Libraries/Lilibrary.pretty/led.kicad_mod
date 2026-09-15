@@ -122,4 +122,15 @@
 		(uuid "7f73f8bd-52e6-4b3c-a4dd-a73a948ed109")
 	)
 	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/LED_SMD.3dshapes/LED_0603_1608Metric_Castellated.step"
+		(offset
+			(xyz 0 -2.08 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
 )

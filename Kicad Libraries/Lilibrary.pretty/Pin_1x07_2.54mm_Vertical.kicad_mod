@@ -16,7 +16,7 @@
 		)
 	)
 	(property "Value" "Pin_1x07_2.54mm_Vertical"
-		(at 0 8.62 0)
+		(at 0 0 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "9c87cb13-b5af-4bd5-a67d-fec8e3257477")
@@ -147,7 +147,7 @@
 		(uuid "cc2c564d-e5c6-48e6-bc5f-972cf1f92edc")
 	)
 	(fp_text user "${REFERENCE}"
-		(at 0 10.12 0)
+		(at 0 1.5 0)
 		(unlocked yes)
 		(layer "F.Fab")
 		(uuid "6407de0c-94e6-4c52-a059-31686862093d")
@@ -215,4 +215,15 @@
 		(uuid "69943925-5192-462d-8387-259ed44d92b3")
 	)
 	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Connector_PinHeader_2.54mm.3dshapes/PinHeader_1x07_P2.54mm_Vertical.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )

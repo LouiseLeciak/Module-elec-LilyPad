@@ -5,646 +5,7 @@
 	(uuid "af6163d8-a57b-4b88-9547-d6f38e493ffd")
 	(paper "A4")
 	(lib_symbols
-		(symbol "Connector:USB_C_Receptacle_USB2.0_14P"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 22.225 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "USB_C_Receptacle_USB2.0_14P"
-				(at 0 19.685 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 3.81 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-				(at 3.81 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "USB 2.0-only 14P Type-C Receptacle connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "usb universal serial bus type-C USB2.0"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "USB*C*Receptacle*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "USB_C_Receptacle_USB2.0_14P_0_0"
-				(rectangle
-					(start -0.254 -17.78)
-					(end 0.254 -16.764)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 15.494)
-					(end 9.144 14.986)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 10.414)
-					(end 9.144 9.906)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 7.874)
-					(end 9.144 7.366)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 2.794)
-					(end 9.144 2.286)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 0.254)
-					(end 9.144 -0.254)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -2.286)
-					(end 9.144 -2.794)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 10.16 -4.826)
-					(end 9.144 -5.334)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "USB_C_Receptacle_USB2.0_14P_0_1"
-				(rectangle
-					(start -10.16 17.78)
-					(end 10.16 -17.78)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(polyline
-					(pts
-						(xy -8.89 -3.81) (xy -8.89 3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -7.62 -3.81)
-					(end -6.35 3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start -7.62 3.81)
-					(mid -6.985 4.4423)
-					(end -6.35 3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -7.62 3.81)
-					(mid -6.985 4.4423)
-					(end -6.35 3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start -8.89 3.81)
-					(mid -6.985 5.7067)
-					(end -5.08 3.81)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -5.08 -3.81)
-					(mid -6.985 -5.7067)
-					(end -8.89 -3.81)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -6.35 -3.81)
-					(mid -6.985 -4.4423)
-					(end -7.62 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -6.35 -3.81)
-					(mid -6.985 -4.4423)
-					(end -7.62 -3.81)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -5.08 3.81) (xy -5.08 -3.81)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -2.54 1.143)
-					(radius 0.635)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 4.318) (xy 0 6.858) (xy 1.27 4.318) (xy -1.27 4.318)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -2.032) (xy 2.54 0.508) (xy 2.54 1.778)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -3.302) (xy -2.54 -0.762) (xy -2.54 0.508)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 -5.842) (xy 0 4.318)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center 0 -5.842)
-					(radius 1.27)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 1.905 1.778)
-					(end 3.175 3.048)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-			)
-			(symbol "USB_C_Receptacle_USB2.0_14P_1_1"
-				(pin passive line
-					(at -7.62 -22.86 90)
-					(length 5.08)
-					(name "SHIELD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "S1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -22.86 90)
-					(length 5.08)
-					(hide yes)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 15.24 15.24 180)
-					(length 5.08)
-					(hide yes)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 10.16 180)
-					(length 5.08)
-					(name "CC1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 7.62 180)
-					(length 5.08)
-					(name "CC2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 2.54 180)
-					(length 5.08)
-					(name "D-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 0 180)
-					(length 5.08)
-					(name "D-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -2.54 180)
-					(length 5.08)
-					(name "D+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "A6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 15.24 -5.08 180)
-					(length 5.08)
-					(name "D+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "B6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Connector_Generic:Conn_01x01"
+		(symbol "Connector_Generic:Conn_01x02"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -660,8 +21,8 @@
 					)
 				)
 			)
-			(property "Value" "Conn_01x01"
-				(at 0 -2.54 0)
+			(property "Value" "Conn_01x02"
+				(at 0 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -686,7 +47,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -713,10 +74,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x01_1_1"
+			(symbol "Conn_01x02_1_1"
 				(rectangle
 					(start -1.27 1.27)
-					(end 1.27 -1.27)
+					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -736,6 +97,17 @@
 						(type none)
 					)
 				)
+				(rectangle
+					(start -1.27 -2.413)
+					(end 0 -2.667)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
 				(pin passive line
 					(at -5.08 0 0)
 					(length 3.81)
@@ -747,6 +119,24 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1578,6 +968,461 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Lilybrary:USB-C"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 17.78 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "USB-C"
+				(at 0 15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "USB-C_0_0"
+				(rectangle
+					(start 6.35 10.414)
+					(end 5.334 9.906)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 5.334)
+					(end 5.334 4.826)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 2.794)
+					(end 5.334 2.286)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 -2.286)
+					(end 5.334 -2.794)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 -4.826)
+					(end 5.334 -5.334)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 -7.366)
+					(end 5.334 -7.874)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 6.35 -9.906)
+					(end 5.334 -10.414)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "USB-C_0_1"
+				(rectangle
+					(start -6.35 12.7)
+					(end 6.35 -12.7)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "USB-C_1_1"
+				(pin passive line
+					(at -8.89 8.89 0)
+					(length 2.54)
+					(name "SBU2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -8.89 6.35 0)
+					(length 2.54)
+					(name "SBU1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -3.81 -15.24 90)
+					(length 2.54)
+					(name "SHIELD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -1.27 -15.24 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -1.27 -15.24 90)
+					(length 2.54)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -1.27 -15.24 90)
+					(length 2.54)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -1.27 -15.24 90)
+					(length 2.54)
+					(hide yes)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 10.16 180)
+					(length 2.54)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 10.16 180)
+					(length 2.54)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 10.16 180)
+					(length 2.54)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 8.89 10.16 180)
+					(length 2.54)
+					(hide yes)
+					(name "VBUS"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 5.08 180)
+					(length 2.54)
+					(name "CC1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 2.54 180)
+					(length 2.54)
+					(name "CC2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 -2.54 180)
+					(length 2.54)
+					(name "D-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 -5.08 180)
+					(length 2.54)
+					(name "D-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 -7.62 180)
+					(length 2.54)
+					(name "D+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "A6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 8.89 -10.16 180)
+					(length 2.54)
+					(name "D+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "B6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Regulator_Linear:AMS1117-3.3"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1981,7 +1826,7 @@
 		(uuid "2d935bef-c59e-431a-969b-dc0052a95053")
 	)
 	(junction
-		(at 106.68 134.62)
+		(at 114.3 124.46)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4b32810b-58c9-4cdf-b0a6-46842813106b")
@@ -2045,12 +1890,20 @@
 		(uuid "3db14e32-8d0d-4a87-a4e2-6ba5567686f6")
 	)
 	(no_connect
+		(at 107.95 97.79)
+		(uuid "6103f74d-4b54-4699-a6ec-579441be9c17")
+	)
+	(no_connect
 		(at 168.91 123.19)
 		(uuid "69e230a0-86ca-48aa-8b1b-5348d92e344c")
 	)
 	(no_connect
 		(at 168.91 130.81)
 		(uuid "a5d82f39-2aba-4ea5-bfaf-07e6ac621ada")
+	)
+	(no_connect
+		(at 107.95 100.33)
+		(uuid "eb7e5b25-208d-405b-ac31-637b779245df")
 	)
 	(wire
 		(pts
@@ -2084,7 +1937,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 134.62) (xy 106.68 135.89)
+			(xy 114.3 124.46) (xy 114.3 125.73)
 		)
 		(stroke
 			(width 0)
@@ -2131,6 +1984,16 @@
 			(type default)
 		)
 		(uuid "30e076d0-6578-4825-9110-1a837537fb87")
+	)
+	(wire
+		(pts
+			(xy 113.03 124.46) (xy 113.03 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "31823ee6-85a4-4b7a-8044-b9f91574ab6b")
 	)
 	(wire
 		(pts
@@ -2194,6 +2057,16 @@
 	)
 	(wire
 		(pts
+			(xy 128.27 93.98) (xy 130.81 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b15ab0b-0a44-42b1-b9bd-59351ebb631d")
+	)
+	(wire
+		(pts
 			(xy 137.16 63.5) (xy 137.16 72.39)
 		)
 		(stroke
@@ -2231,6 +2104,26 @@
 			(type default)
 		)
 		(uuid "64417b58-337b-49e5-839a-f8d6d30e358d")
+	)
+	(wire
+		(pts
+			(xy 115.57 124.46) (xy 115.57 121.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67f639c2-acbf-472f-99ae-57f3e4a1e4ba")
+	)
+	(wire
+		(pts
+			(xy 113.03 124.46) (xy 114.3 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70ad3327-9f8b-404d-94c2-510d1ddf7f40")
 	)
 	(wire
 		(pts
@@ -2314,17 +2207,17 @@
 	)
 	(wire
 		(pts
-			(xy 102.87 134.62) (xy 106.68 134.62)
+			(xy 124.46 58.42) (xy 124.46 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "a3c348c4-8bd2-4375-a79b-d85275c4b5fb")
+		(uuid "9fb8e601-f0da-4a7f-a907-40023e7cf1c8")
 	)
 	(wire
 		(pts
-			(xy 106.68 134.62) (xy 110.49 134.62)
+			(xy 114.3 124.46) (xy 115.57 124.46)
 		)
 		(stroke
 			(width 0)
@@ -2351,6 +2244,16 @@
 			(type default)
 		)
 		(uuid "bbc1b9f4-ed52-41c6-bf41-63eb22dd8a92")
+	)
+	(wire
+		(pts
+			(xy 128.27 91.44) (xy 128.27 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc5aded7-36f9-43d3-a633-81173dc061f6")
 	)
 	(wire
 		(pts
@@ -2414,16 +2317,6 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 58.42) (xy 124.46 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e09d70f9-0a77-47be-abae-fc0f23fa1859")
-	)
-	(wire
-		(pts
 			(xy 125.73 115.57) (xy 138.43 115.57)
 		)
 		(stroke
@@ -2472,16 +2365,6 @@
 		)
 		(uuid "15ff621c-d1e1-4548-9f68-4521ea3205fc")
 	)
-	(label "VCC"
-		(at 140.97 72.39 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "4fe39f30-c7e3-48c6-93ff-3402e89ab7e3")
-	)
 	(label "D-"
 		(at 127 110.49 0)
 		(effects
@@ -2502,6 +2385,28 @@
 		)
 		(uuid "db89116a-60b8-4d90-ae68-9b48b7ab4535")
 	)
+	(global_label "VCC"
+		(shape input)
+		(at 114.3 72.39 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "305e8dfa-54ad-49b5-afb6-b3b6861a84d3")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 107.6862 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "3V3"
 		(shape input)
 		(at 218.44 72.39 0)
@@ -2515,6 +2420,28 @@
 		(uuid "7dbd88e9-456a-4a8a-badb-ba649f7eb4f1")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 224.9328 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VCC"
+		(shape input)
+		(at 128.27 91.44 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "e1dd39e9-5903-49a4-938d-6b40587f4c97")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.27 84.8262 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2633,7 +2560,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0d22bb88-3fc2-4c31-9132-f06a7bc8b3ec")
-		(property "Reference" "C19"
+		(property "Reference" "C16"
 			(at 171.45 127.508 90)
 			(effects
 				(font
@@ -2651,7 +2578,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 176.53 132.3848 0)
 			(effects
 				(font
@@ -2669,7 +2596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 172.72 133.35 0)
 			(effects
 				(font
@@ -2714,7 +2641,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C19")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -2730,7 +2657,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1ae91ce0-cbca-43e1-8ff8-452badc37b99")
-		(property "Reference" "C21"
+		(property "Reference" "C10"
 			(at 214.63 67.3099 0)
 			(effects
 				(font
@@ -2748,7 +2675,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 211.7852 72.39 0)
 			(effects
 				(font
@@ -2766,7 +2693,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 210.82 68.58 0)
 			(effects
 				(font
@@ -2811,7 +2738,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C21")
+					(reference "C10")
 					(unit 1)
 				)
 			)
@@ -2959,7 +2886,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "2c16c7ae-af4d-48d4-8fe9-0efbc4d67879")
-		(property "Reference" "C15"
+		(property "Reference" "C18"
 			(at 150.876 58.42 0)
 			(effects
 				(font
@@ -2977,7 +2904,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 149.5552 63.5 0)
 			(effects
 				(font
@@ -2995,7 +2922,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 148.59 59.69 0)
 			(effects
 				(font
@@ -3040,7 +2967,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C15")
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -3048,7 +2975,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 124.46 64.77 270)
+		(at 124.46 54.61 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3056,8 +2983,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3422d932-333d-4579-b0dd-a28334015891")
-		(property "Reference" "D5"
-			(at 127 61.9124 90)
+		(property "Reference" "D4"
+			(at 127 51.7524 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3066,7 +2993,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 127 64.4524 90)
+			(at 127 54.2924 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3074,8 +3001,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder"
-			(at 124.46 64.77 0)
+		(property "Footprint" "Lilibrary:LED_0603"
+			(at 124.46 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3084,7 +3011,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 64.77 0)
+			(at 124.46 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3092,8 +3019,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Light emitting diode"
-			(at 124.46 64.77 0)
+		(property "Description" ""
+			(at 124.46 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3102,7 +3029,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 124.46 64.77 0)
+			(at 124.46 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3111,7 +3038,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 124.46 64.77 90)
+			(at 124.46 54.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3120,7 +3047,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 124.46 64.77 90)
+			(at 124.46 54.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3129,7 +3056,7 @@
 			)
 		)
 		(property "LCSC" "C19171394"
-			(at 124.46 64.77 90)
+			(at 124.46 54.61 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3146,7 +3073,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "D5")
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -3227,7 +3154,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "49c96e8f-260c-4750-adc7-af078c6ae140")
-		(property "Reference" "U6"
+		(property "Reference" "U4"
 			(at 193.04 69.342 0)
 			(effects
 				(font
@@ -3263,7 +3190,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223"
+		(property "Description" ""
 			(at 198.12 72.39 0)
 			(effects
 				(font
@@ -3311,7 +3238,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "U6")
+					(reference "U4")
 					(unit 1)
 				)
 			)
@@ -3326,7 +3253,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "54e96b7d-0a33-45f6-b191-d89df7b78936")
-		(property "Reference" "U5"
+		(property "Reference" "U6"
 			(at 160.8933 140.97 0)
 			(effects
 				(font
@@ -3363,7 +3290,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "USB serial converter, crystal-less, UART, SOIC-16"
+		(property "Description" ""
 			(at 157.226 89.662 0)
 			(effects
 				(font
@@ -3450,99 +3377,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 109.22 72.39 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "583e8ec1-f873-44c3-bca8-efcd4e61eff5")
-		(property "Reference" "J7"
-			(at 109.22 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 109.22 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 109.22 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "842371da-cb2d-4913-81b5-e894c8bef383")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "J7")
+					(reference "U6")
 					(unit 1)
 				)
 			)
@@ -3689,7 +3524,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "687dec84-5e3f-4e75-bd1c-b25350e244b9")
-		(property "Reference" "C18"
+		(property "Reference" "C21"
 			(at 162.56 103.378 90)
 			(effects
 				(font
@@ -3707,7 +3542,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 167.64 108.2548 0)
 			(effects
 				(font
@@ -3725,7 +3560,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 163.83 109.22 0)
 			(effects
 				(font
@@ -3770,15 +3605,15 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C18")
+					(reference "C21")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector:USB_C_Receptacle_USB2.0_14P")
-		(at 110.49 111.76 0)
+		(lib_id "Lilybrary:USB-C")
+		(at 116.84 106.68 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3786,8 +3621,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "73b73c79-a6cf-43ac-b9cd-4b3ab9811005")
-		(property "Reference" "J6"
-			(at 110.49 88.9 0)
+		(property "Reference" "J7"
+			(at 116.84 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3795,15 +3630,15 @@
 			)
 		)
 		(property "Value" "USB_C_Receptacle_USB2.0_14P"
-			(at 110.49 91.44 0)
+			(at 116.84 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_USB:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
-			(at 114.3 111.76 0)
+		(property "Footprint" "Lilibrary:USB_C_Receptacle_HRO_TYPE-C-31-M-12"
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3812,7 +3647,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.usb.org/sites/default/files/documents/usb_type-c.zip"
-			(at 114.3 111.76 0)
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3820,8 +3655,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "USB 2.0-only 14P Type-C Receptacle connector"
-			(at 110.49 111.76 0)
+		(property "Description" ""
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3830,7 +3665,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 110.49 111.76 0)
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3839,7 +3674,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 110.49 111.76 0)
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3848,7 +3683,7 @@
 			)
 		)
 		(property "LCSC" "C165948"
-			(at 110.49 111.76 0)
+			(at 116.84 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3901,10 +3736,16 @@
 		(pin "A7"
 			(uuid "e21a95a3-e704-4505-a99e-4893d05ec20f")
 		)
+		(pin "B8"
+			(uuid "05deb630-2406-4231-86e1-b768acc45da0")
+		)
+		(pin "A8"
+			(uuid "8d4ba2da-2645-4a11-9209-7d80d422643f")
+		)
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "J6")
+					(reference "J7")
 					(unit 1)
 				)
 			)
@@ -3937,7 +3778,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 167.64 98.0948 0)
 			(effects
 				(font
@@ -3955,7 +3796,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 163.83 99.06 0)
 			(effects
 				(font
@@ -4074,23 +3915,23 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 124.46 54.61 180)
+		(at 124.46 64.77 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "8b3040d1-0df3-4f9a-889f-21aa8e0bc92b")
-		(property "Reference" "R9"
-			(at 124.46 54.61 90)
+		(property "Reference" "R6"
+			(at 124.46 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "330Ω"
-			(at 126.746 51.816 90)
+		(property "Value" "1kΩ"
+			(at 126.746 61.976 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4098,8 +3939,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 126.238 54.61 90)
+		(property "Footprint" "Lilibrary:Resistor_0603"
+			(at 126.238 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4108,7 +3949,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 124.46 54.61 0)
+			(at 124.46 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4116,8 +3957,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 124.46 54.61 0)
+		(property "Description" ""
+			(at 124.46 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4126,7 +3967,7 @@
 			)
 		)
 		(property "KLC_S3.3" ""
-			(at 124.46 54.61 90)
+			(at 124.46 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4135,7 +3976,7 @@
 			)
 		)
 		(property "KLC_S4.1" ""
-			(at 124.46 54.61 90)
+			(at 124.46 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4143,8 +3984,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2933198"
-			(at 124.46 54.61 90)
+		(property "LCSC" "C22548"
+			(at 124.46 64.77 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4161,7 +4002,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "R9")
+					(reference "R6")
 					(unit 1)
 				)
 			)
@@ -4169,7 +4010,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 135.89 0)
+		(at 114.3 125.73 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4178,7 +4019,7 @@
 		(fields_autoplaced yes)
 		(uuid "8f394d8b-a082-46f3-8ccb-8d5977649193")
 		(property "Reference" "#PWR036"
-			(at 106.68 142.24 0)
+			(at 114.3 132.08 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4187,7 +4028,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 140.97 0)
+			(at 114.3 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4195,7 +4036,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 135.89 0)
+			(at 114.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4204,7 +4045,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 135.89 0)
+			(at 114.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4213,7 +4054,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 135.89 0)
+			(at 114.3 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4242,7 +4083,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "9d768503-9776-4c73-b84d-9e4b2b917595")
-		(property "Reference" "C20"
+		(property "Reference" "C12"
 			(at 182.88 67.3099 0)
 			(effects
 				(font
@@ -4260,7 +4101,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 180.0352 72.39 0)
 			(effects
 				(font
@@ -4278,7 +4119,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 179.07 68.58 0)
 			(effects
 				(font
@@ -4323,7 +4164,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C20")
+					(reference "C12")
 					(unit 1)
 				)
 			)
@@ -4354,7 +4195,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 129.54 105.918 90)
 			(effects
 				(font
@@ -4372,7 +4213,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" ""
 			(at 129.54 104.14 0)
 			(effects
 				(font
@@ -4499,7 +4340,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "bd2c47e4-f4fe-47c3-8eb3-cb76498f792f")
-		(property "Reference" "C14"
+		(property "Reference" "C20"
 			(at 139.446 58.42 0)
 			(effects
 				(font
@@ -4517,7 +4358,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 138.1252 63.5 0)
 			(effects
 				(font
@@ -4535,7 +4376,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 137.16 59.69 0)
 			(effects
 				(font
@@ -4580,7 +4421,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C14")
+					(reference "C20")
 					(unit 1)
 				)
 			)
@@ -4661,7 +4502,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e4d055fb-b5ce-4877-89b2-89e308b5141a")
-		(property "Reference" "C16"
+		(property "Reference" "C19"
 			(at 162.306 58.42 0)
 			(effects
 				(font
@@ -4679,7 +4520,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Capacitor_0603"
 			(at 160.9852 63.5 0)
 			(effects
 				(font
@@ -4697,7 +4538,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" ""
 			(at 160.02 59.69 0)
 			(effects
 				(font
@@ -4724,7 +4565,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14663"
+		(property "LCSC" "C1691"
 			(at 160.02 59.69 0)
 			(effects
 				(font
@@ -4742,7 +4583,77 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "C16")
+					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 135.89 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee4b5c78-022b-4b00-9c2c-e87c67caa969")
+		(property "Reference" "J6"
+			(at 138.43 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x02"
+			(at 138.43 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Lilibrary:JST XH 2 pins"
+			(at 135.89 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 135.89 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 135.89 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "faf38dcd-d7c9-48f5-a43b-9f5c5110b722")
+		)
+		(pin "1"
+			(uuid "b5e562f4-a522-4f5d-bd4f-79b8e20d5af5")
+		)
+		(instances
+			(project "main_pcb"
+				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
+					(reference "J6")
 					(unit 1)
 				)
 			)
@@ -4757,7 +4668,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "f04df3e6-7fcd-49a1-9d15-311e4d876770")
-		(property "Reference" "R7"
+		(property "Reference" "R9"
 			(at 129.54 101.6 90)
 			(effects
 				(font
@@ -4773,7 +4684,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+		(property "Footprint" "Lilibrary:Resistor_0603"
 			(at 129.54 103.378 90)
 			(effects
 				(font
@@ -4791,7 +4702,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" ""
 			(at 129.54 101.6 0)
 			(effects
 				(font
@@ -4836,101 +4747,7 @@
 		(instances
 			(project "main_pcb"
 				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "R7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x01")
-		(at 135.89 96.52 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f0dbb01d-b43b-4a4d-8459-a87b0674baae")
-		(property "Reference" "J8"
-			(at 138.43 95.2499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x01"
-			(at 138.43 97.7899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "KLC_S3.3" ""
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "KLC_S4.1" ""
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" ""
-			(at 135.89 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5bb0da5e-e83c-4a80-8e44-4562a8924995")
-		)
-		(instances
-			(project "main_pcb"
-				(path "/ecf3cf27-e370-4cc5-86a4-628206277f58/0e6b288a-4b38-488e-b038-c06265dff781"
-					(reference "J8")
+					(reference "R9")
 					(unit 1)
 				)
 			)

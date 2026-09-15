@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+27452482803959117
+=======
 27334793769102977
+>>>>>>> main
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -71806,12 +71810,21 @@ Yellow 5381 Series LED
 2
 2
 Lilibrary
+<<<<<<< HEAD
+AMPHENOL_69830-026LF
+
+
+0
+26
+26
+=======
 AMS1117-3V3
 
 
 0
 4
 4
+>>>>>>> main
 Lilibrary
 ATmega2560-16AU
 
@@ -71820,6 +71833,8 @@ ATmega2560-16AU
 100
 100
 Lilibrary
+<<<<<<< HEAD
+=======
 CH340C
 
 
@@ -71827,6 +71842,7 @@ CH340C
 16
 16
 Lilibrary
+>>>>>>> main
 Capacitor_0603
 
 
@@ -71834,13 +71850,34 @@ Capacitor_0603
 2
 2
 Lilibrary
+<<<<<<< HEAD
+Crystal_3225
+=======
 Crystal_0603
+>>>>>>> main
 
 
 0
 4
 4
 Lilibrary
+<<<<<<< HEAD
+IDC-TH_26P-P2.54_OMRON_XG4C-2631
+
+
+0
+26
+26
+Lilibrary
+JST XH 2 pins
+
+
+0
+2
+2
+Lilibrary
+=======
+>>>>>>> main
 LED_0603
 
 
@@ -71918,6 +71955,30 @@ Resistor_0603
 2
 2
 Lilibrary
+<<<<<<< HEAD
+SOIC-14_TXB0104DR
+
+
+0
+14
+14
+Lilibrary
+SOP-16_CH340C
+
+
+0
+16
+16
+Lilibrary
+SOT-223-3_TabPin2_AMS1117
+
+
+0
+4
+3
+Lilibrary
+=======
+>>>>>>> main
 Switch_Push_Button_12mm
 
 
@@ -71925,6 +71986,21 @@ Switch_Push_Button_12mm
 4
 2
 Lilibrary
+<<<<<<< HEAD
+Test point
+
+
+0
+1
+1
+Lilibrary
+USB_C_Receptacle_HRO_TYPE-C-31-M-12
+
+
+0
+20
+17
+=======
 TXB0104D
 
 
@@ -71945,6 +72021,7 @@ USB-C (Home-brew)
 0
 12
 12
+>>>>>>> main
 Lilibrary
 led
 

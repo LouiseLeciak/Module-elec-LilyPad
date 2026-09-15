@@ -212,4 +212,15 @@
 		(uuid "4dbbfa58-d0bd-4ad8-b08c-d1851993f169")
 	)
 	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Button_Switch_SMD.3dshapes/B3F-4055--3DModel-STEP-418109.STEP"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -90 -0 -0)
+		)
+	)
 )

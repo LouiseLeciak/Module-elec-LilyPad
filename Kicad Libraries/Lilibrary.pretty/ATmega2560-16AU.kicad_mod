@@ -1033,4 +1033,15 @@
 		(uuid "7ba4c91b-0f2d-4119-a484-807f3c2b58d6")
 	)
 	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Package_QFP.3dshapes/TQFP-100_14x14mm_P0.5mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
 )
