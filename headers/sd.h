@@ -7,54 +7,89 @@
 // https://elm-chan.org/docs/mmc/mmc_e.html
 
 #include <avr/io.h>
-#include <stdint.h>
 
-typedef enum e_sd_cmd {
-  GO_IDLE_STATE = 0b01000000,
-  CMD2,
-  CMD3,
-  CMD4,
-  CMD6, //?
-  CMD7,
-  CMD8, //?
-  CMD9,
-  CM10,
-  CMD11, //?
-  CMD12,
-  CMD13,
-  CMD15,
-  CMD16,
-  CMD17,
-  CMD18,
-  CMD19, //?
-  CMD20, //?
-  CMD22, //?
-  CMD23, //?
-  CMD24,
-  CMD25,
-  CMD27,
-  CMD32,
-  CMD33,
-  CMD55,
-  CMD56,
-  ACMD6,
-  ACMD13,
-  ACMD41,
-  ACMD42,
-  ACMD51,
+#define SD_R1_IDLE(r) ((r).r1 & 0x01)
+#define SD_R1_ILLEGAL_CMD(r) ((r).r1 & 0x04)
+#define SD_R1_CRC_ERROR(r) ((r).r1 & 0x08)
 
-} SD_CMD;
+#define SD_OCR_BUSY(r) (((r).data[0] & 0x80) != 0)
+#define SD_OCR_CCS(r) (((r).data[0] & 0x40) != 0)
 
-struct __attribute__((packed)) s_sd_cmd {
+#define SD_CS_LOW() (PORTH &= ~(SD_CS))
+#define SD_CS_HIGH() (PORTH |= (SD_CS))
+
+typedef enum
+{
+  GO_IDLE_STATE = 0,
+  SEND_OP_COND = 1,
+  CMD8 = 8,   //?
+  CMD16 = 16, //?
+  APP_CMD = 55,
+  CMD58 = 58,  //?
+  ACMD41 = 41, //?
+
+} SD_CMD_INDEX;
+
+typedef enum
+{
+  SD_RESP_R1,
+  SD_RESP_R1B,
+  SD_RESP_R2,
+  SD_RESP_R3,
+  SD_RESP_R7
+} SD_RESP_KIND;
+
+typedef struct __attribute__ ((packed))
+{
   uint8_t cmd;
   uint8_t arg[4];
   uint8_t crc7_and_end_bit;
-};
+} sd_cmd;
+
+typedef struct __attribute__ ((packed))
+{
+  uint8_t r1;
+  uint8_t data[4]; // R2: data[0] used
+                   // R3/R7: OCR/echo, all 4 bytes;
+                   // unused for R1/R1b
+} sd_resp;
 
 // UTILS
-void sd_crc7_gen(struct s_sd_cmd *cmd);
+void sd_crc7_gen (sd_cmd *cmd, SD_CMD_INDEX index);
+sd_resp sd_send_cmd (sd_cmd *cmd, SD_RESP_KIND kind);
+sd_resp sd_read_response (SD_RESP_KIND kind);
 
-// COMMANDS
-void sd_go_idle_state(uint8_t arg[4]);
+// STUFF
+void sd_init (void);
+
+// PRIMITIVE COMMANDS
+/**
+ * @brief Resets the SD Memory Card (CMD0)
+ *
+ * @param arg0 Stuff byte.
+ * @param arg1 Stuff byte.
+ * @param arg2 Stuff byte.
+ * @param arg3 Stuff byte.
+ * @return R1 response.
+ */
+sd_resp sd_go_idle_state (uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                          uint8_t arg3);
+
+/**
+ * @brief Sends host capacity support information and activates the card's
+ * initialisation process.
+ * HCS is effective when card receives SEND_IF_COND command.
+ * Reserved bits shall be set to '0'.
+ *
+ * @param arg0 [31]: Reserved bit ; [30]: HCS, [29:24]: Reserved bits.
+ * @param arg1 [23:16]: Reserved bits
+ * @param arg2 [15:8]: Reserved bits.
+ * @param arg3 [7:0]: Reserved bits.
+ * @return R1 response.
+ */
+sd_resp sd_send_op_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                         uint8_t arg3);
+
+sd_resp sd_app_cmd (uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
 #endif // !SD_H
