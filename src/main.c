@@ -1,7 +1,6 @@
 #include <util/delay.h>
 
 #include "GC9A01.h"
-#include "eye_imgs.h"
 #include "main_screen.h"
 #include "pinout.h"
 #include "screen_text.h"
@@ -20,7 +19,6 @@ t_state current_state = INIT;
 void
 eyes_init ()
 {
-
   DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   GC9A01_init (LEFT_EYE);
   GC9A01_init (RIGHT_EYE);
@@ -62,7 +60,13 @@ init (void)
   uart_init (MYUBRR);
 
   sd_init ();
-  // screens_init ();
+  // Set SPI clock to highest speed after SD initialisation
+  SPSR |= (1 << SPI2X);
+  SPCR &= ~(1 << SPR0);
+  SPCR &= ~(1 << SPR1);
+
+  screens_init ();
+
   // keyboard_init();
 }
 

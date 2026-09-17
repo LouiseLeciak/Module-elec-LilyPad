@@ -22,12 +22,11 @@ typedef enum
 {
   GO_IDLE_STATE = 0,
   SEND_OP_COND = 1,
-  CMD8 = 8,   //?
-  CMD16 = 16, //?
+  SEND_IF_COND = 8,
+  SET_BLOCKLEN = 16,
   APP_CMD = 55,
-  CMD58 = 58,  //?
-  ACMD41 = 41, //?
-
+  READ_OCR = 58,
+  SD_SEND_OP_COND = 41
 } SD_CMD_INDEX;
 
 typedef enum
@@ -90,6 +89,17 @@ sd_resp sd_go_idle_state (uint8_t arg0, uint8_t arg1, uint8_t arg2,
 sd_resp sd_send_op_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
                          uint8_t arg3);
 
+sd_resp sd_send_if_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                         uint8_t arg3);
+
 sd_resp sd_app_cmd (uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
+
+sd_resp sd_set_blocklen (uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                         uint8_t arg3);
+
+sd_resp sd_read_ocr (uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
+
+sd_resp sd_sd_send_op_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                            uint8_t arg3);
 
 #endif // !SD_H
