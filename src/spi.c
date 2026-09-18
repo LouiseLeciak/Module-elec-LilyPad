@@ -1,4 +1,5 @@
 #include "spi.h"
+
 #include "pinout.h"
 
 // NOTE: (p.195) In Master mode : In Master Mode, if SS pin is:
@@ -6,9 +7,7 @@
 // pin
 // - Input -> The line must be held high, otherwise if pulled low, the SPI
 // system interprets this as another master selecting the SPI as a slave
-void
-spi_master_init (void)
-{
+void spi_master_init(void) {
   DDRB |= (CS);
   PORTB |= (CS);
 
@@ -27,11 +26,8 @@ spi_master_init (void)
   SPSR = (1 << SPI2X);
 }
 
-uint8_t
-spi_txrx (uint8_t data)
-{
+uint8_t spi_txrx(uint8_t data) {
   SPDR = data;
-  while (!(SPSR & (1 << SPIF)))
-    ;
+  while (!(SPSR & (1 << SPIF)));
   return SPDR;
 }

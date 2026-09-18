@@ -18,8 +18,7 @@
 #define SD_CS_LOW() (PORTH &= ~(SD_CS))
 #define SD_CS_HIGH() (PORTH |= (SD_CS))
 
-typedef enum
-{
+typedef enum {
   GO_IDLE_STATE = 0,
   SEND_OP_COND = 1,
   SEND_IF_COND = 8,
@@ -29,8 +28,7 @@ typedef enum
   SD_SEND_OP_COND = 41
 } SD_CMD_INDEX;
 
-typedef enum
-{
+typedef enum {
   SD_RESP_R1,
   SD_RESP_R1B,
   SD_RESP_R2,
@@ -38,28 +36,26 @@ typedef enum
   SD_RESP_R7
 } SD_RESP_KIND;
 
-typedef struct __attribute__ ((packed))
-{
+typedef struct __attribute__((packed)) {
   uint8_t cmd;
   uint8_t arg[4];
   uint8_t crc7_and_end_bit;
 } sd_cmd;
 
-typedef struct __attribute__ ((packed))
-{
+typedef struct __attribute__((packed)) {
   uint8_t r1;
-  uint8_t data[4]; // R2: data[0] used
-                   // R3/R7: OCR/echo, all 4 bytes;
-                   // unused for R1/R1b
+  uint8_t data[4];  // R2: data[0] used
+                    // R3/R7: OCR/echo, all 4 bytes;
+                    // unused for R1/R1b
 } sd_resp;
 
 // UTILS
-void sd_crc7_gen (sd_cmd *cmd, SD_CMD_INDEX index);
-sd_resp sd_send_cmd (sd_cmd *cmd, SD_RESP_KIND kind);
-sd_resp sd_read_response (SD_RESP_KIND kind);
+void sd_crc7_gen(sd_cmd* cmd, SD_CMD_INDEX index);
+sd_resp sd_send_cmd(sd_cmd* cmd, SD_RESP_KIND kind);
+sd_resp sd_read_response(SD_RESP_KIND kind);
 
 // STUFF
-void sd_init (void);
+void sd_init(void);
 
 // PRIMITIVE COMMANDS
 /**
@@ -71,8 +67,8 @@ void sd_init (void);
  * @param arg3 Stuff byte.
  * @return R1 response.
  */
-sd_resp sd_go_idle_state (uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                          uint8_t arg3);
+sd_resp sd_go_idle_state(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                         uint8_t arg3);
 
 /**
  * @brief Sends host capacity support information and activates the card's
@@ -86,20 +82,17 @@ sd_resp sd_go_idle_state (uint8_t arg0, uint8_t arg1, uint8_t arg2,
  * @param arg3 [7:0]: Reserved bits.
  * @return R1 response.
  */
-sd_resp sd_send_op_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                         uint8_t arg3);
+sd_resp sd_send_op_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
-sd_resp sd_send_if_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                         uint8_t arg3);
+sd_resp sd_send_if_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
-sd_resp sd_app_cmd (uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
+sd_resp sd_app_cmd(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
-sd_resp sd_set_blocklen (uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                         uint8_t arg3);
+sd_resp sd_set_blocklen(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
-sd_resp sd_read_ocr (uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
+sd_resp sd_read_ocr(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
-sd_resp sd_sd_send_op_cond (uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                            uint8_t arg3);
+sd_resp sd_sd_send_op_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                           uint8_t arg3);
 
-#endif // !SD_H
+#endif  // !SD_H
