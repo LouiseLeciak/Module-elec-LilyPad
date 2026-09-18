@@ -27,6 +27,9 @@ jobs:
           mkdir -p ~/.apt-cache
           sudo apt-get update
           sudo apt-get install -y -o Dir::Cache::Archives="$HOME/.apt-cache" gcc-avr binutils-avr avr-libc make
+          sudo rm -f ~/.apt-cache/lock
+          sudo rm -rf ~/.apt-cache/partial
+          sudo chown -R "$USER" ~/.apt-cache
 
       - name: Build project
         run: make all
