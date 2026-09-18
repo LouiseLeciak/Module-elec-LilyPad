@@ -40,4 +40,12 @@ void mcp_init(void);
 void mcp_write_register(uint8_t reg, uint8_t value);
 uint8_t mcp_read_register(uint8_t reg);
 
+void start_new_word(void);
+void validate_word(void);
+
+void show_menu(void);
+void start_translation(void);
+void show_alphabet(void);
+void show_game(void);
+
 #endif

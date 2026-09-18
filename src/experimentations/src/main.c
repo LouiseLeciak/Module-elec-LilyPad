@@ -12,9 +12,16 @@
 // void testPINS(void);
 // void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 #define WORD_MAX_LEN 20
+#define ROWS_NB 4
+#define COLS_NB 10
+#define MENU_SIZE 3
 
 static char word[WORD_MAX_LEN + 1];
 
+static uint8_t menu_choice = 0; // savoir ou on est dans le menu
+// 0 = Traduction
+// 1 = Alphabet
+// 2 = Jeu
 
 // pour checker si on valide un mot ou pas
 static uint8_t word_len = 0;
@@ -24,6 +31,17 @@ typedef enum
   INPUT,
   VALIDATED
 } word_state_t;
+
+typedef enum
+{
+  MENU,
+  TRADUCTION,
+  ALPHABET,
+  JEU
+} app_state_t;
+
+static app_state_t app_state = MENU;
+
 //////////////////////
 
 static word_state_t word_state = INPUT;
@@ -46,19 +64,6 @@ void screens_init()
   main_screen_init();
   eyes_init();
 }
-
-// void keyboard_init(void)
-// {
-//   DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
-//   DDRC |= (KB_R4);
-//   DDRG |= (KB_C6);
-//   DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
-
-//   PORTA &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
-//   PORTC &= ~(KB_R4);
-//   PORTG &= ~(KB_C6);
-//   PORTJ &= ~(KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
-// }
 
 void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
@@ -84,13 +89,7 @@ void init(void)
 
 static uint8_t eye_state = 0;
 static uint8_t prev_sw; // etat precedent du bouton
-
-static void rotary_button_init(void)
-{
-    uint8_t gpio = mcp_read_register(MCP_GPIOA);
-
-    prev_sw = (gpio >> ROTARY_SW) & 1;
-}
+static uint8_t rotaryclk_prev = 1;
 
 void change_eye(void)
 {
@@ -143,66 +142,188 @@ static void validate_word(void)
   word_state = VALIDATED;
 }
 
-void rotary_button_update(void)
+static void rotary_init(void)
 {
-  uint8_t sw;
-  uint8_t gpio = mcp_read_register(MCP_GPIOA);
+  uint8_t gpio;
 
-  sw = (gpio >> ROTARY_SW) & 1;
+  gpio = mcp_read_register(MCP_GPIOA);
 
-  if (sw != prev_sw)
+  rotaryclk_prev = (gpio >> ROTARY_CLK) & 1;
+  prev_sw = (gpio >> ROTARY_SW) & 1;
+}
+
+// to display the different choicies
+static void show_menu(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Menu",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      4, 2);
+
+  if (menu_choice == 0)
   {
-    _delay_ms(5);
+    draw_string(
+        10, 80, "> Traduction",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else
+  {
+    draw_string(
+        10, 80, "  Traduction",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
 
-    gpio = mcp_read_register(MCP_GPIOA);
-    sw = (gpio >> ROTARY_SW) & 1;
+  if (menu_choice == 1)
+  {
+    draw_string(
+        10, 140, "> Alphabet",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else
+  {
+    draw_string(
+        10, 140, "  Alphabet",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
 
-    if (sw != prev_sw)
+  if (menu_choice == 2)
+  {
+    draw_string(
+        10, 200, "> Jeu",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else
+  {
+    draw_string(
+        10, 200, "  Jeu",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+
+  app_state = MENU;
+}
+
+static void update_menu_cursor(uint8_t old_choice)
+{
+  // on enelve lancien curseur et on met un espace
+  if (old_choice == 0)
+  {
+    draw_string(
+        10, 80, "  ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else if (old_choice == 1)
+  {
+    draw_string(
+        10, 140, "  ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else
+  {
+    draw_string(
+        10, 200, "  ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+
+  // nouveau curseur
+  if (menu_choice == 0)
+  {
+    draw_string(
+        10, 80, "> ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else if (menu_choice == 1)
+  {
+    draw_string(
+        10, 140, "> ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+  else
+  {
+    draw_string(
+        10, 200, "> ",
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        3, 2);
+  }
+}
+
+// gestion de la rotation
+void rotary_update(void)
+{
+  uint8_t gpio;
+  uint8_t clk;
+  uint8_t dt;
+  uint8_t old_choice;
+
+  gpio = mcp_read_register(MCP_GPIOA);
+
+  clk = (gpio >> ROTARY_CLK) & 1;
+
+  if (rotaryclk_prev == 1 && clk == 0)
+  {
+    dt = (gpio >> ROTARY_DT) & 1;
+
+    if (app_state == MENU)
     {
-      if (sw == 0)
+      old_choice = menu_choice;
+
+      //sens du tournage
+      if (dt != clk)
       {
-        if (word_state == INPUT)
+        menu_choice++;
+
+        if (menu_choice >= MENU_SIZE)
         {
-          validate_word();
+          menu_choice = 0;
+        }
+      }
+      else
+      {
+        if (menu_choice == 0)
+        {
+          menu_choice = MENU_SIZE - 1;
         }
         else
         {
-          start_new_word();
+          menu_choice--;
         }
       }
 
-      prev_sw = sw;
+      update_menu_cursor(old_choice);
     }
   }
+
+  rotaryclk_prev = clk;
 }
 
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////// KEYBOARD ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
-
-#define ROWS_NB 4
-#define COLS_NB 10
-
-// PINOUT V1
-// R1: PJ2
-// R2: PJ1
-// R3: PJ0
-// R4: PC7
-// C1: PA3
-// C2: PA4
-// C3: PA5
-// C4: PA6
-// C5: PA7
-// C6: PG2
-// C7: PJ6
-// C8: PJ5
-// C9: PJ4
-// C10: PJ3
-// SWL1: PC1
-// SWL2: PC2
-// SWL3: PC3
-// SCL: PD0
-// SDA: PD1
 
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
@@ -211,7 +332,7 @@ static const char keymap[ROWS_NB][COLS_NB] =
         {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
         {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
         {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'd'},  // enter
-        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'h', 'i', 'i'}}; // add supp and home
+        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', '#', 'i', 'p'}}; // add supp and home
 
 static void keypad_init(void)
 {
@@ -339,26 +460,146 @@ static int keypad_read(void)
 }
 
 ///////////////////////////////////////////////////////////////////////
+//////////////////////////////AFFICHAGE////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+// le menu entre un mot
+static void start_translation(void)
+{
+  word_len = 0;
+  word[0] = '\0';
+
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Entre un mot !",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      4, 2);
+
+  word_state = INPUT;
+  app_state = TRADUCTION;
+}
+
+// a modifier jaffiche juste une string
+static void show_alphabet(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Choix : alphabet",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      3, 2);
+
+  app_state = ALPHABET;
+}
+
+// idem
+static void show_game(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Choix : jeu",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      3, 2);
+
+  app_state = JEU;
+}
+
+// static void select_menu_choice(void)
+// {
+//   if (menu_choice == 0)
+//   {
+//     start_translation();
+//   }
+//   else if (menu_choice == 1)
+//   {
+//     show_alphabet();
+//   }
+//   else if (menu_choice == 2)
+//   {
+//     show_game();
+//   }
+// }
+
+// ou on ets dans le menu, valider ou pas
+void rotary_button_update(void)
+{
+  uint8_t gpio;
+  uint8_t sw;
+
+  gpio = mcp_read_register(MCP_GPIOA);
+  sw = (gpio >> ROTARY_SW) & 1;
+
+  if (sw != prev_sw)
+  {
+    _delay_ms(5);
+
+    gpio = mcp_read_register(MCP_GPIOA);
+    sw = (gpio >> ROTARY_SW) & 1;
+
+    if (sw != prev_sw)
+    {
+      if (sw == 0)
+      {
+        if (app_state == MENU)
+        {
+          if (menu_choice == 0)
+          {
+            start_translation();
+          }
+          else if (menu_choice == 1)
+          {
+            show_alphabet();
+          }
+          else if (menu_choice == 2)
+          {
+            show_game();
+          }
+        }
+        else if (app_state == TRADUCTION)
+        {
+          if (word_state == INPUT)
+          {
+            validate_word();
+          }
+          else
+          {
+            start_new_word();
+          }
+        }
+      }
+
+      prev_sw = sw;
+    }
+  }
+}
+
+///////////////////////////////////////////////////////////////////////
 ///////////////////////////// MAIN ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
 int main(void)
 {
   init();
-  keypad_init(); // j'inite le clavier
+
   i2c_init();
   mcp_init();
-  rotary_button_init();
 
-  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+  keypad_init();
+  rotary_init();
 
-  draw_string(10, 20, "Entre un mot !", GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4, 2);
+  show_menu();
 
   while (1)
   {
+    rotary_update();
     rotary_button_update();
 
-    if (word_state == INPUT)
+    if (app_state == TRADUCTION && word_state == INPUT)
     {
       int key = keypad_read();
 
@@ -368,13 +609,17 @@ int main(void)
         uint8_t col = key % COLS_NB;
         char c = keymap[row][col];
 
-        if (c != '\0' &&
-            c != '\n' &&
-            word_len < WORD_MAX_LEN)
+        if (c == '#')
+        {
+          menu_choice = 0;
+          show_menu();
+        }
+        else if (c != '\0' &&
+                 c != '\n' &&
+                 word_len < WORD_MAX_LEN)
         {
           word[word_len] = c;
           word_len++;
-
           word[word_len] = '\0';
 
           draw_string(
@@ -382,6 +627,54 @@ int main(void)
               GC9A01A_COLOR_PURPLE,
               GC9A01A_COLOR_PINK,
               4, 2);
+        }
+
+        _delay_ms(20);
+
+        while (keypad_read() >= 0)
+        {
+          ;
+        }
+      }
+    }
+
+    else if (app_state == ALPHABET)
+    {
+      int key = keypad_read();
+
+      if (key >= 0)
+      {
+        uint8_t row = key / COLS_NB;
+        uint8_t col = key % COLS_NB;
+        char c = keymap[row][col];
+
+        if (c == '#')
+        {
+          show_menu();
+        }
+
+        _delay_ms(20);
+
+        while (keypad_read() >= 0)
+        {
+          ;
+        }
+      }
+    }
+
+    else if (app_state == JEU)
+    {
+      int key = keypad_read();
+
+      if (key >= 0)
+      {
+        uint8_t row = key / COLS_NB;
+        uint8_t col = key % COLS_NB;
+        char c = keymap[row][col];
+
+        if (c == '#')
+        {
+          show_menu();
         }
 
         _delay_ms(20);

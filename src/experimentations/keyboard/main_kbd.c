@@ -37,14 +37,13 @@
 
 #define ROWS_NB 4
 #define COLS_NB 10
-#define ROTARY_CLK 6
-#define ROTARY_SW 5
-#define ROTARY_DT 7
+#define MENU_SIZE 3
 
 static uint8_t rotaryclk_prev;
-// static uint8_t sw_prev = 1;
 static uint8_t menu_index = 0;
-static uint8_t prev_sw = 1; // etat precedent du bouton
+static uint8_t prev_sw;
+
+
 
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
@@ -219,46 +218,46 @@ void rotary_update(void)
     rotaryclk_prev = clk;
 }
 
-//? Probablement pas opti comme verification, probablement a retaper
-// void rotary_button_update(void)
-// {
-//     uint8_t sw; // etat actuel
+? Probablement pas opti comme verification, probablement a retaper
+void rotary_button_update(void)
+{
+    uint8_t sw; // etat actuel
 
-//     uint8_t gpio = mcp_read_register(MCP_GPIOA);
+    uint8_t gpio = mcp_read_register(MCP_GPIOA);
 
-//     sw = (gpio >> ROTARY_SW) & 1;
+    sw = (gpio >> ROTARY_SW) & 1;
 
-//     // si l'etat du bouton a change
-//     if (sw != prev_sw)
-//     {
-//         _delay_ms(5);
+    // si l'etat du bouton a change
+    if (sw != prev_sw)
+    {
+        _delay_ms(5);
 
-//         gpio = mcp_read_register(MCP_GPIOA);
-//         sw = (gpio >> ROTARY_SW) & 1;
-//         // si sw a bien change alors on print des trucs pour le moment en uart
-//         if (sw != prev_sw)
-//         {
-//             if (sw == 0)
-//             {
-//                 switch (menu_index)
-//                 {
-//                 case 0:
-//                     uart_printstr("You choose option 1\n\r");
-//                     break;
-//                 case 1:
-//                     uart_printstr("You choose option 2\n\r");
-//                     break;
-//                 case 2:
-//                     uart_printstr("You choose option 3\n\r");
-//                     break;
-//                 }
-//             }
-//             // et on met a jout le prev ducoup
-//             prev_sw = sw;
-//             _delay_ms(20);
-//         }
-//     }
-// }
+        gpio = mcp_read_register(MCP_GPIOA);
+        sw = (gpio >> ROTARY_SW) & 1;
+        // si sw a bien change alors on print des trucs pour le moment en uart
+        if (sw != prev_sw)
+        {
+            if (sw == 0)
+            {
+                switch (menu_index)
+                {
+                case 0:
+                    uart_printstr("You choose option 1\n\r");
+                    break;
+                case 1:
+                    uart_printstr("You choose option 2\n\r");
+                    break;
+                case 2:
+                    uart_printstr("You choose option 3\n\r");
+                    break;
+                }
+            }
+            // et on met a jout le prev ducoup
+            prev_sw = sw;
+            _delay_ms(20);
+        }
+    }
+}
 
 static uint8_t eye_state = 0;
 
