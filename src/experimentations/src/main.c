@@ -12,6 +12,7 @@
 // void testPINS(void);
 // void GC9A01_fillScreen(uint16_t color, uint8_t screen);
 
+
 t_state current_state = INIT;
 
 void sd_init() { DDRH |= (SD_CS); }
@@ -31,18 +32,18 @@ void screens_init()
   eyes_init();
 }
 
-void keyboard_init(void)
-{
-  DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
-  DDRC |= (KB_R4);
-  DDRG |= (KB_C6);
-  DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+// void keyboard_init(void)
+// {
+  //   DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+//   DDRC |= (KB_R4);
+//   DDRG |= (KB_C6);
+//   DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
 
-  PORTA &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
-  PORTC &= ~(KB_R4);
-  PORTG &= ~(KB_C6);
-  PORTJ &= ~(KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
-}
+//   PORTA &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+//   PORTC &= ~(KB_R4);
+//   PORTG &= ~(KB_C6);
+//   PORTJ &= ~(KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+// }
 
 void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
@@ -56,7 +57,6 @@ void init(void)
   // sd_init();
   // keyboard_init();
 }
-
 
 ///////////////////////////////////////////////////////////////////////
 ////////////////////////// ROTARY ENCODER//////////////////////////////
@@ -90,11 +90,11 @@ void rotary_button_update(void)
   uint8_t gpio = mcp_read_register(MCP_GPIOA);
 
   sw = (gpio >> ROTARY_SW) & 1;
-
+  
   if (sw != prev_sw)
   {
     _delay_ms(5);
-
+    
     gpio = mcp_read_register(MCP_GPIOA);
     sw = (gpio >> ROTARY_SW) & 1;
 
@@ -113,7 +113,7 @@ void rotary_button_update(void)
           eye_state = 0;
         }
       }
-
+      
       prev_sw = sw;
     }
   }
@@ -123,40 +123,219 @@ void rotary_button_update(void)
 ///////////////////////////// KEYBOARD ////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
+#define ROWS_NB 4
+#define COLS_NB 10
+
+// PINOUT V1
+// R1: PJ2
+// R2: PJ1
+// R3: PJ0
+// R4: PC7
+// C1: PA3
+// C2: PA4
+// C3: PA5
+// C4: PA6
+// C5: PA7
+// C6: PG2
+// C7: PJ6
+// C8: PJ5
+// C9: PJ4
+// C10: PJ3
+// SWL1: PC1
+// SWL2: PC2
+// SWL3: PC3
+// SCL: PD0
+// SDA: PD1
+
+// comme ca juste a donner la position et renvois
+// la lettre qui va avec
+static const char keymap[ROWS_NB][COLS_NB] =
+{
+  {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
+        {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
+        {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'd'},  // enter
+        {'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'h', 'i', 'i'}}; // add supp and home
+
+static void keypad_init(void)
+{
+  // les 4 lignes, elles deviennent des sorties
+  // 1 sortie 0 entree
+  DDRJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
+  PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
+
+  DDRC |= (1 << PC7);
+  PORTC |= (1 << PC7) ;
+
+  // les colonnes, on les met a 0
+  // car on veut els lire
+  DDRA &= ~(
+      (1 << PA3) |
+      (1 << PA4) |
+      (1 << PA5) |
+      (1 << PA6) |
+      (1 << PA7));
+  // pour les pull up
+  PORTA |= (
+      (1 << PA3) |
+      (1 << PA4) |
+      (1 << PA5) |
+      (1 << PA6) |
+      (1 << PA7));
+
+  DDRG &= ~(1 << PG2);
+  PORTG |= (1 << PG2);
+
+  DDRJ &= ~(
+      (1 << PJ3) |
+      (1 << PJ4) |
+      (1 << PJ5) |
+      (1 << PJ6));
+
+  PORTJ |= (
+            (1 << PJ3) |
+            (1 << PJ4) |
+            (1 << PJ5) |
+            (1 << PJ6));
+
+  // // on check comment on est pour savoir comment changer
+  // if (PINC & (1 << ROTARY_CLK))
+  //     rotaryclk_prev = 1;
+  // else
+  //     rotaryclk_prev = 0;
+}
+
+// je veux selectionner qu'une seule ligne a la fois
+static void select_row(uint8_t row)
+{
+  // je desactive toutes les lignes
+  PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
+  PORTC |= (1 << PC7);
+
+  // j'active une seule lgine poru "monitorer"
+  // j;active celle envoye en parametre
+  switch (row)
+  {
+  case 0:
+    PORTJ &= ~(1 << PJ2); // R1
+    break;
+
+  case 1:
+    PORTJ &= ~(1 << PJ1); // R2
+    break;
+
+  case 2:
+    PORTJ &= ~(1 << PJ0); // R3
+    break;
+
+  case 3:
+    PORTC &= ~(1 << PC7); // R4
+    break;
+  }
+}
+
+static int read_column(void)
+{
+  // si PINF = 0 alors c'est que c'est presse
+  if (!(PINA & (1 << PA3)))
+    return 0;
+  if (!(PINA & (1 << PA4)))
+    return 1;
+  if (!(PINA & (1 << PA5)))
+    return 2;
+  if (!(PINA & (1 << PA6)))
+    return 3;
+  if (!(PINA & (1 << PA7)))
+    return 4;
+  if (!(PING & (1 << PG2)))
+    return 5;
+  if (!(PINJ & (1 << PJ6)))
+    return 6;
+  if (!(PINJ & (1 << PJ5)))
+    return 7;
+  if (!(PINJ & (1 << PJ4)))
+    return 8;
+  if (!(PINJ & (1 << PJ3)))
+    return 9;
+
+  return -1;
+}
+
+static int keypad_read(void)
+{
+  int row;
+  int col;
+
+  for (row = 0; row < ROWS_NB; row++)
+  {
+    select_row(row);
+
+    _delay_us(5);
+
+    col = read_column();
+
+    if (col >= 0)
+      return (row * COLS_NB + col);
+    // en gros par exemple si c'est r2 c3
+    // bah ca return 23, ca m'evite de reeefaire un tableau
+    // a return etc
+  }
+
+  return -1;
+}
+
+///////////////////////////////////////////////////////////////////////
+///////////////////////////// MAIN ////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
+#define WORD_MAX_LEN 20
+
+static char word[WORD_MAX_LEN + 1];
+static uint8_t word_len = 0;
 
 int main(void)
 {
   init();
-
-  // GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
-  // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
-  // GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
+  keypad_init(); // j'inite le clavier
 
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
-  draw_pixel(250, 320, GC9A01A_COLOR_GREEN);
-
   draw_string(10, 20, "Entre un mot !", GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4, 2);
-  // draw_string(30, 160, "Hello World !", GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 2, 2); // MAX H CHARS
-  // draw_string(30, 220, "Hello World !", GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 3, 3); // MAX H CHARS
-  // draw_string(30, 260, "Hello World !", GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4, 4); // MAX H CHARS
 
   while (1)
   {
-    // GC9A01_blink(Eye_look_Right, 1);
-    // GC9A01_blink(Eye_Front, 1);
-    // for (uint8_t i = 32; i < 127; i++)
-    // {
-    //   draw_char_small(120, 180, i, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 5);
-    //   // _delay_ms(300);
-    // }
 
-    draw_char_small(10, 80, 124, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
-    _delay_ms(500);
-    draw_char_small(10, 80, ' ', GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
-    _delay_ms(500);
+    // draw_char_small(10, 80, 124, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
+    // _delay_ms(500);
+    // draw_char_small(10, 80, ' ', GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
+    // _delay_ms(500);
 
+    int key = keypad_read();
 
-    // testPINS();
+    if (key >= 0)
+    {
+      // ici je recuper la dizaine et l'unite
+      // comme je renvois en version aditione dans keypad read
+      // donc si on reprend l'exemple de 23 comme a la ligne 151
+      // on recupere bien row = 2 et col = 3
+      uint8_t row = key / COLS_NB;
+      uint8_t col = key % COLS_NB;
+
+      char c = keymap[row][col];
+
+      if (c != '\n' && c != '\0')
+      {
+        draw_char_small(
+            10, 80, c, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
+      }
+
+      // debounce
+      _delay_ms(20);
+
+      // j'attend que la touche soit relachee au cas ou
+      while (keypad_read() >= 0)
+        ;
+    }
   }
+
+  return 0;
 }

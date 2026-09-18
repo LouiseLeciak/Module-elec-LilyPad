@@ -38,6 +38,7 @@ void i2c_stop(void);
 void print_hex_value(char c);
 uint8_t i2c_read_byte(void);
 
+
 void mcp_init(void);
 void mcp_write_register(uint8_t reg, uint8_t value);
 uint8_t mcp_read_register(uint8_t reg);
