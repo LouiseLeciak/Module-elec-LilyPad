@@ -17,15 +17,16 @@ jobs:
       - name: Cache AVR toolchain
         uses: actions/cache@v4
         with:
-          path: /var/cache/apt/archives
+          path: ~/.apt-cache
           key: avr-toolchain-${{ runner.os }}-${{ hashFiles('.github/workflows/build.yml') }}
           restore-keys: |
             avr-toolchain-${{ runner.os }}-
 
       - name: Install toolchain
         run: |
+          mkdir -p ~/.apt-cache
           sudo apt-get update
-          sudo apt-get install -y gcc-avr binutils-avr avr-libc make
+          sudo apt-get install -y -o Dir::Cache::Archives="$HOME/.apt-cache" gcc-avr binutils-avr avr-libc make
 
       - name: Build project
         run: make all
