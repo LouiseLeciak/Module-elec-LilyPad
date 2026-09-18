@@ -11,7 +11,22 @@
 
 // void testPINS(void);
 // void GC9A01_fillScreen(uint16_t color, uint8_t screen);
+#define WORD_MAX_LEN 20
 
+static char word[WORD_MAX_LEN + 1];
+
+
+// pour checker si on valide un mot ou pas
+static uint8_t word_len = 0;
+
+typedef enum
+{
+  INPUT,
+  VALIDATED
+} word_state_t;
+//////////////////////
+
+static word_state_t word_state = INPUT;
 
 t_state current_state = INIT;
 
@@ -34,7 +49,7 @@ void screens_init()
 
 // void keyboard_init(void)
 // {
-  //   DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
+//   DDRA |= (KB_C1 | KB_C2 | KB_C3 | KB_C4 | KB_C5);
 //   DDRC |= (KB_R4);
 //   DDRG |= (KB_C6);
 //   DDRJ |= (KB_R1 | KB_R2 | KB_R3 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
@@ -68,7 +83,14 @@ void init(void)
 #define ROTARY_DT 7
 
 static uint8_t eye_state = 0;
-static uint8_t prev_sw = 1; // etat precedent du bouton
+static uint8_t prev_sw; // etat precedent du bouton
+
+static void rotary_button_init(void)
+{
+    uint8_t gpio = mcp_read_register(MCP_GPIOA);
+
+    prev_sw = (gpio >> ROTARY_SW) & 1;
+}
 
 void change_eye(void)
 {
@@ -84,17 +106,54 @@ void change_eye(void)
   }
 }
 
+// Pour commencer un nouveau mot
+static void start_new_word(void)
+{
+  word_len = 0;
+  word[0] = '\0';
+
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Entre un mot !",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      4, 2);
+
+  word_state = INPUT;
+}
+
+// when you validate your word
+static void validate_word(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_PINK);
+
+  draw_string(
+      10, 20, "Ton mot est:",
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      4, 2);
+
+  draw_string(
+      10, 80, word,
+      GC9A01A_COLOR_PURPLE,
+      GC9A01A_COLOR_PINK,
+      4, 2);
+
+  word_state = VALIDATED;
+}
+
 void rotary_button_update(void)
 {
   uint8_t sw;
   uint8_t gpio = mcp_read_register(MCP_GPIOA);
 
   sw = (gpio >> ROTARY_SW) & 1;
-  
+
   if (sw != prev_sw)
   {
     _delay_ms(5);
-    
+
     gpio = mcp_read_register(MCP_GPIOA);
     sw = (gpio >> ROTARY_SW) & 1;
 
@@ -102,18 +161,16 @@ void rotary_button_update(void)
     {
       if (sw == 0)
       {
-        if (eye_state == 0)
+        if (word_state == INPUT)
         {
-          GC9A01_blink(Eye_look_Right, 1);
-          eye_state = 1;
+          validate_word();
         }
         else
         {
-          GC9A01_blink(Eye_Front, 1);
-          eye_state = 0;
+          start_new_word();
         }
       }
-      
+
       prev_sw = sw;
     }
   }
@@ -150,8 +207,8 @@ void rotary_button_update(void)
 // comme ca juste a donner la position et renvois
 // la lettre qui va avec
 static const char keymap[ROWS_NB][COLS_NB] =
-{
-  {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
+    {
+        {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
         {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
         {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'd'},  // enter
         {'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'h', 'i', 'i'}}; // add supp and home
@@ -164,7 +221,7 @@ static void keypad_init(void)
   PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
 
   DDRC |= (1 << PC7);
-  PORTC |= (1 << PC7) ;
+  PORTC |= (1 << PC7);
 
   // les colonnes, on les met a 0
   // car on veut els lire
@@ -175,12 +232,11 @@ static void keypad_init(void)
       (1 << PA6) |
       (1 << PA7));
   // pour les pull up
-  PORTA |= (
-      (1 << PA3) |
-      (1 << PA4) |
-      (1 << PA5) |
-      (1 << PA6) |
-      (1 << PA7));
+  PORTA |= ((1 << PA3) |
+            (1 << PA4) |
+            (1 << PA5) |
+            (1 << PA6) |
+            (1 << PA7));
 
   DDRG &= ~(1 << PG2);
   PORTG |= (1 << PG2);
@@ -191,8 +247,7 @@ static void keypad_init(void)
       (1 << PJ5) |
       (1 << PJ6));
 
-  PORTJ |= (
-            (1 << PJ3) |
+  PORTJ |= ((1 << PJ3) |
             (1 << PJ4) |
             (1 << PJ5) |
             (1 << PJ6));
@@ -287,15 +342,13 @@ static int keypad_read(void)
 ///////////////////////////// MAIN ////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////
 
-#define WORD_MAX_LEN 20
-
-static char word[WORD_MAX_LEN + 1];
-static uint8_t word_len = 0;
-
 int main(void)
 {
   init();
   keypad_init(); // j'inite le clavier
+  i2c_init();
+  mcp_init();
+  rotary_button_init();
 
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
@@ -303,37 +356,41 @@ int main(void)
 
   while (1)
   {
+    rotary_button_update();
 
-    // draw_char_small(10, 80, 124, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
-    // _delay_ms(500);
-    // draw_char_small(10, 80, ' ', GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
-    // _delay_ms(500);
-
-    int key = keypad_read();
-
-    if (key >= 0)
+    if (word_state == INPUT)
     {
-      // ici je recuper la dizaine et l'unite
-      // comme je renvois en version aditione dans keypad read
-      // donc si on reprend l'exemple de 23 comme a la ligne 151
-      // on recupere bien row = 2 et col = 3
-      uint8_t row = key / COLS_NB;
-      uint8_t col = key % COLS_NB;
+      int key = keypad_read();
 
-      char c = keymap[row][col];
-
-      if (c != '\n' && c != '\0')
+      if (key >= 0)
       {
-        draw_char_small(
-            10, 80, c, GC9A01A_COLOR_PURPLE, GC9A01A_COLOR_PINK, 4);
+        uint8_t row = key / COLS_NB;
+        uint8_t col = key % COLS_NB;
+        char c = keymap[row][col];
+
+        if (c != '\0' &&
+            c != '\n' &&
+            word_len < WORD_MAX_LEN)
+        {
+          word[word_len] = c;
+          word_len++;
+
+          word[word_len] = '\0';
+
+          draw_string(
+              10, 80, word,
+              GC9A01A_COLOR_PURPLE,
+              GC9A01A_COLOR_PINK,
+              4, 2);
+        }
+
+        _delay_ms(20);
+
+        while (keypad_read() >= 0)
+        {
+          ;
+        }
       }
-
-      // debounce
-      _delay_ms(20);
-
-      // j'attend que la touche soit relachee au cas ou
-      while (keypad_read() >= 0)
-        ;
     }
   }
 
