@@ -1,23 +1,37 @@
 name: Firmware Build
-on: [push, pull_request, workflow_dispatch]
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Cache AVR toolchain
+        uses: actions/cache@v4
+        with:
+          path: ~/.apt-cache
+          key: avr-toolchain-${{ runner.os }}-${{ hashFiles('.github/workflows/build.yml') }}
+          restore-keys: |
+            avr-toolchain-${{ runner.os }}-
+
       - name: Install toolchain
         run: |
+          mkdir -p ~/.apt-cache
           sudo apt-get update
-          sudo apt-get install -y gcc-avr binutils-avr avr-libc make
+          sudo apt-get install -y -o Dir::Cache::Archives="$HOME/.apt-cache" gcc-avr binutils-avr avr-libc make
+          sudo rm -f ~/.apt-cache/lock
+          sudo rm -rf ~/.apt-cache/partial
+          sudo chown -R "$USER" ~/.apt-cache
 
       - name: Build project
-        # We infer that there is a Makefile at the root of the project,
-        # if you want to use another Makefile (or just that the Makefile is located elsewhere),
-        # adapt the following command.
         run: make all
 
       - name: Upload artifacts
@@ -25,6 +39,6 @@ jobs:
         with:
           name: avr-firmware
           path: |
-            *.hex
-            *.elf
-            *.bin
+            build/*.hex
+            build/*.bin
+          if-no-files-found: error
