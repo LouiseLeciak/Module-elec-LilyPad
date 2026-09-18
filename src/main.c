@@ -3,26 +3,20 @@
 #include "GC9A01.h"
 #include "main_screen.h"
 #include "pinout.h"
+#include "screen_text.h"
+#include "sd.h"
 #include "spi.h"
 #include "state_machine.h"
 #include "uart.h"
-#include "eye_imgs.h"
-#include "screen_text.h"
-
-
 
 // #define CS_MAIN_LOW()  PORTH &= ~(1 << PH0);
 // #define CS_MAIN_HIGH() PORTH |=(1 << PH0);
 #define MAX_PIXEL_WIDTH 240
 #define MAX_PIXEL_HIGH 320
 
-
 t_state current_state = INIT;
 
-void sd_init() { DDRH |= (SD_CS); }
-
 void eyes_init() {
-
   DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   GC9A01_init(LEFT_EYE);
   GC9A01_init(RIGHT_EYE);
@@ -49,26 +43,23 @@ void keyboard_init(void) {
 void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
 void init(void) {
-
   spi_master_init();
   uart_init(MYUBRR);
 
+  sd_init();
+  // Set SPI clock to highest speed after SD initialisation
+  SPSR |= (1 << SPI2X);
+  SPCR &= ~(1 << SPR0);
+  SPCR &= ~(1 << SPR1);
+
   screens_init();
-  // sd_init();
+
   // keyboard_init();
 }
 
-
-
-
-
-
-// ─── Text rendering ──────────────────────────────────────────────────────────
-// ─── Text rendering ──────────────────────────────────────────────────────────
-
-
-
-
+// ─── Text rendering
+// ────────────────────────────────────────────────────────── ─── Text
+// rendering ──────────────────────────────────────────────────────────
 
 int main(void) {
   init();
@@ -77,41 +68,29 @@ int main(void) {
   // GC9A01_fillScreen(GC9A01A_COLOR_BLUE, RIGHT_EYE);
   // GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
- 
   ili9488_fill_screen(GC9A01A_COLOR_RED);
 
+  draw_pixel(250, 320, GC9A01A_COLOR_GREEN);
 
-
-  draw_pixel(250, 320, GC9A01A_COLOR_GREEN );
-
-    draw_string(30, 120,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 1, 1);
-    draw_string(30, 160,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 2, 2); // MAX H CHARS
-    draw_string(30, 220,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 3, 3); // MAX H CHARS
-    draw_string(30, 260,  "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 4, 4); // MAX H CHARS
-
+  draw_string(30, 120, "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED,
+              1, 1);
+  draw_string(30, 160, "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED,
+              2, 2);  // MAX H CHARS
+  draw_string(30, 220, "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED,
+              3, 3);  // MAX H CHARS
+  draw_string(30, 260, "Hello World !", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED,
+              4, 4);  // MAX H CHARS
 
   while (1) {
-    //GC9A01_blink(Eye_look_Right, 1);
-    //GC9A01_blink(Eye_Front, 1);
+    // GC9A01_blink(Eye_look_Right, 1);
+    // GC9A01_blink(Eye_Front, 1);
     for (uint8_t i = 32; i < 127; i++) {
-        draw_char_small(120,180, i,GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 5);
-        // _delay_ms(300);
+      draw_char_small(120, 180, i, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_RED, 5);
+      // _delay_ms(300);
     }
 
     ;
 
-
-    
-
-
-
-
     // testPINS();
   }
 }
-
-
-
-
-
-

@@ -14,8 +14,4 @@ void spi_master_init(void);
  */
 uint8_t spi_txrx(uint8_t data);
 
-
-
-#endif // !SPI_H
-
-
+#endif  // !SPI_H

@@ -2,7 +2,7 @@
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
 # PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
-PORT				:= /dev/cu.usbserial-1430 #Change this to match your configuration's port
+PORT				:= /dev/cu.usbserial-110 #Change this to match your configuration's port
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
@@ -24,9 +24,11 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
+					crc \
 					GC9A01 \
 					ili9488 \
 					main_screen \
+					sd \
 					spi \
 					small_font \
 					screen_text \
