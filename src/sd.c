@@ -159,3 +159,73 @@ sd_resp sd_sd_send_op_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2,
   sd_crc7_gen(&acmd41, SD_SEND_OP_COND);
   return sd_send_cmd(&acmd41, SD_RESP_R1);
 }
+
+sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                             uint8_t arg3, uint8_t* buf) {
+  SD_CS_LOW();
+  sd_cmd cmd17 = {0, {arg0, arg1, arg2, arg3}, 0};
+  sd_crc7_gen(&cmd17, READ_SINGLE_BLOCK);
+
+  for (uint8_t i = 0; i < (sizeof(cmd17) / sizeof(uint8_t)); i++)
+    spi_txrx((((uint8_t*)&cmd17)[i]));
+  sd_resp resp = sd_read_response(SD_RESP_R1);
+
+  uint8_t fe = 0;
+  uint8_t fe_tries = 0xFF;
+  do {
+    fe = spi_txrx(0xFF);
+    fe_tries--;
+  } while (fe != 0xFE && fe_tries);
+  for (uint16_t i = 0; i < 512; i++) {
+    buf[i] = spi_txrx(0xFF);
+  }
+
+  spi_txrx(0xFF);  // Reading and discarding CRC byte 1
+  spi_txrx(0xFF);  // Reading and discarding CRC byte 2
+
+  SD_CS_HIGH();
+  spi_txrx(0xFF);  // 1 dummy byte to release the bus (SD spec)
+  return resp;
+}
+
+sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                                     uint8_t arg3) {
+  SD_CS_LOW();
+  sd_cmd cmd18 = {0, {arg0, arg1, arg2, arg3}, 0};
+  sd_crc7_gen(&cmd18, READ_MULTIPLE_BLOCK);
+
+  for (uint8_t i = 0; i < (sizeof(cmd18) / sizeof(uint8_t)); i++)
+    spi_txrx((((uint8_t*)&cmd18)[i]));
+  return sd_read_response(SD_RESP_R1);
+}
+
+void sd_read_multiple_block_next(uint8_t* buf) {
+  uint8_t fe = 0;
+  uint8_t fe_tries = 0xFF;
+  do {
+    fe = spi_txrx(0xFF);
+    fe_tries--;
+  } while (fe != 0xFE && fe_tries);
+
+  for (uint16_t i = 0; i < 512; i++) {
+    buf[i] = spi_txrx(0xFF);
+  }
+  spi_txrx(0xFF);  // Reading and discarding CRC byte 1
+  spi_txrx(0xFF);  // Reading and discarding CRC byte 2
+}
+
+sd_resp sd_read_multiple_block_stop(void) {
+  sd_cmd cmd12 = {0, {0, 0, 0, 0}, 0};
+  sd_crc7_gen(&cmd12, STOP_TRANSMISSION);
+  for (uint8_t i = 0; i < (sizeof(cmd12) / sizeof(uint8_t)); i++)
+    spi_txrx((((uint8_t*)&cmd12)[i]));
+  sd_resp cmd12_resp = sd_read_response(SD_RESP_R1B);
+  if (SD_R1_ILLEGAL_CMD(cmd12_resp)) {
+    SD_CS_HIGH();
+    return cmd12_resp;
+  }
+
+  SD_CS_HIGH();
+  spi_txrx(0xFF);  // 1 dummy byte to release the bus (SD spec)
+  return cmd12_resp;
+}
