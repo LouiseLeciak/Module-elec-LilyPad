@@ -7,7 +7,6 @@
 // https://elm-chan.org/docs/mmc/mmc_e.html
 
 #include <avr/io.h>
-#include <stdint.h>
 
 #define SD_R1_IDLE(r) ((r).r1 & 0x01)
 #define SD_R1_ILLEGAL_CMD(r) ((r).r1 & 0x04)

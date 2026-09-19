@@ -1,7 +1,5 @@
 #include "sd.h"
 
-#include <stdint.h>
-
 #include "crc.h"
 #include "pinout.h"
 #include "spi.h"
