@@ -7,6 +7,7 @@
 // https://elm-chan.org/docs/mmc/mmc_e.html
 
 #include <avr/io.h>
+#include <stdint.h>
 
 #define SD_R1_IDLE(r) ((r).r1 & 0x01)
 #define SD_R1_ILLEGAL_CMD(r) ((r).r1 & 0x04)
@@ -22,7 +23,10 @@ typedef enum {
   GO_IDLE_STATE = 0,
   SEND_OP_COND = 1,
   SEND_IF_COND = 8,
+  STOP_TRANSMISSION = 12,
   SET_BLOCKLEN = 16,
+  READ_SINGLE_BLOCK = 17,
+  READ_MULTIPLE_BLOCK = 18,
   APP_CMD = 55,
   READ_OCR = 58,
   SD_SEND_OP_COND = 41
@@ -91,6 +95,14 @@ sd_resp sd_app_cmd(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 sd_resp sd_set_blocklen(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
 
 sd_resp sd_read_ocr(uint8_t arg0, uint8_t arg1, uint8_t arg2, uint8_t arg3);
+
+sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                             uint8_t arg3, uint8_t* buf);
+
+sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
+                                     uint8_t arg3);
+void sd_read_multiple_block_next(uint8_t* buf);
+sd_resp sd_read_multiple_block_stop(void);
 
 sd_resp sd_sd_send_op_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2,
                            uint8_t arg3);
