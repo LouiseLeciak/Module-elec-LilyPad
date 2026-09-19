@@ -24,6 +24,7 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
+					bmp \
 					crc \
 					GC9A01 \
 					ili9488 \
