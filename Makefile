@@ -30,6 +30,7 @@ SRC_FIL	=	main \
 					ili9488 \
 					main_screen \
 					sd \
+					sd_streaming \
 					spi \
 					small_font \
 					screen_text \
