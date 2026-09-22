@@ -62,11 +62,11 @@ uint8_t atoi_hex(char c) {
     return 0;
 }
 
-bool is_hex_char(char c) {
+uint8_t is_hex_char(char c) {
     if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') ||
         (c >= 'a' && c <= 'f'))
-        return true;
-    return false;
+        return 0; // true
+    return 1; // false
 }
 
 void uart_printint(int val) {

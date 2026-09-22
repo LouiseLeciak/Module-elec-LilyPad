@@ -13,15 +13,14 @@
 #ifndef SCREEN_TEXT_H 
  #define SCREEN_TEXT_H
 
+#include <avr/io.h>
+
+
  #define CS_MAIN_LOW()  PORTH &= ~(1 << PH0);
  #define CS_MAIN_HIGH() PORTH |=(1 << PH0);
  #define DC_LOW()   PORTH &= ~SCREENS_DC
  #define DC_HIGH()  PORTH |=  SCREENS_DC
- 
- typedef unsigned char uint8_t;      // needed because not using stdlib
- typedef unsigned int uint16_t;      // needed because not using stdlib
- typedef unsigned long uint32_t;     // needed because not using stdlib
- typedef uint8_t bool;               // needed because not using stdlib
+
 
  /// @brief Standard strlen
  /// @param str pointer to string to length tested

@@ -13,6 +13,9 @@
 #ifndef GC9A01_H
 #define GC9A01_H
 
+#include <avr/io.h>
+
+
 // ─── GC09A01 Pin control macros ─────────────────────────────────────────────────────────
 
 #define CS_LEFT_EYE_LOW() PORTE &= ~LEFT_EYE_CS
@@ -58,10 +61,6 @@
 #define GC9A01A_COLOR_BROWN 0xA145
 #define GC9A01A_COLOR_EYE 0XD77A
 
-typedef unsigned char uint8_t;  // needed because not using stdlib
-typedef unsigned int uint16_t;  // needed because not using stdlib
-typedef unsigned long uint32_t; // needed because not using stdlib
-typedef uint8_t bool;           // needed because not using stdlib
 
 /* functions that send to a specific eye using the CS pin */
 
@@ -158,5 +157,8 @@ void GC9A01_blink(const uint8_t *file, int nbr);
 
 // toggle eye with the rotary sw
 uint8_t change_eye(uint8_t es);
+
+// moving eyes in main
+void eyes_action();
 
 #endif

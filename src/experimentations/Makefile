@@ -28,14 +28,16 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 SRC_FIL	=	main \
 					GC9A01 \
 					ili9488 \
-					principal_screen \
+					main_screen \
 					spi \
 					uart \
-					i2c-rotary \
+					i2c_rotary \
 					screen_text \
 					small_font \
-					display \
-					globals
+					globals \
+					menu \
+					init \
+					keypad
 					
 
 

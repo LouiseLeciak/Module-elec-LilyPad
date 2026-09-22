@@ -1,6 +1,8 @@
 
 #include "keyboard_utils.h"
 #include "globals.h"
+#include "menu.h"
+#include "i2c_rotary.h"
 
 
 void i2c_init(void)
@@ -275,4 +277,57 @@ void rotary_update(void)
   }
 
   rotaryclk_prev = clk;
+}
+
+// ou on ets dans le menu, valider ou pas
+void rotary_button_update(void)
+{
+  uint8_t gpio;
+  uint8_t sw;
+
+  gpio = mcp_read_register(MCP_GPIOA);
+  sw = (gpio >> ROTARY_SW) & 1;
+
+  if (sw != prev_sw)
+  {
+    _delay_ms(5);
+
+    gpio = mcp_read_register(MCP_GPIOA);
+    sw = (gpio >> ROTARY_SW) & 1;
+
+    if (sw != prev_sw)
+    {
+      if (sw == 0)
+      {
+        if (app_state == MENU)
+        {
+          if (menu_choice == 0)
+          {
+            start_translation();
+          }
+          else if (menu_choice == 1)
+          {
+            show_alphabet();
+          }
+          else if (menu_choice == 2)
+          {
+            show_game();
+          }
+        }
+        else if (app_state == TRADUCTION)
+        {
+          if (word_state == INPUT)
+          {
+            validate_word();
+          }
+          else
+          {
+            start_new_word();
+          }
+        }
+      }
+
+      prev_sw = sw;
+    }
+  }
 }
