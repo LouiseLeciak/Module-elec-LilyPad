@@ -1,13 +1,14 @@
 #include "sd.h"
 
 #include <stdint.h>
+#include <util/delay.h>
 
 #include "crc.h"
 #include "pinout.h"
 #include "spi.h"
 #include "uart.h"
 
-#define MAX_TRIES 8
+#define MAX_TRIES 255
 
 uint8_t sd_init(void) {
   uart_printstr("Initialising SD card...");
@@ -20,7 +21,17 @@ uint8_t sd_init(void) {
   for (uint8_t i = 0; i < 74; i++)  // Dummy clocks
     spi_txrx(0xFF);
 
-  sd_resp cmd0 = sd_go_idle_state(0, 0, 0, 0);
+  sd_resp cmd0;
+  uint8_t cmd0_tries = 8;
+
+  do {
+    cmd0 = sd_go_idle_state(0, 0, 0, 0);
+    if (cmd0.r1 == 0x01) {
+      break;
+    }
+    _delay_ms(10);
+  } while (--cmd0_tries);
+
   if (cmd0.r1 != 0x01) {
     uart_printstr("ERROR\r\nSD: CMD0 failed, no card?\r\n");
     return 1;

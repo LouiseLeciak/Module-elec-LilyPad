@@ -51,6 +51,7 @@ void init(void) {
   spi_master_init();
   uart_init(MYUBRR);
 
+  _delay_ms(150);
   disk_initialize(0);  // SD Initialisation
   if (parse_mbr() == RES_OK) {
     if (parse_vbr() == RES_OK) {
@@ -78,25 +79,26 @@ void init(void) {
 int main(void) {
   init();
 
+  scan_root_dir();  // Populates image_lut with the BMP files on the card
+
   // dump_mbr();
   // dump_partition_entry(PART_ENTRY_NO_1);
-  scan_root_dir();
   // uart_printstr("Image 0 is named: ");
   // uart_printstr(image_lut[0].name);
   // uart_printstr("\r\nAddress: ");
   // uart_printhex_32(image_lut[0].address);
   // uart_printstr("\r\n");
   // for (uint8_t i = 0; i < 2; i++) {
-  uart_printstr("Trying to print: ");
-  uart_printstr(image_lut[0].name);
-  uart_printstr(", located at: ");
-  uart_printhex_32(image_lut[0].address);
-  uart_printstr("\r\n");
-  sd_stream_bmp_to_screen(cluster_to_lba(image_lut[0].address));
-  uart_printstr("Finished !");
-  uart_printstr("\r\n");
+  // uart_printstr("Trying to print: ");
+  // uart_printstr(image_lut[0].name);
+  // uart_printstr(", located at: ");
+  // uart_printhex_32(image_lut[0].address);
+  // uart_printstr("\r\n");
+  // sd_stream_bmp_to_screen(cluster_to_lba(image_lut[0].address));
+  // uart_printstr("Finished !");
+  // uart_printstr("\r\n");
 
-  _delay_ms(1000);
+  // _delay_ms(1000);
 
   uart_printstr("Trying to print: ");
   uart_printstr(image_lut[1].name);

@@ -20,6 +20,8 @@ void spi_master_init(void) {
   // Sets MOSI and SCK as outputs (p.172)
   DDRB |= (MOSI | SCK);
 
+  PORTB |= (MISO);
+
   // Enables SPI, Master, set clock rate fck/16
   SPCR = ((1 << SPE) | (1 << MSTR) | (1 << SPR0));
   // double speed -> /2 = 8 MHz effective - speeds up the display time
