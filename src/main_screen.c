@@ -45,9 +45,9 @@ void ili9488_fill_screen(uint16_t color565) {
   // Convertit le RGB565 en RGB666 (18-bit), format attendu par
   // l'ILI9486 sur son interface SPI : chaque composante sur 6 bits
   // utiles, alignée dans les bits hauts d'un octet.
-  uint8_t r = ((color565 >> 11) & 0x1F) << 3; // 5 bits -> 8 bits (bits hauts)
-  uint8_t g = ((color565 >> 5) & 0x3F) << 2;  // 6 bits -> 8 bits (bits hauts)
-  uint8_t b = (color565 & 0x1F) << 3;         // 5 bits -> 8 bits (bits hauts)
+  uint8_t r = ((color565 >> 11) & 0x1F) << 3;  // 5 bits -> 8 bits (bits hauts)
+  uint8_t g = ((color565 >> 5) & 0x3F) << 2;   // 6 bits -> 8 bits (bits hauts)
+  uint8_t b = (color565 & 0x1F) << 3;          // 5 bits -> 8 bits (bits hauts)
 
   // Column Address Set (CASET, 0x2A)
   cs_low();
@@ -165,31 +165,31 @@ void main_screen_set_window(const window win) {
 // --- LOW LEVEL COMMANDS
 // ------------------------------------------------------
 void main_screen_swreset(void) {
-  dc_data();
+  dc_cmd();
   spi_txrx(SWRESET);
 }
 
 void main_screen_slpin(void) {
-  dc_data();
+  dc_cmd();
   spi_txrx(SLPIN);
-  _delay_ms(5); // See 9.2.12 (p.159), Restrictions, paragraph 2
+  _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
 }
 
 void main_screen_slpout(void) {
-  dc_data();
+  dc_cmd();
   spi_txrx(SLPOUT);
-  _delay_ms(120); // See 9.2.13 (p.161), Restrictions, paragraph 3
+  _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
 }
 
 void main_screen_dispon(void) {
-  dc_data();
+  dc_cmd();
   spi_txrx(DISPON);
 }
 
 // TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
 // of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
 void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
-  dc_data();
+  dc_cmd();
   spi_txrx(CASET);
 
   dc_data();
@@ -202,7 +202,7 @@ void main_screen_caset(const uint16_t col_start, const uint16_t col_end) {
 // TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
 // of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
 void main_screen_raset(const uint16_t row_start, const uint16_t row_end) {
-  dc_data();
+  dc_cmd();
   spi_txrx(RASET);
 
   dc_data();
@@ -213,21 +213,22 @@ void main_screen_raset(const uint16_t row_start, const uint16_t row_end) {
 }
 
 void main_screen_ramwr(void) {
-  dc_data();
+  dc_cmd();
   spi_txrx(RAMWR);
+  dc_data();
 }
 
 // For a table of the different parameters for this command, refer to table at
 // p.183
 void main_screen_madctl(const uint8_t arg) {
-  dc_data();
+  dc_cmd();
   spi_txrx(MADCTL);
   dc_data();
   spi_txrx(arg);
 }
 
 void main_screen_colmod(const colmod_arg arg) {
-  dc_data();
+  dc_cmd();
   spi_txrx(COLMOD);
   dc_data();
   spi_txrx(arg);

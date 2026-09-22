@@ -1,5 +1,7 @@
 #include "sd.h"
 
+#include <stdint.h>
+
 #include "crc.h"
 #include "pinout.h"
 #include "spi.h"
@@ -7,7 +9,7 @@
 
 #define MAX_TRIES 8
 
-void sd_init(void) {
+uint8_t sd_init(void) {
   uart_printstr("Initialising SD card...");
 
   // Set SPI clock between 100kHz and 400kHz (as per Elm-Chan guide)
@@ -21,7 +23,7 @@ void sd_init(void) {
   sd_resp cmd0 = sd_go_idle_state(0, 0, 0, 0);
   if (cmd0.r1 != 0x01) {
     uart_printstr("ERROR\r\nSD: CMD0 failed, no card?\r\n");
-    return;
+    return 1;
   }
 
   // CMD08 args:
@@ -30,12 +32,12 @@ void sd_init(void) {
   sd_resp cmd8 = sd_send_if_cond(0, 0, 0x01, 0xAA);
   if (SD_R1_ILLEGAL_CMD(cmd8)) {
     uart_printstr("ERROR\r\nSD: v1 card or MMC detected, not supported!\r\n");
-    return;
+    return 2;
   }
   if (cmd8.data[3] != 0xAA)  // Check echo pattern (last byte)
   {
     uart_printstr("ERROR\r\nSD: CMD8 echo mismatch, voltage incompatible!\r\n");
-    return;
+    return 3;
   }
 
   sd_resp acmd41;
@@ -47,7 +49,7 @@ void sd_init(void) {
 
   if (!acmd41_tries) {
     uart_printstr("ERROR\r\nSD: ACMD41 timeout, card stuck in idle!\r\n");
-    return;
+    return 4;
   }
 
   sd_resp ocr = sd_read_ocr(0, 0, 0, 0);  // CMD58
@@ -55,7 +57,7 @@ void sd_init(void) {
   // SD_OCR_BUSY: bit 31 of OCR = 1 means card is ready (confusingly named)
   if (!SD_OCR_BUSY(ocr)) {
     uart_printstr("ERROR\r\nSD: card not ready after ACMD41!\r\n");
-    return;
+    return 5;
   }
 
   // SD_OCR_CCS: bit 30 = 1 → SDHC/SDXC (block addressing)
@@ -65,6 +67,7 @@ void sd_init(void) {
                     0x00);  // CMD16: set 512-byte blocks (only for SDSC)
 
   uart_printstr("OK!\r\n");
+  return 0;
 }
 
 void sd_crc7_gen(sd_cmd* cmd, SD_CMD_INDEX index) {
@@ -171,7 +174,7 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
   sd_resp resp = sd_read_response(SD_RESP_R1);
 
   uint8_t fe = 0;
-  uint8_t fe_tries = 0xFF;
+  uint16_t fe_tries = 0xFFFF;
   do {
     fe = spi_txrx(0xFF);
     fe_tries--;

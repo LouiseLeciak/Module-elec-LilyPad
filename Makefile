@@ -26,15 +26,17 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 SRC_FIL	=	main \
 					bmp \
 					crc \
+					sd/fatfs \
 					GC9A01 \
 					ili9488 \
 					main_screen \
-					sd \
-					sd_streaming \
+					sd/sd \
+					sd/sd_streaming \
 					spi \
 					small_font \
 					screen_text \
-					uart
+					uart \
+					utils
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
@@ -54,7 +56,8 @@ hex: $(HEX)
 $(BUI_DIR):
 	mkdir -p $@
 
-$(BUI_DIR)%.o: $(SRC_DIR)%.c | $(BUI_DIR)
+$(BUI_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET).bin: $(OBJ)
