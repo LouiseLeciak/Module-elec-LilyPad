@@ -5,48 +5,15 @@
 #include "pinout.h"
 #include "spi.h"
 #include "state_machine.h"
-#include "uart.h"
 #include "eye_imgs.h"
 #include "screen_text.h"
+#include "keyboard_utils.h"
+#include "globals.h"
 
-// void testPINS(void);
-// void GC9A01_fillScreen(uint16_t color, uint8_t screen);
-#define WORD_MAX_LEN 20
-#define ROWS_NB 4
-#define COLS_NB 10
-#define MENU_SIZE 3
 
-static char word[WORD_MAX_LEN + 1];
-
-static uint8_t menu_choice = 0; // savoir ou on est dans le menu
-// 0 = Traduction
-// 1 = Alphabet
-// 2 = Jeu
-
-// pour checker si on valide un mot ou pas
-static uint8_t word_len = 0;
-
-typedef enum
-{
-  INPUT,
-  VALIDATED
-} word_state_t;
-
-typedef enum
-{
-  MENU,
-  TRADUCTION,
-  ALPHABET,
-  JEU
-} app_state_t;
-
-static app_state_t app_state = MENU;
-
-//////////////////////
-
-static word_state_t word_state = INPUT;
-
-t_state current_state = INIT;
+///////////////////////////////////////////////////////////////////////
+////////////////////////////// INIT ///////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 
 void sd_init() { DDRH |= (SD_CS); }
 
@@ -65,13 +32,11 @@ void screens_init()
   eyes_init();
 }
 
-void rotary_encoder_init(void) { DDRC |= (SDL_SW1 | SDL_SW2 | SDL_SW3); }
 
 void init(void)
 {
 
   spi_master_init();
-  uart_init(MYUBRR);
 
   screens_init();
   // sd_init();
@@ -79,34 +44,16 @@ void init(void)
 }
 
 ///////////////////////////////////////////////////////////////////////
-////////////////////////// ROTARY ENCODER//////////////////////////////
 ///////////////////////////////////////////////////////////////////////
-#include "utils.h"
+///////////////////////////////////////////////////////////////////////
 
-#define ROTARY_CLK 6
-#define ROTARY_SW 5
-#define ROTARY_DT 7
 
-static uint8_t eye_state = 0;
-static uint8_t prev_sw; // etat precedent du bouton
-static uint8_t rotaryclk_prev = 1;
 
-void change_eye(void)
-{
-  if (eye_state == 0)
-  {
-    GC9A01_blink(Eye_look_Right, 1);
-    eye_state = 1;
-  }
-  else
-  {
-    GC9A01_blink(Eye_Front, 1);
-    eye_state = 0;
-  }
-}
+
+
 
 // Pour commencer un nouveau mot
-static void start_new_word(void)
+void start_new_word(void)
 {
   word_len = 0;
   word[0] = '\0';
@@ -123,7 +70,7 @@ static void start_new_word(void)
 }
 
 // when you validate your word
-static void validate_word(void)
+void validate_word(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
@@ -142,18 +89,9 @@ static void validate_word(void)
   word_state = VALIDATED;
 }
 
-static void rotary_init(void)
-{
-  uint8_t gpio;
-
-  gpio = mcp_read_register(MCP_GPIOA);
-
-  rotaryclk_prev = (gpio >> ROTARY_CLK) & 1;
-  prev_sw = (gpio >> ROTARY_SW) & 1;
-}
 
 // to display the different choicies
-static void show_menu(void)
+void show_menu(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
@@ -217,7 +155,7 @@ static void show_menu(void)
   app_state = MENU;
 }
 
-static void update_menu_cursor(uint8_t old_choice)
+void update_menu_cursor(uint8_t old_choice)
 {
   // on enelve lancien curseur et on met un espace
   if (old_choice == 0)
@@ -272,54 +210,7 @@ static void update_menu_cursor(uint8_t old_choice)
   }
 }
 
-// gestion de la rotation
-void rotary_update(void)
-{
-  uint8_t gpio;
-  uint8_t clk;
-  uint8_t dt;
-  uint8_t old_choice;
 
-  gpio = mcp_read_register(MCP_GPIOA);
-
-  clk = (gpio >> ROTARY_CLK) & 1;
-
-  if (rotaryclk_prev == 1 && clk == 0)
-  {
-    dt = (gpio >> ROTARY_DT) & 1;
-
-    if (app_state == MENU)
-    {
-      old_choice = menu_choice;
-
-      //sens du tournage
-      if (dt != clk)
-      {
-        menu_choice++;
-
-        if (menu_choice >= MENU_SIZE)
-        {
-          menu_choice = 0;
-        }
-      }
-      else
-      {
-        if (menu_choice == 0)
-        {
-          menu_choice = MENU_SIZE - 1;
-        }
-        else
-        {
-          menu_choice--;
-        }
-      }
-
-      update_menu_cursor(old_choice);
-    }
-  }
-
-  rotaryclk_prev = clk;
-}
 
 ///////////////////////////////////////////////////////////////////////
 ///////////////////////////// KEYBOARD ////////////////////////////////
@@ -464,7 +355,7 @@ static int keypad_read(void)
 ///////////////////////////////////////////////////////////////////////
 
 // le menu entre un mot
-static void start_translation(void)
+void start_translation(void)
 {
   word_len = 0;
   word[0] = '\0';
@@ -482,7 +373,7 @@ static void start_translation(void)
 }
 
 // a modifier jaffiche juste une string
-static void show_alphabet(void)
+void show_alphabet(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
@@ -496,7 +387,7 @@ static void show_alphabet(void)
 }
 
 // idem
-static void show_game(void)
+void show_game(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
@@ -509,21 +400,6 @@ static void show_game(void)
   app_state = JEU;
 }
 
-// static void select_menu_choice(void)
-// {
-//   if (menu_choice == 0)
-//   {
-//     start_translation();
-//   }
-//   else if (menu_choice == 1)
-//   {
-//     show_alphabet();
-//   }
-//   else if (menu_choice == 2)
-//   {
-//     show_game();
-//   }
-// }
 
 // ou on ets dans le menu, valider ou pas
 void rotary_button_update(void)
@@ -609,6 +485,8 @@ int main(void)
         uint8_t col = key % COLS_NB;
         char c = keymap[row][col];
 
+        // a modifier avec un define plus propre
+        // pour comprendre directement qu'il s'agit du bouton HOME
         if (c == '#')
         {
           menu_choice = 0;

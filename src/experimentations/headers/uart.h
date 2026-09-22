@@ -3,8 +3,8 @@
 
 #include <avr/io.h>
 
-#define UART_BAUDRATE 115200
-#define MYUBRR (F_CPU / (8 * UART_BAUDRATE) - 1)
+// #define UART_BAUDRATE 115200
+// #define MYUBRR (F_CPU / (8 * UART_BAUDRATE) - 1)
 
 void uart_init(const uint8_t ubrr);
 void uart_tx(char data);

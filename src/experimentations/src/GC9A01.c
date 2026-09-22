@@ -481,3 +481,18 @@ void GC9A01_blink(const uint8_t *file, int nbr) {
 }
 
 
+uint8_t change_eye(uint8_t es)
+{
+  uint8_t eye_state = es;
+  if (eye_state == 0)
+  {
+    // GC9A01_blink(Eye_look_Right, 1);
+    eye_state = 1;
+  }
+  else
+  {
+    // GC9A01_blink(Eye_Front, 1);
+    eye_state = 0;
+  }
+  return eye_state;
+}

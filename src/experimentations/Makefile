@@ -28,12 +28,15 @@ CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/
 SRC_FIL	=	main \
 					GC9A01 \
 					ili9488 \
-					main_screen \
+					principal_screen \
 					spi \
 					uart \
 					i2c-rotary \
 					screen_text \
-					small_font
+					small_font \
+					display \
+					globals
+					
 
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
