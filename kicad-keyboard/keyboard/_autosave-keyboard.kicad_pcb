@@ -1474,7 +1474,7 @@
 	(footprint "LOGO"
 		(layer "F.Cu")
 		(uuid "0ed836c0-86f9-42f1-abe3-b2bb28e0898a")
-		(at 50.122144 160.951857)
+		(at 50.122144 161.351857)
 		(property "Reference" "G***"
 			(at 0 0 0)
 			(layer "F.SilkS")
@@ -16310,7 +16310,7 @@
 		(uuid "edf3a00d-9fa4-4bdf-a107-a671df600ff8")
 		(at 29.12 155.47)
 		(property "Reference" "M4"
-			(at 0 -0.5 0)
+			(at 3.48 5.33 0)
 			(unlocked yes)
 			(layer "F.SilkS")
 			(uuid "de185cea-05d6-4393-90d3-2ee3f382bd31")
