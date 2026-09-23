@@ -3,7 +3,6 @@
 #include "keypad.h"
 
 
-
 void keypad_init(void)
 {
   // les 4 lignes, elles deviennent des sorties
@@ -50,7 +49,7 @@ void keypad_init(void)
   //     rotaryclk_prev = 0;
 }
 
-// je veux selectionner qu'une seule ligne a la fois
+// select row one by one to find where is the key
 void select_row(uint8_t row)
 {
   // je desactive toutes les lignes
@@ -79,6 +78,7 @@ void select_row(uint8_t row)
   }
 }
 
+// read column to find where is the key
 int read_column(void)
 {
   // si PINF = 0 alors c'est que c'est presse
@@ -106,6 +106,7 @@ int read_column(void)
   return -1;
 }
 
+// return the key after reading row and column
 int keypad_read(void)
 {
   int row;

@@ -50,60 +50,60 @@ void show_menu(void)
     ili9488_fill_screen(GC9A01A_COLOR_PINK);
 
     draw_string(
-        10, 20, "Menu",
+        100, 20, "Menu",
         GC9A01A_COLOR_PURPLE,
         GC9A01A_COLOR_PINK,
-        4, 2);
+        5, 2);
 
     if (menu_choice == 0)
     {
         draw_string(
-            10, 80, "> Traduction",
+            10, 120, "> Traduction",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else
     {
         draw_string(
-            10, 80, "  Traduction",
+            10, 120, "  Traduction",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
 
     if (menu_choice == 1)
     {
         draw_string(
-            10, 140, "> Alphabet",
+            10, 220, "> Alphabet",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else
     {
         draw_string(
-            10, 140, "  Alphabet",
+            10, 220, "  Alphabet",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
 
     if (menu_choice == 2)
     {
         draw_string(
-            10, 200, "> Jeu",
+            10, 320, "> Jeu",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else
     {
         draw_string(
-            10, 200, "  Jeu",
+            10, 320, "  Jeu",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
 
     app_state = MENU;
@@ -115,52 +115,52 @@ void update_menu_cursor(uint8_t old_choice)
     if (old_choice == 0)
     {
         draw_string(
-            10, 80, "  ",
+            10, 120, "  ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else if (old_choice == 1)
     {
         draw_string(
-            10, 140, "  ",
+            10, 220, "  ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else
     {
         draw_string(
-            10, 200, "  ",
+            10, 320, "  ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
 
     // nouveau curseur
     if (menu_choice == 0)
     {
         draw_string(
-            10, 80, "> ",
+            10, 120, "> ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else if (menu_choice == 1)
     {
         draw_string(
-            10, 140, "> ",
+            10, 220, "> ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
     else
     {
         draw_string(
-            10, 200, "> ",
+            10, 320, "> ",
             GC9A01A_COLOR_PURPLE,
             GC9A01A_COLOR_PINK,
-            3, 2);
+            4, 2);
     }
 }
 

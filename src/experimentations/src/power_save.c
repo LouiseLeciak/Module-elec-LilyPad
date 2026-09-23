@@ -5,7 +5,7 @@
 
 uint32_t inactivity_counter = 0;
 
-
+// timer to know since when nothing is happening
 void power_save_update(void)
 {
     // 30000 ~= 23s
@@ -19,6 +19,7 @@ void power_save_update(void)
     return;
 }
 
+// ping if activity
 void power_save_activity(void)
 {
     inactivity_counter = 0;

@@ -170,7 +170,7 @@ uint8_t i2c_start(uint8_t addr)
     return 1;
 }
 
-//! + de commentaires
+
 uint8_t mcp_read_register(uint8_t reg)
 {
     uint8_t value;
@@ -231,7 +231,7 @@ void mcp_write_register(uint8_t reg, uint8_t value)
 }
 
 
-// gestion de la rotation
+// rotation manager of the rotary encoder
 void rotary_update(void)
 {
   uint8_t gpio;
@@ -281,7 +281,7 @@ void rotary_update(void)
   rotaryclk_prev = clk;
 }
 
-// ou on ets dans le menu, valider ou pas
+// push switch manager of the rotary encoder
 void rotary_button_update(void)
 {
   uint8_t gpio;
