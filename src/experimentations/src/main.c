@@ -13,7 +13,7 @@
 #include "keypad.h"
 #include "menu.h"
 #include "i2c_rotary.h"
-
+#include "power_save.h"
 
 int main(void)
 {
@@ -28,16 +28,27 @@ int main(void)
   {
     rotary_update();
     rotary_button_update();
-    eyes_action();
-
+    power_save_update();
+    // eyes_action();
+    
+    int key = keypad_read();
+    if (key >= 0)
+      power_save_activity();
     if (app_state == TRADUCTION && word_state == INPUT)
-     traduction();
+    {
+      traduction();
+    }
 
     else if (app_state == ALPHABET)
+    {
       alphabet();
+    }
 
     else if (app_state == JEU)
+    {
       game();
+    }
+
   }
   return 0;
 }

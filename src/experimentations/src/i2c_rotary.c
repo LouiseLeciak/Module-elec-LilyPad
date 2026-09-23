@@ -3,6 +3,7 @@
 #include "globals.h"
 #include "menu.h"
 #include "i2c_rotary.h"
+#include "power_save.h"
 
 
 void i2c_init(void)
@@ -244,6 +245,7 @@ void rotary_update(void)
 
   if (rotaryclk_prev == 1 && clk == 0)
   {
+    power_save_activity();
     dt = (gpio >> ROTARY_DT) & 1;
 
     if (app_state == MENU)
@@ -299,6 +301,7 @@ void rotary_button_update(void)
     {
       if (sw == 0)
       {
+        power_save_activity();
         if (app_state == MENU)
         {
           if (menu_choice == 0)

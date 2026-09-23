@@ -38,7 +38,8 @@ SRC_FIL	=	main \
 					menu \
 					init \
 					keypad \
-					eye_imgs
+					eye_imgs \
+					power_save
 					
 
 

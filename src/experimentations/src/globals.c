@@ -17,7 +17,6 @@ uint8_t menu_choice = 0;
 uint8_t word_len = 0;
 
 app_state_t app_state = MENU;
-
 word_state_t word_state = INPUT;
 
 
@@ -25,3 +24,7 @@ word_state_t word_state = INPUT;
 
 uint8_t prev_sw; // etat precedent du bouton
 uint8_t rotaryclk_prev = 1;
+
+// screen energy mode
+uint32_t last_key_time = 0;
+uint8_t screen_sleeping = 0;

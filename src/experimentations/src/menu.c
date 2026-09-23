@@ -5,6 +5,7 @@
 #include "GC9A01.h"
 #include "main_screen.h"
 #include "keypad.h"
+#include "power_save.h"
 
 // Pour commencer un nouveau mot
 void start_new_word(void)
@@ -209,36 +210,60 @@ void show_game(void)
     app_state = JEU;
 }
 
-void traduction()
+void display_word(void)
+{
+    draw_string(
+        10, 80, word,
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        4, 2);
+}
+
+void delete_last_char(void)
+{
+    if (word_len == 0)
+        return;
+
+    word_len--;
+    word[word_len] = '\0';
+
+    draw_char_small(
+        10 + word_len * 22,
+        80,
+        ' ',
+        GC9A01A_COLOR_PURPLE,
+        GC9A01A_COLOR_PINK,
+        4);
+}
+
+void traduction(void)
 {
     int key = keypad_read();
 
     if (key >= 0)
     {
+        power_save_activity();
         uint8_t row = key / COLS_NB;
         uint8_t col = key % COLS_NB;
         char c = keymap[row][col];
 
-        // a modifier avec un define plus propre
-        // pour comprendre directement qu'il s'agit du bouton HOME
         if (c == HOME)
         {
             menu_choice = 0;
             show_menu();
         }
+        else if (c == DEL)
+            delete_last_char();
         else if (c != '\0' &&
                  c != '\n' &&
                  word_len < WORD_MAX_LEN)
         {
             word[word_len] = c;
             word_len++;
+
             word[word_len] = '\0';
 
-            draw_string(
-                10, 80, word,
-                GC9A01A_COLOR_PURPLE,
-                GC9A01A_COLOR_PINK,
-                4, 2);
+            display_word();
         }
 
         _delay_ms(20);
@@ -256,6 +281,7 @@ void alphabet()
 
     if (key >= 0)
     {
+        power_save_activity();
         uint8_t row = key / COLS_NB;
         uint8_t col = key % COLS_NB;
         char c = keymap[row][col];
@@ -280,6 +306,7 @@ void game()
 
     if (key >= 0)
     {
+        power_save_activity();
         uint8_t row = key / COLS_NB;
         uint8_t col = key % COLS_NB;
         char c = keymap[row][col];
