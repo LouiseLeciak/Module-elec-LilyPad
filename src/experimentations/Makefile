@@ -37,7 +37,8 @@ SRC_FIL	=	main \
 					globals \
 					menu \
 					init \
-					keypad
+					keypad \
+					eye_imgs
 					
 
 
