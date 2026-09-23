@@ -13,16 +13,14 @@
 #include <avr/io.h>
 #include "tools.h"
 #include "uart_lib.h"
-typedef unsigned char uint8_t;      // needed because not using stdlib
-typedef unsigned int uint16_t;      // needed because not using stdlib
-typedef uint8_t bool;
+
 
 extern volatile char hex[4];                // global variable for function toHex()
 extern volatile char nbr_in_a_string[33];    // global variable for function nbr_to_str()
 
 
 
-bool is_upper(unsigned char c) {
+uint8_t is_upper(unsigned char c) {
 
     if (c >= 'A' && c <= 'Z') {
         return (1);
@@ -57,7 +55,7 @@ unsigned char inverse_char(unsigned char c) {
 }
 
 
-bool notPrintable(unsigned char c) {
+uint8_t notPrintable(unsigned char c) {
     if (c == 0x7F || c == '\r')
         return (0);
     if (c < ' ' || c > '~')
@@ -67,7 +65,7 @@ bool notPrintable(unsigned char c) {
 }
 
 
-bool Printable(unsigned char c) {
+uint8_t Printable(unsigned char c) {
     if (c == 0x7F || c == '\r')
         return (0);
     if (c < ' ' || c > '~')
@@ -77,7 +75,7 @@ bool Printable(unsigned char c) {
 
 
 
-bool checkChar(unsigned char c) {
+uint8_t checkChar(unsigned char c) {
     
     if (c == '\t' || c =='\b')
         return (1);
@@ -96,7 +94,7 @@ int ft_strlen(unsigned char *str) {
 }
 
 
-bool ft_strcmp(unsigned char *str, unsigned char *name) {
+uint8_t ft_strcmp(unsigned char *str, unsigned char *name) {
 
     int i = 0;
     if (ft_strlen(str) != ft_strlen(name))
@@ -118,7 +116,7 @@ bool ft_strcmp(unsigned char *str, unsigned char *name) {
 /// ARGS: char* str to be checked, unit8_t size to compare 
 /// RETURNS: 0 - false, 1 - true if string is the length found in size 
 
-bool is_len_size(unsigned char *str, int size) {
+uint8_t is_len_size(unsigned char *str, int size) {
 
     if (!str)
         return (0);
@@ -132,7 +130,7 @@ bool is_len_size(unsigned char *str, int size) {
 /// ARGS: char* str to be checked, char to compare with
 /// RETURNS: 0 - false, 1 - true
 
-bool is_first_char(unsigned char *str, unsigned char c) {
+uint8_t is_first_char(unsigned char *str, unsigned char c) {
 
     if (!str)
         return (0);
@@ -146,7 +144,7 @@ bool is_first_char(unsigned char *str, unsigned char c) {
 /// ARGS: char* str
 /// RETURNS: 0 - false, 1 - true
 
-bool is_valid_hex_str(unsigned char *str) {
+uint8_t is_valid_hex_str(unsigned char *str) {
     
     int i = 1;
     if (!str)
@@ -194,7 +192,7 @@ void split_hex(unsigned char *str, unsigned char *hex, int start_pos) {
 /// ARGS: a character
 /// RETURNS: 0 - false, 1 - true
 
-bool is_digit(unsigned char c) {
+uint8_t is_digit(unsigned char c) {
 
     if (c >= '0' && c <= '9') {
         return (1);
@@ -500,7 +498,7 @@ uint16_t nbrStr_to_dec(const char* nbrString) {
 
 
 
-bool is_digit_str(volatile char* str) {
+uint8_t is_digit_str(volatile char* str) {
 
     int i = 0;
     while (str && str[i]) {

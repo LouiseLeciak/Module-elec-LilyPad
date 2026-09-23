@@ -31,7 +31,17 @@ SRC_FIL	=	main \
 					main_screen \
 					spi \
 					uart \
-					i2c-rotary \
+					i2c_rotary \
+					screen_text \
+					small_font \
+					globals \
+					menu \
+					init \
+					keypad \
+					eye_imgs \
+					power_save
+					
+
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
