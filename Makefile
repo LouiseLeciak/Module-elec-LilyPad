@@ -30,6 +30,7 @@ SRC_FIL	=	main \
 					GC9A01 \
 					ili9488 \
 					main_screen \
+					mem_utils \
 					sd/sd \
 					sd/sd_streaming \
 					spi \

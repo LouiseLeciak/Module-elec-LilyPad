@@ -1,7 +1,6 @@
 #include "fatfs.h"
 
-#include <string.h>
-
+#include "mem_utils.h"
 #include "sd.h"
 #include "structs.h"
 #include "uart.h"
@@ -134,7 +133,7 @@ void scan_root_dir(void) {
       static uint8_t image_count = 0;
       if (image_count < 60) {
         image_lut[image_count].address = file_cluster;
-        memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
+        ft_memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
         image_count++;
       } else {
         uart_printstr("Image look up table is full :(\r\n");
