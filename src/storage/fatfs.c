@@ -37,8 +37,8 @@ typedef struct __attribute__((packed)) {
 
 // --- VOLUME BOOT RECORD
 
-// NOTE: Want to know how to recreate your own Volume Boot Record that looks
-// like a lorem ipsum ? Check Elm-Chan's page !:
+// NOTE: Want to know how to recreate your own Volume Boot Record that is as
+// long as a lorem ipsum ? Check Elm-Chan's page !:
 // https://elm-chan.org/docs/fat_e.html
 typedef struct __attribute__((packed)) {
   uint8_t jump[3];              //< Jump instructions to bootstrap code
