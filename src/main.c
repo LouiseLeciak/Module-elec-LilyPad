@@ -1,15 +1,12 @@
-#include <stdint.h>
 #include <util/delay.h>
 
 #include "GC9A01.h"
-#include "fatfs.h"
 #include "main_screen.h"
 #include "pinout.h"
-#include "screen_text.h"
-#include "sd.h"
-#include "sd_streaming.h"
 #include "spi.h"
 #include "state_machine.h"
+#include "storage/fatfs.h"
+#include "storage/sd_streaming.h"
 #include "structs.h"
 #include "uart.h"
 #include "utils.h"

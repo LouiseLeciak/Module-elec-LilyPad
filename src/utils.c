@@ -1,9 +1,6 @@
 #include "utils.h"
 
-#include <stdint.h>
-
-#include "fatfs.h"
-#include "sd.h"
+#include "storage/fatfs.h"
 #include "uart.h"
 
 #define COL_RED "\x1b[31m"

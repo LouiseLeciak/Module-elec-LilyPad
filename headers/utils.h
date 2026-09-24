@@ -3,12 +3,7 @@
 
 #include <avr/io.h>
 
-typedef enum {
-  PART_ENTRY_NO_1 = 0x01BE,
-  PART_ENTRY_NO_2 = 0x01CE,
-  PART_ENTRY_NO_3 = 0x01DE,
-  PART_ENTRY_NO_4 = 0x01EE,
-} PARTITION_ENTRY_NO;
+#include "storage/fatfs.h"
 
 typedef struct __attribute__((packed)) {
   uint8_t status;
