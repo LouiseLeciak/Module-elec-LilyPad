@@ -16,6 +16,11 @@
 
 #define COL_BGBLACK "\x1b[47m"
 
+#define MBR_SIZE 512
+#define PART_ENTRY_SIZE 16
+#define BOOT_SIGNATURE 0x01FE
+#define BOOT_SIGNATURE_SIZE 2
+
 void uart_printhex(uint8_t value) {
   char hex[] = "0123456789abcdef";
   char buf[3];
@@ -55,11 +60,6 @@ void uart_printhex_32(uint32_t value) {
 
   uart_printstr(buf);
 }
-
-#define MBR_SIZE 512
-#define PART_ENTRY_SIZE 16
-#define BOOT_SIGNATURE 0x01FE
-#define BOOT_SIGNATURE_SIZE 2
 
 static void dump_mbr_desc(void) {
   uart_printstr(COL_RED);
