@@ -12,6 +12,11 @@
 // NOTE: Want to learn about FAT ? :)
 // https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Boot_Sector
 
+#define MBR_SIZE 512
+#define PART_ENTRY_SIZE 16
+#define BOOT_SIGNATURE 0x01FE
+#define BOOT_SIGNATURE_SIZE 2
+
 extern img image_lut[60];
 
 // Type definitions
@@ -37,6 +42,15 @@ typedef enum {
   RES_NOTRDY,  //< 3: Not Ready
   RES_PARERR   //< 4: Invalid Parameter
 } DRESULT;
+
+// WARNING: Those are the locations of the partition entries field inside the
+// MBR, not the place they point to !!!
+typedef enum {
+  PART_ENTRY_NO_1 = 0x01BE,
+  PART_ENTRY_NO_2 = 0x01CE,
+  PART_ENTRY_NO_3 = 0x01DE,
+  PART_ENTRY_NO_4 = 0x01EE,
+} PARTITION_ENTRY_NO;
 
 /**
  * @brief Inquires the current drive status

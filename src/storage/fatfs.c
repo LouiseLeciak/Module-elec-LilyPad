@@ -4,23 +4,10 @@
 #include "uart.h"
 #include "utils/mem_utils.h"
 
-#define MBR_SIZE 512
-#define PART_ENTRY_SIZE 16
-#define BOOT_SIGNATURE 0x01FE
-#define BOOT_SIGNATURE_SIZE 2
 // DSTATUS bit flags
 #define STA_NOINIT 0x01   //< Drive not initialized
 #define STA_NODISK 0x02   //< No medium in the drive
 #define STA_PROTECT 0x04  //< Write protected
-
-// WARNING: Those are the locations of the partition entries field inside the
-// MBR, not the place they point to !!!
-typedef enum {
-  PART_ENTRY_NO_1 = 0x01BE,
-  PART_ENTRY_NO_2 = 0x01CE,
-  PART_ENTRY_NO_3 = 0x01DE,
-  PART_ENTRY_NO_4 = 0x01EE,
-} PARTITION_ENTRY_NO;
 
 // NOTE: You will see `__attribute__((packed))` a lot here, it is because it
 // allows to serialise data easily in order to copy it ! :)
