@@ -20,19 +20,21 @@ DUDE		:=	avrdude
 DOXYFILE	:=	Doxyfile
 
 # --- COMPILER FLAGS ---
-CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
+CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
 					bmp \
 					crc \
-					sd/fatfs \
+					storage/fatfs \
 					GC9A01 \
 					ili9488 \
 					main_screen \
 					mem_utils \
-					sd/sd \
-					sd/sd_streaming \
+					storage/sd \
+					storage/sd_streaming \
 					spi \
 					small_font \
 					screen_text \
