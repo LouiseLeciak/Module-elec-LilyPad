@@ -1,8 +1,8 @@
 #include "storage/fatfs.h"
 
+#include "mem_utils.h"
 #include "storage/sd.h"
 #include "uart.h"
-#include "utils/mem_utils.h"
 
 // DSTATUS bit flags
 #define STA_NOINIT 0x01   //< Drive not initialized

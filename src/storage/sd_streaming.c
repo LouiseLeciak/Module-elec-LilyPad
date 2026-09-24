@@ -1,8 +1,8 @@
 #include "storage/sd_streaming.h"
 
-#include "display/bmp.h"
-#include "display/ili9488.h"
-#include "display/main_screen.h"
+#include "bmp.h"
+#include "ili9488.h"
+#include "main_screen.h"
 #include "spi.h"
 #include "storage/sd.h"
 

@@ -2,10 +2,10 @@
 
 #include <util/delay.h>
 
+#include "crc.h"
 #include "pinout.h"
 #include "spi.h"
 #include "uart.h"
-#include "utils/crc.h"
 
 #define MAX_TRIES 255
 

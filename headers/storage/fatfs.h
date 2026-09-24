@@ -1,7 +1,7 @@
 #ifndef FATFS_H
 #define FATFS_H
 
-#include "utils/structs.h"
+#include "structs.h"
 
 // NOTE: FAT specification here:
 // https://academy.cba.mit.edu/classes/networking_communications/SD/FAT.pdf
