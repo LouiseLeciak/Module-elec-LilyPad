@@ -1,16 +1,13 @@
-#include "sd_streaming.h"
+#include "storage/sd_streaming.h"
 
-#include <stdint.h>
-
-#include "bmp.h"
-#include "ili9488.h"
-#include "main_screen.h"
-#include "pinout.h"
-#include "sd.h"
+#include "display/bmp.h"
+#include "display/ili9488.h"
+#include "display/main_screen.h"
 #include "spi.h"
+#include "storage/sd.h"
 
-uint8_t buf_header[512] = {0};
-uint8_t buf_img[512] = {0};
+static uint8_t buf_header[512] = {0};
+static uint8_t buf_img[512] = {0};
 
 void sd_stream_bmp_to_screen(uint32_t start_sector) {
   sd_read_single_block(start_sector >> 24, start_sector >> 16,
@@ -59,6 +56,4 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
     SD_CS_LOW();
     buffer_idx = 0;
   }
-
-  sd_read_multiple_block_stop();
 }
