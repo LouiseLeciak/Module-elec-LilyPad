@@ -15,10 +15,12 @@
 #include "i2c_rotary.h"
 #include "power_save.h"
 #include "game.h"
+#include "language.h"
 
 int main(void)
 {
   init();
+  language_update();
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
@@ -29,6 +31,7 @@ int main(void)
 
   while (1)
   {
+    language_update();
     random_update();
     rotary_update();
     rotary_button_update();
@@ -41,7 +44,7 @@ int main(void)
     
     if (app_state == TRADUCTION && word_state == INPUT)
     {
-      traduction();
+        traduction();
     }
 
     else if (app_state == ALPHABET)

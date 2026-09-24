@@ -20,31 +20,56 @@ static const char game_characters[] =
 void show_game(void)
 {
     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-    draw_string(
-        125, 20, "JEU",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
-
-    draw_string(
-        10, 120, "> ",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
-
-    draw_string(
-        40, 120, "Trouve la lettre",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
-
-    draw_string(
-        40, 220, "Trouve le signe",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
-
+    if (language == LANG_FR){
+        draw_string(
+            125, 20, "JEU",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            10, 120, "> ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            40, 120, "Lettre",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            40, 220, "Signe",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else if (language == LANG_EN){
+        draw_string(
+            125, 20, "GAME",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            10, 120, "> ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            70, 120, "Letter game",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    
+        draw_string(
+            70, 220, "Sign game",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
     game_choice = 0;
     game_state = GAME_MENU;
     app_state = JEU;
@@ -101,20 +126,36 @@ void display_find_letter(void)
     target_text[0] = game_target;
     target_text[1] = '\0';
 
-    draw_string(
-        20, 20, "JEU",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
+    if (language == LANG_FR){
+        draw_string(
+            20, 20, "JEU",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+
+        draw_string(
+            20, 80, "Ton signe: ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            3, 2);
+    }
+    if (language == LANG_EN){
+        draw_string(
+            20, 20, "GAME",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+
+        draw_string(
+            20, 80, "Your sign: ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            3, 2);
+    }
+
 
     draw_string(
-        20, 80, "Voici ton signe :",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        3, 2);
-
-    draw_string(
-        300, 80, target_text,
+        200, 80, target_text,
         GC9A01A_COLOR_GREEN,
         GC9A01A_COLOR_OLIVE,
         3, 2);
@@ -131,7 +172,7 @@ void display_find_letter(void)
         4, 2);
 
     draw_string(
-        40, 150, answer_text,
+        70, 150, answer_text,
         GC9A01A_COLOR_GREEN,
         GC9A01A_COLOR_OLIVE,
         4, 2);
@@ -141,7 +182,7 @@ void display_find_letter(void)
     answer_text[0] = game_answers[1];
 
     draw_string(
-        40, 220, answer_text,
+        70, 220, answer_text,
         GC9A01A_COLOR_GREEN,
         GC9A01A_COLOR_OLIVE,
         4, 2);
@@ -151,7 +192,7 @@ void display_find_letter(void)
     answer_text[0] = game_answers[2];
 
     draw_string(
-        40, 290, answer_text,
+        70, 290, answer_text,
         GC9A01A_COLOR_GREEN,
         GC9A01A_COLOR_OLIVE,
         4, 2);

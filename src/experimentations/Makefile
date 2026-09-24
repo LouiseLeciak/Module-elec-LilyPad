@@ -40,7 +40,8 @@ SRC_FIL	=	main \
 					keypad \
 					eye_imgs \
 					power_save \
-					game
+					game \
+					language \
 					
 
 

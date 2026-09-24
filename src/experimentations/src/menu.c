@@ -29,17 +29,32 @@ void validate_word(void)
 {
     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-    draw_string(
-        10, 20, "Ton mot est:",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
+    if (language == LANG_FR){
+        draw_string(
+            10, 20, "Ton mot est:",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
 
-    draw_string(
-        10, 80, word,
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
+        draw_string(
+            10, 80, word,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else if (language == LANG_EN){
+        draw_string(
+            10, 20, "Your word is:",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+
+        draw_string(
+            10, 80, word,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
 
     word_state = VALIDATED;
 }
@@ -48,7 +63,7 @@ void validate_word(void)
 void show_menu(void)
 {
     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
+    if (language == LANG_FR){
     draw_string(
         100, 20, "Menu",
         GC9A01A_COLOR_GREEN,
@@ -104,6 +119,64 @@ void show_menu(void)
             GC9A01A_COLOR_GREEN,
             GC9A01A_COLOR_OLIVE,
             4, 2);
+    }}
+    else if (language == LANG_EN){// POUR ANGLAIS
+          draw_string(
+        100, 20, "Menu",
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        5, 2);
+
+    if (menu_choice == 0)
+    {
+        draw_string(
+            10, 120, "> Traduction",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else
+    {
+        draw_string(
+            10, 120, "  Traduction",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+
+    if (menu_choice == 1)
+    {
+        draw_string(
+            10, 220, "> Alphabet",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else
+    {
+        draw_string(
+            10, 220, "  Alphabet",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+
+    if (menu_choice == 2)
+    {
+        draw_string(
+            10, 320, "> Game",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else
+    {
+        draw_string(
+            10, 320, "  Game",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }  
     }
 
     app_state = MENU;
@@ -171,12 +244,20 @@ void start_translation(void)
     word[0] = '\0';
 
     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-    draw_string(
-        10, 20, "Entre un mot !",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
+    if (language == LANG_FR){
+        draw_string(
+            10, 20, "Entre un mot !",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
+    else if (language == LANG_EN){
+        draw_string(
+            10, 20, "Choose a word !",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+    }
 
     word_state = INPUT;
     app_state = TRADUCTION;
@@ -195,20 +276,6 @@ void show_alphabet(void)
 
     app_state = ALPHABET;
 }
-
-// idem
-// void show_game(void)
-// {
-//     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-//     draw_string(
-//         10, 20, "Choix : jeu",
-//         GC9A01A_COLOR_GREEN,
-//         GC9A01A_COLOR_OLIVE,
-//         3, 2);
-
-//     app_state = JEU;
-// }
 
 void display_word(void)
 {

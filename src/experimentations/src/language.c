@@ -2,7 +2,9 @@
 #include <avr/io.h>
 #include "language.h"
 #include "pinout.h"
-
+#include "menu.h"
+#include "globals.h"
+#include "power_save.h"
 
 
 language_t language = LANG_FR;
@@ -26,7 +28,7 @@ void language_switch_init(void)
 void language_update(void)
 {
     language_t new_language;
-
+    power_save_activity();
     // if on the left -> fr
     // pc1 = 0 car relie a pc2 qui est a 0
     if (!(PINC & SDL_SW1))
@@ -48,5 +50,6 @@ void language_update(void)
         // go back to the menu when we switch language
         menu_choice = 0;
         show_menu();
+        return;
     }
 }

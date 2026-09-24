@@ -5,6 +5,7 @@
 #include "keyboard_utils.h"
 #include "keypad.h"
 #include "i2c_rotary.h"
+#include "language.h"
 
 void sd_init() { DDRH |= (SD_CS); }
 
@@ -34,4 +35,6 @@ void init(void)
 
     keypad_init();
     rotary_init();
+    language_switch_init();
+
 }
