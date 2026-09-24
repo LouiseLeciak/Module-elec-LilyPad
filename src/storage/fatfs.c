@@ -181,6 +181,7 @@ DRESULT parse_mbr(void) {
 }
 
 uint32_t cluster_to_lba(uint32_t cluster) {
+  // FAT32 data clusters always start at index 2
   return data_start_lba + ((cluster - 2) * sd_vbr.sectors_per_cluster);
 }
 

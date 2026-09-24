@@ -8,6 +8,7 @@
 #include "uart.h"
 
 #define MAX_TRIES 255
+#define SD_BLOCK_SIZE 512
 
 typedef enum {
   GO_IDLE_STATE = 0,
@@ -220,7 +221,7 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
     fe = spi_txrx(0xFF);
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
-  for (uint16_t i = 0; i < 512; i++) {
+  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++) {
     buf[i] = spi_txrx(0xFF);
   }
 
@@ -251,7 +252,7 @@ void sd_read_multiple_block_next(uint8_t* buf) {
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
 
-  for (uint16_t i = 0; i < 512; i++) {
+  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++) {
     buf[i] = spi_txrx(0xFF);
   }
   spi_txrx(0xFF);  // Reading and discarding CRC byte 1
