@@ -14,6 +14,7 @@
 #include "menu.h"
 #include "i2c_rotary.h"
 #include "power_save.h"
+#include "game.h"
 
 int main(void)
 {
@@ -28,6 +29,7 @@ int main(void)
 
   while (1)
   {
+    random_update();
     rotary_update();
     rotary_button_update();
     power_save_update();

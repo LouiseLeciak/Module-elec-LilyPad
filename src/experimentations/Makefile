@@ -39,7 +39,8 @@ SRC_FIL	=	main \
 					init \
 					keypad \
 					eye_imgs \
-					power_save
+					power_save \
+					game
 					
 
 

@@ -4,6 +4,7 @@
 #include "menu.h"
 #include "i2c_rotary.h"
 #include "power_save.h"
+#include "game.h"
 
 
 void i2c_init(void)
@@ -276,7 +277,60 @@ void rotary_update(void)
 
       update_menu_cursor(old_choice);
     }
+    else if (app_state == JEU && game_state == GAME_MENU)// marcher le cursor dans le menu game
+    {
+    old_choice = game_choice;
+
+      if (dt != clk)
+      {
+        game_choice++;
+
+        if (game_choice >= 2)
+        {
+            game_choice = 0;
+        }
+      }
+      else
+      {
+        if (game_choice == 0)
+        {
+            game_choice = 1;
+        }
+        else
+        {
+            game_choice--;
+        }
+      }
+    update_game_cursor(old_choice);
   }
+  else if (app_state == JEU && game_state == GAME_FIND_LETTER)
+  {
+      old_choice = game_answer;
+
+      if (dt != clk)
+      {
+          game_answer++;
+
+          if (game_answer >= GAME_CHOICES)
+          {
+              game_answer = 0;
+          }
+      }
+      else
+      {
+          if (game_answer == 0)
+          {
+              game_answer = GAME_CHOICES - 1;
+          }
+          else
+          {
+              game_answer--;
+          }
+      }
+
+    update_game_answer_cursor(old_choice);
+  }
+}
 
   rotaryclk_prev = clk;
 }
@@ -327,6 +381,42 @@ void rotary_button_update(void)
           {
             start_new_word();
           }
+        }
+        else if (app_state == JEU)
+        {
+            if (game_state == GAME_MENU)
+            {
+                if (game_choice == 0)
+                {
+                    start_find_letter();
+                }
+                else
+                {
+                    start_find_sign();
+                }
+            }
+            else if (game_state == GAME_FIND_LETTER)
+            {
+                if (game_answers[game_answer] == game_target)
+                {
+                    game_state = GAME_RESULT_YES;
+                    display_game_yes();
+                }
+                else
+                {
+                    game_state = GAME_RESULT_NO;
+                    display_game_no();
+                }
+            }
+            else if (game_state == GAME_RESULT_YES)
+            {
+                start_find_letter();
+            }
+            else if (game_state == GAME_RESULT_NO)
+            {
+                game_state = GAME_FIND_LETTER;
+                display_find_letter();
+            }
         }
       }
 

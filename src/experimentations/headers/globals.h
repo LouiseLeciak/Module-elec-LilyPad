@@ -3,6 +3,7 @@
 
 #include "keyboard_utils.h"
 #include "language.h"
+#include "game.h"
 
 // word buffer, used in translation per example
 extern char word[WORD_MAX_LEN + 1];
@@ -31,5 +32,13 @@ extern uint8_t screen_sleeping;
 
 language_t language;
 
+// game global
+uint8_t game_choice;
+game_state_t game_state;
+char game_target;
+// the different choices you have 
+char game_answers[GAME_CHOICES];
+uint8_t game_answer;// player answer
+uint32_t random_state;
 
 #endif

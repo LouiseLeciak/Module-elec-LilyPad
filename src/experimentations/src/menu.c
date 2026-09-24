@@ -197,18 +197,18 @@ void show_alphabet(void)
 }
 
 // idem
-void show_game(void)
-{
-    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+// void show_game(void)
+// {
+//     ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-    draw_string(
-        10, 20, "Choix : jeu",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        3, 2);
+//     draw_string(
+//         10, 20, "Choix : jeu",
+//         GC9A01A_COLOR_GREEN,
+//         GC9A01A_COLOR_OLIVE,
+//         3, 2);
 
-    app_state = JEU;
-}
+//     app_state = JEU;
+// }
 
 void display_word(void)
 {
