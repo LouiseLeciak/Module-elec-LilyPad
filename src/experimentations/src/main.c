@@ -25,7 +25,7 @@ int main(void)
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
   show_menu();// display the main menu
-  eyes_action();
+  // eyes_action();
 
   while (1)
   {

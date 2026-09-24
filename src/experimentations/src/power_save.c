@@ -28,7 +28,7 @@ void power_save_activity(void) {
   if (inac == 1)
   {
     PORTH |= MAIN_SCREEN_BL;
-    eyes_action(); // pose un pb je crois, c;est pas toujours bine responsive, a tester
+  //   eyes_action(); // pose un pb je crois, c;est pas toujours bine responsive, a tester
     inac = 0;
   }
 }

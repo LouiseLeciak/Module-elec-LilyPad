@@ -3,6 +3,7 @@
 #include "globals.h"
 #include "main_screen.h"
 #include "screen_text.h"
+#include "power_save.h"
 
 uint8_t game_choice = 0;
 game_state_t game_state = GAME_MENU;
@@ -53,6 +54,8 @@ void show_game(void)
 // similar of the main menu one
 void update_game_cursor(uint8_t old_choice)
 {
+    power_save_activity();
+
     if (old_choice == 0)
     {
         draw_string(
@@ -156,6 +159,7 @@ void display_find_letter(void)
 
 void update_game_answer_cursor(uint8_t old_choice)
 {
+    power_save_activity();
     uint16_t old_y;
     uint16_t new_y;
 
@@ -269,6 +273,7 @@ void start_find_sign(void){
 
 void display_game_yes(void)
 {
+    power_save_activity();
     ili9488_fill_screen(GC9A01A_COLOR_GREEN);
 
     draw_string(
@@ -280,6 +285,7 @@ void display_game_yes(void)
 
 void display_game_no(void)
 {
+    power_save_activity();
     ili9488_fill_screen(GC9A01A_COLOR_RED);
 
     draw_string(

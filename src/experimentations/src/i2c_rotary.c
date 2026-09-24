@@ -279,6 +279,8 @@ void rotary_update(void)
     }
     else if (app_state == JEU && game_state == GAME_MENU)// marcher le cursor dans le menu game
     {
+    power_save_activity();
+
     old_choice = game_choice;
 
       if (dt != clk)
@@ -305,6 +307,8 @@ void rotary_update(void)
   }
   else if (app_state == JEU && game_state == GAME_FIND_LETTER)
   {
+    power_save_activity();
+
       old_choice = game_answer;
 
       if (dt != clk)
@@ -384,6 +388,8 @@ void rotary_button_update(void)
         }
         else if (app_state == JEU)
         {
+          power_save_activity();
+
             if (game_state == GAME_MENU)
             {
                 if (game_choice == 0)
@@ -397,6 +403,8 @@ void rotary_button_update(void)
             }
             else if (game_state == GAME_FIND_LETTER)
             {
+                power_save_activity();
+
                 if (game_answers[game_answer] == game_target)
                 {
                     game_state = GAME_RESULT_YES;
