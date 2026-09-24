@@ -2,6 +2,7 @@
 #define GLOBALS_H
 
 #include "keyboard_utils.h"
+#include "language.h"
 
 // word buffer, used in translation per example
 extern char word[WORD_MAX_LEN + 1];
@@ -27,5 +28,8 @@ extern uint8_t rotaryclk_prev;
 
 extern uint32_t last_key_time;
 extern uint8_t screen_sleeping;
+
+language_t language;
+
 
 #endif

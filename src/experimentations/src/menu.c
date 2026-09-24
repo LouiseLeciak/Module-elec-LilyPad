@@ -13,12 +13,12 @@ void start_new_word(void)
     word_len = 0;
     word[0] = '\0';
 
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         10, 20, "Entre un mot !",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4, 2);
 
     word_state = INPUT;
@@ -27,18 +27,18 @@ void start_new_word(void)
 // when you validate your word
 void validate_word(void)
 {
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         10, 20, "Ton mot est:",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4, 2);
 
     draw_string(
         10, 80, word,
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4, 2);
 
     word_state = VALIDATED;
@@ -47,28 +47,28 @@ void validate_word(void)
 // to display the different choicies
 void show_menu(void)
 {
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         100, 20, "Menu",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         5, 2);
 
     if (menu_choice == 0)
     {
         draw_string(
             10, 120, "> Traduction",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else
     {
         draw_string(
             10, 120, "  Traduction",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
 
@@ -76,16 +76,16 @@ void show_menu(void)
     {
         draw_string(
             10, 220, "> Alphabet",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else
     {
         draw_string(
             10, 220, "  Alphabet",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
 
@@ -93,16 +93,16 @@ void show_menu(void)
     {
         draw_string(
             10, 320, "> Jeu",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else
     {
         draw_string(
             10, 320, "  Jeu",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
 
@@ -116,24 +116,24 @@ void update_menu_cursor(uint8_t old_choice)
     {
         draw_string(
             10, 120, "  ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else if (old_choice == 1)
     {
         draw_string(
             10, 220, "  ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else
     {
         draw_string(
             10, 320, "  ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
 
@@ -142,24 +142,24 @@ void update_menu_cursor(uint8_t old_choice)
     {
         draw_string(
             10, 120, "> ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else if (menu_choice == 1)
     {
         draw_string(
             10, 220, "> ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
     else
     {
         draw_string(
             10, 320, "> ",
-            GC9A01A_COLOR_PURPLE,
-            GC9A01A_COLOR_PINK,
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
             4, 2);
     }
 }
@@ -170,12 +170,12 @@ void start_translation(void)
     word_len = 0;
     word[0] = '\0';
 
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         10, 20, "Entre un mot !",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4, 2);
 
     word_state = INPUT;
@@ -185,12 +185,12 @@ void start_translation(void)
 // a modifier jaffiche juste une string
 void show_alphabet(void)
 {
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         10, 20, "Choix : alphabet",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         3, 2);
 
     app_state = ALPHABET;
@@ -199,12 +199,12 @@ void show_alphabet(void)
 // idem
 void show_game(void)
 {
-    ili9488_fill_screen(GC9A01A_COLOR_PINK);
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
     draw_string(
         10, 20, "Choix : jeu",
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         3, 2);
 
     app_state = JEU;
@@ -214,8 +214,8 @@ void display_word(void)
 {
     draw_string(
         10, 80, word,
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4, 2);
 }
 
@@ -231,8 +231,8 @@ void delete_last_char(void)
         10 + word_len * 22,
         80,
         ' ',
-        GC9A01A_COLOR_PURPLE,
-        GC9A01A_COLOR_PINK,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
         4);
 }
 

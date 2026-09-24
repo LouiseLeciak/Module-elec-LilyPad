@@ -21,15 +21,16 @@ int main(void)
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
+  GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
   show_menu();// display the main menu
+  eyes_action();
 
   while (1)
   {
     rotary_update();
     rotary_button_update();
     power_save_update();
-    // eyes_action();
 
     // listening to the keyboard for the power save
     int key = keypad_read();
