@@ -34,13 +34,13 @@ void show_game(void)
             4, 2);
     
         draw_string(
-            40, 120, "Lettre",
+            70, 120, "Lettre",
             GC9A01A_COLOR_GREEN,
             GC9A01A_COLOR_OLIVE,
             4, 2);
     
         draw_string(
-            40, 220, "Signe",
+            70, 220, "Signe",
             GC9A01A_COLOR_GREEN,
             GC9A01A_COLOR_OLIVE,
             4, 2);
@@ -234,7 +234,9 @@ uint32_t simple_random(void)
 
     return random_state;
 }
-
+///////////////////////////////////////////////////////////////////
+//////////////////////////  GAME 1  ///////////////////////////////
+///////////////////////////////////////////////////////////////////
 void start_find_letter(void)
 {
     uint8_t correct_position;
@@ -308,8 +310,160 @@ void start_find_letter(void)
     display_find_letter();
 }
 
-void start_find_sign(void){
-    start_find_letter();
+///////////////////////////////////////////////////////////////////
+//////////////////////////  GAME 2  ///////////////////////////////
+///////////////////////////////////////////////////////////////////
+void display_find_sign(void)
+{
+    char target_text[2];
+    char answer_text[2];
+
+    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
+    target_text[0] = game_target;
+    target_text[1] = '\0';
+
+    if (language == LANG_FR){
+        draw_string(
+            20, 20, "JEU",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+
+        draw_string(
+            20, 80, "Ta lettre: ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            3, 2);
+    }
+    if (language == LANG_EN){
+        draw_string(
+            20, 20, "GAME",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            4, 2);
+
+        draw_string(
+            20, 80, "Your letter: ",
+            GC9A01A_COLOR_GREEN,
+            GC9A01A_COLOR_OLIVE,
+            3, 2);
+    }
+
+
+    draw_string(
+        200, 80, target_text,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        3, 2);
+
+    // choix 1
+
+    answer_text[0] = game_answers[0];
+    answer_text[1] = '\0';
+
+    draw_string(
+        10, 150, "> ",
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        4, 2);
+
+    draw_string(
+        70, 150, answer_text,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        4, 2);
+
+    // choix 2
+
+    answer_text[0] = game_answers[1];
+
+    draw_string(
+        70, 220, answer_text,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        4, 2);
+
+    //choix 3
+
+    answer_text[0] = game_answers[2];
+
+    draw_string(
+        70, 290, answer_text,
+        GC9A01A_COLOR_GREEN,
+        GC9A01A_COLOR_OLIVE,
+        4, 2);
+}
+// you have to found which sign is the letter
+void start_find_sign(void)
+{
+    uint8_t correct_position;
+    uint8_t target_position;
+    uint8_t first_position;// position of the first bad answer
+    uint8_t second_position;// pos of the second one
+
+    game_state = GAME_FIND_SIGN;
+
+    // choose the letter to find
+    target_position = simple_random() % GAME_CHAR_COUNT;// % bcs we have on 36 choices
+
+    game_target = game_characters[target_position];
+
+    // where the good answer will be
+    correct_position = simple_random() % GAME_CHOICES;
+
+    game_answers[correct_position] = game_target;
+
+    // where is the first bad asnwer
+    first_position = simple_random() % GAME_CHAR_COUNT;
+
+    if (first_position == target_position)
+    {
+        first_position++;
+
+        if (first_position >= GAME_CHAR_COUNT)
+            first_position = 0;
+    }
+
+    // where is the second bad answer
+    second_position = simple_random() % GAME_CHAR_COUNT;
+
+    // check if similar of the good answer
+    if (second_position == target_position)
+    {
+        second_position++;
+
+        if (second_position >= GAME_CHAR_COUNT)
+            second_position = 0;
+    }
+
+    // checking if similar of the other bad answer
+    if (second_position == first_position)
+    {
+        second_position++;
+
+        if (second_position >= GAME_CHAR_COUNT)
+            second_position = 0;
+    }
+
+    // positions
+    if (correct_position == 0)
+    {
+        game_answers[1] = game_characters[first_position];
+        game_answers[2] = game_characters[second_position];
+    }
+    else if (correct_position == 1)
+    {
+        game_answers[0] = game_characters[first_position];
+        game_answers[2] = game_characters[second_position];
+    }
+    else
+    {
+        game_answers[0] = game_characters[first_position];
+        game_answers[1] = game_characters[second_position];
+    }
+
+    game_answer = 0;// set the player choice at 0
 }
 
 void display_game_yes(void)
@@ -318,10 +472,10 @@ void display_game_yes(void)
     ili9488_fill_screen(GC9A01A_COLOR_GREEN);
 
     draw_string(
-        100, 180, "O",
+        110, 170, "O",
         GC9A01A_COLOR_WHITE,
         GC9A01A_COLOR_GREEN,
-        8, 2);
+        20, 2);
 }
 
 void display_game_no(void)
@@ -330,8 +484,8 @@ void display_game_no(void)
     ili9488_fill_screen(GC9A01A_COLOR_RED);
 
     draw_string(
-        100, 180, "X",
+        110, 170, "X",
         GC9A01A_COLOR_WHITE,
         GC9A01A_COLOR_RED,
-        8, 2);
+        20, 2);
 }
