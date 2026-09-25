@@ -23,18 +23,18 @@ void show_alphabet(void)
 
   if (language == LANG_FR)
   {
-    draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+    draw_string(80, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
                 4, 2);
 
-    draw_string(70, 80, "Choisis une lettre", GC9A01A_COLOR_GREEN,
+    draw_string(10, 80, "Choisis une lettre", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
   }
   else if (language == LANG_EN)
   {
-    draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+    draw_string(80, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
                 4, 2);
 
-    draw_string(70, 80, "Choose a letter:", GC9A01A_COLOR_GREEN,
+    draw_string(10, 80, "Choose a letter:", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
   }
   alphabet_choice = 0;
@@ -125,8 +125,8 @@ void alphabet()
   }
 }
 
-void display_alphabet(void)
-{
+// display letters from A to 0, 4 column
+void display_alphabet(void) {
   uint8_t i;
   uint8_t row;
   uint8_t col;
@@ -135,31 +135,28 @@ void display_alphabet(void)
   char letter[2];
 
   // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN,
-  // GC9A01A_COLOR_OLIVE, 4,
+  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+  // 4,
   //             2);
 
-  for (i = 0; i < 36; i++)
-  {
+  for (i = 0; i < 36; i++) {
     row = i / 4;
     col = i % 4;
 
-    x = 50 + col * 80;   // ecrat entre colonne
+    x = 30 + col * 80;   // ecrat entre colonne
     y = 115 + row * 38;  // ecrat entre ligne
 
     letter[0] = alphabet_characters[i];
     letter[1] = '\0';
 
-    if (i == alphabet_choice)
-    {
+    if (i == alphabet_choice) {
       draw_string(x, y, letter, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 5, 2);
-    }
-    else
-    {
+    } else {
       draw_string(x, y, letter, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3, 2);
     }
   }
 }
+
 
 // when cursor is moving the actual letter is bigger than the others
 // this function is to update the new letter selected bigger and old smaller
@@ -184,10 +181,10 @@ void update_alphabet_cursor(uint8_t old_choice)
   new_row = alphabet_choice / 4;
   new_col = alphabet_choice % 4;
 
-  old_x = 50 + old_col * 80;
+  old_x = 30 + old_col * 80;
   old_y = 115 + old_row * 38;
 
-  new_x = 50 + new_col * 80;
+  new_x = 30 + new_col * 80;
   new_y = 115 + new_row * 38;
 
   old_letter[0] = alphabet_characters[old_choice];
