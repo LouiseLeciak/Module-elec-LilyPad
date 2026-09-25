@@ -6,6 +6,8 @@
 #include "spi.h"
 #include "storage/sd.h"
 #include "pinout.h"
+#include "uart.h"
+#include "utils.h"
 
 static uint8_t buf_header[512] = {0};
 static uint8_t buf_img[512] = {0};
@@ -15,11 +17,14 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
                        start_sector >> 8, start_sector, buf_header);
   bmp_header header = {0};
   if (bmp_parse_header(buf_header, &header) != 0) {
+    uart_printstr("Error while printing image\r\n");
     return;  // ERROR
   }
   uint32_t abs_height = (header.height < 0 ? -header.height : header.height);
   window win = {{0, 0}, {abs_height - 1, header.width - 1}};
-  // window win = {{0, 0}, {header.width - 1, abs_height - 1}};
+
+  uart_printstr("Starting printing image\r\n");
+
   MAIN_SCREEN_CS_LOW();
   main_screen_set_window(win);
   main_screen_ramwr();
@@ -29,12 +34,18 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
   uint16_t buffer_idx = header.pixel_data_offset % 512;
 
   uint32_t byte_count = (uint32_t)abs_height * header.width * 3;
+  uart_printstr("byte_count= ");
+  uart_printhex_32(byte_count);
+  uart_printstr("\r\n");
   uint32_t bytes_processed = 0;
 
   uint8_t rgb[3];
   uint8_t rgb_idx = 0;
 
   while (bytes_processed < byte_count) {
+    uart_printstr("bytes_processed= ");
+  uart_printhex_32(bytes_processed);
+  uart_printstr("\r\n");
     sd_read_single_block(pixel_sector >> 24, pixel_sector >> 16,
                          pixel_sector >> 8, pixel_sector, buf_img);
     pixel_sector++;
@@ -57,4 +68,5 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
     SD_CS_LOW();
     buffer_idx = 0;
   }
+  uart_printstr("Finished printing image\r\n");
 }

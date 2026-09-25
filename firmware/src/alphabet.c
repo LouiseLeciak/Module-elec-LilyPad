@@ -64,22 +64,27 @@ void display_alphabet_letter(void) {
   //     12, 2);
 
   /////////////////////////////////////////// nom du fichier
-  ft_strlcat(file_name, letter, 1);
+
+  ft_strcat(file_name, letter);
 
   if (language == LANG_FR) {
-    ft_strlcat(&file_name[1], "_LSF", 4);
+    ft_strcat(file_name, "_LSF");
   } else {
-    ft_strlcat(&file_name[1], "_BSL", 4);
+    ft_strcat(file_name, "_BSL");
   }
-  ft_strlcat(&file_name[5], "   BMP", 3);
+  ft_strcat(file_name, "   BMP");
   ////////////////////////////////////////////////////////////
   // aller regarder dans la lookup table
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++) {
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE)) {
+      uart_printstr("Queried file name: ");
+            uart_printstr(file_name);
+      uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
+      uart_printstr(image_lut[i].name);
+      uart_printstr("--\r\nAddress: ");
+      uart_printhex_32(image_lut[i].address);
+      uart_printstr("\r\n");
       sd_stream_bmp_to_screen(image_lut[i].address);
-      uart_printstr("Cette image la: ");
-      uart_printstr(file_name);
-      uart_printstr("\n\r");
     }
   }
 }
