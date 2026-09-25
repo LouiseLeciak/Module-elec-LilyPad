@@ -16,8 +16,6 @@ CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
-# --- DOXYGEN ---
-DOXYFILE	:=	Doxyfile
 
 # --- COMPILER FLAGS ---
 INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
@@ -87,7 +85,5 @@ flash: $(HEX)
 clean:
 	rm -rf $(BUI_DIR)
 
-doc:
-	doxygen $(DOXYFILE)
 
 -include $(DEP)
