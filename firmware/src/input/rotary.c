@@ -265,10 +265,12 @@ void rotary_button_game(void)
     }
     if (game_state == GAME_RESULT_YES)
     {
+      game_answer = 0;
       start_find_letter();
     }
     else if (game_state == GAME_RESULT_NO)
     {
+      game_answer = 0;
       game_state = GAME_FIND_LETTER;
       display_find_letter();
     }
