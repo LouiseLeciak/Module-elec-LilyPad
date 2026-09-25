@@ -16,6 +16,8 @@
 #include "power_save.h"
 #include "game.h"
 #include "language.h"
+#include "alphabet.h"
+#include "rotary.h"
 
 int main(void)
 {
@@ -44,7 +46,7 @@ int main(void)
     
     if (app_state == TRADUCTION && word_state == INPUT)
     {
-        traduction();
+      traduction();
     }
 
     else if (app_state == ALPHABET)

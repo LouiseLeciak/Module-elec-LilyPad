@@ -10,10 +10,17 @@
 typedef enum
 {
     GAME_MENU,
+
     GAME_FIND_LETTER,
+
+    GAME_FIND_SIGN,
+    GAME_SIGN_CHOICE_1,
+    GAME_SIGN_CHOICE_2,
+    GAME_SIGN_CHOICE_3,
+    GAME_SIGN_SELECT,
+
     GAME_RESULT_YES,
-    GAME_RESULT_NO,
-    GAME_FIND_SIGN
+    GAME_RESULT_NO
 } game_state_t;
 
 uint32_t simple_random(void);
@@ -27,5 +34,6 @@ void display_find_letter(void);
 void update_game_answer_cursor(uint8_t old_choice);
 void display_game_yes(void);
 void display_game_no(void);
+void display_sign_choice(uint8_t choice);
 
 #endif

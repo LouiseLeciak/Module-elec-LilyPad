@@ -42,7 +42,9 @@ SRC_FIL	=	main \
 					power_save \
 					game \
 					language \
-					traduction
+					traduction \
+					alphabet \
+					rotary
 					
 
 

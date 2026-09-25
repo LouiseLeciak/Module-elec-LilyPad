@@ -5,6 +5,7 @@
 #include "i2c_rotary.h"
 #include "power_save.h"
 #include "game.h"
+#include "alphabet.h"
 
 
 void i2c_init(void)
@@ -43,6 +44,15 @@ void rotary_init(void)
   rotaryclk_prev = (gpio >> ROTARY_CLK) & 1;
   prev_sw = (gpio >> ROTARY_SW) & 1;
 }
+
+// void rotary_init(void)
+// {
+//     uint8_t gpio;
+
+//     gpio = mcp_read_register(MCP_GPIOA);
+
+//     rotaryclk_prev = (gpio >> ROTARY_CLK) & 1;
+// }
 
 
 void i2c_stop(void)
@@ -231,204 +241,3 @@ void mcp_write_register(uint8_t reg, uint8_t value)
     //uart_printstr("stop\r\n");
 }
 
-
-// rotation manager of the rotary encoder
-void rotary_update(void)
-{
-  uint8_t gpio;
-  uint8_t clk;
-  uint8_t dt;
-  uint8_t old_choice;
-
-  gpio = mcp_read_register(MCP_GPIOA);
-
-  clk = (gpio >> ROTARY_CLK) & 1;
-
-  if (rotaryclk_prev == 1 && clk == 0)
-  {
-    power_save_activity();
-    dt = (gpio >> ROTARY_DT) & 1;
-
-    if (app_state == MENU)
-    {
-      old_choice = menu_choice;
-
-      //sens du tournage
-      if (dt != clk)
-      {
-        menu_choice++;
-
-        if (menu_choice >= MENU_SIZE)
-        {
-          menu_choice = 0;
-        }
-      }
-      else
-      {
-        if (menu_choice == 0)
-        {
-          menu_choice = MENU_SIZE - 1;
-        }
-        else
-        {
-          menu_choice--;
-        }
-      }
-
-      update_menu_cursor(old_choice);
-    }
-    else if (app_state == JEU && game_state == GAME_MENU)// marcher le cursor dans le menu game
-    {
-    power_save_activity();
-
-    old_choice = game_choice;
-
-      if (dt != clk)
-      {
-        game_choice++;
-
-        if (game_choice >= 2)
-        {
-            game_choice = 0;
-        }
-      }
-      else
-      {
-        if (game_choice == 0)
-        {
-            game_choice = 1;
-        }
-        else
-        {
-            game_choice--;
-        }
-      }
-    update_game_cursor(old_choice);
-  }
-  else if (app_state == JEU && game_state == GAME_FIND_LETTER)
-  {
-    power_save_activity();
-
-      old_choice = game_answer;
-
-      if (dt != clk)
-      {
-          game_answer++;
-
-          if (game_answer >= GAME_CHOICES)
-          {
-              game_answer = 0;
-          }
-      }
-      else
-      {
-          if (game_answer == 0)
-          {
-              game_answer = GAME_CHOICES - 1;
-          }
-          else
-          {
-              game_answer--;
-          }
-      }
-
-    update_game_answer_cursor(old_choice);
-  }
-}
-
-  rotaryclk_prev = clk;
-}
-
-// push switch manager of the rotary encoder
-void rotary_button_update(void)
-{
-  uint8_t gpio;
-  uint8_t sw;
-
-  gpio = mcp_read_register(MCP_GPIOA);
-  sw = (gpio >> ROTARY_SW) & 1;
-
-  if (sw != prev_sw)
-  {
-    _delay_ms(5);
-
-    gpio = mcp_read_register(MCP_GPIOA);
-    sw = (gpio >> ROTARY_SW) & 1;
-
-    if (sw != prev_sw)
-    {
-      if (sw == 0)
-      {
-        power_save_activity();
-        if (app_state == MENU)
-        {
-          if (menu_choice == 0)
-          {
-            start_translation();
-          }
-          else if (menu_choice == 1)
-          {
-            show_alphabet();
-          }
-          else if (menu_choice == 2)
-          {
-            show_game();
-          }
-        }
-        else if (app_state == TRADUCTION)
-        {
-          if (word_state == INPUT)
-          {
-            validate_word();
-          }
-          else
-          {
-            start_new_word();
-          }
-        }
-        else if (app_state == JEU)
-        {
-          power_save_activity();
-
-            if (game_state == GAME_MENU)
-            {
-                if (game_choice == 0)
-                {
-                    start_find_letter();
-                }
-                else
-                {
-                    start_find_sign();
-                }
-            }
-            else if (game_state == GAME_FIND_LETTER)
-            {
-                power_save_activity();
-
-                if (game_answers[game_answer] == game_target)
-                {
-                    game_state = GAME_RESULT_YES;
-                    display_game_yes();
-                }
-                else
-                {
-                    game_state = GAME_RESULT_NO;
-                    display_game_no();
-                }
-            }
-            else if (game_state == GAME_RESULT_YES)
-            {
-                start_find_letter();
-            }
-            else if (game_state == GAME_RESULT_NO)
-            {
-                game_state = GAME_FIND_LETTER;
-                display_find_letter();
-            }
-        }
-      }
-
-      prev_sw = sw;
-    }
-  }
-}
