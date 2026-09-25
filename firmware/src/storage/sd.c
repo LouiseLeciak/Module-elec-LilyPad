@@ -10,49 +10,26 @@
 #define MAX_TRIES 255
 #define SD_BLOCK_SIZE 512
 
-typedef enum {
-  GO_IDLE_STATE = 0,
-  SEND_OP_COND = 1,
-  SEND_IF_COND = 8,
-  STOP_TRANSMISSION = 12,
-  SET_BLOCKLEN = 16,
-  READ_SINGLE_BLOCK = 17,
-  READ_MULTIPLE_BLOCK = 18,
-  APP_CMD = 55,
-  READ_OCR = 58,
-  SD_SEND_OP_COND = 41
-} SD_CMD_INDEX;
-
-typedef enum {
-  SD_RESP_R1,
-  SD_RESP_R1B,
-  SD_RESP_R2,
-  SD_RESP_R3,
-  SD_RESP_R7
-} SD_RESP_KIND;
-
-typedef struct __attribute__((packed)) {
-  uint8_t cmd;
-  uint8_t arg[4];
-  uint8_t crc7_and_end_bit;
-} sd_cmd;
-
-static void sd_crc7_gen(sd_cmd* cmd, SD_CMD_INDEX index) {
+static void sd_crc7_gen(sd_cmd* cmd, SD_CMD_INDEX index)
+{
   cmd->cmd = 0b01000000 | index;
   uint8_t crc7 = generate_crc7((uint8_t*)cmd,
                                5);  // 1 byte for CMD and 4 bytes for arg
   cmd->crc7_and_end_bit = (crc7 << 1) | 1;
 }
 
-static sd_resp sd_read_response(SD_RESP_KIND kind) {
+static sd_resp sd_read_response(SD_RESP_KIND kind)
+{
   sd_resp resp = {0};
   uint8_t tries = MAX_TRIES;
 
-  do {
+  do
+  {
     resp.r1 = spi_txrx(0xFF);
   } while ((resp.r1 & 0x80) && --tries);
 
-  switch (kind) {
+  switch (kind)
+  {
     case SD_RESP_R1:
       break;
     case SD_RESP_R2:
@@ -60,7 +37,8 @@ static sd_resp sd_read_response(SD_RESP_KIND kind) {
       break;
     case SD_RESP_R3:
     case SD_RESP_R7:
-      for (uint8_t i = 0; i < 4; i++) {
+      for (uint8_t i = 0; i < 4; i++)
+      {
         resp.data[i] = spi_txrx(0xFF);
       }
       break;
@@ -71,7 +49,8 @@ static sd_resp sd_read_response(SD_RESP_KIND kind) {
   return resp;
 }
 
-static sd_resp sd_send_cmd(sd_cmd* cmd, SD_RESP_KIND kind) {
+static sd_resp sd_send_cmd(sd_cmd* cmd, SD_RESP_KIND kind)
+{
   SD_CS_LOW();
   for (uint8_t i = 0; i < (sizeof(*cmd) / sizeof(uint8_t)); i++)
     spi_txrx((((uint8_t*)cmd)[i]));
@@ -91,50 +70,58 @@ static sd_resp sd_send_cmd(sd_cmd* cmd, SD_RESP_KIND kind) {
  * @return R1 response.
  */
 static sd_resp sd_go_idle_state(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                                uint8_t arg3) {
+                                uint8_t arg3)
+{
   sd_cmd cmd00 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd00, GO_IDLE_STATE);
   return sd_send_cmd(&cmd00, SD_RESP_R1);
 }
 
 static sd_resp sd_send_if_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                               uint8_t arg3) {
+                               uint8_t arg3)
+{
   sd_cmd cmd08 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd08, SEND_IF_COND);
   return sd_send_cmd(&cmd08, SD_RESP_R7);
 }
 
 static sd_resp sd_app_cmd(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                          uint8_t arg3) {
+                          uint8_t arg3)
+{
   sd_cmd cmd55 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd55, APP_CMD);
   return sd_send_cmd(&cmd55, SD_RESP_R1);
 }
 
 static sd_resp sd_sd_send_op_cond(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                                  uint8_t arg3) {
+                                  uint8_t arg3)
+{
   sd_resp response = sd_app_cmd(0, 0, 0, 0);
-  if (SD_R1_ILLEGAL_CMD(response)) return (response);
+  if (SD_R1_ILLEGAL_CMD(response))
+    return (response);
   sd_cmd acmd41 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&acmd41, SD_SEND_OP_COND);
   return sd_send_cmd(&acmd41, SD_RESP_R1);
 }
 
 static sd_resp sd_read_ocr(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                           uint8_t arg3) {
+                           uint8_t arg3)
+{
   sd_cmd cmd58 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd58, READ_OCR);
   return sd_send_cmd(&cmd58, SD_RESP_R3);
 }
 
 static sd_resp sd_set_blocklen(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                               uint8_t arg3) {
+                               uint8_t arg3)
+{
   sd_cmd cmd16 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd16, SET_BLOCKLEN);
   return sd_send_cmd(&cmd16, SD_RESP_R1);
 }
 
-uint8_t sd_init(void) {
+uint8_t sd_init(void)
+{
   uart_printstr("Initialising SD card...");
 
   // Set SPI clock between 100kHz and 400kHz (as per Elm-Chan guide)
@@ -148,15 +135,18 @@ uint8_t sd_init(void) {
   sd_resp cmd0;
   uint8_t cmd0_tries = 8;
 
-  do {
+  do
+  {
     cmd0 = sd_go_idle_state(0, 0, 0, 0);
-    if (cmd0.r1 == 0x01) {
+    if (cmd0.r1 == 0x01)
+    {
       break;
     }
     _delay_ms(10);
   } while (--cmd0_tries);
 
-  if (cmd0.r1 != 0x01) {
+  if (cmd0.r1 != 0x01)
+  {
     uart_printstr("ERROR\r\nSD: CMD0 failed, no card?\r\n");
     return 1;
   }
@@ -165,7 +155,8 @@ uint8_t sd_init(void) {
   // - VHS=0b0001 (2.7-3.6V, as per p.90 of SD spec)
   // - check pattern=0xAA
   sd_resp cmd8 = sd_send_if_cond(0, 0, 0x01, 0xAA);
-  if (SD_R1_ILLEGAL_CMD(cmd8)) {
+  if (SD_R1_ILLEGAL_CMD(cmd8))
+  {
     uart_printstr("ERROR\r\nSD: v1 card or MMC detected, not supported!\r\n");
     return 2;
   }
@@ -177,12 +168,14 @@ uint8_t sd_init(void) {
 
   sd_resp acmd41;
   uint16_t acmd41_tries = 0xFFFF;  // May be too much
-  do {
+  do
+  {
     acmd41 = sd_sd_send_op_cond(0x40, 0, 0, 0);
     acmd41_tries--;
   } while (SD_R1_IDLE(acmd41) && acmd41_tries);
 
-  if (!acmd41_tries) {
+  if (!acmd41_tries)
+  {
     uart_printstr("ERROR\r\nSD: ACMD41 timeout, card stuck in idle!\r\n");
     return 4;
   }
@@ -190,7 +183,8 @@ uint8_t sd_init(void) {
   sd_resp ocr = sd_read_ocr(0, 0, 0, 0);  // CMD58
 
   // SD_OCR_BUSY: bit 31 of OCR = 1 means card is ready (confusingly named)
-  if (!SD_OCR_BUSY(ocr)) {
+  if (!SD_OCR_BUSY(ocr))
+  {
     uart_printstr("ERROR\r\nSD: card not ready after ACMD41!\r\n");
     return 5;
   }
@@ -206,7 +200,8 @@ uint8_t sd_init(void) {
 }
 
 sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                             uint8_t arg3, uint8_t* buf) {
+                             uint8_t arg3, uint8_t* buf)
+{
   SD_CS_LOW();
   sd_cmd cmd17 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd17, READ_SINGLE_BLOCK);
@@ -217,11 +212,13 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
 
   uint8_t fe = 0;
   uint16_t fe_tries = 0xFFFF;
-  do {
+  do
+  {
     fe = spi_txrx(0xFF);
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
-  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++) {
+  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++)
+  {
     buf[i] = spi_txrx(0xFF);
   }
 
@@ -234,7 +231,8 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
 }
 
 sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
-                                     uint8_t arg3) {
+                                     uint8_t arg3)
+{
   SD_CS_LOW();
   sd_cmd cmd18 = {0, {arg0, arg1, arg2, arg3}, 0};
   sd_crc7_gen(&cmd18, READ_MULTIPLE_BLOCK);
@@ -244,28 +242,33 @@ sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
   return sd_read_response(SD_RESP_R1);
 }
 
-void sd_read_multiple_block_next(uint8_t* buf) {
+void sd_read_multiple_block_next(uint8_t* buf)
+{
   uint8_t fe = 0;
   uint8_t fe_tries = 0xFF;
-  do {
+  do
+  {
     fe = spi_txrx(0xFF);
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
 
-  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++) {
+  for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++)
+  {
     buf[i] = spi_txrx(0xFF);
   }
   spi_txrx(0xFF);  // Reading and discarding CRC byte 1
   spi_txrx(0xFF);  // Reading and discarding CRC byte 2
 }
 
-sd_resp sd_read_multiple_block_stop(void) {
+sd_resp sd_read_multiple_block_stop(void)
+{
   sd_cmd cmd12 = {0, {0, 0, 0, 0}, 0};
   sd_crc7_gen(&cmd12, STOP_TRANSMISSION);
   for (uint8_t i = 0; i < (sizeof(cmd12) / sizeof(uint8_t)); i++)
     spi_txrx((((uint8_t*)&cmd12)[i]));
   sd_resp cmd12_resp = sd_read_response(SD_RESP_R1B);
-  if (SD_R1_ILLEGAL_CMD(cmd12_resp)) {
+  if (SD_R1_ILLEGAL_CMD(cmd12_resp))
+  {
     SD_CS_HIGH();
     return cmd12_resp;
   }

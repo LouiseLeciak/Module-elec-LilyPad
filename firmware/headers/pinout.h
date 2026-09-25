@@ -49,9 +49,8 @@
 #define SDL_SW2 (1 << PC2)
 #define SDL_SW3 (1 << PC3)
 
-
-#define MAIN_SCREEN_CS_LOW() (PORTH &= ~(MAIN_SCREEN_CS))
-#define MAIN_SCREEN_CS_HIGH() (PORTH |= (MAIN_SCREEN_CS))
+#define MAIN_SCREEN_CS_LOW() (PORTH &= ~(MAIN_SCREEN_CS));
+#define MAIN_SCREEN_CS_HIGH() (PORTH |= (MAIN_SCREEN_CS));
 
 #define SD_CS_LOW() (PORTH &= ~(SD_CS))
 #define SD_CS_HIGH() (PORTH |= (SD_CS))

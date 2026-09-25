@@ -85,5 +85,6 @@ flash: $(HEX)
 clean:
 	rm -rf $(BUI_DIR)
 
+re: clean all
 
 -include $(DEP)
