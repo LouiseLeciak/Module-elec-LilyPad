@@ -1,2 +1,4 @@
 ---
 BasedOnStyle: Google
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false

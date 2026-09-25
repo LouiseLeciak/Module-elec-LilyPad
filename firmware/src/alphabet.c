@@ -17,16 +17,20 @@ alphabet_state_t alphabet_state = ALPHABET_LIST;
 uint8_t alphabet_choice = 0;
 
 // a modifier jaffiche juste une string
-void show_alphabet(void) {
+void show_alphabet(void)
+{
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-  if (language == LANG_FR) {
+  if (language == LANG_FR)
+  {
     draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
                 4, 2);
 
     draw_string(70, 80, "Choisis une lettre", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
-  } else if (language == LANG_EN) {
+  }
+  else if (language == LANG_EN)
+  {
     draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
                 4, 2);
 
@@ -42,7 +46,8 @@ void show_alphabet(void) {
 
 // l'ecran avec la lettre nen grand
 // a modifier pour image
-void display_alphabet_letter(void) {
+void display_alphabet_letter(void)
+{
   char letter[2];
   char file_name[16] = {0};
 
@@ -68,16 +73,21 @@ void display_alphabet_letter(void) {
 
   ft_strcat(file_name, letter);
 
-  if (language == LANG_FR) {
+  if (language == LANG_FR)
+  {
     ft_strcat(file_name, "_LSF");
-  } else {
+  }
+  else
+  {
     ft_strcat(file_name, "_BSL");
   }
   ft_strcat(file_name, "   BMP");
   ////////////////////////////////////////////////////////////
   // aller regarder dans la lookup table
-  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++) {
-    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE)) {
+  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
+  {
+    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
+    {
       uart_printstr("Queried file name: ");
       uart_printstr(file_name);
       uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
@@ -90,28 +100,33 @@ void display_alphabet_letter(void) {
   }
 }
 // manage keyboard in alphabet mode
-void alphabet() {
+void alphabet()
+{
   int key = keypad_read();
 
-  if (key >= 0) {
+  if (key >= 0)
+  {
     power_save_activity();
     uint8_t row = key / COLS_NB;
     uint8_t col = key % COLS_NB;
     char c = keymap[row][col];
 
-    if (c == HOME) {
+    if (c == HOME)
+    {
       show_menu();
     }
 
     _delay_ms(20);
 
-    while (keypad_read() >= 0) {
+    while (keypad_read() >= 0)
+    {
       ;
     }
   }
 }
 
-void display_alphabet(void) {
+void display_alphabet(void)
+{
   uint8_t i;
   uint8_t row;
   uint8_t col;
@@ -120,11 +135,12 @@ void display_alphabet(void) {
   char letter[2];
 
   // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-  // 4,
+  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN,
+  // GC9A01A_COLOR_OLIVE, 4,
   //             2);
 
-  for (i = 0; i < 36; i++) {
+  for (i = 0; i < 36; i++)
+  {
     row = i / 4;
     col = i % 4;
 
@@ -134,9 +150,12 @@ void display_alphabet(void) {
     letter[0] = alphabet_characters[i];
     letter[1] = '\0';
 
-    if (i == alphabet_choice) {
+    if (i == alphabet_choice)
+    {
       draw_string(x, y, letter, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 5, 2);
-    } else {
+    }
+    else
+    {
       draw_string(x, y, letter, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3, 2);
     }
   }
@@ -144,7 +163,8 @@ void display_alphabet(void) {
 
 // when cursor is moving the actual letter is bigger than the others
 // this function is to update the new letter selected bigger and old smaller
-void update_alphabet_cursor(uint8_t old_choice) {
+void update_alphabet_cursor(uint8_t old_choice)
+{
   uint8_t old_row;
   uint8_t old_col;
   uint8_t new_row;
