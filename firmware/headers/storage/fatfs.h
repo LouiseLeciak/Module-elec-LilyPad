@@ -38,7 +38,8 @@ typedef QWORD LBA_t;  //< Alias of DWORD or QWORD used to address sectors in LBA
                       // and to specify number of sectors.
 typedef BYTE DSTATUS;  //< Alias of BYTE used to specify a status.
 
-typedef enum {
+typedef enum
+{
   RES_OK = 0,  //< 0: Successful
   RES_ERROR,   //< 1: R/W Error
   RES_WRPRT,   //< 2: Write Protected
@@ -48,7 +49,8 @@ typedef enum {
 
 // WARNING: Those are the locations of the partition entries field inside the
 // MBR, not the place they point to !!!
-typedef enum {
+typedef enum
+{
   PART_ENTRY_NO_1 = 0x01BE,
   PART_ENTRY_NO_2 = 0x01CE,
   PART_ENTRY_NO_3 = 0x01DE,

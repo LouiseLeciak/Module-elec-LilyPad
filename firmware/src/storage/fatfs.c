@@ -1,10 +1,9 @@
 #include "storage/fatfs.h"
 
-#include "mem_utils.h"
 #include "storage/sd.h"
-#include "uart.h"
-#include "utils.h"
-
+#include "system/uart.h"
+#include "utils/mem_utils.h"
+#include "utils/utils.h"
 
 // DSTATUS bit flags
 #define STA_NOINIT 0x01   //< Drive not initialized
@@ -18,7 +17,8 @@
 
 // NOTE: To learn about partition type IDs, see:
 // https://en.wikipedia.org/wiki/Partition_type#List_of_partition_IDs
-typedef struct __attribute__((packed)) {
+typedef struct __attribute__((packed))
+{
   uint8_t status;        //<
   uint8_t chs_start[3];  //< CHS is for hard disks, so ignore
   uint8_t type;  //< SD card uses Logic Block Addressing (LBA) so we expect 0x0C
@@ -29,7 +29,8 @@ typedef struct __attribute__((packed)) {
 
 // NOTE: Master Boot Record (MBR) sector layout:
 // https://fr.wikipedia.org/wiki/Master_boot_record#Structure_du_MBR
-typedef struct __attribute__((packed)) {
+typedef struct __attribute__((packed))
+{
   uint8_t bootstrap[440];             //< Between 440 and 446, allegedly (???)
   uint32_t disk_signature;            //< Optional
   uint16_t reserved;                  //< Is generally null
@@ -42,7 +43,8 @@ typedef struct __attribute__((packed)) {
 // NOTE: Want to know how to recreate your own Volume Boot Record that is as
 // long as a lorem ipsum ? Check Elm-Chan's page !:
 // https://elm-chan.org/docs/fat_e.html
-typedef struct __attribute__((packed)) {
+typedef struct __attribute__((packed))
+{
   uint8_t jump[3];              //< Jump instructions to bootstrap code
   uint8_t oem[8];               //< Original Equipment Manufacturer (OEM) name
   uint16_t bytes_per_sector;    //< Sector size in bytes
@@ -84,7 +86,8 @@ typedef struct __attribute__((packed)) {
 // --- FAT32 THINGS
 
 // NOTE: See page 23 of the FAT specification
-typedef struct __attribute__((packed)) {
+typedef struct __attribute__((packed))
+{
   uint8_t
       name[11];  //< 8 chars for name, 3 chars for extension (e.g. "IMAGE BMP")
   uint8_t attr;  //< File attributes (read/write,hidden,system,etc...)
@@ -111,14 +114,17 @@ static uint32_t fat_start_lba = 0;
 static uint32_t data_start_lba = 0;
 img image_lut[IMG_LUT_MAX_SIZE] = {0};
 
-DSTATUS disk_status(BYTE pdrv) {
+DSTATUS disk_status(BYTE pdrv)
+{
   (void)pdrv;
   return sd_card_status;
 }
 
-DSTATUS disk_initialize(BYTE pdrv) {
+DSTATUS disk_initialize(BYTE pdrv)
+{
   (void)pdrv;
-  if (sd_init() != 0) {
+  if (sd_init() != 0)
+  {
     sd_card_status = STA_NOINIT;
     return STA_NOINIT;
   }
@@ -126,19 +132,25 @@ DSTATUS disk_initialize(BYTE pdrv) {
   return 0;
 }
 
-DRESULT disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count) {
+DRESULT disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count)
+{
   (void)pdrv;
-  if (sd_card_status != 0) {
+  if (sd_card_status != 0)
+  {
     return RES_NOTRDY;
   }
 
-  if (count == 1) {
+  if (count == 1)
+  {
     sd_read_single_block((sector >> 24) & 0xFF, (sector >> 16) & 0xFF,
                          (sector >> 8) & 0xFF, sector & 0xFF, buff);
-  } else {
+  }
+  else
+  {
     sd_read_multiple_block_start((sector >> 24) & 0xFF, (sector >> 16) & 0xFF,
                                  (sector >> 8) & 0xFF, sector & 0xFF);
-    for (UINT i = 0; i < count; i++) {
+    for (UINT i = 0; i < count; i++)
+    {
       sd_read_multiple_block_next(
           buff + i * 512);  // Offsets the buffer for each block
     }
@@ -147,8 +159,10 @@ DRESULT disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count) {
   return RES_OK;
 }
 
-DRESULT parse_vbr(void) {
-  if (sd_card_status != 0) {
+DRESULT parse_vbr(void)
+{
+  if (sd_card_status != 0)
+  {
     return RES_NOTRDY;
   }
 
@@ -160,12 +174,15 @@ DRESULT parse_vbr(void) {
   return 0;
 }
 
-DRESULT parse_mbr(void) {
-  if (sd_card_status != 0) return RES_NOTRDY;
+DRESULT parse_mbr(void)
+{
+  if (sd_card_status != 0)
+    return RES_NOTRDY;
 
   disk_read(0, (BYTE*)&sd_mbr, 0, 1);
 
-  if (sd_mbr.boot_signature != 0xAA55) {
+  if (sd_mbr.boot_signature != 0xAA55)
+  {
     uart_printstr("Bad Boot Signature: ");
     uart_printhex(sd_mbr.boot_signature >> 8);
     uart_printhex(sd_mbr.boot_signature & 0xFF);
@@ -173,7 +190,8 @@ DRESULT parse_mbr(void) {
     return RES_PARERR;
   }
 
-  if (sd_mbr.partitions[0].type != 0x0C && sd_mbr.partitions[0].type != 0x0B) {
+  if (sd_mbr.partitions[0].type != 0x0C && sd_mbr.partitions[0].type != 0x0B)
+  {
     uart_printstr("Bad Part Type: ");
     uart_printhex(sd_mbr.partitions[0].type);
     uart_printstr("\r\n");
@@ -182,23 +200,28 @@ DRESULT parse_mbr(void) {
   return 0;
 }
 
-uint32_t cluster_to_lba(uint32_t cluster) {
+uint32_t cluster_to_lba(uint32_t cluster)
+{
   // FAT32 data clusters always start at index 2
   return data_start_lba + ((cluster - 2) * sd_vbr.sectors_per_cluster);
 }
 
-void scan_root_dir(void) {
+void scan_root_dir(void)
+{
   fat32_dir_entry sd_dir_entries[16];
   uint32_t start_lba = cluster_to_lba(sd_vbr.root_cluster);
 
   uart_printstr("Scanning for images on SD Card:\r\n");
 
-  for (uint8_t sector = 0; sector < sd_vbr.sectors_per_cluster; sector++) {
+  for (uint8_t sector = 0; sector < sd_vbr.sectors_per_cluster; sector++)
+  {
     disk_read(0, (BYTE*)&sd_dir_entries, start_lba + sector, 1);
 
-    for (uint8_t i = 0; i < 16; i++) {
+    for (uint8_t i = 0; i < 16; i++)
+    {
       // 0x00 means directory is empty from here on
-      if (sd_dir_entries[i].name[0] == 0x00) {
+      if (sd_dir_entries[i].name[0] == 0x00)
+      {
         uart_printstr("Directory has no more files\r\n");
         return;
       }
@@ -209,14 +232,15 @@ void scan_root_dir(void) {
         continue;
 
       if (sd_dir_entries[i].name[8] != 'B' ||
-          sd_dir_entries[i].name[9] != 'M' ||
-          sd_dir_entries[i].name[10] != 'P') {
+          sd_dir_entries[i].name[9] != 'M' || sd_dir_entries[i].name[10] != 'P')
+      {
         uart_printstr("File is not BMP\r\n");
         continue;
       }
 
       // Print the 11-character name
-      for (uint8_t j = 0; j < 11; j++) {
+      for (uint8_t j = 0; j < 11; j++)
+      {
         uart_tx(sd_dir_entries[i].name[j]);
       }
       uart_printstr(" is located at Cluster: ");
@@ -230,11 +254,14 @@ void scan_root_dir(void) {
       uart_printstr("\r\n");
 
       static uint8_t image_count = 0;
-      if (image_count < 60) {
+      if (image_count < 60)
+      {
         image_lut[image_count].address = file_cluster;
         ft_memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
         image_count++;
-      } else {
+      }
+      else
+      {
         uart_printstr("Image look up table is full :(\r\n");
       }
     }
