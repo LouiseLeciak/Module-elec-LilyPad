@@ -1,10 +1,8 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-# PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
-#PORT				:= /dev/cu.usbserial-1430 #Change this to match your configuration's port
-PORT				:= /dev/ttyUSB0 #Change this to match your configuration's port
-
+-include config.mk
+PORT ?= /dev/ttyUSB0 # fallback if config.mk absent
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
@@ -23,38 +21,37 @@ DOXYFILE	:=	Doxyfile
 
 # --- COMPILER FLAGS ---
 INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
-CFLAGS		=	-Wall -Wextra -Werror $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
-					GC9A01 \
-					ili9488 \
-					main_screen \
-					spi \
-					uart \
-					i2c_rotary \
-					screen_text \
-					small_font \
-					globals \
-					menu \
-					init \
-					keypad \
-					eye_imgs \
-					power_save \
-					game \
-					language \
-					traduction \
 					alphabet \
-					rotary \
 					bmp \
 					crc \
+					eye_imgs \
+					game \
+					GC9A01 \
+					globals \
+					i2c_rotary \
+					ili9488 \
+					init \
+					keypad \
+					language \
+					main_screen \
 					mem_utils \
-					utils \
-					storage/sd \
+					menu \
+					power_save \
+					rotary \
+					screen_text \
+					small_font \
+					spi \
 					storage/fatfs \
-					storage/sd_streaming
-					
-
+					storage/sd \
+					storage/sd_streaming \
+					traduction \
+					uart \
+					utils
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
@@ -71,11 +68,11 @@ all: hex
 
 hex: $(HEX)
 
-$(BUI_DIR): 
+$(BUI_DIR):
 	mkdir -p $@
 
-$(BUI_DIR)%.o: $(SRC_DIR)%.c | $(BUI_DIR)
-	mkdir -p $(dir $@)
+$(BUI_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET).bin: $(OBJ)

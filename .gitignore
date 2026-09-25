@@ -1,4 +1,8 @@
+# MacOS things
 .DS_Store
+
+# Makefile configuration file
+config.mk
 
 # KiCad files
 *.lck
