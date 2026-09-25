@@ -20,5 +20,6 @@ typedef struct __attribute__((packed)) {
 } bmp_header;
 
 uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header);
+void bmp_dump_header(bmp_header* header);
 
 #endif  // !BMP_H

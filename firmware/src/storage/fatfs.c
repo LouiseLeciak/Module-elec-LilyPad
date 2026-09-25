@@ -5,6 +5,7 @@
 #include "uart.h"
 #include "utils.h"
 
+
 // DSTATUS bit flags
 #define STA_NOINIT 0x01   //< Drive not initialized
 #define STA_NODISK 0x02   //< No medium in the drive
@@ -108,7 +109,7 @@ static mbr sd_mbr = {0};
 static vbr sd_vbr;
 static uint32_t fat_start_lba = 0;
 static uint32_t data_start_lba = 0;
-img image_lut[60] = {0};
+img image_lut[IMG_LUT_MAX_SIZE] = {0};
 
 DSTATUS disk_status(BYTE pdrv) {
   (void)pdrv;

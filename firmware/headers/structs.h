@@ -3,6 +3,8 @@
 
 #include <avr/io.h>
 
+#define FILE_NAME_SIZE 16
+
 /**
  * @class s_position
  * @brief Represents a position on the X and Y axis.
@@ -36,9 +38,9 @@ typedef struct s_window {
       _end;  ///< End of the window (X;Y). Is usually the bottom-right corner.
 } window;
 
-typedef struct {
+typedef struct s_img {
   uint32_t address;
-  char name[16];
+  char name[FILE_NAME_SIZE];
 } img;
 
 #endif  // !STRUCTS_H
