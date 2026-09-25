@@ -16,7 +16,6 @@
 int main(void)
 {
   init();
-  language_update();
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);

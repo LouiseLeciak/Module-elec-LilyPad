@@ -263,15 +263,15 @@ void rotary_button_game(void)
       game_state = GAME_RESULT_NO;
       display_game_no();
     }
-  }
-  else if (game_state == GAME_RESULT_YES)
-  {
-    start_find_letter();
-  }
-  else if (game_state == GAME_RESULT_NO)
-  {
-    game_state = GAME_FIND_LETTER;
-    display_find_letter();
+    if (game_state == GAME_RESULT_YES)
+    {
+      start_find_letter();
+    }
+    else if (game_state == GAME_RESULT_NO)
+    {
+      game_state = GAME_FIND_LETTER;
+      display_find_letter();
+    }
   }
   else if (game_state == GAME_FIND_SIGN)
   {
@@ -298,16 +298,26 @@ void rotary_button_game(void)
   }
   else if (game_state == GAME_SIGN_SELECT)
   {
-    if (game_answers[game_answer] == game_target)
-    {
-      game_state = GAME_RESULT_YES;
-      display_game_yes();
-    }
-    else
-    {
-      game_state = GAME_RESULT_NO;
-      display_game_no();
-    }
+      if (game_answers[game_answer] == game_target)
+      {
+          game_state = GAME_RESULT_YES;
+          display_game_yes();
+      }
+      else
+      {
+          game_state = GAME_RESULT_NO;
+          display_game_no();
+      }
+
+      if (game_state == GAME_RESULT_YES)
+      {
+          start_find_sign();
+      }
+      else if (game_state == GAME_RESULT_NO)
+      {
+          game_state = GAME_FIND_SIGN;
+          display_find_sign();
+      }
   }
 }
 
