@@ -7,7 +7,19 @@ on:
   workflow_dispatch:
 
 jobs:
+  lint:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install clang-format
+        run: sudo apt-get update && sudo apt-get install -y clang-format
+      - name: Check formatting
+        run: |
+          find firmware \( -name '*.c' -o -name '*.h' \) \
+          | xargs clang-format --dry-run --Werror --style=file
+
   build:
+    needs: lint
     runs-on: ubuntu-24.04
 
     steps:

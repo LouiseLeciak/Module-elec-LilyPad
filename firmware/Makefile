@@ -53,14 +53,14 @@ SRC_FIL	=	main \
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
-DEP	=	$(OBJ.o=.d)
+DEP	=	$(OBJ:.o=.d)
 
 # --- OUTPUT FILES ---
 TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc
+.PHONY: all hex flash clean re doc lint fix-lint
 
 all: hex
 
@@ -81,6 +81,12 @@ $(HEX) : $(TARGET).bin
 
 flash: $(HEX)
 	$(DUDE) -v -p $(MCU) -c $(PROGRAMMER) -D -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
+
+lint:
+	find . \( -name '*.c' -o -name '*.h' \) | xargs clang-format --dry-run --Werror --style=file
+
+fix-lint:
+	find . \( -name '*.c' -o -name '*.h' \) | xargs clang-format -i --style=file
 
 clean:
 	rm -rf $(BUI_DIR)
