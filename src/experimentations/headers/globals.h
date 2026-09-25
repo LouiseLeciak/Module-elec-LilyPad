@@ -2,6 +2,9 @@
 #define GLOBALS_H
 
 #include "keyboard_utils.h"
+#include "language.h"
+#include "game.h"
+#include "alphabet.h"
 
 // word buffer, used in translation per example
 extern char word[WORD_MAX_LEN + 1];
@@ -27,5 +30,21 @@ extern uint8_t rotaryclk_prev;
 
 extern uint32_t last_key_time;
 extern uint8_t screen_sleeping;
+
+language_t language;
+
+// game global
+uint8_t game_choice;
+game_state_t game_state;
+char game_target;
+// the different choices you have 
+char game_answers[GAME_CHOICES];
+uint8_t game_answer;// player answer
+uint32_t random_state;
+
+//alphabet
+extern alphabet_state_t alphabet_state;
+extern uint8_t alphabet_choice;
+
 
 #endif

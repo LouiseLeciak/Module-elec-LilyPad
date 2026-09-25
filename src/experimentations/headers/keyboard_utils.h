@@ -21,7 +21,7 @@
 #define MCP_GPPUA 0x0C // pour les resistances de pull up
 
 // app
-#define WORD_MAX_LEN 20
+#define WORD_MAX_LEN 14
 
 // keyboard
 
