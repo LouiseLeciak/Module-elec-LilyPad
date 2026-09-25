@@ -23,7 +23,7 @@ DOXYFILE	:=	Doxyfile
 
 # --- COMPILER FLAGS ---
 INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
-CFLAGS		=	-v -Wall -Wextra -Werror $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+CFLAGS		=	-Wall -Wextra -Werror $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \

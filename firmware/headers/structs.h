@@ -2,7 +2,8 @@
 #define STRUCTS_H
 
 #include <avr/io.h>
-#include "storage/fatfs.h"
+
+#define FILE_NAME_SIZE 16
 
 /**
  * @class s_position

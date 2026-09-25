@@ -17,7 +17,8 @@
 #define BOOT_SIGNATURE 0x01FE
 #define BOOT_SIGNATURE_SIZE 2
 #define IMG_LUT_MAX_SIZE 60
-#define FILE_NAME_SIZE 16
+
+// extern img image_lut[IMG_LUT_MAX_SIZE];
 
 extern img image_lut[IMG_LUT_MAX_SIZE];
 

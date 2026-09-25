@@ -236,44 +236,44 @@ void dump_buf(uint8_t* buf, uint16_t len) {
   }
 }
 
-int    ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-    size_t    i;
-    int        result;
+int ft_strncmp(const char* s1, const char* s2, size_t n) {
+  size_t i;
+  int result;
 
-    if (n == 0)
-        return (0);
-    i = 0;
-    while (i < n && (s1[i] || s2[i]))
-    {
-        if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-        {
-            result = ((unsigned char *)s1)[i] - ((unsigned char *)s2)[i];
-            return (result);
-        }
-        i++;
+  if (n == 0) return (0);
+  i = 0;
+  while (i < n && (s1[i] || s2[i])) {
+    if (((unsigned char*)s1)[i] != ((unsigned char*)s2)[i]) {
+      result = ((unsigned char*)s1)[i] - ((unsigned char*)s2)[i];
+      return (result);
     }
-    return (0);
+    i++;
+  }
+  return (0);
 }
 
-size_t    ft_strlcat(char *dst, const char *src, size_t size)
-{
-    size_t    src_len;
-    size_t    dst_len;
-    size_t    i;
+size_t ft_strlen(const char* str) {
+  size_t i;
 
-    if (size == 0)
-        return (ft_strlen((char *)src));
-    src_len = ft_strlen((char *)src);
-    dst_len = ft_strlen(dst);
-    i = 0;
-    if (size <= dst_len)
-        return (size + src_len);
-    while (src[i] && dst_len + i < size - 1)
-    {
-        dst[dst_len + i] = src[i];
-        i++;
-    }
-    dst[dst_len + i] = 0;
-    return (dst_len + src_len);
+  i = 0;
+  while (str[i]) i++;
+  return (i);
+}
+
+size_t ft_strlcat(char* dst, const char* src, size_t size) {
+  size_t src_len;
+  size_t dst_len;
+  size_t i;
+
+  if (size == 0) return (ft_strlen((char*)src));
+  src_len = ft_strlen((char*)src);
+  dst_len = ft_strlen(dst);
+  i = 0;
+  if (size <= dst_len) return (size + src_len);
+  while (src[i] && dst_len + i < size - 1) {
+    dst[dst_len + i] = src[i];
+    i++;
+  }
+  dst[dst_len + i] = 0;
+  return (dst_len + src_len);
 }
