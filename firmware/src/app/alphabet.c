@@ -1,4 +1,3 @@
-
 #include "app/alphabet.h"
 
 #include "app/menu.h"
