@@ -15,6 +15,9 @@
  * @param[in] start_sector The starting sector on the SD card where the image is
  * stored.
  *
+ * @note Users must pass a Logical Block Address and not a cluster/sector, see
+ * cluster_to_lba() function.
+ *
  * @warning This is a blocking function and will halt other processes until the
  *          entire image is drawn.
  */
