@@ -20,21 +20,26 @@ DUDE		:=	avrdude
 DOXYFILE	:=	Doxyfile
 
 # --- COMPILER FLAGS ---
-CFLAGS	=	-Wall -Wextra -Werror -I$(INC_DIR) -I$(INC_DIR)/ST7796 -I/opt/homebrew/opt/avr-gcc/avr/include -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
+CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
 					bmp \
 					crc \
+					storage/fatfs \
 					GC9A01 \
 					ili9488 \
 					main_screen \
-					sd \
-					sd_streaming \
+					mem_utils \
+					storage/sd \
+					storage/sd_streaming \
 					spi \
 					small_font \
 					screen_text \
-					uart
+					uart \
+					utils
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
 OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
@@ -54,7 +59,8 @@ hex: $(HEX)
 $(BUI_DIR):
 	mkdir -p $@
 
-$(BUI_DIR)%.o: $(SRC_DIR)%.c | $(BUI_DIR)
+$(BUI_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET).bin: $(OBJ)

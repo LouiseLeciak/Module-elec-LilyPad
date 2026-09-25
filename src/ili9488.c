@@ -94,8 +94,9 @@ void ili9488_memory_access_control() {
   dc_cmd();
   spi_txrx(MADCTL);
   dc_data();
-  spi_txrx(0x48); // Activate for TFT02
-  // spi_txrx(0x88); // Activate for TFT01
+  spi_txrx(0x42);  // Test to reverse left/right
+  // spi_txrx(0x48);  // Activate for TFT02
+  // spi_txrx(0x88);  // Activate for TFT01
   cs_high();
 }
 
@@ -189,7 +190,7 @@ void ili9488_reset(void) {
   RST_PORT &= ~(MAIN_SCREEN_RST);
   _delay_ms(20);
   RST_PORT |= MAIN_SCREEN_RST;
-  _delay_ms(150); // wait out internal reset per most datasheets
+  _delay_ms(150);  // wait out internal reset per most datasheets
 }
 
 // Initialisation sequence from

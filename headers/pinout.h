@@ -49,4 +49,7 @@
 #define SDL_SW2 (1 << PC2)
 #define SDL_SW3 (1 << PC3)
 
+#define SD_CS_LOW() (PORTH &= ~(SD_CS))
+#define SD_CS_HIGH() (PORTH |= (SD_CS))
+
 #endif /* ifndef PINOUT_H */

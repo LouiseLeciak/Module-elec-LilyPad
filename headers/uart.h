@@ -8,7 +8,10 @@
 
 void uart_init(const uint8_t ubrr);
 void uart_tx(char data);
-void uart_printstr(const char *str);
+void uart_printstr(const char* str);
 char uart_rx(void);
 
-#endif // !UART_H
+void uart_printhex_32(uint32_t value);
+void uart_printhex(uint8_t value);
+
+#endif  // !UART_H
