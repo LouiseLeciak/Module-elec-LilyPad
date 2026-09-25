@@ -7,6 +7,9 @@
 #include "keypad.h"
 #include "menu.h"
 #include "screen_text.h"
+#include "utils.h"
+#include "storage/sd_streaming.h"
+#include "uart.h"
 
 alphabet_state_t alphabet_state = ALPHABET_LIST;
 uint8_t alphabet_choice = 0;
@@ -54,24 +57,48 @@ void show_alphabet(void)
 void display_alphabet_letter(void)
 {
     char letter[2];
+    char file_name[16] = {0};
 
     letter[0] = alphabet_characters[alphabet_choice];
     letter[1] = '\0';
 
-    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+    
+    // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-    draw_string(
-        110, 20, "ALPHABET",
-        GC9A01A_COLOR_GREEN,
-        GC9A01A_COLOR_OLIVE,
-        4, 2);
+    // draw_string(
+    //     110, 20, "ALPHABET",
+    //     GC9A01A_COLOR_GREEN,
+    //     GC9A01A_COLOR_OLIVE,
+    //     4, 2);
 
-    draw_string(
-        230, 150,
-        letter,
-        GC9A01A_COLOR_WHITE,
-        GC9A01A_COLOR_OLIVE,
-        12, 2);
+    // draw_string(
+    //     230, 150,
+    //     letter,
+    //     GC9A01A_COLOR_WHITE,
+    //     GC9A01A_COLOR_OLIVE,
+    //     12, 2);
+    
+    /////////////////////////////////////////// nom du fichier
+    ft_strlcat(file_name, letter, 1);
+
+    if (language == LANG_FR){
+        ft_strlcat(&file_name[1] , "_LSF", 4);
+    }
+    else{
+        ft_strlcat(&file_name[1], "_BSL", 4);
+    }
+    ft_strlcat(&file_name[5], "   BMP", 3);
+    ////////////////////////////////////////////////////////////
+    // aller regarder dans la lookup table
+    for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++){
+        if (!ft_strncmp(file_name, image_lut[i]->name, FILE_NAME_SIZE)){
+            sd_stream_bmp_to_screen(image_lut[i]->address);
+            uart_printstr("Cette image la: ");
+            uart_printstr(file_name);
+            uart_printstr("\n\r");
+        }
+    }
+
 }
 // manage keyboard in alphabet mode
 void alphabet()

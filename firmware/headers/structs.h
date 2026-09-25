@@ -2,6 +2,7 @@
 #define STRUCTS_H
 
 #include <avr/io.h>
+#include "storage/fatfs.h"
 
 /**
  * @class s_position
@@ -36,9 +37,9 @@ typedef struct s_window {
       _end;  ///< End of the window (X;Y). Is usually the bottom-right corner.
 } window;
 
-typedef struct {
+typedef struct s_img {
   uint32_t address;
-  char name[16];
+  char name[FILE_NAME_SIZE];
 } img;
 
 #endif  // !STRUCTS_H

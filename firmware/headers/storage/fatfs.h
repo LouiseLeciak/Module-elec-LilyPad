@@ -2,7 +2,6 @@
 #define FATFS_H
 
 #include "structs.h"
-#include "structs.h"
 
 // NOTE: FAT specification here:
 // https://academy.cba.mit.edu/classes/networking_communications/SD/FAT.pdf
@@ -17,8 +16,10 @@
 #define PART_ENTRY_SIZE 16
 #define BOOT_SIGNATURE 0x01FE
 #define BOOT_SIGNATURE_SIZE 2
+#define IMG_LUT_MAX_SIZE 60
+#define FILE_NAME_SIZE 16
 
-extern img image_lut[60];
+extern img image_lut[IMG_LUT_MAX_SIZE];
 
 // Type definitions
 typedef uint8_t BYTE;    //< 8-bit unsigned integer in range of 0 to 2^8 - 1.
