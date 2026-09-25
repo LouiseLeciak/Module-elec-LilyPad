@@ -8,6 +8,7 @@
 #include "menu.h"
 #include "power_save.h"
 #include "screen_text.h"
+#include "storage/fatfs.h"
 #include "storage/sd_streaming.h"
 #include "uart.h"
 #include "utils.h"
@@ -78,13 +79,13 @@ void display_alphabet_letter(void) {
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++) {
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE)) {
       uart_printstr("Queried file name: ");
-            uart_printstr(file_name);
+      uart_printstr(file_name);
       uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
       uart_printstr(image_lut[i].name);
       uart_printstr("--\r\nAddress: ");
       uart_printhex_32(image_lut[i].address);
       uart_printstr("\r\n");
-      sd_stream_bmp_to_screen(image_lut[i].address);
+      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
     }
   }
 }
@@ -117,6 +118,11 @@ void display_alphabet(void) {
   uint16_t x;
   uint16_t y;
   char letter[2];
+
+  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+  // 4,
+  //             2);
 
   for (i = 0; i < 36; i++) {
     row = i / 4;

@@ -3,9 +3,9 @@
 #include "bmp.h"
 #include "ili9488.h"
 #include "main_screen.h"
+#include "pinout.h"
 #include "spi.h"
 #include "storage/sd.h"
-#include "pinout.h"
 #include "uart.h"
 #include "utils.h"
 
@@ -44,28 +44,26 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
 
   while (bytes_processed < byte_count) {
     uart_printstr("bytes_processed= ");
-  uart_printhex_32(bytes_processed);
-  uart_printstr("\r\n");
+    uart_printhex_32(bytes_processed);
+    uart_printstr("\r\n");
     sd_read_single_block(pixel_sector >> 24, pixel_sector >> 16,
                          pixel_sector >> 8, pixel_sector, buf_img);
     pixel_sector++;
-    SD_CS_HIGH();
     MAIN_SCREEN_CS_LOW();
 
     for (; buffer_idx < 512 && bytes_processed < byte_count; buffer_idx++) {
       rgb[rgb_idx++] = buf_img[buffer_idx];
 
       if (rgb_idx == 3) {
-        spi_txrx(rgb[0] & 0xFC);  // B
-        spi_txrx(rgb[1] & 0xFC);  // G
         spi_txrx(rgb[2] & 0xFC);  // R
+        spi_txrx(rgb[1] & 0xFC);  // G
+        spi_txrx(rgb[0] & 0xFC);  // B
         rgb_idx = 0;
       }
       bytes_processed++;
     }
 
     MAIN_SCREEN_CS_HIGH();
-    SD_CS_LOW();
     buffer_idx = 0;
   }
   uart_printstr("Finished printing image\r\n");
