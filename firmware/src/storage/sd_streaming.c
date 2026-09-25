@@ -1,22 +1,23 @@
 #include "storage/sd_streaming.h"
 
-#include "bmp.h"
-#include "ili9488.h"
-#include "main_screen.h"
+#include "display/bmp.h"
+#include "display/main_screen.h"
 #include "pinout.h"
-#include "spi.h"
 #include "storage/sd.h"
-#include "uart.h"
-#include "utils.h"
+#include "system/spi.h"
+#include "system/uart.h"
+#include "utils/utils.h"
 
 static uint8_t buf_header[512] = {0};
 static uint8_t buf_img[512] = {0};
 
-void sd_stream_bmp_to_screen(uint32_t start_sector) {
+void sd_stream_bmp_to_screen(uint32_t start_sector)
+{
   sd_read_single_block(start_sector >> 24, start_sector >> 16,
                        start_sector >> 8, start_sector, buf_header);
   bmp_header header = {0};
-  if (bmp_parse_header(buf_header, &header) != 0) {
+  if (bmp_parse_header(buf_header, &header) != 0)
+  {
     uart_printstr("Error while printing image\r\n");
     return;  // ERROR
   }
@@ -42,7 +43,8 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
   uint8_t rgb[3];
   uint8_t rgb_idx = 0;
 
-  while (bytes_processed < byte_count) {
+  while (bytes_processed < byte_count)
+  {
     uart_printstr("bytes_processed= ");
     uart_printhex_32(bytes_processed);
     uart_printstr("\r\n");
@@ -51,10 +53,12 @@ void sd_stream_bmp_to_screen(uint32_t start_sector) {
     pixel_sector++;
     MAIN_SCREEN_CS_LOW();
 
-    for (; buffer_idx < 512 && bytes_processed < byte_count; buffer_idx++) {
+    for (; buffer_idx < 512 && bytes_processed < byte_count; buffer_idx++)
+    {
       rgb[rgb_idx++] = buf_img[buffer_idx];
 
-      if (rgb_idx == 3) {
+      if (rgb_idx == 3)
+      {
         spi_txrx(rgb[2] & 0xFC);  // R
         spi_txrx(rgb[1] & 0xFC);  // G
         spi_txrx(rgb[0] & 0xFC);  // B

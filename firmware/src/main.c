@@ -1,19 +1,20 @@
 #include <util/delay.h>
 
-#include "GC9A01.h"
-#include "alphabet.h"
-#include "game.h"
-#include "globals.h"
-#include "i2c_rotary.h"
-#include "init.h"
-#include "keyboard_utils.h"
-#include "keypad.h"
-#include "language.h"
-#include "menu.h"
-#include "power_save.h"
-#include "rotary.h"
+#include "app/alphabet.h"
+#include "app/game.h"
+#include "app/language.h"
+#include "app/menu.h"
+#include "display/GC9A01.h"
+#include "input/i2c_rotary.h"
+#include "input/keypad.h"
+#include "input/rotary.h"
+#include "system/globals.h"
+#include "system/init.h"
+#include "system/power_save.h"
+#include "utils/keyboard_utils.h"
 
-int main(void) {
+int main(void)
+{
   init();
   language_update();
 
@@ -24,7 +25,8 @@ int main(void) {
   show_menu();  // display the main menu
   // eyes_action();
 
-  while (1) {
+  while (1)
+  {
     language_update();
     random_update();
     rotary_update();
@@ -33,17 +35,21 @@ int main(void) {
 
     // listening to the keyboard for the power save
     int key = keypad_read();
-    if (key >= 0) power_save_activity();
+    if (key >= 0)
+      power_save_activity();
 
-    if (app_state == TRADUCTION && word_state == INPUT) {
+    if (app_state == TRADUCTION && word_state == INPUT)
+    {
       traduction();
     }
 
-    else if (app_state == ALPHABET) {
+    else if (app_state == ALPHABET)
+    {
       alphabet();
     }
 
-    else if (app_state == JEU) {
+    else if (app_state == JEU)
+    {
       game();
     }
   }
