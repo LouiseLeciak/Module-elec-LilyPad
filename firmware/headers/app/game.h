@@ -6,6 +6,9 @@
 
 #include <avr/io.h>
 
+#define GAME_1 0
+#define GAME_2 1
+
 // diff states of the game menu
 typedef enum
 {
@@ -35,5 +38,6 @@ void update_game_answer_cursor(uint8_t old_choice);
 void display_game_yes(void);
 void display_game_no(void);
 void display_sign_choice(uint8_t choice);
+void display_find_sign(void);
 
 #endif
