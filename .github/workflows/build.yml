@@ -39,6 +39,6 @@ jobs:
         with:
           name: avr-firmware
           path: |
-            build/*.hex
-            build/*.bin
+            firmware/build/*.hex
+            firmware/build/*.bin
           if-no-files-found: error
