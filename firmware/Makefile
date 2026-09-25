@@ -1,8 +1,8 @@
 # --- MICROCONTROLLER & FLASHING CONFIG ---
 MCU					:=	atmega2560
 F_CPU				:=	16000000UL
-# PORT				:= /dev/cu.usbserial-10 #Change this to match your configuration's port
-PORT				:= /dev/cu.usbserial-110 #Change this to match your configuration's port
+-include config.mk
+PORT ?= /dev/ttyUSB0 # fallback if config.mk absent
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
@@ -26,18 +26,30 @@ CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) 
 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
+					alphabet \
 					bmp \
 					crc \
-					storage/fatfs \
+					eye_imgs \
+					game \
 					GC9A01 \
+					globals \
+					i2c_rotary \
 					ili9488 \
+					init \
+					keypad \
+					language \
 					main_screen \
 					mem_utils \
+					menu \
+					power_save \
+					rotary \
+					screen_text \
+					small_font \
+					spi \
+					storage/fatfs \
 					storage/sd \
 					storage/sd_streaming \
-					spi \
-					small_font \
-					screen_text \
+					traduction \
 					uart \
 					utils
 
