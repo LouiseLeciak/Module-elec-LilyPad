@@ -5,9 +5,12 @@
 #include "display/main_screen.h"
 #include "display/screen_text.h"
 #include "input/keypad.h"
+#include "storage/fatfs.h"
+#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/power_save.h"
 #include "system/uart.h"
+#include "utils/utils.h"
 
 uint8_t game_choice = 0;
 game_state_t game_state = GAME_MENU;
@@ -104,58 +107,169 @@ void update_game_cursor(uint8_t old_choice)
   }
 }
 
-void display_find_letter(void)
+void display_game_letter_image(void)
 {
-  char target_text[2];
-  char answer_text[2];
+  char letter[2];
+  char file_name[16];
 
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  letter[0] = game_target;
+  letter[1] = '\0';
 
-  target_text[0] = game_target;
-  target_text[1] = '\0';
+  file_name[0] = '\0';
+
+  ft_strcat(file_name, letter);
 
   if (language == LANG_FR)
   {
-    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-    draw_string(20, 80, "Ton signe: ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    ft_strcat(file_name, "_LSF");
   }
-  if (language == LANG_EN)
+  else
   {
-    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-    draw_string(20, 80, "Your sign: ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    ft_strcat(file_name, "_BSL");
   }
 
-  draw_string(200, 80, target_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
-              2);
+  ft_strcat(file_name, "   BMP");
 
-  // choix 1
-
-  answer_text[0] = game_answers[0];
-  answer_text[1] = '\0';
-
-  draw_string(10, 150, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  draw_string(70, 150, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
-
-  // choix 2
-
-  answer_text[0] = game_answers[1];
-
-  draw_string(70, 220, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
-
-  // choix 3
-
-  answer_text[0] = game_answers[2];
-
-  draw_string(70, 290, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
+  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
+  {
+    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
+    {
+      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
+    }
+  }
 }
+// void start_find_letter(void)
+// {
+//     uint8_t target_position;
+
+//     game_state = GAME_FIND_LETTER;
+
+//     target_position = simple_random() % GAME_CHAR_COUNT;
+
+//     game_target = game_characters[target_position];
+
+//     game_answer = 0;
+
+//     display_find_letter();
+// }
+
+void display_find_letter(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
+  if (language == LANG_FR)
+  {
+    draw_string(120, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 150, "Clique pour voir", GC9A01A_COLOR_GREEN,
+                GC9A01A_COLOR_OLIVE, 3, 2);
+
+    draw_string(80, 190, "ton signe", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+                3, 2);
+  }
+  else
+  {
+    draw_string(120, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+                2);
+
+    draw_string(20, 150, "Click to see", GC9A01A_COLOR_GREEN,
+                GC9A01A_COLOR_OLIVE, 3, 2);
+
+    draw_string(80, 190, "your sign", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+                3, 2);
+  }
+}
+
+void display_game_letter(void)
+{
+  char letter[2];
+  char file_name[16] = {0};
+
+  letter[0] = game_target;
+  letter[1] = '\0';
+
+  ft_strcat(file_name, letter);
+
+  if (language == LANG_FR)
+  {
+    ft_strcat(file_name, "_LSF");
+  }
+  else
+  {
+    ft_strcat(file_name, "_BSL");
+  }
+
+  ft_strcat(file_name, "   BMP");
+
+  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
+  {
+    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
+    {
+      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
+    }
+  }
+}
+
+// void display_find_letter(void)
+// {
+//   char target_text[2];
+//   char answer_text[2];
+
+//   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
+//   target_text[0] = game_target;
+//   target_text[1] = '\0';
+
+//   if (language == LANG_FR)
+//   {
+//     draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+//     2);
+
+//     draw_string(20, 80, "Ton signe: ", GC9A01A_COLOR_GREEN,
+//     GC9A01A_COLOR_OLIVE,
+//                 3, 2);
+//   }
+//   if (language == LANG_EN)
+//   {
+//     draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+//     2);
+
+//     draw_string(20, 80, "Your sign: ", GC9A01A_COLOR_GREEN,
+//     GC9A01A_COLOR_OLIVE,
+//                 3, 2);
+//   }
+
+//   draw_string(200, 80, target_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+//   3,
+//               2);
+
+//   // choix 1
+
+//   answer_text[0] = game_answers[0];
+//   answer_text[1] = '\0';
+
+//   draw_string(10, 150, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+//   draw_string(70, 150, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+//   4,
+//               2);
+
+//   // choix 2
+
+//   answer_text[0] = game_answers[1];
+
+//   draw_string(70, 220, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+//   4,
+//               2);
+
+//   // choix 3
+
+//   answer_text[0] = game_answers[2];
+
+//   draw_string(70, 290, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+//   4,
+//               2);
+// }
 
 void update_game_answer_cursor(uint8_t old_choice)
 {
@@ -431,6 +545,46 @@ void display_sign_choice(uint8_t choice)
   draw_string(150, 130, ".", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 6, 2);
 
   draw_string(200, 130, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12, 2);
+}
+
+void display_letter_answers(void)
+{
+  char answer_text[2];
+
+  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
+  if (language == LANG_FR)
+  {
+    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+                3, 2);
+  }
+  else
+  {
+    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
+                2);
+  }
+
+  answer_text[0] = game_answers[0];
+  answer_text[1] = '\0';
+
+  draw_string(10, 150, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(70, 150, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+              2);
+
+  answer_text[0] = game_answers[1];
+
+  draw_string(70, 220, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+              2);
+
+  answer_text[0] = game_answers[2];
+
+  draw_string(70, 290, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
+              2);
 }
 
 /////////////////////////////////////////////

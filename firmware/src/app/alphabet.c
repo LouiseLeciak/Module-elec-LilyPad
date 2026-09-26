@@ -53,21 +53,6 @@ void display_alphabet_letter(void)
   letter[0] = alphabet_characters[alphabet_choice];
   letter[1] = '\0';
 
-  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-  // draw_string(
-  //     110, 20, "ALPHABET",
-  //     GC9A01A_COLOR_GREEN,
-  //     GC9A01A_COLOR_OLIVE,
-  //     4, 2);
-
-  // draw_string(
-  //     230, 150,
-  //     letter,
-  //     GC9A01A_COLOR_WHITE,
-  //     GC9A01A_COLOR_OLIVE,
-  //     12, 2);
-
   /////////////////////////////////////////// nom du fichier
 
   ft_strcat(file_name, letter);
