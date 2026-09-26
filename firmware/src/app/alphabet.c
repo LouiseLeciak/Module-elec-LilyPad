@@ -54,21 +54,6 @@ void display_alphabet_letter(void)
   letter[0] = alphabet_characters[alphabet_choice];
   letter[1] = '\0';
 
-  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-  // draw_string(
-  //     110, 20, "ALPHABET",
-  //     GC9A01A_COLOR_GREEN,
-  //     GC9A01A_COLOR_OLIVE,
-  //     4, 2);
-
-  // draw_string(
-  //     230, 150,
-  //     letter,
-  //     GC9A01A_COLOR_WHITE,
-  //     GC9A01A_COLOR_OLIVE,
-  //     12, 2);
-
   /////////////////////////////////////////// nom du fichier
 
   ft_strcat(file_name, letter);
@@ -88,13 +73,13 @@ void display_alphabet_letter(void)
   {
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
     {
-      uart_printstr("Queried file name: ");
-      uart_printstr(file_name);
-      uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
-      uart_printstr(image_lut[i].name);
-      uart_printstr("--\r\nAddress: ");
-      uart_printhex_32(image_lut[i].address);
-      uart_printstr("\r\n");
+      // uart_printstr("Queried file name: ");
+      // uart_printstr(file_name);
+      // uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
+      // uart_printstr(image_lut[i].name);
+      // uart_printstr("--\r\nAddress: ");
+      // uart_printhex_32(image_lut[i].address);
+      // uart_printstr("\r\n");
       sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
     }
   }

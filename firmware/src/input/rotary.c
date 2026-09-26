@@ -131,7 +131,7 @@ void rotary_manage_state(uint8_t clk, uint8_t dt)
   {
     rotary_alphabet(clockwise);
   }
-  else if (app_state == JEU && game_state == GAME_SIGN_SELECT)
+  else if (app_state == JEU && game_state == GAME_LETTER_SELECT)
   {
     rotary_game_answer(clockwise);
   }
@@ -240,87 +240,117 @@ void rotary_button_traduction(void)
 // game button management
 void rotary_button_game(void)
 {
-  if (game_state == GAME_MENU)
-  {
-    if (game_choice == 0)
+    if (game_state == GAME_MENU)
     {
-      start_find_letter();
+        if (game_choice == 0)
+        {
+            start_find_letter();
+        }
+        else
+        {
+            start_find_sign();
+        }
     }
-    else
-    {
-      start_find_sign();
-    }
-  }
-  else if (game_state == GAME_FIND_LETTER)
-  {
-    if (game_answers[game_answer] == game_target)
-    {
-      game_state = GAME_RESULT_YES;
-      display_game_yes();
-    }
-    else
-    {
-      game_state = GAME_RESULT_NO;
-      display_game_no();
-    }
-    if (game_state == GAME_RESULT_YES)
-    {
-      game_answer = 0;
-      start_find_letter();
-    }
-    else if (game_state == GAME_RESULT_NO)
-    {
-      game_answer = 0;
-      game_state = GAME_FIND_LETTER;
-      display_find_letter();
-    }
-  }
-  else if (game_state == GAME_FIND_SIGN)
-  {
-    game_state = GAME_SIGN_CHOICE_1;
-    display_sign_choice(0);
-  }
-  else if (game_state == GAME_SIGN_CHOICE_1)
-  {
-    game_state = GAME_SIGN_CHOICE_2;
-    display_sign_choice(1);
-  }
-  else if (game_state == GAME_SIGN_CHOICE_2)
-  {
-    game_state = GAME_SIGN_CHOICE_3;
-    display_sign_choice(2);
-  }
-  else if (game_state == GAME_SIGN_CHOICE_3)
-  {
-    game_state = GAME_SIGN_SELECT;
 
-    game_answer = 0;
+    ////////////////////////////////
+    /////////// JEU 1 //////////////
+    ////////////////////////////////
 
-    display_game_answer();
-  }
-  else if (game_state == GAME_SIGN_SELECT)
-  {
-      if (game_answers[game_answer] == game_target)
-      {
-          game_state = GAME_RESULT_YES;
-          display_game_yes();
-      }
-      else
-      {
-          game_state = GAME_RESULT_NO;
-          display_game_no();
-      }
+    else if (game_state == GAME_FIND_LETTER)
+    {
+        game_state = GAME_SHOW_LETTER;
+        display_game_letter();
+    }
 
-      if (game_state == GAME_RESULT_YES)
-      {
-          start_find_sign();
-      }
-      else if (game_state == GAME_RESULT_NO)
-      {
-          game_state = GAME_FIND_SIGN;
-          display_find_sign();
-      }
-  }
+    else if (game_state == GAME_SHOW_LETTER)
+    {
+        game_state = GAME_LETTER_SELECT;
+        game_answer = 0;
+        display_letter_answers();
+    }
+
+    else if (game_state == GAME_LETTER_SELECT)
+    {
+        if (game_answers[game_answer] == game_target)
+        {
+            game_state = GAME_RESULT_YES_1;
+            display_game_yes();
+        }
+        else
+        {
+            game_state = GAME_RESULT_NO_1;
+            display_game_no();
+        }
+    }
+
+    else if (game_state == GAME_RESULT_YES_1)
+    {
+        game_answer = 0;
+        start_find_letter();
+    }
+
+    else if (game_state == GAME_RESULT_NO_1)
+    {
+        game_answer = 0;
+        game_state = GAME_FIND_LETTER;
+        display_find_letter();
+    }
+
+    ////////////////////////////////
+    /////////// JEU 2 //////////////
+    ////////////////////////////////
+
+    else if (game_state == GAME_FIND_SIGN)
+    {
+        game_state = GAME_SIGN_CHOICE_1;
+        display_sign_choice(0);
+    }
+
+    else if (game_state == GAME_SIGN_CHOICE_1)
+    {
+        game_state = GAME_SIGN_CHOICE_2;
+        display_sign_choice(1);
+    }
+
+    else if (game_state == GAME_SIGN_CHOICE_2)
+    {
+        game_state = GAME_SIGN_CHOICE_3;
+        display_sign_choice(2);
+    }
+
+    else if (game_state == GAME_SIGN_CHOICE_3)
+    {
+        game_state = GAME_LETTER_SELECT;
+        game_answer = 0;
+        display_game_answer();
+    }
+
+    else if (game_state == GAME_LETTER_SELECT)
+    {
+        if (game_answers[game_answer] == game_target)
+        {
+            game_state = GAME_RESULT_YES_2;
+            display_game_yes();
+        }
+        else
+        {
+            game_state = GAME_RESULT_NO_2;
+            display_game_no();
+        }
+    }
+
+    else if (game_state == GAME_RESULT_YES_2)
+    {
+        game_answer = 0;
+        start_find_sign();
+    }
+
+    else if (game_state == GAME_RESULT_NO_2)
+    {
+        game_answer = 0;
+        game_state = GAME_FIND_SIGN;
+        display_find_sign();
+    }
 }
 
 // alphabet button manger
