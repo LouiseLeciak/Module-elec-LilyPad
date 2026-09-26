@@ -120,11 +120,6 @@ void display_alphabet(void)
   uint16_t y;
   char letter[2];
 
-  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-  // 4,
-  //             2);
-
   for (i = 0; i < 36; i++)
   {
     row = i / 4;
