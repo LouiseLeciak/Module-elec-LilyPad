@@ -41,7 +41,8 @@
 typedef enum
 {
   INPUT,
-  VALIDATED
+  VALIDATED,
+  SHOW_TRANSLATION
 } word_state_t;
 
 typedef enum

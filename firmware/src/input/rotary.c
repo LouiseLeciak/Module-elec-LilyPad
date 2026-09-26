@@ -10,6 +10,8 @@
 #include "system/globals.h"
 #include "system/power_save.h"
 #include "utils/keyboard_utils.h"
+#include "app/traduction.h"
+#include "utils/utils.h"
 
 // https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
 
@@ -231,14 +233,31 @@ void rotary_button_menu(void)
 // traduction button management
 void rotary_button_traduction(void)
 {
-  if (word_state == INPUT)
-  {
-    validate_word();
-  }
-  else
-  {
-    start_new_word();
-  }
+    if (word_state == INPUT)
+    {
+        validate_word();
+
+        translation_index = 0;
+
+        if (word_len > 0)
+        {
+            word_state = SHOW_TRANSLATION;
+            display_translation_letter();
+        }
+    }
+    else if (word_state == SHOW_TRANSLATION)
+    {
+        translation_index++;
+
+        if (translation_index < word_len)
+        {
+            display_translation_letter();
+        }
+        else
+        {
+            start_new_word();
+        }
+    }
 }
 
 // game button management

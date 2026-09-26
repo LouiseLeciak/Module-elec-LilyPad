@@ -204,7 +204,7 @@ void display_find_letter(void)
             4, 2);
 
         draw_string(
-            20, 150, "Click to see",
+            50, 150, "Click to see",
             GC9A01A_COLOR_GREEN,
             GC9A01A_COLOR_OLIVE,
             3, 2);
@@ -364,7 +364,7 @@ void display_find_sign(void)
     draw_string(20, 100, "Voici ta lettre :", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
 
-    draw_string(120, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
+    draw_string(150, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
                 2);
 
     draw_string(70, 280, "Clic pour voir", GC9A01A_COLOR_GREEN,
@@ -380,10 +380,10 @@ void display_find_sign(void)
     draw_string(20, 100, "Here's your letter :", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
 
-    draw_string(120, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
+    draw_string(150, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
                 2);
 
-    draw_string(70, 280, "Clic to see", GC9A01A_COLOR_GREEN,
+    draw_string(100, 280, "Click to see", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 2, 2);
 
     draw_string(100, 310, "your choices", GC9A01A_COLOR_GREEN,

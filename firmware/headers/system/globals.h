@@ -45,4 +45,8 @@ uint32_t random_state;
 extern alphabet_state_t alphabet_state;
 extern uint8_t alphabet_choice;
 
+// where am i in the word i'm translating
+// which img i have to display
+extern uint8_t translation_index;
+
 #endif

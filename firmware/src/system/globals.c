@@ -27,3 +27,5 @@ uint8_t rotaryclk_prev = 1;
 // screen energy mode
 uint32_t last_key_time = 0;
 uint8_t screen_sleeping = 0;
+
+uint8_t translation_index = 0;
