@@ -24,11 +24,19 @@ void language_switch_init(void)
   PORTC &= ~SDL_SW2;
 }
 
+// to know the language at the inti
+void language_init(void)
+{
+    if (!(PINC & SDL_SW1))
+        language = LANG_FR;
+    else if (!(PINC & SDL_SW3))
+        language = LANG_EN;
+}
+
 // change the language when moving the slide switch
 void language_update(void)
 {
   language_t new_language;
-  power_save_activity();
   // if on the left -> fr
   // pc1 = 0 car relie a pc2 qui est a 0
   if (!(PINC & SDL_SW1))
@@ -46,6 +54,8 @@ void language_update(void)
 
   if (new_language != language)
   {
+    power_save_activity();
+
     language = new_language;
     // go back to the menu when we switch language
     menu_choice = 0;

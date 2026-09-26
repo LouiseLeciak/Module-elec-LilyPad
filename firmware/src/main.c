@@ -21,6 +21,9 @@ int main(void)
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
+  language_init();
+  show_menu();
+  // eyes_action();
 
   while (1)
   {
@@ -29,7 +32,6 @@ int main(void)
     rotary_update();
     rotary_button_update();
     power_save_update();
-
     // listening to the keyboard for the power save
     int key = keypad_read();
     if (key >= 0)

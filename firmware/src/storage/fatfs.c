@@ -243,15 +243,15 @@ void scan_root_dir(void)
       {
         uart_tx(sd_dir_entries[i].name[j]);
       }
-      uart_printstr(" is located at Cluster: ");
+      // uart_printstr(" is located at Cluster: ");
 
       // Combine high and low 16-bit values into a 32-bit cluster number
       uint32_t file_cluster =
           ((uint32_t)sd_dir_entries[i].first_cluster_high << 16) |
           sd_dir_entries[i].first_cluster_low;
 
-      uart_printhex_32(file_cluster);
-      uart_printstr("\r\n");
+      // uart_printhex_32(file_cluster);
+      // uart_printstr("\r\n");
 
       static uint8_t image_count = 0;
       if (image_count < 60)
