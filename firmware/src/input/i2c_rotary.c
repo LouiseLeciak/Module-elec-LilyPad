@@ -84,9 +84,7 @@ void i2c_write(unsigned char data)
 
   if (TW_STATUS != TW_MT_DATA_ACK)
   {
-#ifdef DEBUG
-    uart_printstr("error MT_DATA_ACK\n\r");
-#endif /* ifdef DEBUG */
+    uart_printstr(ANSI_RED "I2C: slave NACK on data\r\n" ANSI_RESET);
     i2c_stop();
   }
 }
@@ -121,9 +119,7 @@ uint8_t i2c_start(uint8_t addr)
   {
     if (--timeout == 0)
     {
-#ifdef DEBUG
-      uart_printstr("START TIMEOUT\r\n");
-#endif /* ifdef DEBUG */
+      uart_printstr(ANSI_RED "I2C: START timeout\r\n" ANSI_RESET);
       return 0;
     }
   }
@@ -131,11 +127,9 @@ uint8_t i2c_start(uint8_t addr)
   // on check si le starts ou repeted start a bien ete envoye
   if (TW_STATUS != TW_START && TW_STATUS != TW_REP_START)
   {
-#ifdef DEBUG
-    uart_printstr("START ERROR : ");
+    uart_printstr(ANSI_RED "I2C: bad START status: 0x" ANSI_RESET);
     print_hex_value(TW_STATUS);
     uart_printstr("\r\n");
-#endif /* ifdef DEBUG */
     return 0;
   }
 
@@ -151,9 +145,7 @@ uint8_t i2c_start(uint8_t addr)
   {
     if (--timeout == 0)
     {
-#ifdef DEBUG
-      uart_printstr("ADDR TIMEOUT\r\n");
-#endif /* ifdef DEBUG */
+      uart_printstr(ANSI_RED "I2C: ADDR timeout\r\n" ANSI_RESET);
       return 0;
     }
   }
@@ -163,11 +155,9 @@ uint8_t i2c_start(uint8_t addr)
   {
     if (TW_STATUS != TW_MT_SLA_ACK)
     {
-#ifdef DEBUG
-      uart_printstr("ADDRESS ERROR : ");
+      uart_printstr(ANSI_RED "I2C: slave NACK on addr (W): 0x" ANSI_RESET);
       print_hex_value(TW_STATUS);
       uart_printstr("\r\n");
-#endif /* ifdef DEBUG */
       return 0;
     }
   }
@@ -175,11 +165,9 @@ uint8_t i2c_start(uint8_t addr)
   {
     if (TW_STATUS != TW_MR_SLA_ACK)
     {
-#ifdef DEBUG
-      uart_printstr("ADDRESS ERROR : ");
+      uart_printstr(ANSI_RED "I2C: slave NACK on addr (R): 0x" ANSI_RESET);
       print_hex_value(TW_STATUS);
       uart_printstr("\r\n");
-#endif /* ifdef DEBUG */
       return 0;
     }
   }
