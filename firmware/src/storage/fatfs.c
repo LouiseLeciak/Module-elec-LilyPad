@@ -123,7 +123,7 @@ DSTATUS disk_status(BYTE pdrv)
 DSTATUS disk_initialize(BYTE pdrv)
 {
   (void)pdrv;
-  if (sd_init() != 0)
+  if (sd_init_spi() != 0)
   {
     sd_card_status = STA_NOINIT;
     return STA_NOINIT;
@@ -234,25 +234,30 @@ void scan_root_dir(void)
       if (sd_dir_entries[i].name[8] != 'B' ||
           sd_dir_entries[i].name[9] != 'M' || sd_dir_entries[i].name[10] != 'P')
       {
-        uart_printstr("File is not BMP\r\n");
+        // Print the 11-character name
+        for (uint8_t j = 0; j < 11; j++) uart_tx(sd_dir_entries[i].name[j]);
+        uart_printstr(": File is not BMP\r\n");
         continue;
       }
 
+#ifdef DEBUG
       // Print the 11-character name
       for (uint8_t j = 0; j < 11; j++)
       {
         uart_tx(sd_dir_entries[i].name[j]);
       }
       uart_printstr(" is located at Cluster: ");
+#endif
 
       // Combine high and low 16-bit values into a 32-bit cluster number
       uint32_t file_cluster =
           ((uint32_t)sd_dir_entries[i].first_cluster_high << 16) |
           sd_dir_entries[i].first_cluster_low;
 
+#ifdef DEBUG
       uart_printhex_32(file_cluster);
       uart_printstr("\r\n");
-
+#endif
       static uint8_t image_count = 0;
       if (image_count < 60)
       {

@@ -5,6 +5,7 @@
 #include "display/ili9488.h"
 #include "structs.h"
 #include "system/spi.h"
+#include "system/uart.h"
 
 static inline void dc_cmd(void) { DC_PORT &= ~(DC_PIN); }
 static inline void dc_data(void) { DC_PORT |= (DC_PIN); }
@@ -37,8 +38,12 @@ void main_screen_init()
   BL_DDR |= (BL_PIN);
   BL_PORT |= (BL_PIN);
 
+  uart_printstr("Initialising main screen...");
+
   ili9488_reset();
   ili9488_init_driver();
+
+  uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
 }
 
 // ------ Drawing commands ------------------------------------------------

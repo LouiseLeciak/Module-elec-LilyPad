@@ -11,11 +11,13 @@
 #include "system/globals.h"
 #include "system/init.h"
 #include "system/power_save.h"
+#include "system/uart.h"
 #include "utils/keyboard_utils.h"
 
 int main(void)
 {
   init();
+
   language_update();
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);

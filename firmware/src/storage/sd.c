@@ -120,10 +120,8 @@ static sd_resp sd_set_blocklen(uint8_t arg0, uint8_t arg1, uint8_t arg2,
   return sd_send_cmd(&cmd16, SD_RESP_R1);
 }
 
-uint8_t sd_init(void)
+uint8_t sd_init_spi(void)
 {
-  uart_printstr("Initialising SD card...");
-
   // Set SPI clock between 100kHz and 400kHz (as per Elm-Chan guide)
   SPSR &= ~(1 << SPI2X);
   SPCR &= ~(1 << SPR0);
@@ -195,7 +193,6 @@ uint8_t sd_init(void)
     sd_set_blocklen(0, 0, 0x02,
                     0x00);  // CMD16: set 512-byte blocks (only for SDSC)
 
-  uart_printstr("OK!\r\n");
   return 0;
 }
 

@@ -68,7 +68,7 @@ typedef struct __attribute__((packed))
 // UTILS
 
 // STUFF
-uint8_t sd_init(void);
+uint8_t sd_init_spi(void);
 
 // PRIMITIVE COMMANDS
 
