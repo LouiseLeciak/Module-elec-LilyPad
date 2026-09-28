@@ -186,13 +186,20 @@ uint8_t sd_init_spi(void)
     uart_printstr("ERROR\r\nSD: card not ready after ACMD41!\r\n");
     return 5;
   }
+  else
+    uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
 
   // SD_OCR_CCS: bit 30 = 1 → SDHC/SDXC (block addressing)
   //                      = 0 → SDSC (byte addressing, needs CMD16)
   if (!SD_OCR_CCS(ocr))
+  {
+    uart_printstr(
+        "SD: SDSC card (byte addressing), setting 512-byte blocks\r\n");
     sd_set_blocklen(0, 0, 0x02,
                     0x00);  // CMD16: set 512-byte blocks (only for SDSC)
-
+  }
+  else
+    uart_printstr("SD: SDHC/SDXC card (block addressing)\r\n");
   return 0;
 }
 
@@ -214,6 +221,10 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
     fe = spi_txrx(0xFF);
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
+
+  if (!fe_tries)
+    uart_printstr(ANSI_RED "SD: CMD17 start token timeout\r\n" ANSI_RESET);
+
   for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++)
   {
     buf[i] = spi_txrx(0xFF);
@@ -248,6 +259,9 @@ void sd_read_multiple_block_next(uint8_t* buf)
     fe = spi_txrx(0xFF);
     fe_tries--;
   } while (fe != 0xFE && fe_tries);
+
+  if (!fe_tries)
+    uart_printstr(ANSI_RED "SD: CMD18 start token timeout\r\n" ANSI_RESET);
 
   for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++)
   {

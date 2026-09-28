@@ -26,6 +26,8 @@ int main(void)
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
   GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
 
+  sd_stream_bmp_to_screen(cluster_to_lba(image_lut[0].address));
+
   show_menu();  // display the main menu
   // eyes_action();
 

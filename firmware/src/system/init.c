@@ -45,10 +45,7 @@ static DSTATUS sd_init()
   if (parse_mbr() == RES_OK)
   {
     if (parse_vbr() == RES_OK)
-    {
-      uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
       scan_root_dir();
-    }
     else
       uart_printstr("Failed to parse VBR\r\n");
   }
