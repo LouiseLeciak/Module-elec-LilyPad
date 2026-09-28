@@ -6,6 +6,8 @@
 #include "pinout.h"
 #include "system/globals.h"
 #include "system/power_save.h"
+#include "display/main_screen.h"
+#include "display/GC9A01.h"
 
 language_t language = LANG_FR;
 

@@ -49,4 +49,6 @@ extern uint8_t alphabet_choice;
 // which img i have to display
 extern uint8_t translation_index;
 
+extern uint8_t inac;
+
 #endif

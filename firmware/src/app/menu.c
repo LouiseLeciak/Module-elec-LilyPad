@@ -53,12 +53,12 @@ void show_menu(void)
 
     if (menu_choice == 0)
     {
-      draw_string(10, 120, "> Traduction", GC9A01A_COLOR_GREEN,
+      draw_string(10, 120, "> Translation", GC9A01A_COLOR_GREEN,
                   GC9A01A_COLOR_OLIVE, 4, 2);
     }
     else
     {
-      draw_string(10, 120, "  Traduction", GC9A01A_COLOR_GREEN,
+      draw_string(10, 120, "  Translation", GC9A01A_COLOR_GREEN,
                   GC9A01A_COLOR_OLIVE, 4, 2);
     }
 

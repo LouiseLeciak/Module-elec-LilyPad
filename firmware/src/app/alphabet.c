@@ -16,7 +16,7 @@
 alphabet_state_t alphabet_state = ALPHABET_LIST;
 uint8_t alphabet_choice = 0;
 
-// a modifier jaffiche juste une string
+// home page of the alphabet, set up the display
 void show_alphabet(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
@@ -37,8 +37,12 @@ void show_alphabet(void)
     draw_string(10, 80, "Choose a letter:", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
   }
+
+  // index to know where we are in the laphabet
   alphabet_choice = 0;
+  // state to tell we're looking in the laphabet
   alphabet_state = ALPHABET_LIST;
+  // app state to tell we're in the alphabet section
   app_state = ALPHABET;
 
   display_alphabet();
