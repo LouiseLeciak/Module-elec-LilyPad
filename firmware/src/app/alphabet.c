@@ -84,6 +84,7 @@ void display_alphabet_letter(void)
   ////////////////////////////////////////////////////////////
   // aller regarder dans la lookup table
   uint8_t found = 0;
+  (void)found;  // Because use of variable is inside a ifdef
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
