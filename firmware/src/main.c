@@ -8,6 +8,8 @@
 #include "input/i2c_rotary.h"
 #include "input/keypad.h"
 #include "input/rotary.h"
+#include "storage/fatfs.h"
+#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/init.h"
 #include "system/power_save.h"

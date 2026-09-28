@@ -24,7 +24,9 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
   uint32_t abs_height = (header.height < 0 ? -header.height : header.height);
   window win = {{0, 0}, {abs_height - 1, header.width - 1}};
 
+#ifdef DEBUG
   uart_printstr("Starting printing image\r\n");
+#endif /* ifdef DEBUG */
 
   MAIN_SCREEN_CS_LOW();
   main_screen_set_window(win);
@@ -35,9 +37,11 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
   uint16_t buffer_idx = header.pixel_data_offset % 512;
 
   uint32_t byte_count = (uint32_t)abs_height * header.width * 3;
+#ifdef DEBUG
   uart_printstr("byte_count= ");
   uart_printhex_32(byte_count);
   uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
   uint32_t bytes_processed = 0;
 
   uint8_t rgb[3];
@@ -45,9 +49,11 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
 
   while (bytes_processed < byte_count)
   {
+#ifdef DEBUG
     uart_printstr("bytes_processed= ");
     uart_printhex_32(bytes_processed);
     uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
     sd_read_single_block(pixel_sector >> 24, pixel_sector >> 16,
                          pixel_sector >> 8, pixel_sector, buf_img);
     pixel_sector++;
@@ -70,5 +76,7 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
     MAIN_SCREEN_CS_HIGH();
     buffer_idx = 0;
   }
+#ifdef DEBUG
   uart_printstr("Finished printing image\r\n");
+#endif /* ifdef DEBUG */
 }
