@@ -9,6 +9,7 @@
 #include "input/i2c_rotary.h"
 #include "system/globals.h"
 #include "system/power_save.h"
+#include "system/uart.h"
 #include "utils/keyboard_utils.h"
 
 // https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
@@ -114,6 +115,21 @@ void rotary_manage_state(uint8_t clk, uint8_t dt)
   uint8_t clockwise;
 
   clockwise = rotary_is_clockwise(clk, dt);
+
+#ifdef DEBUG
+  uart_printstr("[ROT] ");
+  uart_printstr(clockwise ? "CW" : "CCW");
+  uart_printstr(" | state=");
+  if (app_state == MENU)
+    uart_printstr("MENU");
+  else if (app_state == TRADUCTION)
+    uart_printstr("TRADUCTION");
+  else if (app_state == ALPHABET)
+    uart_printstr("ALPHABET");
+  else if (app_state == JEU)
+    uart_printstr("JEU");
+  uart_printstr("\r\n");
+#endif
 
   if (app_state == MENU)
   {
@@ -334,18 +350,33 @@ void rotary_button_handle_press(void)
 
   if (app_state == MENU)
   {
+    uart_printstr("[BTN] MENU -> ");
+    if (menu_choice == 0)
+      uart_printstr("TRADUCTION");
+    else if (menu_choice == 1)
+      uart_printstr("ALPHABET");
+    else
+      uart_printstr("JEU");
+    uart_printstr("\r\n");
     rotary_button_menu();
   }
   else if (app_state == TRADUCTION)
   {
+    uart_printstr("[BTN] TRADUCTION -> ");
+    uart_printstr(word_state == INPUT ? "VALIDATED" : "NEW WORD");
+    uart_printstr("\r\n");
     rotary_button_traduction();
   }
   else if (app_state == JEU)
   {
+    uart_printstr("[BTN] JEU press\r\n");
     rotary_button_game();
   }
   else if (app_state == ALPHABET)
   {
+    uart_printstr("[BTN] ALPHABET -> ");
+    uart_printstr(alphabet_state == ALPHABET_LIST ? "LETTER VIEW" : "LIST");
+    uart_printstr("\r\n");
     rotary_button_alphabet();
   }
 }

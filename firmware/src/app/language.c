@@ -6,6 +6,7 @@
 #include "pinout.h"
 #include "system/globals.h"
 #include "system/power_save.h"
+#include "system/uart.h"
 
 language_t language = LANG_FR;
 
@@ -47,6 +48,9 @@ void language_update(void)
   if (new_language != language)
   {
     language = new_language;
+    uart_printstr("[LANG] Switched to ");
+    uart_printstr(language == LANG_FR ? "FR" : "EN");
+    uart_printstr("\r\n");
     // go back to the menu when we switch language
     menu_choice = 0;
     show_menu();

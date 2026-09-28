@@ -5,6 +5,7 @@
 #include "input/keypad.h"
 #include "system/globals.h"
 #include "system/power_save.h"
+#include "system/uart.h"
 #include "utils/keyboard_utils.h"
 
 // Pour commencer un nouveau mot
@@ -85,6 +86,12 @@ void traduction(void)
       word_len++;
 
       word[word_len] = '\0';
+
+#ifdef DEBUG
+      uart_printstr("[WORD] ");
+      uart_printstr(word);
+      uart_printstr("\r\n");
+#endif
 
       display_word();
     }
