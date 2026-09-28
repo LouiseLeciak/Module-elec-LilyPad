@@ -49,11 +49,6 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
 
   while (bytes_processed < byte_count)
   {
-#ifdef DEBUG
-    uart_printstr("bytes_processed= ");
-    uart_printhex_32(bytes_processed);
-    uart_printstr("\r\n");
-#endif /* ifdef DEBUG */
     sd_read_single_block(pixel_sector >> 24, pixel_sector >> 16,
                          pixel_sector >> 8, pixel_sector, buf_img);
     pixel_sector++;
