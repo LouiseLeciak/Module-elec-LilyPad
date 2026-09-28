@@ -12,6 +12,8 @@
 #include "system/uart.h"
 #include "utils/utils.h"
 
+
+
 uint8_t game_choice = 0;
 game_state_t game_state = GAME_MENU;
 char game_target;
@@ -214,8 +216,10 @@ void display_game_letter(void)
 void random_update(void)
 {
   random_state++;
-  // if (random_state >= 4294967290UL)
-  //     random_state = 0;
+  if (random_state % 10000 == 0 && inac == 0){
+      blink_front();
+  }
+      
 }
 
 // https://stackoverflow.com/questions/32225896/pseudo-random-function-in-c

@@ -3,6 +3,8 @@
 #include <avr/io.h>
 
 #include "app/menu.h"
+#include "display/GC9A01.h"
+#include "display/main_screen.h"
 #include "pinout.h"
 #include "system/globals.h"
 #include "system/power_save.h"
@@ -28,10 +30,10 @@ void language_switch_init(void)
 // to know the language at the inti
 void language_init(void)
 {
-    if (!(PINC & SDL_SW1))
-        language = LANG_FR;
-    else if (!(PINC & SDL_SW3))
-        language = LANG_EN;
+  if (!(PINC & SDL_SW1))
+    language = LANG_FR;
+  else if (!(PINC & SDL_SW3))
+    language = LANG_EN;
 }
 
 // change the language when moving the slide switch
