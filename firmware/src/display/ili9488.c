@@ -9,16 +9,13 @@ static inline void dc_data(void) { DC_PORT |= (DC_PIN); }
 static inline void cs_low(void) { CS_PORT &= ~(CS_PIN); }
 static inline void cs_high(void) { CS_PORT |= (CS_PIN); }
 
-// NOTE: Command functions have hardcoded arguments for now, will make it more
-// modular later. -Maddie
-
-void ili9488_positive_gamma_control()
+void ili9488_positive_gamma_control(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx((char)PGC);
   dc_data();
-  // The following arguments are the anchor values for the positive gamma scale
+  // Anchor values for the positive gamma correction curve
   spi_txrx(0x00);
   spi_txrx(0x03);
   spi_txrx(0x09);
@@ -37,12 +34,13 @@ void ili9488_positive_gamma_control()
   cs_high();
 }
 
-void ili9488_negative_gamma_control()
+void ili9488_negative_gamma_control(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx((char)NGC);
   dc_data();
+  // Anchor values for the negative gamma correction curve
   spi_txrx(0x00);
   spi_txrx(0x16);
   spi_txrx(0x19);
@@ -61,7 +59,7 @@ void ili9488_negative_gamma_control()
   cs_high();
 }
 
-void ili9488_power_control_1()
+void ili9488_power_control_1(void)
 {
   cs_low();
   dc_cmd();
@@ -72,7 +70,7 @@ void ili9488_power_control_1()
   cs_high();
 }
 
-void ili9488_power_control_2()
+void ili9488_power_control_2(void)
 {
   cs_low();
   dc_cmd();
@@ -82,7 +80,7 @@ void ili9488_power_control_2()
   cs_high();
 }
 
-void ili9488_vcom_control()
+void ili9488_vcom_control(void)
 {
   cs_low();
   dc_cmd();
@@ -94,29 +92,28 @@ void ili9488_vcom_control()
   cs_high();
 }
 
-void ili9488_memory_access_control()
+void ili9488_memory_access_control(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx(MADCTL);
   dc_data();
-  // spi_txrx(0x42);  // Test to reverse left/right
-  spi_txrx(0x48);  // Activate for TFT02
-  // spi_txrx(0x88);  // Activate for TFT01
+  // spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
+  spi_txrx(0x88);  // Calibrated for TF01 panel orientation
   cs_high();
 }
 
-void ili9488_interface_pixel_format()
+void ili9488_interface_pixel_format(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx(COLMOD);
   dc_data();
-  spi_txrx(0x66);
+  spi_txrx(0x66);  // 18-bit/pixel (RGB666)
   cs_high();
 }
 
-void ili9488_interface_mode_control()
+void ili9488_interface_mode_control(void)
 {
   cs_low();
   dc_cmd();
@@ -126,17 +123,17 @@ void ili9488_interface_mode_control()
   cs_high();
 }
 
-void ili9488_frame_rate_control_normal()
+void ili9488_frame_rate_control_normal(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx((char)FRMCTR1);
   dc_data();
-  spi_txrx(0xA0);
+  spi_txrx(0xA0);  // 60 Hz
   cs_high();
 }
 
-void il9488_display_inversion_control()
+void ili9488_display_inversion_control(void)
 {
   cs_low();
   dc_cmd();
@@ -146,7 +143,7 @@ void il9488_display_inversion_control()
   cs_high();
 }
 
-void ili9488_display_function_control()
+void ili9488_display_function_control(void)
 {
   cs_low();
   dc_cmd();
@@ -158,7 +155,7 @@ void ili9488_display_function_control()
   cs_high();
 }
 
-void ili9488_entry_mode_set()
+void ili9488_entry_mode_set(void)
 {
   cs_low();
   dc_cmd();
@@ -168,7 +165,7 @@ void ili9488_entry_mode_set()
   cs_high();
 }
 
-void ili9488_adjust_control_3()
+void ili9488_adjust_control_3(void)
 {
   cs_low();
   dc_cmd();
@@ -181,16 +178,16 @@ void ili9488_adjust_control_3()
   cs_high();
 }
 
-void ili9488_sleep_out()
+void ili9488_sleep_out(void)
 {
   cs_low();
   dc_cmd();
   spi_txrx(SLPOUT);
-  _delay_ms(120);
+  _delay_ms(120);  // Mandatory delay — see ILI9488 datasheet
   cs_high();
 }
 
-void ili9488_display_on()
+void ili9488_display_on(void)
 {
   cs_low();
   dc_cmd();
@@ -206,12 +203,12 @@ void ili9488_reset(void)
   RST_PORT &= ~(MAIN_SCREEN_RST);
   _delay_ms(20);
   RST_PORT |= MAIN_SCREEN_RST;
-  _delay_ms(150);  // wait out internal reset per most datasheets
+  _delay_ms(150);  // Wait out internal reset — see ILI9488 datasheet
 }
 
-// Initialisation sequence from
+// Initialisation sequence from:
 // https://github.com/Bodmer/TFT_eSPI/blob/master/TFT_Drivers/ILI9488_Init.h
-void ili9488_init_driver()
+void ili9488_init_driver(void)
 {
   ili9488_positive_gamma_control();
   ili9488_negative_gamma_control();
@@ -222,7 +219,7 @@ void ili9488_init_driver()
   ili9488_interface_pixel_format();
   ili9488_interface_mode_control();
   ili9488_frame_rate_control_normal();
-  il9488_display_inversion_control();
+  ili9488_display_inversion_control();
   ili9488_display_function_control();
   ili9488_entry_mode_set();
   ili9488_adjust_control_3();

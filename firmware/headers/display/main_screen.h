@@ -82,15 +82,6 @@ void main_screen_slpin(void);
 void main_screen_slpout(void);
 
 /**
- * @brief This command turns off sleep mode. It will be necessary to wait 5ms
- * before sending any other command.
- * It will be necessary to wait 120ms before sending a sleep in (SLPIN) command
- * to the driver.
- * SLPOUT (0x11) p.160
- */
-void main_screen_slpout(void);
-
-/**
  * @brief Enables the display
  * DISPON (0X29) p.169
  */

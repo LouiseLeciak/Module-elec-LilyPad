@@ -125,28 +125,28 @@ typedef enum e_ili9488_cmd
   CSCON = 0xF0,       ///< Command Set Control
   ADJC3 = 0xF7,       ///< Adjust Control 3
   SPIRC = 0xFB        ///< SPI Read Control
-} ST7796_cmd;
+} ili9488_cmd;
 
 // --- Setup commands --------------------------------------------------------
-void ili9488_init_driver();
+void ili9488_init_driver(void);
 void ili9488_reset(void);
 
 // Native commands
-void ili9488_sleep_out();
-void ili9488_positive_gamma_control();
-void ili9488_negative_gamma_control();
-void ili9488_power_control_1();
-void ili9488_power_control_2();
-void ili9488_vcom_control();
-void ili9488_memory_access_control();
-void ili9488_interface_pixel_format();
-void ili9488_interface_mode_control();
-void ili9488_frame_rate_control_normal();
-void il9488_display_inversion_control();
-void ili9488_display_function_control();
-void ili9488_entry_mode_set();
-void ili9488_adjust_control_3();
-void ili9488_display_on();
+void ili9488_sleep_out(void);
+void ili9488_positive_gamma_control(void);
+void ili9488_negative_gamma_control(void);
+void ili9488_power_control_1(void);
+void ili9488_power_control_2(void);
+void ili9488_vcom_control(void);
+void ili9488_memory_access_control(void);
+void ili9488_interface_pixel_format(void);
+void ili9488_interface_mode_control(void);
+void ili9488_frame_rate_control_normal(void);
+void ili9488_display_inversion_control(void);
+void ili9488_display_function_control(void);
+void ili9488_entry_mode_set(void);
+void ili9488_adjust_control_3(void);
+void ili9488_display_on(void);
 
 /** @} */
 
