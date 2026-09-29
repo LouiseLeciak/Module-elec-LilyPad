@@ -74,7 +74,7 @@ why. As soon as the SD card was inserted in its socket, the screen went rogue wi
 its displaying. We haven't managed to pin point exactly what the issue was but found
 a way to empirically avoid this. After ordering our final PCBs, we discovered the
 hypothetical reason behind this, on Elm-Chan's page about SD card use in SPI:  
-![spicon](https://elm-chan.org/docs/mmc/rc/spicon.png)
+![spicon](https://elm-chan.org/docs/mmc/rc/spicon.png)  
 Notice the $R_{PU}$ resistor ? It's a pull-up resistor on the MISO line. It
 matters because otherwise the MISO line can float (which you obviously don't want).
 Our hypothesis was conceptual-millimeters away: setting a pull-up resistor on the
