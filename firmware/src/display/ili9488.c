@@ -91,20 +91,6 @@ typedef enum
   SPIRC = 0xFB        ///< SPI Read Control
 } ili9488_cmd;
 
-/**
- * @typedef e_colmod_arg
- * @brief Arguments for COLMOD.
- *
- */
-typedef enum
-{
-  CI_16B = 0x05,   ///< Colour Interface 16bits/pixel colour format.
-  CI_18B = 0x06,   ///< Colour Interface 18bits/pixel colour format.
-  CI_24B = 0x07,   ///< Colour Interface 24bits/pixel colour format.
-  RGB_16B = 0x50,  ///< RGB Interface 16bits/pixel colour format.
-  RGB_18B = 0x60   ///< RGB Interface 18bits/pixel colour format.
-} colmod_arg;
-
 static void ili9488_positive_gamma_control(void)
 {
   MAIN_SCREEN_CS_LOW();
@@ -292,7 +278,7 @@ static void ili9488_display_on(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_reset(void)
+static void ili9488_reset(void)
 {
   PORTE |= MAIN_SCREEN_RST;
   _delay_ms(5);
@@ -301,32 +287,6 @@ void ili9488_reset(void)
   PORTE |= MAIN_SCREEN_RST;
   _delay_ms(150);  // Wait out internal reset — see ILI9488 datasheet
 }
-
-// static void main_screen_swreset(void)
-// {
-//   DC_CMD();
-//   spi_txrx(SWRESET);
-// }
-//
-// static void main_screen_slpin(void)
-// {
-//   DC_CMD();
-//   spi_txrx(SLPIN);
-//   _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
-// }
-//
-// static void main_screen_slpout(void)
-// {
-//   DC_CMD();
-//   spi_txrx(SLPOUT);
-//   _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
-// }
-//
-// static void main_screen_dispon(void)
-// {
-//   DC_CMD();
-//   spi_txrx(DISPON);
-// }
 
 // TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
 // of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
@@ -362,24 +322,6 @@ void main_screen_ramwr(void)
   spi_txrx(RAMWR);
   DC_DATA();
 }
-
-// For a table of the different parameters for this command, refer to table at
-// p.183
-// static void main_screen_madctl(const uint8_t arg)
-// {
-//   DC_CMD();
-//   spi_txrx(MADCTL);
-//   DC_DATA();
-//   spi_txrx(arg);
-// }
-
-// static void main_screen_colmod(const colmod_arg arg)
-// {
-//   DC_CMD();
-//   spi_txrx(COLMOD);
-//   DC_DATA();
-//   spi_txrx(arg);
-// }
 
 // Initialisation sequence from:
 // https://github.com/Bodmer/TFT_eSPI/blob/master/TFT_Drivers/ILI9488_Init.h
@@ -470,83 +412,6 @@ void ili9488_fill_screen(uint16_t color565)
     spi_txrx(b);
   }
   MAIN_SCREEN_CS_HIGH();
-}
-
-void main_screen_draw_pixel(const position pos, const rgb rgb)
-{
-  window win = {{pos._pos_x, pos._pos_y}, {pos._pos_x + 1, pos._pos_y + 1}};
-  main_screen_set_window(win);
-  main_screen_ramwr();
-  DC_DATA();
-  spi_txrx(pack_rgb565(rgb));
-}
-
-void main_screen_draw_rectangle(const window win, const rgb rgb)
-{
-  // uint16_t color = pack_rgb565(rgb);
-
-  main_screen_set_window(win);
-  main_screen_ramwr();
-  DC_DATA();
-  for (uint32_t i = 0; i < (win._end._pos_x - win._start._pos_x + 1) *
-                               (win._end._pos_y - win._start._pos_y + 1);
-       i++)
-  {
-    spi_txrx(rgb._red & 0xFC);
-    spi_txrx(rgb._green & 0xFC);
-    spi_txrx(rgb._blue & 0xFC);
-  }
-}
-
-// ------ Utilitaries commands --------------------------------------------
-// NOTE: Interesting bit on 16-bit pixel SPI transmission at MAIN_SCREEN's
-// datasheet p.88
-uint16_t pack_rgb565(const rgb colour)
-{
-  // For the red, we need to isolate the 5 most significant bits:
-  //  1 1 1 1 | 1 0 0 0 (the `1` indicate the most significant bits)
-  //  As the first half is full of 1, we know our mask starts with 0xF
-  //  Then, only a 1 for 2^3=8, so the end of the mask is 8
-  //  The mask thus is 0xF8
-
-  // For the green, we need to isolate the 6 most significant bits:
-  //  1 1 1 1 | 1 1 0 0 (the `1` indicate the most significant bits)
-  //  As the first half is full of 1, we know our mask starts with 0xF
-  //  Then, only a 1 for 2^3=8 and 2^2=4, so the end of the mask is 12 in
-  //  decimal and C in hex The mask thus is 0xFC
-
-  // For the blue we just bitshift 3 times to the right as it would be
-  // essentially the same as applying 0xF8 on it.
-
-  // In the end, this is the structure of the data to send :
-  // R  R  R  R  R  G  G G G G G B B B B B
-  // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-  return (((colour._red & 0xF8) << 8) | ((colour._green & 0xFC) << 3) |
-          (colour._blue >> 3));
-}
-
-uint16_t pack_rgb666(const rgb colour)
-{
-  // For the red, we need to isolate the 5 most significant bits:
-  //  1 1 1 1 | 1 0 0 0 (the `1` indicate the most significant bits)
-  //  As the first half is full of 1, we know our mask starts with 0xF
-  //  Then, only a 1 for 2^3=8, so the end of the mask is 8
-  //  The mask thus is 0xF8
-
-  // For the green, we need to isolate the 6 most significant bits:
-  //  1 1 1 1 | 1 1 0 0 (the `1` indicate the most significant bits)
-  //  As the first half is full of 1, we know our mask starts with 0xF
-  //  Then, only a 1 for 2^3=8 and 2^2=4, so the end of the mask is 12 in
-  //  decimal and C in hex The mask thus is 0xFC
-
-  // For the blue we just bitshift 3 times to the right as it would be
-  // essentially the same as applying 0xF8 on it.
-
-  // In the end, this is the structure of the data to send :
-  // R  R  R  R  R  G  G G G G G B B B B B
-  // 15 14 13 12 11 10 9 8 7 6 5 4 3 2 1 0
-  return (((colour._red & 0xF8) << 8) | ((colour._green & 0xFC) << 3) |
-          (colour._blue >> 3));
 }
 
 void main_screen_set_window(const window win)
