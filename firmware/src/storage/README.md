@@ -9,7 +9,7 @@ to read block by block or several blocks.
 fatfs.c/h are an abstraction layer for the FAT file system, this program only needs
 read operations so you can only read files in the root directory.
 
-sd_streaming is an abstraction layer to stream bitmap files to the main screen.
+sd_streaming.c/h are an abstraction layer to stream bitmap files to the main screen.
 
 ## Succinct explanations
 
