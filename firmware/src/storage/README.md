@@ -27,7 +27,7 @@ commands.
 > During initialisation, the SD Card needs the SPI clock rate to be set between
 > 100-400kHz !
 
-Here is the flow chart of SD card initialisation in SPI mode :
+Here is the flow chart of SD card initialisation in SPI mode :  
 ![sdinit](https://elm-chan.org/docs/mmc/rc/sdinit.png)
 
 ### Read operations
@@ -73,7 +73,7 @@ to display things in a garbled manner. It truly was a proper headache to underst
 why. As soon as the SD card was inserted in its socket, the screen went rogue with
 its displaying. We haven't managed to pin point exactly what the issue was but found
 a way to empirically avoid this. After ordering our final PCBs, we discovered the
-hypothetical reason behind this, on Elm-Chan's page about SD card use in SPI:
+hypothetical reason behind this, on Elm-Chan's page about SD card use in SPI:  
 ![spicon](https://elm-chan.org/docs/mmc/rc/spicon.png)
 Notice the $R_{PU}$ resistor ? It's a pull-up resistor on the MISO line. It
 matters because otherwise the MISO line can float (which you obviously don't want).
