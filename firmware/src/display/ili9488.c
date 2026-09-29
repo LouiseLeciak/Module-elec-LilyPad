@@ -12,7 +12,7 @@
  * p.140-148
  *
  */
-typedef enum e_ili9488_cmd
+typedef enum
 {
   NOP = 0x00,                   ///< No operation
   SWRESET = 0x01,               ///< Software Reset
@@ -91,7 +91,21 @@ typedef enum e_ili9488_cmd
   SPIRC = 0xFB        ///< SPI Read Control
 } ili9488_cmd;
 
-void ili9488_positive_gamma_control(void)
+/**
+ * @typedef e_colmod_arg
+ * @brief Arguments for COLMOD.
+ *
+ */
+typedef enum
+{
+  CI_16B = 0x05,   ///< Colour Interface 16bits/pixel colour format.
+  CI_18B = 0x06,   ///< Colour Interface 18bits/pixel colour format.
+  CI_24B = 0x07,   ///< Colour Interface 24bits/pixel colour format.
+  RGB_16B = 0x50,  ///< RGB Interface 16bits/pixel colour format.
+  RGB_18B = 0x60   ///< RGB Interface 18bits/pixel colour format.
+} colmod_arg;
+
+static void ili9488_positive_gamma_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -116,7 +130,7 @@ void ili9488_positive_gamma_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_negative_gamma_control(void)
+static void ili9488_negative_gamma_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -141,7 +155,7 @@ void ili9488_negative_gamma_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_power_control_1(void)
+static void ili9488_power_control_1(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -152,7 +166,7 @@ void ili9488_power_control_1(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_power_control_2(void)
+static void ili9488_power_control_2(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -162,7 +176,7 @@ void ili9488_power_control_2(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_vcom_control(void)
+static void ili9488_vcom_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -174,7 +188,7 @@ void ili9488_vcom_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_memory_access_control(void)
+static void ili9488_memory_access_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -185,7 +199,7 @@ void ili9488_memory_access_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_interface_pixel_format(void)
+static void ili9488_interface_pixel_format(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -195,7 +209,7 @@ void ili9488_interface_pixel_format(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_interface_mode_control(void)
+static void ili9488_interface_mode_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -205,7 +219,7 @@ void ili9488_interface_mode_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_frame_rate_control_normal(void)
+static void ili9488_frame_rate_control_normal(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -215,7 +229,7 @@ void ili9488_frame_rate_control_normal(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_display_inversion_control(void)
+static void ili9488_display_inversion_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -225,7 +239,7 @@ void ili9488_display_inversion_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_display_function_control(void)
+static void ili9488_display_function_control(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -237,7 +251,7 @@ void ili9488_display_function_control(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_entry_mode_set(void)
+static void ili9488_entry_mode_set(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -247,7 +261,7 @@ void ili9488_entry_mode_set(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_adjust_control_3(void)
+static void ili9488_adjust_control_3(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -260,7 +274,7 @@ void ili9488_adjust_control_3(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_sleep_out(void)
+static void ili9488_sleep_out(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -269,7 +283,7 @@ void ili9488_sleep_out(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_display_on(void)
+static void ili9488_display_on(void)
 {
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
@@ -288,9 +302,88 @@ void ili9488_reset(void)
   _delay_ms(150);  // Wait out internal reset — see ILI9488 datasheet
 }
 
+// static void main_screen_swreset(void)
+// {
+//   DC_CMD();
+//   spi_txrx(SWRESET);
+// }
+//
+// static void main_screen_slpin(void)
+// {
+//   DC_CMD();
+//   spi_txrx(SLPIN);
+//   _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
+// }
+//
+// static void main_screen_slpout(void)
+// {
+//   DC_CMD();
+//   spi_txrx(SLPOUT);
+//   _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
+// }
+//
+// static void main_screen_dispon(void)
+// {
+//   DC_CMD();
+//   spi_txrx(DISPON);
+// }
+
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
+static void main_screen_caset(const uint16_t col_start, const uint16_t col_end)
+{
+  DC_CMD();
+  spi_txrx(CASET);
+
+  DC_DATA();
+  spi_txrx(col_start >> 8);
+  spi_txrx(col_start & 0xFF);
+  spi_txrx(col_end >> 8);
+  spi_txrx(col_end & 0xFF);
+}
+
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
+static void main_screen_raset(const uint16_t row_start, const uint16_t row_end)
+{
+  DC_CMD();
+  spi_txrx(RASET);
+
+  DC_DATA();
+  spi_txrx(row_start >> 8);
+  spi_txrx(row_start & 0xFF);
+  spi_txrx(row_end >> 8);
+  spi_txrx(row_end & 0xFF);
+}
+
+void main_screen_ramwr(void)
+{
+  DC_CMD();
+  spi_txrx(RAMWR);
+  DC_DATA();
+}
+
+// For a table of the different parameters for this command, refer to table at
+// p.183
+// static void main_screen_madctl(const uint8_t arg)
+// {
+//   DC_CMD();
+//   spi_txrx(MADCTL);
+//   DC_DATA();
+//   spi_txrx(arg);
+// }
+
+// static void main_screen_colmod(const colmod_arg arg)
+// {
+//   DC_CMD();
+//   spi_txrx(COLMOD);
+//   DC_DATA();
+//   spi_txrx(arg);
+// }
+
 // Initialisation sequence from:
 // https://github.com/Bodmer/TFT_eSPI/blob/master/TFT_Drivers/ILI9488_Init.h
-void ili9488_init_driver(void)
+static void ili9488_init_driver(void)
 {
   ili9488_positive_gamma_control();
   ili9488_negative_gamma_control();
@@ -460,85 +553,4 @@ void main_screen_set_window(const window win)
 {
   main_screen_caset(win._start._pos_y, win._end._pos_y);
   main_screen_raset(win._start._pos_x, win._end._pos_x);
-}
-
-// --- LOW LEVEL COMMANDS
-// ------------------------------------------------------
-void main_screen_swreset(void)
-{
-  DC_CMD();
-  spi_txrx(SWRESET);
-}
-
-void main_screen_slpin(void)
-{
-  DC_CMD();
-  spi_txrx(SLPIN);
-  _delay_ms(5);  // See 9.2.12 (p.159), Restrictions, paragraph 2
-}
-
-void main_screen_slpout(void)
-{
-  DC_CMD();
-  spi_txrx(SLPOUT);
-  _delay_ms(120);  // See 9.2.13 (p.161), Restrictions, paragraph 3
-}
-
-void main_screen_dispon(void)
-{
-  DC_CMD();
-  spi_txrx(DISPON);
-}
-
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
-// of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
-void main_screen_caset(const uint16_t col_start, const uint16_t col_end)
-{
-  DC_CMD();
-  spi_txrx(CASET);
-
-  DC_DATA();
-  spi_txrx(col_start >> 8);
-  spi_txrx(col_start & 0xFF);
-  spi_txrx(col_end >> 8);
-  spi_txrx(col_end & 0xFF);
-}
-
-// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
-// of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
-void main_screen_raset(const uint16_t row_start, const uint16_t row_end)
-{
-  DC_CMD();
-  spi_txrx(RASET);
-
-  DC_DATA();
-  spi_txrx(row_start >> 8);
-  spi_txrx(row_start & 0xFF);
-  spi_txrx(row_end >> 8);
-  spi_txrx(row_end & 0xFF);
-}
-
-void main_screen_ramwr(void)
-{
-  DC_CMD();
-  spi_txrx(RAMWR);
-  DC_DATA();
-}
-
-// For a table of the different parameters for this command, refer to table at
-// p.183
-void main_screen_madctl(const uint8_t arg)
-{
-  DC_CMD();
-  spi_txrx(MADCTL);
-  DC_DATA();
-  spi_txrx(arg);
-}
-
-void main_screen_colmod(const colmod_arg arg)
-{
-  DC_CMD();
-  spi_txrx(COLMOD);
-  DC_DATA();
-  spi_txrx(arg);
 }
