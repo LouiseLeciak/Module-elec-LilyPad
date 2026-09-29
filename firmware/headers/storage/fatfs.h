@@ -6,9 +6,6 @@
 // NOTE: FAT specification here:
 // https://academy.cba.mit.edu/classes/networking_communications/SD/FAT.pdf
 
-// NOTE: Guide on how to port FatFS by Elm-Chan:
-// https://elm-chan.org/fsw/ff/doc/appnote.html#port
-
 // NOTE: Want to learn about FAT ? :)
 // https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system#Boot_Sector
 
