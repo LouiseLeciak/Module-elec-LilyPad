@@ -51,8 +51,15 @@
 
 #define MAIN_SCREEN_CS_LOW() (PORTH &= ~(MAIN_SCREEN_CS));
 #define MAIN_SCREEN_CS_HIGH() (PORTH |= (MAIN_SCREEN_CS));
-
 #define SD_CS_LOW() (PORTH &= ~(SD_CS))
 #define SD_CS_HIGH() (PORTH |= (SD_CS))
+
+#define MAIN_SCREEN_RST_HIGH() (PORTH |= (MAIN_SCREEN_RST))
+#define MAIN_SCREEN_RST_LOW() (PORTH &= ~(MAIN_SCREEN_RST))
+#define MAIN_SCREEN_BL_HIGH() (PORTH |= (MAIN_SCREEN_BL))
+#define MAIN_SCREEN_BL_LOW() (PORTH &= ~(MAIN_SCREEN_BL))
+
+#define DC_CMD() (PORTH &= ~(SCREENS_DC))
+#define DC_DATA() (PORTH |= (SCREENS_DC))
 
 #endif /* ifndef PINOUT_H */

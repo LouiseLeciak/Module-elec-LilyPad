@@ -24,30 +24,29 @@ CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) 
 # --- SOURCE & OBJECT FILES ---
 SRC_FIL	=	main \
 					app/alphabet \
-					display/bmp \
-					utils/crc \
-					display/eye_imgs \
 					app/game \
-					display/GC9A01 \
-					system/globals \
-					input/i2c_rotary \
-					display/ili9488 \
-					system/init \
-					input/keypad \
 					app/language \
-					display/main_screen \
-					utils/mem_utils \
 					app/menu \
-					system/power_save \
-					input/rotary \
+					app/traduction \
+					display/bmp \
+					display/eye_imgs \
+					display/GC9A01 \
+					display/ili9488 \
 					display/screen_text \
 					display/small_font \
-					system/spi \
+					input/i2c_rotary \
+					input/keypad \
+					input/rotary \
 					storage/fatfs \
 					storage/sd \
 					storage/sd_streaming \
-					app/traduction \
+					system/globals \
+					system/init \
+					system/power_save \
+					system/spi \
 					system/uart \
+					utils/crc \
+					utils/mem_utils \
 					utils/utils
 
 SRC	= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FIL)))
