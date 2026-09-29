@@ -7,9 +7,7 @@
 #ifndef SD_H
 #define SD_H
 
-// NOTE: Useful information about how to write to a SD card over SPI is there:
-// https://onlinedocs.microchip.com/oxy/GUID-F9FE1ABC-D4DD-4988-87CE-2AFD74DEA334-en-US-3/GUID-48879CB2-9C60-4279-8B98-E17C499B12AF.html
-// This is also useful ("How to Use MMC/SDC"):
+// NOTE: Useful information about how to use MMC/SDC :
 // https://elm-chan.org/docs/mmc/mmc_e.html
 
 #include <avr/io.h>
