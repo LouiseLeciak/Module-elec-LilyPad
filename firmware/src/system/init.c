@@ -2,7 +2,7 @@
 
 #include "app/language.h"
 #include "display/GC9A01.h"
-#include "display/main_screen.h"
+#include "display/ili9488.h"
 #include "input/i2c_rotary.h"
 #include "input/keypad.h"
 #include "pinout.h"

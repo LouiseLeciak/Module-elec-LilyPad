@@ -10,6 +10,7 @@
 #include <avr/io.h>
 
 #include "pinout.h"
+#include "structs.h"
 
 /**
  * @defgroup Display_ILI9488
@@ -17,136 +18,153 @@
  * @{
  */
 
-#define CS_DDR DDRH
-#define CS_PORT PORTH
-#define CS_PIN MAIN_SCREEN_CS
-
-#define DC_DDR DDRH
-#define DC_PORT PORTH
-#define DC_PIN SCREENS_DC
-
-#define RST_DDR DDRH
-#define RST_PORT PORTH
-#define RST_PIN MAIN_SCREEN_RST
-
-#define BL_DDR DDRH
-#define BL_PORT PORTH
-#define BL_PIN MAIN_SCREEN_BL
-
-/**
- * @brief Hardware configuration for the ILI9488 display.
- */
-typedef struct s_ili9488
-{
-  volatile uint8_t* port;
-  const uint16_t ss_pin;
-} ILI9488;
-
-/**
- * @typedef e_ili9488_cmd
- * @brief List of the II9488's commands, as per the ILI9488's datasheet
- * p.140-148
- *
- */
-typedef enum e_ili9488_cmd
-{
-  NOP = 0x00,                   ///< No operation
-  SWRESET = 0x01,               ///< Software Reset
-  RDDID = 0x04,                 ///< Read display ID
-  RD_NB_ERR_DSI = 0x05,         ///< Read Number of the Errors on DSI
-  RDDST = 0x09,                 ///< Read Display Status
-  RDDPM = 0x0A,                 ///< Read Display Power
-  RDD_MADCTL = 0x0B,            ///< Read Display
-  RDD_INTRFC_PX_FORMAT = 0x0C,  ///< RDD Interface Pixel Format
-  RDDIM = 0x0D,                 ///< Read Display Image
-  RDDSM = 0x0E,                 ///< Read Display Signal
-  RDDSDR = 0x0F,                ///< Read Display Self-Diagnostic Result
-  SLPIN = 0x10,                 ///< Sleep In
-  SLPOUT = 0x11,                ///< Sleep Out
-  PTLON = 0x12,                 ///< Partial Mode ON
-  NORON = 0x13,                 ///< Partial Mode OFF (Normal)
-  INVOFF = 0x20,                ///< Display Inversion OFF
-  INVON = 0x21,                 ///< Display Inversion ON
-  DISPOFF = 0x28,               ///< Display OFF
-  DISPON = 0x29,                ///< Display ON
-  CASET = 0x2A,                 ///< Column Address Set
-  RASET = 0x2B,                 ///< Row Address Set
-  RAMWR = 0x2C,                 ///< Memory Write
-  RAMRD = 0x2E,                 ///< Memory Read
-  PTLAR = 0x30,                 ///< Partial Start/End Address Set
-  VSCRDEF = 0x33,               ///< Vertical Scrolling Definition
-  TEOFF = 0x34,                 ///< Tearing Effect Line OFF
-  TEON = 0x35,                  ///< Tearing Effect Line ON
-  MADCTL = 0x36,                ///< Memory Data Access Control
-  VSCRSADD = 0x37,              ///< Vertical Scrolling Start Address
-  IDMOFF = 0x38,                ///< Idle Mode OFF
-  IDMON = 0x39,                 ///< Idle Mode ON
-  COLMOD = 0x3A,                ///< Interface Pixel Format
-  RAMWRC = 0x3C,                ///< Memory Write Continue
-  RAMRDC = 0x3E,                ///< Memory Read Continue
-  TESCAN = 0x44,                ///< Set Tear Scanline
-  RDTESCAN = 0x45,              ///< Get Scanline
-  WRDISBV = 0x51,               ///< Write Display Brightness
-  RDDISBV = 0x52,               ///< Read Display Brightness Value
-  WRCTRLD = 0x53,               ///< Write CTRL Display
-  RDCTRLD = 0x54,               ///< Read CTRL Value Display
-  WRCABC = 0x55,                ///< Write Content Adaptive Brightness Control
-  RDCABC = 0x56,                ///< Read Content Adaptive Brightness Control
-  WRCABCMB = 0x5E,              ///< Write CABC Minimum Brightness
-  RDCABCMB = 0x5F,              ///< Read CABC Minimum Brightness
-  RDAUTB = 0x68,                ///< Read automatic brightness
-  RDFCHKSUM = 0xAA,             ///< Read First Checksum
-  RDCCHKSUM = 0xAF,             ///< Read Continue Checksum
-  IFMODE = 0xB0,                ///< Interface Mode Control
-  FRMCTR1 = 0xB1,     ///< Frame Rate Control (In Normal Mode / Full Colours)
-  FRMCTR2 = 0xB2,     ///< Frame Rate Control (In Idle Mode / 8 Colours)
-  FRMCTR3 = 0xB3,     ///< Frame Rate Control (In Partial Mode / Full Colours)
-  INVTR = 0xB4,       ///< Display Inversion Control
-  BPC = 0xB5,         ///< Blanking Porch Control
-  DFC = 0xB6,         ///< Display Function Control
-  EM = 0xB7,          ///< Entry Mode Set
-  PWR1 = 0xC0,        ///< Power Control 1
-  PWR2 = 0xC1,        ///< Power Control 2
-  PWR3 = 0xC2,        ///< Power Control 3
-  VCMPCTL = 0xC5,     ///< VCom Control
-  VCM_OFFSET = 0xC6,  ///< VCom Offset Register
-  NVMADW = 0xD0,      ///< NVM Address/Data
-  NVMBPROG = 0xD1,    ///< NVM Byte Program Control
-  NVMSTRD = 0xD2,     ///< NVM Status Read
-  RDID4 = 0xD3,       ///< Read ID4
-  RDID1 = 0xDA,       ///< Read ID1
-  RDID2 = 0xDB,       ///< Read ID2
-  RDID3 = 0xDC,       ///< Read ID3
-  PGC = 0xE0,         ///< Positive Gamma Control
-  NGC = 0xE1,         ///< Negative Gamma Control
-  DGC1 = 0xE2,        ///< Digital Gamma Control1
-  DGC2 = 0xE3,        ///< Digital Gamma Control2
-  DOCA = 0xE8,        ///< Display Output
-  CSCON = 0xF0,       ///< Command Set Control
-  ADJC3 = 0xF7,       ///< Adjust Control 3
-  SPIRC = 0xFB        ///< SPI Read Control
-} ili9488_cmd;
-
 // --- Setup commands --------------------------------------------------------
 void ili9488_init_driver(void);
 void ili9488_reset(void);
 
-// Native commands
-void ili9488_sleep_out(void);
-void ili9488_positive_gamma_control(void);
-void ili9488_negative_gamma_control(void);
-void ili9488_power_control_1(void);
-void ili9488_power_control_2(void);
-void ili9488_vcom_control(void);
-void ili9488_memory_access_control(void);
-void ili9488_interface_pixel_format(void);
-void ili9488_interface_mode_control(void);
-void ili9488_frame_rate_control_normal(void);
-void ili9488_display_inversion_control(void);
-void ili9488_display_function_control(void);
-void ili9488_entry_mode_set(void);
-void ili9488_adjust_control_3(void);
-void ili9488_display_on(void);
+#define MAIN_SCREEN_WIDTH 320
+#define MAIN_SCREEN_HEIGHT 480
+
+// --- High-level commands ---------------------------------------------------
+// --- Setup commands --------------------------------------------------------
+void main_screen_init();
+
+// --------- Drawing commands ------------------------------------------------
+/**
+ * @brief Draws the provided string inside the driver's RAM.
+ *
+ * @param pos Position for the start of the text.
+ * @param str The string of text to displa.
+ * @param fg Text's colour.
+ * @param bg Background's colour.
+ * @param scale Text scaling (default 1).
+ */
+void main_screen_draw_string(position pos, const char* str, const rgb fg,
+                             const rgb bg, const uint8_t scale);
+
+/**
+ * @brief Draws a rectangle of the size and position specified in win and of
+ * colour rgb.
+ *
+ * @param win Window for the rectangle, specifies the position and de facto
+ * size.
+ * @param rgb RGB colour to fill the rectangle with.
+ */
+void main_screen_draw_rectangle(const window win, const rgb rgb);
+
+void ili9488_fill_screen(uint16_t color565);
+// --------- Utilitaries commands --------------------------------------------
+/**
+ * @brief Packs a RGB colour stored in 3*8 bits in a uint16_t for the ST7796
+ * driver to send to the screen. The format is the following:
+ * - 5 bits red,
+ * - 6 bits green,
+ * - 5 bits blue
+ *
+ * @param colour The colour to be packed.
+ * @return The uint16_t with the packed colour.
+ */
+uint16_t pack_rgb565(const rgb colour);
+
+/**
+ * @brief Sets a window for the ST7796 driver. Is usually called before
+ * st7796_ramwr().
+ *
+ * @param win The window to be transmitted to the driver so it can be used then.
+ */
+void main_screen_set_window(const window win);
+
+// --- Low-level commands ----------------------------------------------------
+
+/**
+ * @brief This command causes the commands and parameters to their S/W Reset
+ * default values. After sending this command, it is necessary to wait 5ms
+ * before sending another command.
+ * If a software reset is sent during sleep in
+ * mode, it will be necessary to wait 120ms before sending sleep out command.
+ * Software Reset command can't be sent during sleep out sequence.
+ * SWRESET (0x01) p.141
+ */
+void main_screen_swreset(void);
+
+/**
+ * @brief This command causes the LCD module to enter the minimum power
+ * consumption mode.
+ * SLPIN (0x10) p.159
+ */
+void main_screen_slpin(void);
+
+/**
+ * @brief This command turns off sleep mode.
+ * SLPOUT (0x11) p.160
+ */
+void main_screen_slpout(void);
+
+/**
+ * @brief Enables the display
+ * DISPON (0X29) p.169
+ */
+void main_screen_dispon(void);
+
+/**
+ * @brief Sets the column address.
+ * CASET (0x2A) p.170
+ *
+ * @param col_start Start of the column (between 0 and the width of the screen
+ * minus one).
+ * @param col_end End of the column (between 0 and the width of the screen
+ * minus one).
+ */
+void main_screen_caset(const uint16_t col_start, const uint16_t col_end);
+
+/**
+ * @brief Sets the row address.
+ * RASET (0x2B) p.172
+ *
+ * @param row_start Start of the row (between 0 and the height of the screen
+ * minus one).
+ * @param row_end End of the row (between 0 and the height of the screen minus
+ * one).
+ */
+void main_screen_raset(const uint16_t row_start, const uint16_t row_end);
+
+/**
+ * @brief This command is used to transfer data from the MCU to frame memory.
+ * When this command is set, both the column and row registers are reset to the
+ * start column/row start positions. Sending any other command can stop frame
+ * write.
+ * RAMWR (0x2C) p.173
+ */
+void main_screen_ramwr(void);
+
+/**
+ * @brief This command defines read/write scanning direction of frame memory.
+ * MADCTL (0x36) p.183
+ *
+ * @param arg Argument for the command, according to table p.183.
+ */
+void main_screen_madctl(const uint8_t arg);
+
+/**
+ * @typedef e_colmod_arg
+ * @brief Arguments for COLMOD.
+ *
+ */
+typedef enum e_colmod_arg
+{
+  CI_16B = 0x05,   ///< Colour Interface 16bits/pixel colour format.
+  CI_18B = 0x06,   ///< Colour Interface 18bits/pixel colour format.
+  CI_24B = 0x07,   ///< Colour Interface 24bits/pixel colour format.
+  RGB_16B = 0x50,  ///< RGB Interface 16bits/pixel colour format.
+  RGB_18B = 0x60   ///< RGB Interface 18bits/pixel colour format.
+} colmod_arg;
+
+/**
+ * @brief Defines the format of RGB picture data, which is to be transferred
+ * via the MCU interface. The table of the parameters is listed at p.190
+ * COLMOD (0x3A) p.190
+ */
+void main_screen_colmod(const colmod_arg);
 
 /** @} */
 
