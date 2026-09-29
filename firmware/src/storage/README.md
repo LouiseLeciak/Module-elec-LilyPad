@@ -44,8 +44,8 @@ root of the SD card to look for Bitmap (.bmp) files in order to store their star
 address in a look up table so we can avoid losing time trying to find where each image
 is when we need to display them on the screen !
 
-It might be the most structure-heavy part of the codebase, mainly because it allows
-for easily mapping the data (that is why the structures have `__attribute__((packed))`
+It might be the most structure-heavy part of the codebase, mainly because structs
+allows for easily mapping the data (that is why the structures have `__attribute__((packed))`
 , it prevents those structs from being padded, so we can just use a home made memcpy
 function to retrieve the data).
 
