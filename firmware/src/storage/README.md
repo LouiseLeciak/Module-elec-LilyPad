@@ -6,7 +6,7 @@ filesystem navigation and streaming data from the aforementioned SD card.
 sd.c/h are responsible for initialising a SD card, they also provide an interface
 to read block by block or several blocks.
 
-fats.c/h are an abstraction layer for the FAT file system, this program only needs
+fatfs.c/h are an abstraction layer for the FAT file system, this program only needs
 read operations so you can only read files in the root directory.
 
 sd_streaming is an abstraction layer to stream bitmap files to the main screen.
