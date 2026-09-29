@@ -2,6 +2,7 @@
 
 #include "display/GC9A01.h"
 #include "pinout.h"
+#include "system/uart.h"
 
 uint32_t inactivity_counter = 0;
 uint8_t inac = 0;
@@ -15,6 +16,8 @@ void power_save_update(void)
 
   if (inactivity_counter >= 30000)
   {
+    if (inac == 0)
+      uart_printstr("[PWR] Screen sleeping (inactivity timeout)\r\n");
     PORTH &= ~MAIN_SCREEN_BL;  // on eteint
     GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
     inac = 1;
@@ -29,6 +32,7 @@ void power_save_activity(void)
 
   if (inac == 1)
   {
+    uart_printstr("[PWR] Screen waking up\r\n");
     PORTH |= MAIN_SCREEN_BL;
     //   eyes_action(); // pose un pb je crois, c;est pas toujours bine
     //   responsive, a tester

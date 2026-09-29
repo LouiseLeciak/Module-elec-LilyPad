@@ -7,6 +7,7 @@
 #include "input/keypad.h"
 #include "system/globals.h"
 #include "system/power_save.h"
+#include "system/uart.h"
 
 uint8_t game_choice = 0;
 game_state_t game_state = GAME_MENU;
@@ -259,6 +260,18 @@ void start_find_letter(void)
 
   game_answer = 0;  // set the player choice at 0
 
+#ifdef DEBUG
+  uart_printstr("[GAME] Find Letter | target=");
+  uart_tx(game_target);
+  uart_printstr(" | choices=");
+  uart_tx(game_answers[0]);
+  uart_tx(' ');
+  uart_tx(game_answers[1]);
+  uart_tx(' ');
+  uart_tx(game_answers[2]);
+  uart_printstr("\r\n");
+#endif
+
   display_find_letter();
 }
 
@@ -373,6 +386,18 @@ void start_find_sign(void)
   }
 
   game_answer = 0;
+
+#ifdef DEBUG
+  uart_printstr("[GAME] Find Sign | target=");
+  uart_tx(game_target);
+  uart_printstr(" | choices=");
+  uart_tx(game_answers[0]);
+  uart_tx(' ');
+  uart_tx(game_answers[1]);
+  uart_tx(' ');
+  uart_tx(game_answers[2]);
+  uart_printstr("\r\n");
+#endif
 
   display_find_sign();
 }

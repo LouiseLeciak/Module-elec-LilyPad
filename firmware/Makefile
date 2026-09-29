@@ -16,9 +16,8 @@ CC			:=	avr-gcc
 OBJCOPY	:=	avr-objcopy
 DUDE		:=	avrdude
 
-
 # --- COMPILER FLAGS ---
-INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc/avr/include
+INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc@15/avr/include
 CFLAGS		=	-Wall -Wextra -Werror  $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
 
 
@@ -60,7 +59,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc lint fix-lint
+.PHONY: all hex flash clean re doc debug
 
 all: hex
 
@@ -82,15 +81,13 @@ $(HEX) : $(TARGET).bin
 flash: $(HEX)
 	$(DUDE) -v -p $(MCU) -c $(PROGRAMMER) -D -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
 
-lint:
-	find . \( -name '*.c' -o -name '*.h' \) | xargs clang-format --dry-run --Werror --style=file
-
-fix-lint:
-	find . \( -name '*.c' -o -name '*.h' \) | xargs clang-format -i --style=file
-
 clean:
 	rm -rf $(BUI_DIR)
 
 re: clean all
+
+debug: clean debug_compile
+debug_compile: CFLAGS += -DDEBUG
+debug_compile: all flash
 
 -include $(DEP)

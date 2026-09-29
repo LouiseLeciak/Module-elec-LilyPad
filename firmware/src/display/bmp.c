@@ -7,11 +7,10 @@ uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header)
 {
   *header = *(bmp_header*)(buf);
 
+#ifdef DEBUG
   bmp_dump_header(header);
+#endif /* ifdef DEBUG */
 
-  uart_printstr("File signature: ");
-  uart_printhex_32(header->signature);
-  uart_printstr("\r\n");
   if (header->signature != 0x4D42)
   {
     uart_printstr("Bitmap file got invalid signature.\r\n");

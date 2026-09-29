@@ -83,10 +83,13 @@ void display_alphabet_letter(void)
   ft_strcat(file_name, "   BMP");
   ////////////////////////////////////////////////////////////
   // aller regarder dans la lookup table
+  uint8_t found = 0;
+  (void)found;  // Because use of variable is inside a ifdef
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
     {
+      found = 1;
       uart_printstr("Queried file name: ");
       uart_printstr(file_name);
       uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
@@ -97,6 +100,14 @@ void display_alphabet_letter(void)
       sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
     }
   }
+#ifdef DEBUG
+  if (!found)
+  {
+    uart_printstr("[ALPHA] No image found for: ");
+    uart_printstr(file_name);
+    uart_printstr("\r\n");
+  }
+#endif
 }
 // manage keyboard in alphabet mode
 void alphabet()
