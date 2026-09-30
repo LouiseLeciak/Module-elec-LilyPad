@@ -1,4 +1,4 @@
-Application principale
+# Application principale
 
 =================================
 
@@ -109,6 +109,7 @@ Pour la BSL, le programme recherche les images associees au suffixe BSL.
 
 Les images sont ensuite affichees une par une sur l'ecran principal.
 
+----------------------------------------------------------------------
 ### Alphabet
 
 La fonctionnalite Alphabet permet de parcourir les caracteres disponibles.
@@ -125,6 +126,7 @@ ALPHABET_LIST
 
 ALPHABET_LETTER
 
+----------------------------------------------------------------------
 ### Jeux
 
 L'application possede deux jeux.
@@ -183,6 +185,7 @@ Une seule des trois images correspond à la lettre donnee.
 
 Les choix et les lettres sont generes aleatoirement.
 
+----------------------------------------------------------------------
 ## Encodeur rotatif
 
 L'encodeur est connecte au MCP23017, lui-meme relie à l'ATmega2560 par I²C.
