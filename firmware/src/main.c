@@ -12,19 +12,18 @@
 #include "system/init.h"
 #include "system/power_save.h"
 #include "utils/keyboard_utils.h"
+#include "display/GC9A01.h"
+// #include "display/eye_imgs.h"
 
 int main(void)
 {
   init();
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
-  // GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
-  // GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
   eyes_action();
 
   language_init();
   show_menu();
-  // eyes_action();
 
   while (1)
   {

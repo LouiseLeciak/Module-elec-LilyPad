@@ -172,5 +172,7 @@ uint8_t change_eye(uint8_t es);
 // moving eyes in main
 void eyes_action();
 void blink_front();
+void win();
+void loose();
 
 #endif

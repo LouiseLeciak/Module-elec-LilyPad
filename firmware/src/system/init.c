@@ -30,7 +30,7 @@ void init(void)
   spi_master_init();
   uart_init(MYUBRR);
 
-  _delay_ms(150);
+  _delay_ms(500);
   disk_initialize(0);  // SD Initialisation
   if (parse_mbr() == RES_OK)
   {
