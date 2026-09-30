@@ -513,3 +513,11 @@ void eyes_action()
 void blink_front(){
   GC9A01_blink(Eye_Front, 1);
 }
+
+void win(){
+  GC9A01_blink(Eye_Heart, 1);
+}
+
+void loose(){
+  GC9A01_blink(Eye_no, 1);
+}

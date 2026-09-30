@@ -17,5 +17,7 @@
 
 extern const uint8_t Eye_look_Right[] PROGMEM;
 extern const uint8_t Eye_Front[] PROGMEM;
+extern const uint8_t Eye_Heart[] PROGMEM;
+extern const uint8_t Eye_no[] PROGMEM;
 
 #endif

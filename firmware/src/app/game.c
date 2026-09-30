@@ -13,7 +13,6 @@
 #include "utils/utils.h"
 
 
-
 uint8_t game_choice = 0;
 game_state_t game_state = GAME_MENU;
 char game_target;
@@ -559,6 +558,7 @@ void display_letter_answers(void)
 void display_game_yes(void)
 {
   power_save_activity();
+  win();
   ili9488_fill_screen(GC9A01A_COLOR_GREEN);
 
   draw_string(110, 170, "O", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_GREEN, 20, 2);
@@ -567,6 +567,7 @@ void display_game_yes(void)
 void display_game_no(void)
 {
   power_save_activity();
+  loose();
   ili9488_fill_screen(GC9A01A_COLOR_RED);
 
   draw_string(110, 170, "X", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_RED, 20, 2);
