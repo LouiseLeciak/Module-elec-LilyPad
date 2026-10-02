@@ -12,8 +12,8 @@
  */
 typedef struct s_position
 {
-  uint32_t _pos_x;  ///< X coordinate.
-  uint32_t _pos_y;  ///< Y coordinate.
+  uint16_t _pos_x;  ///< X coordinate.
+  uint16_t _pos_y;  ///< Y coordinate.
 } position;
 
 /**

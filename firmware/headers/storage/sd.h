@@ -77,7 +77,7 @@ sd_resp sd_read_single_block(uint8_t arg0, uint8_t arg1, uint8_t arg2,
 
 sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
                                      uint8_t arg3);
-void sd_read_multiple_block_next(uint8_t* buf);
+uint8_t sd_read_multiple_block_next(uint8_t* buf);
 sd_resp sd_read_multiple_block_stop(void);
 
 /** @} */

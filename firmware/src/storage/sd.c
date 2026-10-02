@@ -250,10 +250,10 @@ sd_resp sd_read_multiple_block_start(uint8_t arg0, uint8_t arg1, uint8_t arg2,
   return sd_read_response(SD_RESP_R1);
 }
 
-void sd_read_multiple_block_next(uint8_t* buf)
+uint8_t sd_read_multiple_block_next(uint8_t* buf)
 {
   uint8_t fe = 0;
-  uint8_t fe_tries = 0xFF;
+  uint16_t fe_tries = 0xFFFF;
   do
   {
     fe = spi_txrx(0xFF);
@@ -261,7 +261,10 @@ void sd_read_multiple_block_next(uint8_t* buf)
   } while (fe != 0xFE && fe_tries);
 
   if (!fe_tries)
+  {
     uart_printstr(ANSI_RED "SD: CMD18 start token timeout\r\n" ANSI_RESET);
+    return (1);
+  }
 
   for (uint16_t i = 0; i < SD_BLOCK_SIZE; i++)
   {
@@ -269,6 +272,7 @@ void sd_read_multiple_block_next(uint8_t* buf)
   }
   spi_txrx(0xFF);  // Reading and discarding CRC byte 1
   spi_txrx(0xFF);  // Reading and discarding CRC byte 2
+  return (0);
 }
 
 sd_resp sd_read_multiple_block_stop(void)

@@ -147,12 +147,22 @@ DRESULT disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count)
   }
   else
   {
-    sd_read_multiple_block_start((sector >> 24) & 0xFF, (sector >> 16) & 0xFF,
-                                 (sector >> 8) & 0xFF, sector & 0xFF);
+    if (sd_read_multiple_block_start((sector >> 24) & 0xFF,
+                                     (sector >> 16) & 0xFF,
+                                     (sector >> 8) & 0xFF, sector & 0xFF)
+            .r1 != 0)
+    {
+      return RES_ERROR;
+    }
+
     for (UINT i = 0; i < count; i++)
     {
-      sd_read_multiple_block_next(
-          buff + i * 512);  // Offsets the buffer for each block
+      if (sd_read_multiple_block_next(
+              buff + i * 512))  // Offsets the buffer for each block
+      {
+        sd_read_multiple_block_stop();
+        return (RES_ERROR);
+      }
     }
     sd_read_multiple_block_stop();
   }

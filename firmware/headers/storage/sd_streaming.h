@@ -9,18 +9,15 @@
 
 #include <avr/io.h>
 
-/**
- * @brief Streams a BMP image from the SD card directly to the screen.
- *
- * @param[in] start_sector The starting sector on the SD card where the image is
- * stored.
- *
- * @note Users must pass a Logical Block Address and not a cluster/sector, see
- * cluster_to_lba() function.
- *
- * @warning This is a blocking function and will halt other processes until the
- *          entire image is drawn.
- */
-void sd_stream_bmp_to_screen(uint32_t start_sector);
+typedef enum
+{
+  MAIN_LCD = (1 << 0),
+  LEFT_EYE_LCD = (1 << 1),
+  RIGHT_EYE_LCD = (1 << 2),
+  EYES = (LEFT_EYE_LCD | RIGHT_EYE_LCD),
+  ALL = (MAIN_LCD | LEFT_EYE_LCD | RIGHT_EYE_LCD)
+} device_screen;
+
+uint8_t display_sd_image(const char* filename, const device_screen target);
 
 #endif  // !SD_STREAMING_H

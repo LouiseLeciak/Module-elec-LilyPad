@@ -43,6 +43,17 @@ void show_alphabet(void)
   display_alphabet();
 }
 
+static void fat83_build(const char* name, const char* ext, char* out)
+{
+  ft_strcat(out, name);
+
+  if (language == LANG_FR)
+    ft_strcat(out, "_LSF");
+  else
+    ft_strcat(out, "_BSL");
+  ft_strcat(out, ext);
+}
+
 // l'ecran avec la lettre nen grand
 // a modifier pour image
 void display_alphabet_letter(void)
@@ -70,44 +81,9 @@ void display_alphabet_letter(void)
 
   /////////////////////////////////////////// nom du fichier
 
-  ft_strcat(file_name, letter);
+  fat83_build(letter, "   BMP", file_name);
 
-  if (language == LANG_FR)
-  {
-    ft_strcat(file_name, "_LSF");
-  }
-  else
-  {
-    ft_strcat(file_name, "_BSL");
-  }
-  ft_strcat(file_name, "   BMP");
-  ////////////////////////////////////////////////////////////
-  // aller regarder dans la lookup table
-  uint8_t found = 0;
-  (void)found;  // Because use of variable is inside a ifdef
-  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
-  {
-    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
-    {
-      found = 1;
-      uart_printstr("Queried file name: ");
-      uart_printstr(file_name);
-      uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
-      uart_printstr(image_lut[i].name);
-      uart_printstr("--\r\nAddress: ");
-      uart_printhex_32(image_lut[i].address);
-      uart_printstr("\r\n");
-      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
-    }
-  }
-#ifdef DEBUG
-  if (!found)
-  {
-    uart_printstr("[ALPHA] No image found for: ");
-    uart_printstr(file_name);
-    uart_printstr("\r\n");
-  }
-#endif
+  display_sd_image(file_name, MAIN_LCD);
 }
 // manage keyboard in alphabet mode
 void alphabet()

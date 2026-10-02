@@ -6,6 +6,8 @@
 #include "app/language.h"
 #include "utils/keyboard_utils.h"
 
+#define BUF_SIZE 512
+
 // word buffer, used in translation per example
 extern char word[WORD_MAX_LEN + 1];
 

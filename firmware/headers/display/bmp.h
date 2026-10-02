@@ -20,7 +20,7 @@ typedef struct __attribute__((packed))
   uint32_t compression;
 } bmp_header;
 
-uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header);
-void bmp_dump_header(bmp_header* header);
+uint8_t bmp_parse_header(const uint8_t* buf, bmp_header* header);
+void bmp_dump_header(const bmp_header* header);
 
 #endif  // !BMP_H

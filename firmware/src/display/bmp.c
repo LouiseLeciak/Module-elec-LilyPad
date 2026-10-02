@@ -1,11 +1,12 @@
 #include "display/bmp.h"
 
 #include "system/uart.h"
+#include "utils/mem_utils.h"
 #include "utils/utils.h"
 
-uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header)
+uint8_t bmp_parse_header(const uint8_t* buf, bmp_header* header)
 {
-  *header = *(bmp_header*)(buf);
+  ft_memcpy(header, buf, sizeof(bmp_header));
 
 #ifdef DEBUG
   bmp_dump_header(header);
@@ -32,7 +33,7 @@ uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header)
   return 0;
 }
 
-void bmp_dump_header(bmp_header* header)
+void bmp_dump_header(const bmp_header* header)
 {
   uart_printstr("--- BMP Header Dump ---\r\n");
 
