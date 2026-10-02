@@ -1,3 +1,5 @@
+ENGLISH VERSION BELOW
+
 # Application principale
 
 =================================
@@ -408,3 +410,417 @@ L'application est organisee autour de trois elements principaux.
 - Images de signes stockees sur carte SD
 
 Le systeme utilise principalement une architecture basee sur les etats. Cela permet de gerer les differentes fonctionnalites de l'application et d'adapter le comportement du clavier, de l'encodeur et du bouton en fonction de l'ecran ou de l'action en cours.
+
+
+-------------------------------------------------------------------------------------------------------
+
+# Primary Application
+
+=================================
+
+## Presentation
+
+This application is a project developed on an ATmega2560.
+
+It allows the user to learn and manipulate the signs of LSF (French Sign Language) and BSL (British Sign Language) thanks to an interface composed of 3 screens, a matrix keyboard and a rotary encoder.
+
+The application has three main functionalities:
+
+- Translation
+- Alphabet
+- Game
+
+## General operation
+
+At startup, the microcontroller initializes the different devices:
+
+1. The screens
+2. The matrix keyboard
+3. The MCP23017 is connected to the rotary encoder
+4. The language selection system
+5. The different states of the application
+
+Once the initialization is complete, the main menu appears.
+
+The application then runs in a main loop that continuously checks:
+
+- the change of language.
+- the encoder rotation.
+- pressing the encoder button.
+- the keyboard activity.
+- the energy-saving system.
+- the current status of the application.
+
+The behavior of the interface mainly depends on state machines.
+
+## Hardware
+
+The project mainly uses:
+
+- ATmega2560: Primary microcontroller
+
+- ILI9488: main screen
+
+- 2 × GC9A01: screens used for the eyes
+
+- MCP23017: to speak in i2c at the rotary encoder
+
+- rotary encoder: navigation and selection
+
+- Matrix keyboard 4 × 10: character input
+
+- SD card: image storage
+
+- Switch: language selection
+
+## Main Menu
+
+> The main menu contains three choices:
+
+> - Translation
+
+> - Alphabet
+
+> - Game
+
+The encoder allows you to move the cursor.
+
+The button allows you to select the chosen element.
+
+The current choice is stored in menu_choice.
+
+### Translation
+
+Translation functionality allows you to enter a word using the keyboard.
+
+**Operation:***
+
+- Enter Translation
+
+- Enter a word
+
+- Validate with the encoder
+
+- Display the sign of the first letter
+
+- Press to move on to the next letter
+
+- Display the following sign
+
+- Continue until the last letter
+
+- Return to a new entry
+
+The word is stored in word and its length in word_len.
+
+The key "delete" allows to delete the last character.
+
+When the word is valid, the program searches for images corresponding to the different letters on the SD card.
+
+The images dependent on the selected language.
+
+For LSF, the program searches for images associated with the LSF suffix.
+
+For the BSL, the program searches for images associated with the BSL suffix.
+
+The images are then displayed one by one on the main screen.
+
+----------------------------------------------------------------------
+### Alphabet
+
+The Alphabet functionality allows you to browse through the available characters.
+
+The user uses the encoder to move into the list.
+
+Pressing the button displays the selected letter.
+
+A new tap allows you to return to the list.
+
+**The two main states are:***
+
+ALPHABET_LIST
+
+ALPHABET_LETTER
+
+----------------------------------------------------------------------
+### Games
+
+The app has two games.
+
+**Game 1: find the right letter**
+
+The first game is to recognize a letter from a sign.
+
+The program randomly chooses a letter and displays the corresponding sign.
+
+The user must then choose the correct letter from among three proposals.
+
+Layout:
+
+Poster sign
+
+3 proposals
+
+Selection with the encoder
+
+Validation with the button
+
+Display YES or NO
+
+Only one of the three answers corresponds to the poster sign.
+
+If the answer is correct, a new question is generated.
+
+If the answer is incorrect, the game returns to the game’s start screen.
+
+**Game 2: find the right sign**
+
+The operation is reversed.
+
+The program chooses a letter and displays it.
+
+Three signs are then presented successively.
+
+Layout:
+
+Letter displayed
+
+Sign 1
+
+Sign 2
+
+Sign 3
+
+Choice between 1, 2, and 3
+
+Validation with the button
+
+Display YES or NO
+
+Only one of the three images corresponds to the given letter.
+
+Choices and letters are randomly generated.
+
+----------------------------------------------------------------------
+## Rotary encoder
+
+The encoder is connected to the MCP23017, which in turn is connected to the ATmega2560 by I 2 C.
+
+He has three signals:
+
+**CLK** : rotation
+
+**DT** : management
+
+**SW** : button
+
+Rotation allows you to move the cursors in different menus.
+
+The button allows you to validate or move on to the next step.
+
+The encoder behavior depends on the current state of the application.
+
+For example:
+
+In the MENU, the encoder moves the menu cursor.
+
+In the ALPHABET, it allows you to move through the letters.
+
+In the GAME, it allows you to select a response.
+
+The button also has an anti-bounce system to avoid several detections for a single touch.
+
+## Keyboard
+
+The keyboard is a matrix of 4 rows and 10 columns, or 38 keys.
+
+The layout used is:
+
+1 2 3 4 5 6 7 8 9 0
+
+Q W E R T Y U I O P
+
+A S D F G H J K L
+
+Z X C V B N M # /
+
+The program selects each row successively and reads the columns in order to detect the key pressed.
+
+The keymap table then allows you to convert the key position into a character.
+
+## Language Management
+
+Two languages are available:
+
+LANG_FR
+
+LANG_EN
+
+The language is selected thanks to a hardware switch.
+
+The language variable lets you know which language is currently in use.
+
+The poster texts and images sought after in this language.
+
+## Energy Management
+
+The application has an energy-saving system.
+
+When no interaction is detected for a period of time, the application goes into standby.
+
+The backlighting of the main screen is then deactivated and the eyes change their display.
+
+An activity of the user reactivates the system.
+
+The main actions considered as an activity are:
+
+- rotation of the encoder
+- press the button
+- press a key on the keyboard
+- change of language
+
+The power_save_activity() function restarts the system.
+
+The power_save_update() function manages the inactivity counter, after about 20 seconds you switch to power saving.
+
+### Code Architecture
+
+The project is organized into several modules.
+
+The app folder contains the main logic of the application:
+
+- menu
+
+- translation
+
+- alphabet
+
+- game
+
+The display folder contains screen management:
+
+- ILI9488
+
+- GC9A01
+
+- displaying the text
+
+The input folder contains the management of entries:
+
+- keyboard
+
+- encoder
+
+- I 2 C / MCP23017
+
+The system folder contains the common elements of the system:
+
+- globals
+
+- power_save
+
+- The utils folder contains the utility functions.
+
+- Each module has a specific responsibility.
+
+- The app modules manage the logic of the application.
+
+- The input modules manage interactions with the user.
+
+- The display modules handle the screens.
+
+- The system modules bring together the common elements of the system’s operation.
+
+- State machine
+
+- The operation of the application is based on several levels of states.
+
+- The main state is app_state.
+
+It lets you know if the user is located in:
+
+MENU
+
+TRANSLATION
+
+ALPHABET
+
+GAME
+
+Each functionality then has its own states.
+
+For example, during a game:
+
+- View the question
+
+- View the proposals
+
+- Select a response
+
+- Validate
+
+- Show YES or NO
+
+- Move on to the next question
+
+This organization allows the same button or the same movement of the encoder to have a different behavior depending on the situation.
+
+## Main loop
+
+The main loop allows the application to constantly monitor user inputs and to make the state machine evolve.
+
+She manages in particular:
+
+- the language
+
+- the random generator 
+
+- the encoder 
+
+- the encoder button 
+
+- energy saving 
+
+- the keyboard 
+
+- the functionality currently selected.
+
+## Resume
+
+The application is organized around three main elements.
+
+**Entries:***
+
+- Matrix keyboard
+
+- Rotary encoder
+
+- Encoder button
+
+- Switch language
+
+**Treatment:***
+
+- State machines
+
+- Menu navigation
+
+- Translation management
+
+- Management of the alphabet
+
+- Game management
+
+- Random generation
+
+- Energy saving management
+
+**Outings:***
+
+- Screen ILI9488
+
+- Two GC9A01 screens
+
+- Sign images stored on an SD card
+
+The system mainly uses a state-based architecture. This allows to manage the different functionalities of the application and to adapt the behavior of the keyboard, the encoder and the button according to the screen or the current action.
