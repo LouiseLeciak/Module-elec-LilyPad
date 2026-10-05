@@ -8,15 +8,10 @@
 #include "input/i2c_rotary.h"
 #include "input/keypad.h"
 #include "input/rotary.h"
-#include "storage/fatfs.h"
-#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/init.h"
 #include "system/power_save.h"
-#include "system/uart.h"
 #include "utils/keyboard_utils.h"
-#include "display/GC9A01.h"
-// #include "display/eye_imgs.h"
 
 int main(void)
 {
