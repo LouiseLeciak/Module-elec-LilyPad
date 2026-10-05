@@ -8,26 +8,20 @@
 #include "input/i2c_rotary.h"
 #include "input/keypad.h"
 #include "input/rotary.h"
-#include "storage/fatfs.h"
-#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/init.h"
 #include "system/power_save.h"
-#include "system/uart.h"
 #include "utils/keyboard_utils.h"
 
 int main(void)
 {
   init();
 
-  language_update();
-
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
-  GC9A01_fillScreen(GC9A01A_COLOR_PINK, RIGHT_EYE);
-  GC9A01_fillScreen(GC9A01A_COLOR_PINK, LEFT_EYE);
+  eyes_action();
 
-  show_menu();  // display the main menu
-  // eyes_action();
+  language_init();
+  show_menu();
 
   while (1)
   {
@@ -36,7 +30,6 @@ int main(void)
     rotary_update();
     rotary_button_update();
     power_save_update();
-
     // listening to the keyboard for the power save
     int key = keypad_read();
     if (key >= 0)
