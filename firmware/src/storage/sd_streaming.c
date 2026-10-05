@@ -27,7 +27,7 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
     return;  // ERROR
   }
   uint32_t abs_height = (header.height < 0 ? -header.height : header.height);
-  window win = {{0, 0}, {abs_height - 1, header.width - 1}};
+  window win = {{0, 0}, {header.width - 1, abs_height - 1}};
 
 #ifdef DEBUG
   uart_printstr("Starting printing image\r\n");
