@@ -34,7 +34,7 @@ void power_save_activity(void)
   {
     uart_printstr("[PWR] Screen waking up\r\n");
     PORTH |= MAIN_SCREEN_BL;
-      eyes_action(); // pose un pb je crois, c;est pas toujours bine
+    eyes_action();  // pose un pb je crois, c;est pas toujours bine
     //   responsive, a tester
     inac = 0;
   }
