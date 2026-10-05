@@ -1,6 +1,6 @@
 #include "app/menu.h"
 #include "display/GC9A01.h"
-#include "display/main_screen.h"
+#include "display/ili9488.h"
 #include "display/screen_text.h"
 #include "input/keypad.h"
 #include "storage/fatfs.h"

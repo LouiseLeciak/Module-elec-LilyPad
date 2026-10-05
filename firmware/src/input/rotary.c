@@ -5,7 +5,7 @@
 #include "app/menu.h"
 #include "app/traduction.h"
 #include "display/GC9A01.h"
-#include "display/main_screen.h"
+#include "display/ili9488.h"
 #include "display/screen_text.h"
 #include "input/i2c_rotary.h"
 #include "system/globals.h"

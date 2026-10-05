@@ -4,7 +4,6 @@
 
 #include "app/menu.h"
 #include "display/GC9A01.h"
-#include "display/main_screen.h"
 #include "pinout.h"
 #include "system/globals.h"
 #include "system/power_save.h"

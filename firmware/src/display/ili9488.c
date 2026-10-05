@@ -2,23 +2,102 @@
 
 #include <util/delay.h>
 
+#include "pinout.h"
 #include "system/spi.h"
+#include "system/uart.h"
 
-static inline void dc_cmd(void) { DC_PORT &= ~(DC_PIN); }
-static inline void dc_data(void) { DC_PORT |= (DC_PIN); }
-static inline void cs_low(void) { CS_PORT &= ~(CS_PIN); }
-static inline void cs_high(void) { CS_PORT |= (CS_PIN); }
-
-// NOTE: Command functions have hardcoded arguments for now, will make it more
-// modular later. -Maddie
-
-void ili9488_positive_gamma_control()
+/**
+ * @typedef e_ili9488_cmd
+ * @brief List of the II9488's commands, as per the ILI9488's datasheet
+ * p.140-148
+ *
+ */
+typedef enum
 {
-  cs_low();
-  dc_cmd();
+  NOP = 0x00,                   ///< No operation
+  SWRESET = 0x01,               ///< Software Reset
+  RDDID = 0x04,                 ///< Read display ID
+  RD_NB_ERR_DSI = 0x05,         ///< Read Number of the Errors on DSI
+  RDDST = 0x09,                 ///< Read Display Status
+  RDDPM = 0x0A,                 ///< Read Display Power
+  RDD_MADCTL = 0x0B,            ///< Read Display
+  RDD_INTRFC_PX_FORMAT = 0x0C,  ///< RDD Interface Pixel Format
+  RDDIM = 0x0D,                 ///< Read Display Image
+  RDDSM = 0x0E,                 ///< Read Display Signal
+  RDDSDR = 0x0F,                ///< Read Display Self-Diagnostic Result
+  SLPIN = 0x10,                 ///< Sleep In
+  SLPOUT = 0x11,                ///< Sleep Out
+  PTLON = 0x12,                 ///< Partial Mode ON
+  NORON = 0x13,                 ///< Partial Mode OFF (Normal)
+  INVOFF = 0x20,                ///< Display Inversion OFF
+  INVON = 0x21,                 ///< Display Inversion ON
+  DISPOFF = 0x28,               ///< Display OFF
+  DISPON = 0x29,                ///< Display ON
+  CASET = 0x2A,                 ///< Column Address Set
+  RASET = 0x2B,                 ///< Row Address Set
+  RAMWR = 0x2C,                 ///< Memory Write
+  RAMRD = 0x2E,                 ///< Memory Read
+  PTLAR = 0x30,                 ///< Partial Start/End Address Set
+  VSCRDEF = 0x33,               ///< Vertical Scrolling Definition
+  TEOFF = 0x34,                 ///< Tearing Effect Line OFF
+  TEON = 0x35,                  ///< Tearing Effect Line ON
+  MADCTL = 0x36,                ///< Memory Data Access Control
+  VSCRSADD = 0x37,              ///< Vertical Scrolling Start Address
+  IDMOFF = 0x38,                ///< Idle Mode OFF
+  IDMON = 0x39,                 ///< Idle Mode ON
+  COLMOD = 0x3A,                ///< Interface Pixel Format
+  RAMWRC = 0x3C,                ///< Memory Write Continue
+  RAMRDC = 0x3E,                ///< Memory Read Continue
+  TESCAN = 0x44,                ///< Set Tear Scanline
+  RDTESCAN = 0x45,              ///< Get Scanline
+  WRDISBV = 0x51,               ///< Write Display Brightness
+  RDDISBV = 0x52,               ///< Read Display Brightness Value
+  WRCTRLD = 0x53,               ///< Write CTRL Display
+  RDCTRLD = 0x54,               ///< Read CTRL Value Display
+  WRCABC = 0x55,                ///< Write Content Adaptive Brightness Control
+  RDCABC = 0x56,                ///< Read Content Adaptive Brightness Control
+  WRCABCMB = 0x5E,              ///< Write CABC Minimum Brightness
+  RDCABCMB = 0x5F,              ///< Read CABC Minimum Brightness
+  RDAUTB = 0x68,                ///< Read automatic brightness
+  RDFCHKSUM = 0xAA,             ///< Read First Checksum
+  RDCCHKSUM = 0xAF,             ///< Read Continue Checksum
+  IFMODE = 0xB0,                ///< Interface Mode Control
+  FRMCTR1 = 0xB1,     ///< Frame Rate Control (In Normal Mode / Full Colours)
+  FRMCTR2 = 0xB2,     ///< Frame Rate Control (In Idle Mode / 8 Colours)
+  FRMCTR3 = 0xB3,     ///< Frame Rate Control (In Partial Mode / Full Colours)
+  INVTR = 0xB4,       ///< Display Inversion Control
+  BPC = 0xB5,         ///< Blanking Porch Control
+  DFC = 0xB6,         ///< Display Function Control
+  EM = 0xB7,          ///< Entry Mode Set
+  PWR1 = 0xC0,        ///< Power Control 1
+  PWR2 = 0xC1,        ///< Power Control 2
+  PWR3 = 0xC2,        ///< Power Control 3
+  VCMPCTL = 0xC5,     ///< VCom Control
+  VCM_OFFSET = 0xC6,  ///< VCom Offset Register
+  NVMADW = 0xD0,      ///< NVM Address/Data
+  NVMBPROG = 0xD1,    ///< NVM Byte Program Control
+  NVMSTRD = 0xD2,     ///< NVM Status Read
+  RDID4 = 0xD3,       ///< Read ID4
+  RDID1 = 0xDA,       ///< Read ID1
+  RDID2 = 0xDB,       ///< Read ID2
+  RDID3 = 0xDC,       ///< Read ID3
+  PGC = 0xE0,         ///< Positive Gamma Control
+  NGC = 0xE1,         ///< Negative Gamma Control
+  DGC1 = 0xE2,        ///< Digital Gamma Control1
+  DGC2 = 0xE3,        ///< Digital Gamma Control2
+  DOCA = 0xE8,        ///< Display Output
+  CSCON = 0xF0,       ///< Command Set Control
+  ADJC3 = 0xF7,       ///< Adjust Control 3
+  SPIRC = 0xFB        ///< SPI Read Control
+} ili9488_cmd;
+
+static void ili9488_positive_gamma_control(void)
+{
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)PGC);
-  dc_data();
-  // The following arguments are the anchor values for the positive gamma scale
+  DC_DATA();
+  // Anchor values for the positive gamma correction curve
   spi_txrx(0x00);
   spi_txrx(0x03);
   spi_txrx(0x09);
@@ -34,15 +113,16 @@ void ili9488_positive_gamma_control()
   spi_txrx(0x16);
   spi_txrx(0x1A);
   spi_txrx(0x0F);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_negative_gamma_control()
+static void ili9488_negative_gamma_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)NGC);
-  dc_data();
+  DC_DATA();
+  // Anchor values for the negative gamma correction curve
   spi_txrx(0x00);
   spi_txrx(0x16);
   spi_txrx(0x19);
@@ -58,160 +138,187 @@ void ili9488_negative_gamma_control()
   spi_txrx(0x35);
   spi_txrx(0x37);
   spi_txrx(0x0F);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_power_control_1()
+static void ili9488_power_control_1(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)PWR1);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x17);
   spi_txrx(0x15);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_power_control_2()
+static void ili9488_power_control_2(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)PWR2);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x41);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_vcom_control()
+static void ili9488_vcom_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)VCMPCTL);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x00);
   spi_txrx(0x12);
   spi_txrx(0x80);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_memory_access_control()
+static void ili9488_memory_access_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx(MADCTL);
-  dc_data();
-  // spi_txrx(0x42);  // Test to reverse left/right
-  spi_txrx(0x48);  // Activate for TFT02
-  // spi_txrx(0x88);  // Activate for TFT01
-  cs_high();
+  DC_DATA();
+  // spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
+  spi_txrx(0x88);  // Calibrated for TF01 panel orientation
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_interface_pixel_format()
+static void ili9488_interface_pixel_format(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx(COLMOD);
-  dc_data();
-  spi_txrx(0x66);
-  cs_high();
+  DC_DATA();
+  spi_txrx(0x66);  // 18-bit/pixel (RGB666)
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_interface_mode_control()
+static void ili9488_interface_mode_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)IFMODE);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x00);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_frame_rate_control_normal()
+static void ili9488_frame_rate_control_normal(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)FRMCTR1);
-  dc_data();
-  spi_txrx(0xA0);
-  cs_high();
+  DC_DATA();
+  spi_txrx(0xA0);  // 60 Hz
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void il9488_display_inversion_control()
+static void ili9488_display_inversion_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)INVTR);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x02);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_display_function_control()
+static void ili9488_display_function_control(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)DFC);
-  dc_data();
+  DC_DATA();
   spi_txrx(0x02);
   spi_txrx(0x02);
   spi_txrx(0x3B);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_entry_mode_set()
+static void ili9488_entry_mode_set(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)EM);
-  dc_data();
+  DC_DATA();
   spi_txrx(0xC6);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_adjust_control_3()
+static void ili9488_adjust_control_3(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx((char)ADJC3);
-  dc_data();
+  DC_DATA();
   spi_txrx(0xA9);
   spi_txrx(0x51);
   spi_txrx(0x2C);
   spi_txrx(0x82);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_sleep_out()
+static void ili9488_sleep_out(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx(SLPOUT);
-  _delay_ms(120);
-  cs_high();
+  _delay_ms(120);  // Mandatory delay, see ILI9488 datasheet
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_display_on()
+static void ili9488_display_on(void)
 {
-  cs_low();
-  dc_cmd();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
   spi_txrx(DISPON);
   _delay_ms(50);
-  cs_high();
+  MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_reset(void)
+static void ili9488_reset(void)
 {
-  RST_PORT |= MAIN_SCREEN_RST;
+  PORTE |= MAIN_SCREEN_RST;
   _delay_ms(5);
-  RST_PORT &= ~(MAIN_SCREEN_RST);
+  PORTE &= ~(MAIN_SCREEN_RST);
   _delay_ms(20);
-  RST_PORT |= MAIN_SCREEN_RST;
-  _delay_ms(150);  // wait out internal reset per most datasheets
+  PORTE |= MAIN_SCREEN_RST;
+  _delay_ms(150);  // Wait out internal reset, see ILI9488 datasheet
 }
 
-// Initialisation sequence from
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
+static void ili9488_caset(const uint16_t col_start, const uint16_t col_end)
+{
+  DC_CMD();
+  spi_txrx(CASET);
+
+  DC_DATA();
+  spi_txrx(col_start >> 8);
+  spi_txrx(col_start & 0xFF);
+  spi_txrx(col_end >> 8);
+  spi_txrx(col_end & 0xFF);
+}
+
+// TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
+// of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
+static void ili9488_raset(const uint16_t row_start, const uint16_t row_end)
+{
+  DC_CMD();
+  spi_txrx(RASET);
+
+  DC_DATA();
+  spi_txrx(row_start >> 8);
+  spi_txrx(row_start & 0xFF);
+  spi_txrx(row_end >> 8);
+  spi_txrx(row_end & 0xFF);
+}
+
+// Initialisation sequence from:
 // https://github.com/Bodmer/TFT_eSPI/blob/master/TFT_Drivers/ILI9488_Init.h
-void ili9488_init_driver()
+static void ili9488_init_driver(void)
 {
   ili9488_positive_gamma_control();
   ili9488_negative_gamma_control();
@@ -222,10 +329,75 @@ void ili9488_init_driver()
   ili9488_interface_pixel_format();
   ili9488_interface_mode_control();
   ili9488_frame_rate_control_normal();
-  il9488_display_inversion_control();
+  ili9488_display_inversion_control();
   ili9488_display_function_control();
   ili9488_entry_mode_set();
   ili9488_adjust_control_3();
   ili9488_sleep_out();
   ili9488_display_on();
+}
+
+void ili9488_init()
+{
+  DDRH |= (MAIN_SCREEN_CS);
+  MAIN_SCREEN_CS_HIGH();
+
+  DDRH |= (SCREENS_DC);
+  PORTH |= (SCREENS_DC);
+
+  DDRH |= (MAIN_SCREEN_RST);
+  MAIN_SCREEN_RST_HIGH();
+
+  DDRH |= (MAIN_SCREEN_BL);
+  MAIN_SCREEN_BL_HIGH();
+
+  uart_printstr("Initialising main screen...");
+
+  ili9488_reset();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
+  spi_txrx(SWRESET);
+  MAIN_SCREEN_CS_HIGH();
+  _delay_ms(5);
+  ili9488_init_driver();
+
+  uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
+}
+
+void ili9488_set_window(const window win)
+{
+  ili9488_caset(win._start._pos_x, win._end._pos_x);
+  ili9488_raset(win._start._pos_y, win._end._pos_y);
+}
+
+void ili9488_ramwr(void)
+{
+  DC_CMD();
+  spi_txrx(RAMWR);
+  DC_DATA();
+}
+
+void ili9488_fill_screen(uint16_t color565)
+{
+  // Convertit le RGB565 en RGB666 (18-bit), format attendu par
+  // l'ILI9486 sur son interface SPI : chaque composante sur 6 bits
+  // utiles, alignée dans les bits hauts d'un octet.
+  uint8_t r = ((color565 >> 11) & 0x1F) << 3;  // 5 bits -> 8 bits (bits hauts)
+  uint8_t g = ((color565 >> 5) & 0x3F) << 2;   // 6 bits -> 8 bits (bits hauts)
+  uint8_t b = (color565 & 0x1F) << 3;          // 5 bits -> 8 bits (bits hauts)
+
+  window full_screen = {{0, 0},
+                        {MAIN_SCREEN_WIDTH - 1, MAIN_SCREEN_HEIGHT - 1}};
+
+  MAIN_SCREEN_CS_LOW();
+  ili9488_set_window(full_screen);
+  ili9488_ramwr();
+  uint32_t n_pixels = 480UL * 320UL;
+  for (uint32_t i = 0; i < n_pixels; i++)
+  {
+    spi_txrx(r);
+    spi_txrx(g);
+    spi_txrx(b);
+  }
+  MAIN_SCREEN_CS_HIGH();
 }

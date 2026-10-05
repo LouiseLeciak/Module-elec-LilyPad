@@ -1,7 +1,7 @@
 #include "storage/sd_streaming.h"
 
 #include "display/bmp.h"
-#include "display/main_screen.h"
+#include "display/ili9488.h"
 #include "pinout.h"
 #include "storage/sd.h"
 #include "system/spi.h"
@@ -29,8 +29,8 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
 #endif /* ifdef DEBUG */
 
   MAIN_SCREEN_CS_LOW();
-  main_screen_set_window(win);
-  main_screen_ramwr();
+  ili9488_set_window(win);
+  ili9488_ramwr();
   MAIN_SCREEN_CS_HIGH();
 
   uint32_t pixel_sector = start_sector + (header.pixel_data_offset / 512);
