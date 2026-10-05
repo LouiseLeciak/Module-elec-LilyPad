@@ -10,5 +10,6 @@ typedef enum
 
 void language_switch_init(void);
 void language_update(void);
+void language_init(void);
 
 #endif

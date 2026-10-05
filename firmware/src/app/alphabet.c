@@ -15,7 +15,7 @@
 alphabet_state_t alphabet_state = ALPHABET_LIST;
 uint8_t alphabet_choice = 0;
 
-// a modifier jaffiche juste une string
+// home page of the alphabet, set up the display
 void show_alphabet(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
@@ -36,8 +36,12 @@ void show_alphabet(void)
     draw_string(10, 80, "Choose a letter:", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
   }
+
+  // index to know where we are in the laphabet
   alphabet_choice = 0;
+  // state to tell we're looking in the laphabet
   alphabet_state = ALPHABET_LIST;
+  // app state to tell we're in the alphabet section
   app_state = ALPHABET;
 
   display_alphabet();
@@ -52,21 +56,6 @@ void display_alphabet_letter(void)
 
   letter[0] = alphabet_characters[alphabet_choice];
   letter[1] = '\0';
-
-  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-
-  // draw_string(
-  //     110, 20, "ALPHABET",
-  //     GC9A01A_COLOR_GREEN,
-  //     GC9A01A_COLOR_OLIVE,
-  //     4, 2);
-
-  // draw_string(
-  //     230, 150,
-  //     letter,
-  //     GC9A01A_COLOR_WHITE,
-  //     GC9A01A_COLOR_OLIVE,
-  //     12, 2);
 
   /////////////////////////////////////////// nom du fichier
 
@@ -144,11 +133,6 @@ void display_alphabet(void)
   uint16_t x;
   uint16_t y;
   char letter[2];
-
-  // ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
-  // draw_string(110, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-  // 4,
-  //             2);
 
   for (i = 0; i < 36; i++)
   {

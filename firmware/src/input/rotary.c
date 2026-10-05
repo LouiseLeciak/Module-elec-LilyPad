@@ -3,6 +3,7 @@
 #include "app/alphabet.h"
 #include "app/game.h"
 #include "app/menu.h"
+#include "app/traduction.h"
 #include "display/GC9A01.h"
 #include "display/main_screen.h"
 #include "display/screen_text.h"
@@ -11,6 +12,7 @@
 #include "system/power_save.h"
 #include "system/uart.h"
 #include "utils/keyboard_utils.h"
+#include "utils/utils.h"
 
 // https://ww1.microchip.com/downloads/en/DeviceDoc/20001952C.pdf
 
@@ -147,6 +149,10 @@ void rotary_manage_state(uint8_t clk, uint8_t dt)
   {
     rotary_alphabet(clockwise);
   }
+  else if (app_state == JEU && game_state == GAME_LETTER_SELECT)
+  {
+    rotary_game_answer(clockwise);
+  }
   else if (app_state == JEU && game_state == GAME_SIGN_SELECT)
   {
     rotary_game_answer(clockwise);
@@ -246,10 +252,27 @@ void rotary_button_traduction(void)
   if (word_state == INPUT)
   {
     validate_word();
+
+    translation_index = 0;
+
+    if (word_len > 0)
+    {
+      word_state = SHOW_TRANSLATION;
+      display_translation_letter();
+    }
   }
-  else
+  else if (word_state == SHOW_TRANSLATION)
   {
-    start_new_word();
+    translation_index++;
+
+    if (translation_index < word_len)
+    {
+      display_translation_letter();
+    }
+    else
+    {
+      start_new_word();
+    }
   }
 }
 
@@ -267,28 +290,57 @@ void rotary_button_game(void)
       start_find_sign();
     }
   }
+
+  ////////////////////////////////
+  /////////// JEU 1 //////////////
+  ////////////////////////////////
+
   else if (game_state == GAME_FIND_LETTER)
+  {
+    game_state = GAME_SHOW_LETTER;
+    display_game_letter();
+  }
+
+  else if (game_state == GAME_SHOW_LETTER)
+  {
+    game_state = GAME_LETTER_SELECT;
+    game_answer = 0;
+    display_letter_answers();
+  }
+
+  else if (game_state == GAME_LETTER_SELECT)
   {
     if (game_answers[game_answer] == game_target)
     {
-      game_state = GAME_RESULT_YES;
+      game_state = GAME_RESULT_YES_1;
       display_game_yes();
     }
     else
     {
-      game_state = GAME_RESULT_NO;
+      game_state = GAME_RESULT_NO_1;
       display_game_no();
     }
   }
-  else if (game_state == GAME_RESULT_YES)
+
+  else if (game_state == GAME_RESULT_YES_1)
   {
+    eyes_action();
+    game_answer = 0;
     start_find_letter();
   }
-  else if (game_state == GAME_RESULT_NO)
+
+  else if (game_state == GAME_RESULT_NO_1)
   {
+    eyes_action();
+    game_answer = 0;
     game_state = GAME_FIND_LETTER;
     display_find_letter();
   }
+
+  ////////////////////////////////
+  /////////// JEU 2 //////////////
+  ////////////////////////////////
+
   else if (game_state == GAME_FIND_SIGN)
   {
     game_state = GAME_SIGN_CHOICE_1;
@@ -307,23 +359,34 @@ void rotary_button_game(void)
   else if (game_state == GAME_SIGN_CHOICE_3)
   {
     game_state = GAME_SIGN_SELECT;
-
     game_answer = 0;
-
     display_game_answer();
   }
   else if (game_state == GAME_SIGN_SELECT)
   {
     if (game_answers[game_answer] == game_target)
     {
-      game_state = GAME_RESULT_YES;
+      game_state = GAME_RESULT_YES_2;
       display_game_yes();
     }
     else
     {
-      game_state = GAME_RESULT_NO;
+      game_state = GAME_RESULT_NO_2;
       display_game_no();
     }
+  }
+  else if (game_state == GAME_RESULT_YES_2)
+  {
+    eyes_action();
+    game_answer = 0;
+    start_find_sign();
+  }
+  else if (game_state == GAME_RESULT_NO_2)
+  {
+    eyes_action();
+    game_answer = 0;
+    game_state = GAME_FIND_SIGN;
+    display_find_sign();
   }
 }
 
@@ -384,29 +447,34 @@ void rotary_button_handle_press(void)
 void display_game_answer(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
   if (language == LANG_FR)
   {
-    draw_string(100, 30, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-  }
-  else if (language == LANG_EN)
-  {
-    draw_string(100, 30, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
-  }
-  if (language == LANG_FR)
-  {
-    draw_string(80, 100, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
                 3, 2);
   }
   else
   {
-    draw_string(80, 100, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
+    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
                 2);
   }
 
-  draw_string(80, 150, "  1", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  // choice n1
+  draw_string(10, 150, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 
-  draw_string(80, 220, "  2", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(80, 150, "1", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 
-  draw_string(80, 290, "  3", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  // choice n2
+  draw_string(10, 220, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(80, 220, "2", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  // choice n3
+  draw_string(10, 290, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(80, 290, "3", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 }

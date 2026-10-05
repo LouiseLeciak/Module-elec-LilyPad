@@ -11,5 +11,5 @@ void alphabet_en();
 void game_en();
 void validate_word_en(void);
 void start_new_word_en(void);
-
+void display_translation_letter(void);
 #endif
