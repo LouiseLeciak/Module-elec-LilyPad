@@ -230,6 +230,8 @@ A S D F G H J K L -
 
 Z X C V B N M # /
 
+Le '#' est pour le retour a l'ecran principal, '/' pour supprimer.
+
 Le programme selectionne chaque ligne successivement et lit les colonnes afin de detecter la touche appuyee.
 
 Le tableau keymap permet ensuite de convertir la position de la touche en caractere.
@@ -644,6 +646,8 @@ A S D F G H J K L
 
 Z X C V B N M # /
 
+'#' is for HOME and '/' is for delete.
+
 The program selects each row successively and reads the columns in order to detect the key pressed.
 
 The keymap table then allows you to convert the key position into a character.
@@ -739,13 +743,13 @@ The system folder contains the common elements of the system:
 
 It lets you know if the user is located in:
 
-MENU
+**MENU**
 
-TRANSLATION
+**TRANSLATION**
 
-ALPHABET
+**ALPHABET**
 
-GAME
+**GAME**
 
 Each functionality then has its own states.
 
@@ -789,7 +793,7 @@ She manages in particular:
 
 The application is organized around three main elements.
 
-**Entries:***
+**Entries:**
 
 - Matrix keyboard
 
@@ -799,7 +803,7 @@ The application is organized around three main elements.
 
 - Switch language
 
-**Treatment:***
+**Treatment:**
 
 - State machines
 
@@ -815,7 +819,7 @@ The application is organized around three main elements.
 
 - Energy saving management
 
-**Outings:***
+**Outings:**
 
 - Screen ILI9488
 
