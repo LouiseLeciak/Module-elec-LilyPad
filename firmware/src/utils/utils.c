@@ -63,6 +63,8 @@ void uart_printhex_32(uint32_t value)
   uart_printstr(buf);
 }
 
+#ifdef DEBUG
+
 static void dump_mbr_desc(void)
 {
   uart_printstr(COL_RED);
@@ -260,6 +262,7 @@ void dump_buf(uint8_t* buf, uint16_t len)
     uart_printstr("\r\n");
   }
 }
+#endif /* ifdef DEBUG */
 
 int ft_strncmp(const char* s1, const char* s2, size_t n)
 {

@@ -17,7 +17,9 @@ void power_save_update(void)
   if (inactivity_counter >= 30000)
   {
     if (inac == 0)
+#ifdef DEBUG
       uart_printstr("[PWR] Screen sleeping (inactivity timeout)\r\n");
+#endif                         /* ifdef DEBUG */
     PORTH &= ~MAIN_SCREEN_BL;  // on eteint
     GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
     inac = 1;
@@ -32,7 +34,9 @@ void power_save_activity(void)
 
   if (inac == 1)
   {
+#ifdef DEBUG
     uart_printstr("[PWR] Screen waking up\r\n");
+#endif /* ifdef DEBUG */
     PORTH |= MAIN_SCREEN_BL;
     eyes_action();  // pose un pb je crois, c;est pas toujours bine
     //   responsive, a tester

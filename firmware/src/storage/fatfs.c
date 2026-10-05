@@ -193,18 +193,22 @@ DRESULT parse_mbr(void)
 
   if (sd_mbr.boot_signature != 0xAA55)
   {
+#ifdef DEBUG
     uart_printstr("Bad Boot Signature: ");
     uart_printhex(sd_mbr.boot_signature >> 8);
     uart_printhex(sd_mbr.boot_signature & 0xFF);
     uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
     return RES_PARERR;
   }
 
   if (sd_mbr.partitions[0].type != 0x0C && sd_mbr.partitions[0].type != 0x0B)
   {
+#ifdef DEBUG
     uart_printstr("Bad Part Type: ");
     uart_printhex(sd_mbr.partitions[0].type);
     uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
     return RES_PARERR;
   }
   return 0;

@@ -18,10 +18,12 @@ uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header)
   }
   if (header->bpp != 24)
   {
+#ifdef DEBUG
     uart_printstr("Bit per pixel: ");
     uart_printhex(header->bpp);
     uart_printstr("\r\n");
     uart_printstr("Bitmap file got invalid bits-per-pixel value.\r\n");
+#endif /* ifdef DEBUG */
     return 2;
   }
   if (header->compression != 0)
@@ -31,6 +33,8 @@ uint8_t bmp_parse_header(uint8_t* buf, bmp_header* header)
   }
   return 0;
 }
+
+#ifdef DEBUG
 
 void bmp_dump_header(bmp_header* header)
 {
@@ -78,3 +82,4 @@ void bmp_dump_header(bmp_header* header)
 
   uart_printstr("-----------------------\r\n");
 }
+#endif /* ifdef DEBUG */

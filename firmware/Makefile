@@ -58,7 +58,7 @@ TARGET	=	$(BUI_DIR)main
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc debug
+.PHONY: all hex flash clean re doc debug size
 
 all: hex
 
@@ -79,6 +79,9 @@ $(HEX) : $(TARGET).bin
 
 flash: $(HEX)
 	$(DUDE) -v -p $(MCU) -c $(PROGRAMMER) -D -P $(PORT) -b $(BD_RATE) -U flash:w:$<:i
+
+size: $(HEX)
+	avr-size --format=avr --mcu=$(MCU) $(TARGET).bin
 
 clean:
 	rm -rf $(BUI_DIR)

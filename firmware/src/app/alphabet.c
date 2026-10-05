@@ -79,6 +79,7 @@ void display_alphabet_letter(void)
     if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
     {
       found = 1;
+#ifdef DEBUG
       uart_printstr("Queried file name: ");
       uart_printstr(file_name);
       uart_printstr("--\r\nMATCH avec cette image la:\r\nName: ");
@@ -86,6 +87,7 @@ void display_alphabet_letter(void)
       uart_printstr("--\r\nAddress: ");
       uart_printhex_32(image_lut[i].address);
       uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
       sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
     }
   }
