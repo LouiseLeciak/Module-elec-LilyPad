@@ -34,7 +34,7 @@ static void eyes_init()
 static void screens_init()
 {
   DDRH |= (SCREENS_DC);
-  main_screen_init();
+  ili9488_init();
   eyes_init();
 }
 
