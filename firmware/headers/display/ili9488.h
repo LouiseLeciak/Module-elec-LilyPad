@@ -20,40 +20,9 @@
  * @{
  */
 
-// --- Setup commands
-// --------------------------------------------------------
-void ili9488_init_driver(void);
-void ili9488_reset(void);
+void ili9488_init();
 
-#define MAIN_SCREEN_WIDTH 320
-#define MAIN_SCREEN_HEIGHT 480
-
-// --- High-level commands ---------------------------------------------------
-// --- Setup commands --------------------------------------------------------
-void main_screen_init();
-
-// --------- Drawing commands ------------------------------------------------
-/**
- * @brief Draws the provided string inside the driver's RAM.
- *
- * @param pos Position for the start of the text.
- * @param str The string of text to displa.
- * @param fg Text's colour.
- * @param bg Background's colour.
- * @param scale Text scaling (default 1).
- */
-void main_screen_draw_string(position pos, const char* str, const rgb fg,
-                             const rgb bg, const uint8_t scale);
-
-/**
- * @brief Draws a rectangle of the size and position specified in win and of
- * colour rgb.
- *
- * @param win Window for the rectangle, specifies the position and de facto
- * size.
- * @param rgb RGB colour to fill the rectangle with.
- */
-void main_screen_draw_rectangle(const window win, const rgb rgb);
+void ili9488_ramwr(void);
 
 void ili9488_fill_screen(uint16_t color565);
 // --------- Utilitaries commands --------------------------------------------
@@ -75,7 +44,7 @@ uint16_t pack_rgb565(const rgb colour);
  *
  * @param win The window to be transmitted to the driver so it can be used then.
  */
-void main_screen_set_window(const window win);
+void ili9488_set_window(const window win);
 
 /** @} */
 

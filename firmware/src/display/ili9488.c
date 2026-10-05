@@ -265,7 +265,7 @@ static void ili9488_sleep_out(void)
   MAIN_SCREEN_CS_LOW();
   DC_CMD();
   spi_txrx(SLPOUT);
-  _delay_ms(120);  // Mandatory delay — see ILI9488 datasheet
+  _delay_ms(120);  // Mandatory delay, see ILI9488 datasheet
   MAIN_SCREEN_CS_HIGH();
 }
 
@@ -285,12 +285,12 @@ static void ili9488_reset(void)
   PORTE &= ~(MAIN_SCREEN_RST);
   _delay_ms(20);
   PORTE |= MAIN_SCREEN_RST;
-  _delay_ms(150);  // Wait out internal reset — see ILI9488 datasheet
+  _delay_ms(150);  // Wait out internal reset, see ILI9488 datasheet
 }
 
 // TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
 // of the screen so we can check if col_start/col_end are [0,<SCREEN WIDTH>[
-static void main_screen_caset(const uint16_t col_start, const uint16_t col_end)
+static void ili9488_caset(const uint16_t col_start, const uint16_t col_end)
 {
   DC_CMD();
   spi_txrx(CASET);
@@ -304,7 +304,7 @@ static void main_screen_caset(const uint16_t col_start, const uint16_t col_end)
 
 // TODO: Maybe leverage a MAIN_SCREEN struct to fill in the width and height
 // of the screen so we can check if row_start/row_end are [0,<SCREEN HEIGHT>[
-static void main_screen_raset(const uint16_t row_start, const uint16_t row_end)
+static void ili9488_raset(const uint16_t row_start, const uint16_t row_end)
 {
   DC_CMD();
   spi_txrx(RASET);
@@ -314,13 +314,6 @@ static void main_screen_raset(const uint16_t row_start, const uint16_t row_end)
   spi_txrx(row_start & 0xFF);
   spi_txrx(row_end >> 8);
   spi_txrx(row_end & 0xFF);
-}
-
-void main_screen_ramwr(void)
-{
-  DC_CMD();
-  spi_txrx(RAMWR);
-  DC_DATA();
 }
 
 // Initialisation sequence from:
@@ -344,8 +337,7 @@ static void ili9488_init_driver(void)
   ili9488_display_on();
 }
 
-// Setup commands
-void main_screen_init()
+void ili9488_init()
 {
   DDRH |= (MAIN_SCREEN_CS);
   MAIN_SCREEN_CS_HIGH();
@@ -362,12 +354,29 @@ void main_screen_init()
   uart_printstr("Initialising main screen...");
 
   ili9488_reset();
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
+  spi_txrx(SWRESET);
+  MAIN_SCREEN_CS_HIGH();
+  _delay_ms(5);
   ili9488_init_driver();
 
   uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
 }
 
-// ------ Drawing commands ------------------------------------------------
+void ili9488_set_window(const window win)
+{
+  ili9488_caset(win._start._pos_x, win._end._pos_x);
+  ili9488_raset(win._start._pos_y, win._end._pos_y);
+}
+
+void ili9488_ramwr(void)
+{
+  DC_CMD();
+  spi_txrx(RAMWR);
+  DC_DATA();
+}
+
 void ili9488_fill_screen(uint16_t color565)
 {
   // Convertit le RGB565 en RGB666 (18-bit), format attendu par
@@ -377,33 +386,12 @@ void ili9488_fill_screen(uint16_t color565)
   uint8_t g = ((color565 >> 5) & 0x3F) << 2;   // 6 bits -> 8 bits (bits hauts)
   uint8_t b = (color565 & 0x1F) << 3;          // 5 bits -> 8 bits (bits hauts)
 
-  // Column Address Set (CASET, 0x2A)
-  MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(0x2A);
-  DC_DATA();
-  spi_txrx(0x00);
-  spi_txrx(0x00);
-  spi_txrx(0x01);
-  spi_txrx(0x3F);
-  MAIN_SCREEN_CS_HIGH();
+  window full_screen = {{0, 0},
+                        {MAIN_SCREEN_WIDTH - 1, MAIN_SCREEN_HEIGHT - 1}};
 
-  // Page/Row Address Set (PASET, 0x2B)
   MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(0x2B);
-  DC_DATA();
-  spi_txrx(0x00);
-  spi_txrx(0x00);
-  spi_txrx(0x01);
-  spi_txrx(0xDF);
-  MAIN_SCREEN_CS_HIGH();
-
-  // Memory Write (RAMWR, 0x2C) — 3 octets par pixel maintenant
-  MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(0x2C);
-  DC_DATA();
+  ili9488_set_window(full_screen);
+  ili9488_ramwr();
   uint32_t n_pixels = 480UL * 320UL;
   for (uint32_t i = 0; i < n_pixels; i++)
   {
@@ -412,10 +400,4 @@ void ili9488_fill_screen(uint16_t color565)
     spi_txrx(b);
   }
   MAIN_SCREEN_CS_HIGH();
-}
-
-void main_screen_set_window(const window win)
-{
-  main_screen_caset(win._start._pos_y, win._end._pos_y);
-  main_screen_raset(win._start._pos_x, win._end._pos_x);
 }
