@@ -3,13 +3,13 @@
 #include "display/main_screen.h"
 #include "display/screen_text.h"
 #include "input/keypad.h"
+#include "storage/fatfs.h"
+#include "storage/sd.h"
+#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/power_save.h"
 #include "system/uart.h"
 #include "utils/keyboard_utils.h"
-#include "storage/fatfs.h"
-#include "storage/sd.h"
-#include "storage/sd_streaming.h"
 #include "utils/utils.h"
 
 // Pour commencer un nouveau mot
@@ -27,10 +27,7 @@ void start_new_word(void)
 }
 
 // when you validate your word
-void validate_word(void)
-{
-  word_state = VALIDATED;
-}
+void validate_word(void) { word_state = VALIDATED; }
 
 void display_word(void)
 {
@@ -116,38 +113,33 @@ void start_translation(void)
   app_state = TRADUCTION;
 }
 
-//display image of a letter
-// if letter is C then looking for C_LSF etc..
+// display image of a letter
+//  if letter is C then looking for C_LSF etc..
 void display_translation_letter(void)
 {
-    char letter[2];
-    char file_name[16] = {0};
+  char letter[2];
+  char file_name[16] = {0};
 
-    letter[0] = word[translation_index];
-    letter[1] = '\0';
+  letter[0] = word[translation_index];
+  letter[1] = '\0';
 
-    ft_strcat(file_name, letter);
+  ft_strcat(file_name, letter);
 
-    if (language == LANG_FR)
-        ft_strcat(file_name, "_LSF");
-    else
-        ft_strcat(file_name, "_BSL");
+  if (language == LANG_FR)
+    ft_strcat(file_name, "_LSF");
+  else
+    ft_strcat(file_name, "_BSL");
 
-    ft_strcat(file_name, "   BMP");
+  ft_strcat(file_name, "   BMP");
 
-    ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-    for (uint8_t i = 0;
-         i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0;
-         i++)
+  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
+  {
+    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
     {
-        if (!ft_strncmp(file_name,
-                        image_lut[i].name,
-                        FILE_NAME_SIZE))
-        {
-            sd_stream_bmp_to_screen(
-                cluster_to_lba(image_lut[i].address));
-            break;
-        }
+      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
+      break;
     }
+  }
 }
