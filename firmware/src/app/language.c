@@ -59,9 +59,11 @@ void language_update(void)
     power_save_activity();
 
     language = new_language;
+#ifdef DEBUG
     uart_printstr("[LANG] Switched to ");
     uart_printstr(language == LANG_FR ? "FR" : "EN");
     uart_printstr("\r\n");
+#endif /* ifdef DEBUG */
     // go back to the menu when we switch language
     menu_choice = 0;
     show_menu();

@@ -8,15 +8,20 @@
 #include "system/uart.h"
 #include "utils/utils.h"
 
-static uint8_t buf_header[512] = {0};
-static uint8_t buf_img[512] = {0};
+union Buffers
+{
+  uint8_t header[512];
+  uint8_t img[512];
+};
+
+static union Buffers buffers = {0};
 
 void sd_stream_bmp_to_screen(uint32_t start_sector)
 {
   sd_read_single_block(start_sector >> 24, start_sector >> 16,
-                       start_sector >> 8, start_sector, buf_header);
+                       start_sector >> 8, start_sector, buffers.header);
   bmp_header header = {0};
-  if (bmp_parse_header(buf_header, &header) != 0)
+  if (bmp_parse_header(buffers.header, &header) != 0)
   {
     uart_printstr("Error while printing image\r\n");
     return;  // ERROR
@@ -50,13 +55,13 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
   while (bytes_processed < byte_count)
   {
     sd_read_single_block(pixel_sector >> 24, pixel_sector >> 16,
-                         pixel_sector >> 8, pixel_sector, buf_img);
+                         pixel_sector >> 8, pixel_sector, buffers.img);
     pixel_sector++;
     MAIN_SCREEN_CS_LOW();
 
     for (; buffer_idx < 512 && bytes_processed < byte_count; buffer_idx++)
     {
-      rgb[rgb_idx++] = buf_img[buffer_idx];
+      rgb[rgb_idx++] = buffers.img[buffer_idx];
 
       if (rgb_idx == 3)
       {
