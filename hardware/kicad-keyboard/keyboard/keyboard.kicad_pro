@@ -521,6 +521,14 @@
         "via_diameter": 0.7,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "name": "Power Rail",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.5,
+        "via_drill": 0.6
       }
     ],
     "meta": {
@@ -528,7 +536,12 @@
     },
     "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "Power Rail",
+        "pattern": "VCC"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
