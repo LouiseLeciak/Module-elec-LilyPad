@@ -54,6 +54,7 @@ void delete_last_char(void)
 
 void traduction(void)
 {
+  // [FIX] fix the pb when you can't do anything after a power save
   if (word_state != INPUT)
     return;
   int key = keypad_read();
