@@ -20,8 +20,14 @@ void start_new_word(void)
 
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-  draw_string(10, 20, "Entre un mot !", GC9A01A_COLOR_GREEN,
-              GC9A01A_COLOR_OLIVE, 4, 2);
+  if (language == LANG_FR){
+    draw_string(10, 20, "Entre un mot !", GC9A01A_COLOR_GREEN,
+                GC9A01A_COLOR_OLIVE, 4, 2);
+  }
+  else{
+    draw_string(10, 20, "Choose a word !", GC9A01A_COLOR_GREEN,
+                GC9A01A_COLOR_OLIVE, 4, 2);
+  }
 
   word_state = INPUT;
 }
@@ -132,7 +138,6 @@ void display_translation_letter(void)
 
   ft_strcat(file_name, "   BMP");
 
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {
