@@ -129,6 +129,155 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Lilyspad:diode"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 0.508 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Lilyspad:diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "diode_0_1"
+				(polyline
+					(pts
+						(xy -1.27 -2.54) (xy -1.016 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -2.54) (xy -1.016 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -2.54) (xy 1.524 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -3.81) (xy 0.762 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "diode_1_1"
+				(pin passive line
+					(at -2.54 -2.54 0)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -2.54 180)
+					(length 1.27)
+					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Lilyspad:header_26"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1236,7 +1385,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
+			(property "Reference" "D"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2321,5630 +2470,6 @@
 						)
 					)
 					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_1"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_1_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_1_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_10"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_10_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_10_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_11"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_11_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_11_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_12"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_12_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_12_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_13"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_13_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_13_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_14"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_14_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_14_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_15"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_15_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_15_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_16"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_16_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_16_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_17"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_17_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_17_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_18"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_18_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_18_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_19"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_19_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_19_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_2"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_2_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_2_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_20"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_20_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_20_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_21"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_21_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_21_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_22"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_22_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_22_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_23"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_23_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_23_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_24"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_24_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_24_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_25"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_25_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_25_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_26"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_26_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_26_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_27"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_27_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_27_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_28"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_28_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_28_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_29"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_29_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_29_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_3"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_3_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_3_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_30"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_30_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_30_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_31"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_31_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_31_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_32"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_32_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_32_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_33"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_33_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_33_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_34"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_34_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_34_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_35"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_35_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_35_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_36"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_36_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_36_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_37"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_37_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_37_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_4"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_4_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_4_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_5"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_5_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_5_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_6"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_6_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_6_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_7"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_7_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_7_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_8"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_8_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_8_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "diode_9"
-			(pin_numbers
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "U"
-				(at 0 0.508 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" "Lilyspad:diode"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "diode_9_0_1"
-				(polyline
-					(pts
-						(xy -1.27 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.016 -3.81) (xy 0.762 -2.54) (xy -1.016 -1.27) (xy -1.016 -2.54) (xy -1.016 -3.81)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy -1.016 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -2.54) (xy 1.524 -2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -3.81) (xy 0.762 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "diode_9_1_1"
-				(pin passive line
-					(at -2.54 -2.54 0)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 -2.54 180)
-					(length 1.27)
-					(name ""
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -10997,7 +5522,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "01d094d8-0fd9-4ac7-aee8-33fd064aa043")
-		(property "Reference" "SW15"
+		(property "Reference" "SW17"
 			(at 105.41 114.3 0)
 			(effects
 				(font
@@ -11049,7 +5574,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW15")
+					(reference "SW17")
 					(unit 1)
 				)
 			)
@@ -11065,7 +5590,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "02f25a10-561b-49a5-9481-930f51c579a0")
-		(property "Reference" "R1"
+		(property "Reference" "R2"
 			(at 233.68 105.41 90)
 			(effects
 				(font
@@ -11117,14 +5642,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R1")
+					(reference "R2")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_27")
 		(lib_id "Lilyspad:diode")
 		(at 62.23 119.38 0)
 		(unit 1)
@@ -11134,7 +5658,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0690413a-1427-4475-99ca-d448443bec4d")
-		(property "Reference" "D13"
+		(property "Reference" "D15"
 			(at 62.357 118.11 0)
 			(effects
 				(font
@@ -11187,7 +5711,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D13")
+					(reference "D15")
 					(unit 1)
 				)
 			)
@@ -11204,7 +5728,7 @@
 		(fields_autoplaced yes)
 		(uuid "0948dcdf-9a39-43b9-aa4f-a3144036701c")
 		(property "Reference" "M2"
-			(at 29.21 14.9859 0)
+			(at 29.21 16.2559 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11268,7 +5792,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0b066d20-555b-44ee-b8f6-eccd1f4f3c6c")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR04"
 			(at 257.81 80.01 0)
 			(effects
 				(font
@@ -11316,16 +5840,15 @@
 			(uuid "c9e6fb17-9817-400d-b8da-aeccda6be18a")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "#PWR01")
+					(reference "#PWR04")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_8")
 		(lib_id "Lilyspad:diode")
 		(at 151.13 142.24 0)
 		(unit 1)
@@ -11335,7 +5858,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0cb436db-f7b6-4f9b-8f75-1ec231bdaac0")
-		(property "Reference" "D28"
+		(property "Reference" "D32"
 			(at 151.257 140.97 0)
 			(effects
 				(font
@@ -11388,7 +5911,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D28")
+					(reference "D32")
 					(unit 1)
 				)
 			)
@@ -11404,7 +5927,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "11af0cee-f90c-42b0-9b6e-46c6a5b41527")
-		(property "Reference" "SW24"
+		(property "Reference" "SW28"
 			(at 87.63 137.16 0)
 			(effects
 				(font
@@ -11456,14 +5979,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW24")
+					(reference "SW28")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_3")
 		(lib_id "Lilyspad:diode")
 		(at 186.69 119.38 0)
 		(unit 1)
@@ -11473,7 +5995,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1b0ccdd0-bc34-4250-b0b0-8eade500d030")
-		(property "Reference" "D20"
+		(property "Reference" "D22"
 			(at 186.817 118.11 0)
 			(effects
 				(font
@@ -11526,7 +6048,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D20")
+					(reference "D22")
 					(unit 1)
 				)
 			)
@@ -11590,7 +6112,7 @@
 			(uuid "1ac34795-d406-43c8-bf27-720abde16313")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "#PWR06")
 					(unit 1)
@@ -11599,7 +6121,6 @@
 		)
 	)
 	(symbol
-		(lib_name "diode_18")
 		(lib_id "Lilyspad:diode")
 		(at 115.57 142.24 0)
 		(unit 1)
@@ -11609,7 +6130,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1e327577-a51f-4630-ae6e-d089f6ebfdd9")
-		(property "Reference" "D26"
+		(property "Reference" "D29"
 			(at 115.697 140.97 0)
 			(effects
 				(font
@@ -11662,7 +6183,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D26")
+					(reference "D29")
 					(unit 1)
 				)
 			)
@@ -11678,7 +6199,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "1f003c19-760e-45be-8e4c-d0669b7167e2")
-		(property "Reference" "SW5"
+		(property "Reference" "SW6"
 			(at 105.41 90.17 0)
 			(effects
 				(font
@@ -11728,9 +6249,9 @@
 			(uuid "9b8092e1-691f-4250-b83c-ffc8eb389f13")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW5")
+					(reference "SW6")
 					(unit 1)
 				)
 			)
@@ -11746,7 +6267,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2138d544-eab9-4eb0-b733-60b392215be5")
-		(property "Reference" "SW32"
+		(property "Reference" "SW35"
 			(at 52.07 161.29 0)
 			(effects
 				(font
@@ -11798,7 +6319,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW32")
+					(reference "SW35")
 					(unit 1)
 				)
 			)
@@ -11814,8 +6335,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2902c27a-7d6e-4900-9d24-e84ac1b5242f")
-		(property "Reference" "U3"
-			(at 268.859 21.59 0)
+		(property "Reference" "D12"
+			(at 268.859 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11831,7 +6352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Lilyspad:led"
 			(at 267.97 25.4 0)
 			(effects
 				(font
@@ -11865,16 +6386,15 @@
 			(uuid "558c12e7-fd9c-4f94-b7f6-16c93ecd855b")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "U3")
+					(reference "D12")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_25")
 		(lib_id "Lilyspad:diode")
 		(at 80.01 95.25 0)
 		(unit 1)
@@ -11953,7 +6473,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3638399a-81cc-4475-93cb-f4fec16c5347")
-		(property "Reference" "SW12"
+		(property "Reference" "SW14"
 			(at 52.07 114.3 0)
 			(effects
 				(font
@@ -12005,7 +6525,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW12")
+					(reference "SW14")
 					(unit 1)
 				)
 			)
@@ -12021,7 +6541,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3a38ed80-46fe-4e9f-8112-c6625504199e")
-		(property "Reference" "SW9"
+		(property "Reference" "SW10"
 			(at 176.53 90.17 0)
 			(effects
 				(font
@@ -12073,7 +6593,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW9")
+					(reference "SW10")
 					(unit 1)
 				)
 			)
@@ -12087,8 +6607,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "3a41ac73-d630-45b4-ba9c-80840a489b4a")
-		(property "Reference" "R3"
+		(property "Reference" "R4"
 			(at 239.268 79.502 0)
 			(effects
 				(font
@@ -12142,7 +6663,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R3")
+					(reference "R4")
 					(unit 1)
 				)
 			)
@@ -12158,7 +6679,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3b0baf0b-1563-43b8-9d51-88c6d29d31ea")
-		(property "Reference" "SW35"
+		(property "Reference" "SW38"
 			(at 105.41 161.29 0)
 			(effects
 				(font
@@ -12210,7 +6731,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW35")
+					(reference "SW38")
 					(unit 1)
 				)
 			)
@@ -12224,8 +6745,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "4b1e88b5-3327-400f-8932-5ef3d04aa1dd")
-		(property "Reference" "R2"
+		(property "Reference" "R3"
 			(at 232.41 90.932 0)
 			(effects
 				(font
@@ -12279,14 +6801,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R2")
+					(reference "R3")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_10")
 		(lib_id "Lilyspad:diode")
 		(at 168.91 119.38 0)
 		(unit 1)
@@ -12296,7 +6817,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4bce0ff6-2f4a-4aa4-881a-def2e930c186")
-		(property "Reference" "D19"
+		(property "Reference" "D21"
 			(at 169.037 118.11 0)
 			(effects
 				(font
@@ -12349,7 +6870,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D19")
+					(reference "D21")
 					(unit 1)
 				)
 			)
@@ -12365,7 +6886,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d4a6794-c804-4366-b8c2-b680c4f50950")
-		(property "Reference" "SW2"
+		(property "Reference" "SW3"
 			(at 52.07 90.17 0)
 			(effects
 				(font
@@ -12417,14 +6938,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW2")
+					(reference "SW3")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_14")
 		(lib_id "Lilyspad:diode")
 		(at 115.57 166.37 0)
 		(unit 1)
@@ -12434,7 +6954,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5092297e-cdec-4237-8978-1a6bdaf511aa")
-		(property "Reference" "D36"
+		(property "Reference" "D38"
 			(at 115.697 165.1 0)
 			(effects
 				(font
@@ -12487,14 +7007,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D36")
+					(reference "D38")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_1")
 		(lib_id "Lilyspad:diode")
 		(at 186.69 142.24 0)
 		(unit 1)
@@ -12504,7 +7023,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "50999610-b0c6-47e3-9d49-ecb23e1ca87b")
-		(property "Reference" "D30"
+		(property "Reference" "D11"
 			(at 186.817 140.97 0)
 			(effects
 				(font
@@ -12557,14 +7076,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D30")
+					(reference "D11")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_31")
 		(lib_id "Lilyspad:diode")
 		(at 44.45 142.24 0)
 		(unit 1)
@@ -12574,7 +7092,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "51c45b29-3e20-40db-9b37-b65a28f65926")
-		(property "Reference" "D22"
+		(property "Reference" "D25"
 			(at 44.577 140.97 0)
 			(effects
 				(font
@@ -12627,14 +7145,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D22")
+					(reference "D25")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_7")
 		(lib_id "Lilyspad:diode")
 		(at 151.13 166.37 0)
 		(unit 1)
@@ -12644,7 +7161,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52f50240-9ca6-4261-808a-ab718a321dc3")
-		(property "Reference" "D38"
+		(property "Reference" "D23"
 			(at 151.257 165.1 0)
 			(effects
 				(font
@@ -12697,14 +7214,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D38")
+					(reference "D23")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_32")
 		(lib_id "Lilyspad:diode")
 		(at 62.23 166.37 0)
 		(unit 1)
@@ -12714,7 +7230,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "55d4b16d-b873-49ac-9f98-ea40cc2a57fd")
-		(property "Reference" "D33"
+		(property "Reference" "D35"
 			(at 62.357 165.1 0)
 			(effects
 				(font
@@ -12767,7 +7283,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D33")
+					(reference "D35")
 					(unit 1)
 				)
 			)
@@ -12783,7 +7299,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5618506a-e620-4c10-9542-0f30ca17658d")
-		(property "Reference" "SW29"
+		(property "Reference" "SW33"
 			(at 176.53 137.16 0)
 			(effects
 				(font
@@ -12835,7 +7351,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW29")
+					(reference "SW33")
 					(unit 1)
 				)
 			)
@@ -12851,7 +7367,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56e007b7-60ed-4df9-abbc-ac53cc0e4c4e")
-		(property "Reference" "#PWR02"
+		(property "Reference" "#PWR03"
 			(at 261.62 44.45 0)
 			(effects
 				(font
@@ -12899,9 +7415,9 @@
 			(uuid "2845f6a5-eb17-4848-a0f3-13ccfc0a8b9a")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "#PWR02")
+					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -12917,7 +7433,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5893de7c-68c4-4f64-bdf2-3dfed61f3d85")
-		(property "Reference" "SW13"
+		(property "Reference" "SW15"
 			(at 69.85 114.3 0)
 			(effects
 				(font
@@ -12969,7 +7485,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW13")
+					(reference "SW15")
 					(unit 1)
 				)
 			)
@@ -12985,7 +7501,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5bda9752-2768-4294-be10-c733eb421a64")
-		(property "Reference" "SW36"
+		(property "Reference" "SW39"
 			(at 123.19 161.29 0)
 			(effects
 				(font
@@ -13037,7 +7553,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW36")
+					(reference "SW39")
 					(unit 1)
 				)
 			)
@@ -13053,7 +7569,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5bde5b37-f87a-47d4-bb7e-a5a6a6f85bc0")
-		(property "Reference" "SW37"
+		(property "Reference" "SW40"
 			(at 140.97 161.29 0)
 			(effects
 				(font
@@ -13105,7 +7621,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW37")
+					(reference "SW40")
 					(unit 1)
 				)
 			)
@@ -13121,7 +7637,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5f4c6564-e797-42d9-858e-97c6109a482a")
-		(property "Reference" "SW14"
+		(property "Reference" "SW16"
 			(at 87.63 114.3 0)
 			(effects
 				(font
@@ -13173,7 +7689,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW14")
+					(reference "SW16")
 					(unit 1)
 				)
 			)
@@ -13189,7 +7705,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6022de36-2dd6-4af4-87d0-23db36be6758")
-		(property "Reference" "SW10"
+		(property "Reference" "SW11"
 			(at 194.31 90.17 0)
 			(effects
 				(font
@@ -13241,7 +7757,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW10")
+					(reference "SW11")
 					(unit 1)
 				)
 			)
@@ -13257,7 +7773,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "63367db5-c62d-4177-9e77-57a7cc3ce718")
-		(property "Reference" "SW33"
+		(property "Reference" "SW36"
 			(at 69.85 161.29 0)
 			(effects
 				(font
@@ -13309,7 +7825,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW33")
+					(reference "SW36")
 					(unit 1)
 				)
 			)
@@ -13325,7 +7841,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6586ba44-37d0-4337-9675-281f2d321e5a")
-		(property "Reference" "SW21"
+		(property "Reference" "SW25"
 			(at 34.29 137.16 0)
 			(effects
 				(font
@@ -13377,14 +7893,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW21")
+					(reference "SW25")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_23")
 		(lib_id "Lilyspad:diode")
 		(at 97.79 166.37 0)
 		(unit 1)
@@ -13394,7 +7909,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "68b39682-f765-40e8-a872-7dc1df4951d6")
-		(property "Reference" "D35"
+		(property "Reference" "D37"
 			(at 97.917 165.1 0)
 			(effects
 				(font
@@ -13447,7 +7962,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D35")
+					(reference "D37")
 					(unit 1)
 				)
 			)
@@ -13464,7 +7979,7 @@
 		(fields_autoplaced yes)
 		(uuid "6fb62046-d61c-44af-9b63-404a876fccc0")
 		(property "Reference" "M1"
-			(at 19.05 14.9859 0)
+			(at 19.05 16.2559 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13510,7 +8025,7 @@
 			)
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "M1")
 					(unit 1)
@@ -13519,7 +8034,6 @@
 		)
 	)
 	(symbol
-		(lib_name "diode_30")
 		(lib_id "Lilyspad:diode")
 		(at 44.45 166.37 0)
 		(unit 1)
@@ -13529,7 +8043,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "703fdbb3-b7fc-4f89-bcfb-7d47cb678506")
-		(property "Reference" "D32"
+		(property "Reference" "D34"
 			(at 44.577 165.1 0)
 			(effects
 				(font
@@ -13582,7 +8096,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D32")
+					(reference "D34")
 					(unit 1)
 				)
 			)
@@ -13598,7 +8112,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "710ac98f-e0bb-4f9b-baee-7d4ba5991af1")
-		(property "Reference" "SW31"
+		(property "Reference" "SW34"
 			(at 34.29 161.29 0)
 			(effects
 				(font
@@ -13650,7 +8164,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW31")
+					(reference "SW34")
 					(unit 1)
 				)
 			)
@@ -13666,7 +8180,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "71ffe437-83ac-4274-a364-faf6813112ae")
-		(property "Reference" "SW27"
+		(property "Reference" "SW31"
 			(at 140.97 137.16 0)
 			(effects
 				(font
@@ -13718,7 +8232,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW27")
+					(reference "SW31")
 					(unit 1)
 				)
 			)
@@ -13734,7 +8248,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7379a228-8ea3-4e3e-9c07-88b5a2cee8bf")
-		(property "Reference" "SW8"
+		(property "Reference" "SW9"
 			(at 158.75 90.17 0)
 			(effects
 				(font
@@ -13786,7 +8300,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW8")
+					(reference "SW9")
 					(unit 1)
 				)
 			)
@@ -13802,7 +8316,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "740d8c33-1ed4-484f-88d1-448676b36685")
-		(property "Reference" "MCP23017"
+		(property "Reference" "MCP1"
 			(at 259.9533 78.74 0)
 			(effects
 				(font
@@ -13932,16 +8446,15 @@
 			(uuid "b1023ef2-8b1e-4bc8-8799-f40a7c5146d2")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "MCP23017")
+					(reference "MCP1")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_9")
 		(lib_id "Lilyspad:diode")
 		(at 168.91 95.25 0)
 		(unit 1)
@@ -14002,7 +8515,7 @@
 			(uuid "3cf54f80-616d-47be-81a6-803ea914b624")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "D9")
 					(unit 1)
@@ -14020,7 +8533,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "776a69fb-aff7-4185-90eb-1f2f5fdef4c8")
-		(property "Reference" "SW11"
+		(property "Reference" "SW13"
 			(at 34.29 114.3 0)
 			(effects
 				(font
@@ -14072,14 +8585,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW11")
+					(reference "SW13")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_26")
 		(lib_id "Lilyspad:diode")
 		(at 97.79 119.38 0)
 		(unit 1)
@@ -14089,7 +8601,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "78568dc8-9aff-429c-8473-28366a47acc9")
-		(property "Reference" "D15"
+		(property "Reference" "D17"
 			(at 97.917 118.11 0)
 			(effects
 				(font
@@ -14142,7 +8654,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D15")
+					(reference "D17")
 					(unit 1)
 				)
 			)
@@ -14158,7 +8670,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7c2f694a-10c5-4f4a-a360-16dccdd11ae3")
-		(property "Reference" "SW25"
+		(property "Reference" "SW29"
 			(at 105.41 137.16 0)
 			(effects
 				(font
@@ -14210,14 +8722,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW25")
+					(reference "SW29")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_36")
 		(lib_id "Lilyspad:diode")
 		(at 26.67 142.24 0)
 		(unit 1)
@@ -14227,7 +8738,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7e8bd1ec-e8cb-4162-b955-63d1cf360f30")
-		(property "Reference" "D21"
+		(property "Reference" "D24"
 			(at 26.797 140.97 0)
 			(effects
 				(font
@@ -14280,7 +8791,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D21")
+					(reference "D24")
 					(unit 1)
 				)
 			)
@@ -14296,7 +8807,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8180620d-f05e-4f66-8c07-ca2cb8c2d144")
-		(property "Reference" "SW26"
+		(property "Reference" "SW30"
 			(at 123.19 137.16 0)
 			(effects
 				(font
@@ -14348,7 +8859,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW26")
+					(reference "SW30")
 					(unit 1)
 				)
 			)
@@ -14364,8 +8875,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "82560dce-8260-4ac8-b1e1-6c1c0d7d7fed")
-		(property "Reference" "M4"
-			(at 29.21 22.6059 0)
+		(property "Reference" "M3"
+			(at 29.21 23.8759 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14413,7 +8924,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "M4")
+					(reference "M3")
 					(unit 1)
 				)
 			)
@@ -14429,7 +8940,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "862f70b4-528e-4b85-9388-db3ea3f37b1a")
-		(property "Reference" "R4"
+		(property "Reference" "R1"
 			(at 264.16 33.0199 0)
 			(effects
 				(font
@@ -14481,9 +8992,9 @@
 			(uuid "874d48f7-d4cf-43f9-8f94-f129cffb1900")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "R4")
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -14499,7 +9010,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8724ae7b-2610-44ed-b305-9c32039d168c")
-		(property "Reference" "SW6"
+		(property "Reference" "SW7"
 			(at 123.19 90.17 0)
 			(effects
 				(font
@@ -14551,14 +9062,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW6")
+					(reference "SW7")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_4")
 		(lib_id "Lilyspad:diode")
 		(at 151.13 95.25 0)
 		(unit 1)
@@ -14619,7 +9129,7 @@
 			(uuid "f4317979-4f4f-4907-a8e6-da331c7996bc")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "D8")
 					(unit 1)
@@ -14637,7 +9147,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8e519c1a-51cb-4909-86e9-b26158dc3466")
-		(property "Reference" "SW30"
+		(property "Reference" "SW12"
 			(at 194.31 137.16 0)
 			(effects
 				(font
@@ -14689,7 +9199,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW30")
+					(reference "SW12")
 					(unit 1)
 				)
 			)
@@ -14705,7 +9215,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8ea0a231-4f5e-4df2-bb9c-43c9dc0329da")
-		(property "Reference" "SW1"
+		(property "Reference" "SW2"
 			(at 34.29 90.17 0)
 			(effects
 				(font
@@ -14757,7 +9267,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW1")
+					(reference "SW2")
 					(unit 1)
 				)
 			)
@@ -14895,7 +9405,7 @@
 			(uuid "e6dc0f26-6a7e-4b88-802f-f190e0c15ab4")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "U1")
 					(unit 1)
@@ -14904,7 +9414,6 @@
 		)
 	)
 	(symbol
-		(lib_name "diode_1")
 		(lib_id "Lilyspad:diode")
 		(at 26.67 95.25 0)
 		(unit 1)
@@ -14983,7 +9492,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9421e32e-d8c5-4d50-8925-35b569d4ebec")
-		(property "Reference" "SW7"
+		(property "Reference" "SW8"
 			(at 140.97 90.17 0)
 			(effects
 				(font
@@ -15035,14 +9544,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW7")
+					(reference "SW8")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_2")
 		(lib_id "Lilyspad:diode")
 		(at 186.69 95.25 0)
 		(unit 1)
@@ -15103,7 +9611,7 @@
 			(uuid "7bd29279-ee75-4e80-9631-b02239403423")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "D10")
 					(unit 1)
@@ -15112,7 +9620,6 @@
 		)
 	)
 	(symbol
-		(lib_name "diode_33")
 		(lib_id "Lilyspad:diode")
 		(at 62.23 95.25 0)
 		(unit 1)
@@ -15191,7 +9698,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9f4f079c-82a7-4a72-99cb-d4482f117b27")
-		(property "Reference" "SW34"
+		(property "Reference" "SW37"
 			(at 87.63 161.29 0)
 			(effects
 				(font
@@ -15243,7 +9750,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW34")
+					(reference "SW37")
 					(unit 1)
 				)
 			)
@@ -15259,7 +9766,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9ff3e9e0-a4a1-424c-9a54-8ed912497187")
-		(property "Reference" "SW4"
+		(property "Reference" "SW5"
 			(at 87.63 90.17 0)
 			(effects
 				(font
@@ -15309,16 +9816,15 @@
 			(uuid "182eab9d-22c0-4120-8040-cd7aefcf3025")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW4")
+					(reference "SW5")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_21")
 		(lib_id "Lilyspad:diode")
 		(at 97.79 142.24 0)
 		(unit 1)
@@ -15328,7 +9834,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a003262f-5777-40dc-b705-a65c68a3390e")
-		(property "Reference" "D25"
+		(property "Reference" "D28"
 			(at 97.917 140.97 0)
 			(effects
 				(font
@@ -15381,14 +9887,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D25")
+					(reference "D28")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_35")
 		(lib_id "Lilyspad:diode")
 		(at 26.67 119.38 0)
 		(unit 1)
@@ -15398,7 +9903,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a64b37f9-0440-477d-9c9c-54bf1bab5a9e")
-		(property "Reference" "D11"
+		(property "Reference" "D13"
 			(at 26.797 118.11 0)
 			(effects
 				(font
@@ -15451,7 +9956,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D11")
+					(reference "D13")
 					(unit 1)
 				)
 			)
@@ -15466,23 +9971,24 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "a7c8bb87-d8b0-4ff3-a8e8-3cfc553b946d")
-		(property "Reference" "SW39"
-			(at 207.01 26.6699 90)
+		(property "Reference" "SW1"
+			(at 219.71 26.6699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "SW_Slide_DPDT"
-			(at 207.01 29.2099 90)
+			(at 219.71 29.2099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Lilyspad:slide_switch"
@@ -15531,9 +10037,9 @@
 			(uuid "5d1f152b-b753-4eda-b1e0-85baf89d0120")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW39")
+					(reference "SW1")
 					(unit 1)
 				)
 			)
@@ -15549,7 +10055,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af001b4e-0561-4b64-a1b5-f5ac88c77577")
-		(property "Reference" "SW19"
+		(property "Reference" "SW21"
 			(at 176.53 114.3 0)
 			(effects
 				(font
@@ -15601,14 +10107,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW19")
+					(reference "SW21")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_5")
 		(lib_id "Lilyspad:diode")
 		(at 168.91 142.24 0)
 		(unit 1)
@@ -15618,7 +10123,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af843574-4a19-4928-b3e4-67d451ea8e05")
-		(property "Reference" "D29"
+		(property "Reference" "D31"
 			(at 169.037 140.97 0)
 			(effects
 				(font
@@ -15671,7 +10176,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D29")
+					(reference "D31")
 					(unit 1)
 				)
 			)
@@ -15687,7 +10192,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "af96b20f-e131-4abe-bf67-e35ad1c57848")
-		(property "Reference" "SW23"
+		(property "Reference" "SW27"
 			(at 69.85 137.16 0)
 			(effects
 				(font
@@ -15739,14 +10244,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW23")
+					(reference "SW27")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_13")
 		(lib_id "Lilyspad:diode")
 		(at 133.35 142.24 0)
 		(unit 1)
@@ -15756,7 +10260,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b0c1f7f0-1436-4959-99d8-d06d19921742")
-		(property "Reference" "D27"
+		(property "Reference" "D30"
 			(at 133.477 140.97 0)
 			(effects
 				(font
@@ -15809,7 +10313,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D27")
+					(reference "D30")
 					(unit 1)
 				)
 			)
@@ -15825,7 +10329,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b375dee5-b3f1-4721-b158-2e2566ef6816")
-		(property "Reference" "SW17"
+		(property "Reference" "SW19"
 			(at 140.97 114.3 0)
 			(effects
 				(font
@@ -15877,14 +10381,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW17")
+					(reference "SW19")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_16")
 		(lib_id "Lilyspad:diode")
 		(at 133.35 166.37 0)
 		(unit 1)
@@ -15894,7 +10397,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b3b6fcf2-48f0-4d22-b313-3762c0605264")
-		(property "Reference" "D37"
+		(property "Reference" "D39"
 			(at 133.477 165.1 0)
 			(effects
 				(font
@@ -15947,7 +10450,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D37")
+					(reference "D39")
 					(unit 1)
 				)
 			)
@@ -15963,7 +10466,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b7648989-f6c4-4028-9978-3344e2e897f1")
-		(property "Reference" "SW18"
+		(property "Reference" "SW20"
 			(at 158.75 114.3 0)
 			(effects
 				(font
@@ -16015,14 +10518,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW18")
+					(reference "SW20")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_24")
 		(lib_id "Lilyspad:diode")
 		(at 97.79 95.25 0)
 		(unit 1)
@@ -16149,7 +10651,7 @@
 			(uuid "01b82da3-d7b2-413a-8ba9-06bc6995e546")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "#FLG02")
 					(unit 1)
@@ -16167,7 +10669,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c538cfeb-4e30-4e8d-be83-2adb83ea52d0")
-		(property "Reference" "SW38"
+		(property "Reference" "SW23"
 			(at 158.75 161.29 0)
 			(effects
 				(font
@@ -16219,14 +10721,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW38")
+					(reference "SW23")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_37")
 		(lib_id "Lilyspad:diode")
 		(at 26.67 166.37 0)
 		(unit 1)
@@ -16236,7 +10737,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c591320e-83be-43f7-8b53-74cb0a8aecf8")
-		(property "Reference" "D31"
+		(property "Reference" "D33"
 			(at 26.797 165.1 0)
 			(effects
 				(font
@@ -16289,14 +10790,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D31")
+					(reference "D33")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_17")
 		(lib_id "Lilyspad:diode")
 		(at 115.57 119.38 0)
 		(unit 1)
@@ -16306,7 +10806,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c60441b6-664f-44b3-8af1-315c12d8329a")
-		(property "Reference" "D16"
+		(property "Reference" "D18"
 			(at 115.697 118.11 0)
 			(effects
 				(font
@@ -16359,14 +10859,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D16")
+					(reference "D18")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_34")
 		(lib_id "Lilyspad:diode")
 		(at 44.45 95.25 0)
 		(unit 1)
@@ -16436,7 +10935,6 @@
 		)
 	)
 	(symbol
-		(lib_name "diode_6")
 		(lib_id "Lilyspad:diode")
 		(at 151.13 119.38 0)
 		(unit 1)
@@ -16446,7 +10944,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cce30639-5909-4f11-bf29-063f67692a05")
-		(property "Reference" "D18"
+		(property "Reference" "D20"
 			(at 151.257 118.11 0)
 			(effects
 				(font
@@ -16499,7 +10997,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D18")
+					(reference "D20")
 					(unit 1)
 				)
 			)
@@ -16564,7 +11062,7 @@
 			(uuid "4ec56b30-761e-4fea-93b0-807a5d6a1e91")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "#FLG01")
 					(unit 1)
@@ -16582,7 +11080,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d058c75b-a645-4780-97f8-862f9c6e085d")
-		(property "Reference" "#PWR04"
+		(property "Reference" "#PWR01"
 			(at 261.62 25.4 0)
 			(effects
 				(font
@@ -16630,16 +11128,15 @@
 			(uuid "376b0e6d-cdea-4bf9-86aa-7186c1735d69")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "#PWR04")
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_29")
 		(lib_id "Lilyspad:diode")
 		(at 44.45 119.38 0)
 		(unit 1)
@@ -16649,7 +11146,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d1e7b50a-ac2b-4a37-91f1-658439a160d1")
-		(property "Reference" "D12"
+		(property "Reference" "D14"
 			(at 44.577 118.11 0)
 			(effects
 				(font
@@ -16702,14 +11199,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D12")
+					(reference "D14")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_12")
 		(lib_id "Lilyspad:diode")
 		(at 133.35 119.38 0)
 		(unit 1)
@@ -16719,7 +11215,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d3826654-51e8-4a50-8cc0-8fdefbc9c55a")
-		(property "Reference" "D17"
+		(property "Reference" "D19"
 			(at 133.477 118.11 0)
 			(effects
 				(font
@@ -16772,7 +11268,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D17")
+					(reference "D19")
 					(unit 1)
 				)
 			)
@@ -16788,7 +11284,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d495d95b-6a31-4d66-812c-a0abeef27529")
-		(property "Reference" "#PWR03"
+		(property "Reference" "#PWR02"
 			(at 161.29 31.75 0)
 			(effects
 				(font
@@ -16837,16 +11333,15 @@
 			(uuid "d62a1f94-fa3f-4c9d-b6c2-1b9a7fec0884")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "#PWR03")
+					(reference "#PWR02")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_19")
 		(lib_id "Lilyspad:diode")
 		(at 80.01 142.24 0)
 		(unit 1)
@@ -16856,7 +11351,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dd1c2517-75a5-4df1-b1ac-d05497a63e8e")
-		(property "Reference" "D24"
+		(property "Reference" "D27"
 			(at 80.137 140.97 0)
 			(effects
 				(font
@@ -16909,7 +11404,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D24")
+					(reference "D27")
 					(unit 1)
 				)
 			)
@@ -16925,8 +11420,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "deb55e79-6825-4e9d-a5f9-057ca5fff0cf")
-		(property "Reference" "M3"
-			(at 19.05 22.6059 0)
+		(property "Reference" "M4"
+			(at 19.05 23.8759 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16974,14 +11469,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "M3")
+					(reference "M4")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_11")
 		(lib_id "Lilyspad:diode")
 		(at 115.57 95.25 0)
 		(unit 1)
@@ -17060,7 +11554,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e7320a12-42e1-439f-8d56-b8253a433abc")
-		(property "Reference" "SW3"
+		(property "Reference" "SW4"
 			(at 69.85 90.17 0)
 			(effects
 				(font
@@ -17110,16 +11604,15 @@
 			(uuid "78ebcccd-0af2-484c-80cd-c2b2f67bcd76")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW3")
+					(reference "SW4")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_22")
 		(lib_id "Lilyspad:diode")
 		(at 80.01 119.38 0)
 		(unit 1)
@@ -17129,7 +11622,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e9005275-2545-40ad-9eac-50bc8cf6f048")
-		(property "Reference" "D14"
+		(property "Reference" "D16"
 			(at 80.137 118.11 0)
 			(effects
 				(font
@@ -17182,7 +11675,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D14")
+					(reference "D16")
 					(unit 1)
 				)
 			)
@@ -17198,7 +11691,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ebb49d57-4b69-4e7f-a6ec-05d8b892bef0")
-		(property "Reference" "SW28"
+		(property "Reference" "SW32"
 			(at 158.75 137.16 0)
 			(effects
 				(font
@@ -17250,14 +11743,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW28")
+					(reference "SW32")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_20")
 		(lib_id "Lilyspad:diode")
 		(at 80.01 166.37 0)
 		(unit 1)
@@ -17267,7 +11759,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "eff278a4-dc9c-48ab-9e2c-bcc213012860")
-		(property "Reference" "D34"
+		(property "Reference" "D36"
 			(at 80.137 165.1 0)
 			(effects
 				(font
@@ -17320,7 +11812,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D34")
+					(reference "D36")
 					(unit 1)
 				)
 			)
@@ -17384,7 +11876,7 @@
 			(uuid "8b879ed2-9b09-44cd-a091-db3671d1f539")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
 					(reference "#PWR05")
 					(unit 1)
@@ -17402,7 +11894,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f16e29f6-db20-4ee3-b28d-3f8522a6743c")
-		(property "Reference" "SW16"
+		(property "Reference" "SW18"
 			(at 123.19 114.3 0)
 			(effects
 				(font
@@ -17454,7 +11946,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW16")
+					(reference "SW18")
 					(unit 1)
 				)
 			)
@@ -17470,7 +11962,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f51cc14f-f090-4f90-a02d-c4f264aabd3c")
-		(property "Reference" "SW20"
+		(property "Reference" "SW22"
 			(at 194.31 114.3 0)
 			(effects
 				(font
@@ -17522,7 +12014,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW20")
+					(reference "SW22")
 					(unit 1)
 				)
 			)
@@ -17538,8 +12030,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f70b5fb6-a7d5-4843-8a1b-8ac70ec61018")
-		(property "Reference" "SW40"
-			(at 269.24 48.26 0)
+		(property "Reference" "SW24"
+			(at 269.24 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17598,16 +12090,15 @@
 			(uuid "2aeed8ca-fa94-4176-96e1-0642f574f0ae")
 		)
 		(instances
-			(project ""
+			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW40")
+					(reference "SW24")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_28")
 		(lib_id "Lilyspad:diode")
 		(at 62.23 142.24 0)
 		(unit 1)
@@ -17617,7 +12108,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f7e00d0d-7655-4f86-a34d-827eb48fef22")
-		(property "Reference" "D23"
+		(property "Reference" "D26"
 			(at 62.357 140.97 0)
 			(effects
 				(font
@@ -17670,14 +12161,13 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "D23")
+					(reference "D26")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_name "diode_15")
 		(lib_id "Lilyspad:diode")
 		(at 133.35 95.25 0)
 		(unit 1)
@@ -17756,7 +12246,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "fb3945af-a96e-45cf-8d65-998aa98bd677")
-		(property "Reference" "SW22"
+		(property "Reference" "SW26"
 			(at 52.07 137.16 0)
 			(effects
 				(font
@@ -17808,7 +12298,7 @@
 		(instances
 			(project "keyboard"
 				(path "/55764147-763c-452f-85b8-3be2d22c3190"
-					(reference "SW22")
+					(reference "SW26")
 					(unit 1)
 				)
 			)
