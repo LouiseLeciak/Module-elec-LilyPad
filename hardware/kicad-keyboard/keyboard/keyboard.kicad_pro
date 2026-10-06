@@ -495,7 +495,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "Lilyspad"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -548,7 +550,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../../../../Downloads/lily_pad-keyboard_final_final_promis/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
