@@ -13,5 +13,7 @@ void alphabet();
 void game();
 void validate_word(void);
 void start_new_word(void);
+void show_bonjour();
+void show_hello();
 
 #endif

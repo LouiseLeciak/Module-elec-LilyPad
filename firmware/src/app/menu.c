@@ -3,6 +3,7 @@
 #include "display/screen_text.h"
 #include "system/globals.h"
 #include "utils/keyboard_utils.h"
+#include "storage/sd_streaming.h"
 
 // to display the different choicies
 void show_menu(void)
@@ -88,6 +89,7 @@ void show_menu(void)
   app_state = MENU;
 }
 
+
 void update_menu_cursor(uint8_t old_choice)
 {
   // on enelve lancien curseur et on met un espace
@@ -117,4 +119,12 @@ void update_menu_cursor(uint8_t old_choice)
   {
     draw_string(10, 320, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
   }
+}
+
+void show_bonjour(){
+  sd_stream_bmp_to_screen("BONJOUR BMP");
+}
+
+void show_hello(){
+  sd_stream_bmp_to_screen("HELLO   BMP");
 }
