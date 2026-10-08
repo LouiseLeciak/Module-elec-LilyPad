@@ -1,11 +1,31 @@
 #include "storage/fatfs.h"
 
-#include <stdint.h>
-
 #include "storage/sd.h"
 #include "system/uart.h"
 #include "utils/mem_utils.h"
 #include "utils/utils.h"
+
+#define SECTOR_SIZE 512
+#define FAT32_ENTRY_SIZE 4  // Size of one FAT32 cluster entry in bytes
+#define FAT32_ENTRIES_PER_SECTOR 128
+
+#define DIR_ENTRIES_SIZE 32
+#define DIR_ENTRIES_PER_SECTOR 16
+#define FAT32_CLUSTER_DATA_START 2
+
+#define DIR_ENTRY_END 0x00
+#define DIR_ENTRY_DELETED 0xE5
+#define DIR_LONG_FILE_NAME 0x0F
+
+// See FAT specification paragraph 3.2
+#define FAT32_CLUSTER_MASK \
+  0x0FFFFFFF  //< Mask to ignore reserved top 4 bits of FAT32 entry
+#define FAT32_EOC \
+  0x0FFFFFF8  //< End-of-chain threshold (>= this value → no next cluster)
+
+#define PART_TYPE_FAT32_LBA 0x0C  //< FAT32 partition using LBA addressing
+#define PART_TYPE_FAT32_CHS \
+  0x0B  //< FAT32 partition using legacy CHS addressing
 
 // DSTATUS bit flags
 #define STA_NOINIT 0x01   //< Drive not initialized
@@ -204,7 +224,8 @@ DRESULT parse_mbr(void)
     return RES_PARERR;
   }
 
-  if (sd_mbr.partitions[0].type != 0x0C && sd_mbr.partitions[0].type != 0x0B)
+  if (sd_mbr.partitions[0].type != PART_TYPE_FAT32_LBA &&
+      sd_mbr.partitions[0].type != PART_TYPE_FAT32_CHS)
   {
 #ifdef DEBUG
     uart_printstr("Bad Part Type: ");
@@ -219,13 +240,14 @@ DRESULT parse_mbr(void)
 uint32_t cluster_to_lba(uint32_t cluster)
 {
   // FAT32 data clusters always start at index 2
-  return data_start_lba + ((cluster - 2) * sd_vbr.sectors_per_cluster);
+  return data_start_lba +
+         ((cluster - FAT32_CLUSTER_DATA_START) * sd_vbr.sectors_per_cluster);
 }
 
 void scan_root_dir(void)
 {
-  fat32_dir_entry sd_dir_entries[16];
-  uint32_t fat_sector_buf[128];
+  fat32_dir_entry sd_dir_entries[DIR_ENTRIES_PER_SECTOR];
+  uint32_t fat_sector_buf[FAT32_ENTRIES_PER_SECTOR];
   static uint8_t image_count;
 
   uint32_t current_cluster = sd_vbr.root_cluster;
@@ -240,18 +262,16 @@ void scan_root_dir(void)
     {
       disk_read(0, (BYTE*)&sd_dir_entries, start_lba + sector, 1);
 
-      for (uint8_t i = 0; i < 16; i++)
+      for (uint8_t i = 0; i < DIR_ENTRIES_PER_SECTOR; i++)
       {
-        // 0x00 means directory is empty from here on
-        if (sd_dir_entries[i].name[0] == 0x00)
+        if (sd_dir_entries[i].name[0] == DIR_ENTRY_END)
         {
           uart_printstr("Directory has no more files\r\n");
           return;
         }
 
-        // 0xE5 means file was deleted, 0x0F means it's an Long File Name (LFN)
-        // to ignore
-        if (sd_dir_entries[i].name[0] == 0xE5 || sd_dir_entries[i].attr == 0x0F)
+        if (sd_dir_entries[i].name[0] == DIR_ENTRY_DELETED ||
+            sd_dir_entries[i].attr == DIR_LONG_FILE_NAME)
           continue;
 
         if (sd_dir_entries[i].name[8] != 'B' ||
@@ -294,14 +314,15 @@ void scan_root_dir(void)
         }
       }
     }
-    uint32_t fat_sector = fat_start_lba + (current_cluster / 128);
-    uint32_t fat_index = current_cluster % 128;
+    uint32_t fat_sector =
+        fat_start_lba + (current_cluster / FAT32_ENTRIES_PER_SECTOR);
+    uint32_t fat_index = current_cluster % FAT32_ENTRIES_PER_SECTOR;
 
     disk_read(0, (BYTE*)fat_sector_buf, fat_sector, 1);
 
-    uint32_t next_cluster = fat_sector_buf[fat_index] & 0x0FFFFFFF;
+    uint32_t next_cluster = fat_sector_buf[fat_index] & FAT32_CLUSTER_MASK;
 
-    if (next_cluster >= 0x0FFFFFF8)
+    if (next_cluster >= FAT32_EOC)
     {
       uart_printstr("End of directory cluster chain\r\n");
       return;
