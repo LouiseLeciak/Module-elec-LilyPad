@@ -20,11 +20,13 @@ void start_new_word(void)
 
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
 
-  if (language == LANG_FR){
+  if (language == LANG_FR)
+  {
     draw_string(10, 20, "Entre un mot !", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 4, 2);
   }
-  else{
+  else
+  {
     draw_string(10, 20, "Choose a word !", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 4, 2);
   }
@@ -61,7 +63,8 @@ void traduction(void)
 
   if (key >= 0)
   {
-    if (inac == 1){
+    if (inac == 1)
+    {
       power_save_activity();
       return;
     }
@@ -143,7 +146,6 @@ void display_translation_letter(void)
     ft_strcat(file_name, "_BSL");
 
   ft_strcat(file_name, "   BMP");
-
 
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {

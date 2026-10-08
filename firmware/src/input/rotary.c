@@ -29,7 +29,8 @@ void rotary_update(void)
 
   if (rotary_has_changed(clk))
   {
-    if (inac == 1){
+    if (inac == 1)
+    {
       power_save_activity();
       return;
     }
@@ -414,12 +415,13 @@ void rotary_button_alphabet(void)
 // where to go when the button is pressed in the menu
 void rotary_button_handle_press(void)
 {
-    if (inac == 1){
-      power_save_activity();
-      return;
-    }
-    else
-      power_save_activity();
+  if (inac == 1)
+  {
+    power_save_activity();
+    return;
+  }
+  else
+    power_save_activity();
 
   if (app_state == MENU)
   {

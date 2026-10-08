@@ -29,7 +29,8 @@ void game()
 
   if (key >= 0)
   {
-    if (inac == 1){
+    if (inac == 1)
+    {
       power_save_activity();
       return;
     }
