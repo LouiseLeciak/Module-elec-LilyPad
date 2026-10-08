@@ -165,7 +165,7 @@
 		(remove_unused_layers no)
 		(uuid "9a9a2e2f-6c49-4ebc-9800-b1f8f55edaa0")
 	)
-	(pad "2" thru_hole circle
+	(pad "1" thru_hole circle
 		(at 3.2 4.5)
 		(size 1.52 1.52)
 		(drill 1.02)
@@ -173,7 +173,7 @@
 		(remove_unused_layers no)
 		(uuid "2769fbca-fedd-4251-ae36-6b6ff73c73dc")
 	)
-	(pad "3" thru_hole circle
+	(pad "2" thru_hole circle
 		(at -3.3 9)
 		(size 1.52 1.52)
 		(drill 1.02)
@@ -181,7 +181,7 @@
 		(remove_unused_layers no)
 		(uuid "481538f1-e9c7-4a6a-bd37-944330410b2e")
 	)
-	(pad "4" thru_hole circle
+	(pad "2" thru_hole circle
 		(at 3.2 9)
 		(size 1.52 1.52)
 		(drill 1.02)
@@ -190,4 +190,15 @@
 		(uuid "cba19cdf-ba56-4f47-a9e0-69196c83a224")
 	)
 	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Button_Switch_THT.3dshapes/SW_PUSH_6mm_H7.3mm.step"
+		(offset
+			(xyz -3.2 -4.5 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz -0 -0 -0)
+		)
+	)
 )
