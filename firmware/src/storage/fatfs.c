@@ -1,5 +1,7 @@
 #include "storage/fatfs.h"
 
+#include <stdint.h>
+
 #include "storage/sd.h"
 #include "system/uart.h"
 #include "utils/mem_utils.h"
@@ -223,67 +225,87 @@ uint32_t cluster_to_lba(uint32_t cluster)
 void scan_root_dir(void)
 {
   fat32_dir_entry sd_dir_entries[16];
-  uint32_t start_lba = cluster_to_lba(sd_vbr.root_cluster);
+  uint32_t fat_sector_buf[128];
+  static uint8_t image_count;
+
+  uint32_t current_cluster = sd_vbr.root_cluster;
 
   uart_printstr("Scanning for images on SD Card:\r\n");
 
-  for (uint8_t sector = 0; sector < sd_vbr.sectors_per_cluster; sector++)
+  while (1)
   {
-    disk_read(0, (BYTE*)&sd_dir_entries, start_lba + sector, 1);
+    uint32_t start_lba = cluster_to_lba(current_cluster);
 
-    for (uint8_t i = 0; i < 16; i++)
+    for (uint8_t sector = 0; sector < sd_vbr.sectors_per_cluster; sector++)
     {
-      // 0x00 means directory is empty from here on
-      if (sd_dir_entries[i].name[0] == 0x00)
-      {
-        uart_printstr("Directory has no more files\r\n");
-        return;
-      }
+      disk_read(0, (BYTE*)&sd_dir_entries, start_lba + sector, 1);
 
-      // 0xE5 means file was deleted, 0x0F means it's an Long File Name (LFN) to
-      // ignore
-      if (sd_dir_entries[i].name[0] == 0xE5 || sd_dir_entries[i].attr == 0x0F)
-        continue;
-
-      if (sd_dir_entries[i].name[8] != 'B' ||
-          sd_dir_entries[i].name[9] != 'M' || sd_dir_entries[i].name[10] != 'P')
+      for (uint8_t i = 0; i < 16; i++)
       {
+        // 0x00 means directory is empty from here on
+        if (sd_dir_entries[i].name[0] == 0x00)
+        {
+          uart_printstr("Directory has no more files\r\n");
+          return;
+        }
+
+        // 0xE5 means file was deleted, 0x0F means it's an Long File Name (LFN)
+        // to ignore
+        if (sd_dir_entries[i].name[0] == 0xE5 || sd_dir_entries[i].attr == 0x0F)
+          continue;
+
+        if (sd_dir_entries[i].name[8] != 'B' ||
+            sd_dir_entries[i].name[9] != 'M' ||
+            sd_dir_entries[i].name[10] != 'P')
+        {
+          // Print the 11-character name
+          for (uint8_t j = 0; j < 11; j++) uart_tx(sd_dir_entries[i].name[j]);
+          uart_printstr(": File is not BMP\r\n");
+          continue;
+        }
+
+#ifdef DEBUG
         // Print the 11-character name
-        for (uint8_t j = 0; j < 11; j++) uart_tx(sd_dir_entries[i].name[j]);
-        uart_printstr(": File is not BMP\r\n");
-        continue;
-      }
-
-#ifdef DEBUG
-      // Print the 11-character name
-      for (uint8_t j = 0; j < 11; j++)
-      {
-        uart_tx(sd_dir_entries[i].name[j]);
-      }
-      uart_printstr(" is located at Cluster: ");
+        for (uint8_t j = 0; j < 11; j++)
+        {
+          uart_tx(sd_dir_entries[i].name[j]);
+        }
+        uart_printstr(" is located at Cluster: ");
 #endif
 
-      // Combine high and low 16-bit values into a 32-bit cluster number
-      uint32_t file_cluster =
-          ((uint32_t)sd_dir_entries[i].first_cluster_high << 16) |
-          sd_dir_entries[i].first_cluster_low;
+        // Combine high and low 16-bit values into a 32-bit cluster number
+        uint32_t file_cluster =
+            ((uint32_t)sd_dir_entries[i].first_cluster_high << 16) |
+            sd_dir_entries[i].first_cluster_low;
 
 #ifdef DEBUG
-      uart_printhex_32(file_cluster);
-      uart_printstr("\r\n");
+        uart_printhex_32(file_cluster);
+        uart_printstr("\r\n");
 #endif
-      static uint8_t image_count = 0;
-      if (image_count < IMG_LUT_MAX_SIZE)
-      {
-        image_lut[image_count].address = file_cluster;
-        ft_memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
-        image_count++;
-      }
-      else
-      {
-        uart_printstr("Image look up table is full :(\r\n");
+        if (image_count < IMG_LUT_MAX_SIZE)
+        {
+          image_lut[image_count].address = file_cluster;
+          ft_memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
+          image_count++;
+        }
+        else
+        {
+          uart_printstr("Image look up table is full :(\r\n");
+        }
       }
     }
+    uint32_t fat_sector = fat_start_lba + (current_cluster / 128);
+    uint32_t fat_index = current_cluster % 128;
+
+    disk_read(0, (BYTE*)fat_sector_buf, fat_sector, 1);
+
+    uint32_t next_cluster = fat_sector_buf[fat_index] & 0x0FFFFFFF;
+
+    if (next_cluster >= 0x0FFFFFF8)
+    {
+      uart_printstr("End of directory cluster chain\r\n");
+      return;
+    }
+    current_cluster = next_cluster;
   }
-  uart_printstr("Finished scanning for images on SD Card:\r\n");
 }
