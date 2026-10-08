@@ -21,7 +21,13 @@ void power_save_update(void)
       uart_printstr("[PWR] Screen sleeping (inactivity timeout)\r\n");
 #endif                         /* ifdef DEBUG */
     PORTH &= ~MAIN_SCREEN_BL;  // on eteint
-    GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
+    CS_LEFT_EYE_LOW();
+    CS_RIGHT_EYE_LOW();
+    GC9A01_eye_Lids_down();
+    GC9A01_setAddrWindow_eyes(0, 0, 239, 219);
+    GC9A01_draw_eye_Lids(FULLSCREEN, GC9A01A_COLOR_GREEN);
+    CS_LEFT_EYE_HIGH();
+    CS_RIGHT_EYE_HIGH();
     inac = 1;
   }
   return;

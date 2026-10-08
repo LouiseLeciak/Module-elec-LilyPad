@@ -273,7 +273,7 @@ void scan_root_dir(void)
       uart_printstr("\r\n");
 #endif
       static uint8_t image_count = 0;
-      if (image_count < 60)
+      if (image_count < IMG_LUT_MAX_SIZE)
       {
         image_lut[image_count].address = file_cluster;
         ft_memcpy(image_lut[image_count].name, sd_dir_entries[i].name, 11);
