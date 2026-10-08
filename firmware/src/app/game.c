@@ -29,7 +29,13 @@ void game()
 
   if (key >= 0)
   {
-    power_save_activity();
+    if (inac == 1)
+    {
+      power_save_activity();
+      return;
+    }
+    else
+      power_save_activity();
     uint8_t row = key / COLS_NB;
     uint8_t col = key % COLS_NB;
     char c = keymap[row][col];
@@ -136,14 +142,14 @@ void display_game_letter_image(void)
 
   if (language == LANG_FR)
   {
-    ft_strcat(file_name, "_LSF");
+    ft_strcat(file_name, "_GLSF");
   }
   else
   {
-    ft_strcat(file_name, "_BSL");
+    ft_strcat(file_name, "_GBSL");
   }
 
-  ft_strcat(file_name, "   BMP");
+  ft_strcat(file_name, "  BMP");
 
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {
@@ -337,7 +343,7 @@ void display_find_sign(void)
     draw_string(20, 100, "Voici ta lettre :", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
 
-    draw_string(150, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
+    draw_string(140, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
                 2);
 
     draw_string(70, 280, "Clic pour voir", GC9A01A_COLOR_GREEN,
@@ -354,7 +360,7 @@ void display_find_sign(void)
     draw_string(20, 100, "Here's your letter :", GC9A01A_COLOR_GREEN,
                 GC9A01A_COLOR_OLIVE, 3, 2);
 
-    draw_string(150, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
+    draw_string(140, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
                 2);
 
     draw_string(100, 280, "Click to see", GC9A01A_COLOR_GREEN,
@@ -470,14 +476,14 @@ void display_sign_choice(uint8_t choice)
 
   if (language == LANG_FR)
   {
-    ft_strcat(file_name, "_LSF");
+    ft_strcat(file_name, "_GLSF");
   }
   else
   {
-    ft_strcat(file_name, "_BSL");
+    ft_strcat(file_name, "_GBSL");
   }
 
-  ft_strcat(file_name, "   BMP");
+  ft_strcat(file_name, "  BMP");
 
   // clean screen
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);

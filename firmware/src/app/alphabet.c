@@ -107,7 +107,13 @@ void alphabet()
 
   if (key >= 0)
   {
-    power_save_activity();
+    if (inac == 1)
+    {
+      power_save_activity();
+      return;
+    }
+    else
+      power_save_activity();
     uint8_t row = key / COLS_NB;
     uint8_t col = key % COLS_NB;
     char c = keymap[row][col];
