@@ -66,6 +66,11 @@ void language_update(void)
 #endif /* ifdef DEBUG */
     // go back to the menu when we switch language
     menu_choice = 0;
+    if (language == LANG_FR)
+      show_bonjour();
+    else
+      show_hello();
+    _delay_ms(300);
     show_menu();
     return;
   }

@@ -199,14 +199,14 @@ void display_game_letter(void)
 
   if (language == LANG_FR)
   {
-    ft_strcat(file_name, "_LSF");
+    ft_strcat(file_name, "_GLSF");
   }
   else
   {
-    ft_strcat(file_name, "_BSL");
+    ft_strcat(file_name, "_GBSL");
   }
 
-  ft_strcat(file_name, "   BMP");
+  ft_strcat(file_name, "  BMP");
 
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
   {
