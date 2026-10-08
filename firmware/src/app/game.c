@@ -115,6 +115,8 @@ void update_game_cursor(uint8_t old_choice)
 
 void update_game_answer_cursor(uint8_t old_choice)
 {
+  if (game_state == GAME_FIND_LETTER)
+    return;
   uint16_t old_y;
   uint16_t new_y;
 
