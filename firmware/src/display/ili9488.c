@@ -339,16 +339,16 @@ static void ili9488_init_driver(void)
 
 void ili9488_init()
 {
-  DDRH |= (MAIN_SCREEN_CS);
+  DDRE |= (MAIN_SCREEN_CS);
   MAIN_SCREEN_CS_HIGH();
 
   DDRH |= (SCREENS_DC);
   PORTH |= (SCREENS_DC);
 
-  DDRH |= (MAIN_SCREEN_RST);
+  DDRE |= (MAIN_SCREEN_RST);
   MAIN_SCREEN_RST_HIGH();
 
-  DDRH |= (MAIN_SCREEN_BL);
+  DDRE |= (MAIN_SCREEN_BL);
   MAIN_SCREEN_BL_HIGH();
 
   uart_printstr("Initialising main screen...");
