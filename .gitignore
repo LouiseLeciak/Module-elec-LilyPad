@@ -6,7 +6,16 @@ config.mk
 
 # KiCad files
 *.lck
-*-backups/
+fp-info-cache
+*.bak
+*.kicad_sch-bak
+*.kicad_prl
+*backups/
+production/
+*.zip
+*.ipc
+*gerber*
+ibom*.html
 
 # Dev
 *.json
