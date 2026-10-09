@@ -11,6 +11,11 @@ fp-info-cache
 *.kicad_sch-bak
 *.kicad_prl
 *backups/
+production/
+*.zip
+*.ipc
+*gerber*
+ibom*.html
 
 # Dev
 *.json
