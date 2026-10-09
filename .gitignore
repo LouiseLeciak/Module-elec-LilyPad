@@ -10,6 +10,7 @@ fp-info-cache
 *.bak
 *.kicad_sch-bak
 *.kicad_prl
+*backups/
 
 # Dev
 *.json
