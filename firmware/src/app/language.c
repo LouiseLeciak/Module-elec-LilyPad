@@ -30,9 +30,9 @@ void language_switch_init(void)
 void language_init(void)
 {
   if (!(PINC & SDL_SW1))
-    language = LANG_FR;
-  else if (!(PINC & SDL_SW3))
     language = LANG_EN;
+  else if (!(PINC & SDL_SW3))
+    language = LANG_FR;
 }
 
 // change the language when moving the slide switch
