@@ -9,14 +9,25 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-24.04
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
       - name: Install clang-format
         run: sudo apt-get update && sudo apt-get install -y clang-format
-      - name: Check formatting
+
+      - name: Fix formatting
         run: |
           find firmware \( -name '*.c' -o -name '*.h' \) \
-          | xargs clang-format --dry-run --Werror --style=file
+          | xargs clang-format -i --style=file
+
+      - name: Commit formatted code
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "style: auto-format code with clang-format"
 
   build:
     needs: lint

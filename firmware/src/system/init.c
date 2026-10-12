@@ -78,11 +78,9 @@ void init(void)
   {
     sd_init();  // UART print "OK!" is done inside
   }
-  // Set SPI clock to highest speed after SD initialisation
   SPSR |= (1 << SPI2X);
   SPCR &= ~(1 << SPR0);
   SPCR &= ~(1 << SPR1);
-
   screens_init();
 
   uart_printstr("Initialising Two wires (I2C) module...");
