@@ -74,9 +74,10 @@ void init(void)
 #endif
 
   uart_printstr("Initialising SD Card...");
-  sd_init();  // UART print "OK!" is done inside
-
-  _delay_ms(150);
+  for (int i = 0; i < 2; i++)
+  {
+    sd_init();  // UART print "OK!" is done inside
+  }
   // Set SPI clock to highest speed after SD initialisation
   SPSR |= (1 << SPI2X);
   SPCR &= ~(1 << SPR0);
