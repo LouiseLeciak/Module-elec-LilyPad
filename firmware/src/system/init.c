@@ -74,14 +74,13 @@ void init(void)
 #endif
 
   uart_printstr("Initialising SD Card...");
-  sd_init();  // UART print "OK!" is done inside
-
-  _delay_ms(150);
-  // Set SPI clock to highest speed after SD initialisation
+  for (int i = 0; i < 2; i++)
+  {
+    sd_init();  // UART print "OK!" is done inside
+  }
   SPSR |= (1 << SPI2X);
   SPCR &= ~(1 << SPR0);
   SPCR &= ~(1 << SPR1);
-
   screens_init();
 
   uart_printstr("Initialising Two wires (I2C) module...");
