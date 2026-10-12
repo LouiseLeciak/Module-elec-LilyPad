@@ -74,7 +74,7 @@ void init(void)
 #endif
 
   uart_printstr("Initialising SD Card...");
-  for (int i = 0; i < 2; i++){
+  for (int i = 0; i < 2; i++) {
     sd_init();  // UART print "OK!" is done inside
   }
   SPSR |= (1 << SPI2X);
