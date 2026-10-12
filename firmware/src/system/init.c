@@ -69,12 +69,13 @@ void init(void)
   spi_master_init();
   uart_printstr(ANSI_GREEN "OK!" ANSI_RESET "\r\n");
 
-  #ifdef DEBUG
-    uart_printstr("DEBUG MODE: ON\r\n");
-  #endif
+#ifdef DEBUG
+  uart_printstr("DEBUG MODE: ON\r\n");
+#endif
 
   uart_printstr("Initialising SD Card...");
-  for (int i = 0; i < 2; i++) {
+  for (int i = 0; i < 2; i++)
+  {
     sd_init();  // UART print "OK!" is done inside
   }
   SPSR |= (1 << SPI2X);
