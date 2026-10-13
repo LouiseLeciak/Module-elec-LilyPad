@@ -21,12 +21,8 @@ int main(void)
   eyes_action();
 
   language_init();
-  if (language == LANG_FR)
-    show_bonjour();
-  else
-    show_hello();
+  language_update();
   _delay_ms(300);
-  show_menu();
 
   while (1)
   {
