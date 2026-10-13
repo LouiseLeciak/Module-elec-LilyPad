@@ -35,7 +35,6 @@ void start_find_sign(void);
 void random_update(void);
 void update_game_answer_cursor(uint8_t old_choice);
 void display_find_letter(void);
-void update_game_answer_cursor(uint8_t old_choice);
 void display_game_yes(void);
 void display_game_no(void);
 void display_sign_choice(uint8_t choice);

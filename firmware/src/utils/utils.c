@@ -3,24 +3,6 @@
 #include "storage/fatfs.h"
 #include "system/uart.h"
 
-#define COL_RED "\x1b[31m"
-#define COL_GREEN "\x1b[32m"
-#define COL_YELLOW "\x1b[33m"
-#define COL_BLUE "\x1b[34m"
-#define COL_PURPLE "\x1b[35m"
-#define COL_CYAN "\x1b[36m"
-#define COL_RESET "\x1b[0m"
-#define COL_GRAY "\x1b[38;5;248m"
-
-#define COL_BOLD "\x1b[1m"
-
-#define COL_BGBLACK "\x1b[47m"
-
-#define MBR_SIZE 512
-#define PART_ENTRY_SIZE 16
-#define BOOT_SIGNATURE 0x01FE
-#define BOOT_SIGNATURE_SIZE 2
-
 void uart_printhex(uint8_t value)
 {
   char hex[] = "0123456789abcdef";

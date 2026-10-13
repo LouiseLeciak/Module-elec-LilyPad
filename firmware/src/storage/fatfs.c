@@ -5,11 +5,8 @@
 #include "utils/mem_utils.h"
 #include "utils/utils.h"
 
-#define SECTOR_SIZE 512
-#define FAT32_ENTRY_SIZE 4  // Size of one FAT32 cluster entry in bytes
 #define FAT32_ENTRIES_PER_SECTOR 128
 
-#define DIR_ENTRIES_SIZE 32
 #define DIR_ENTRIES_PER_SECTOR 16
 #define FAT32_CLUSTER_DATA_START 2
 
@@ -28,9 +25,7 @@
   0x0B  //< FAT32 partition using legacy CHS addressing
 
 // DSTATUS bit flags
-#define STA_NOINIT 0x01   //< Drive not initialized
-#define STA_NODISK 0x02   //< No medium in the drive
-#define STA_PROTECT 0x04  //< Write protected
+#define STA_NOINIT 0x01  //< Drive not initialized
 
 // NOTE: You will see `__attribute__((packed))` a lot here, it is because it
 // allows to serialise data easily in order to copy it ! :)

@@ -15,7 +15,5 @@ void mcp_init(void);
 void mcp_write_register(uint8_t reg, uint8_t value);
 uint8_t mcp_read_register(uint8_t reg);
 void rotary_init(void);
-void rotary_update(void);
-void rotary_button_update(void);
 
 #endif
