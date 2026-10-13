@@ -1,5 +1,7 @@
 #include "system/power_save.h"
 
+#include <util/delay.h>
+
 #include "display/GC9A01.h"
 #include "display/ili9488.h"
 #include "pinout.h"
@@ -48,6 +50,7 @@ void power_save_activity(void)
     uart_printstr("[PWR] Screen waking up\r\n");
 #endif /* ifdef DEBUG */
     ili9488_sleep_out();
+    _delay_ms(50);
     PORTH |= MAIN_SCREEN_BL;
     eyes_action();  // pose un pb je crois, c;est pas toujours bine
     //   responsive, a tester
