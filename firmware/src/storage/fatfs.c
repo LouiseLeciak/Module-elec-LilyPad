@@ -96,8 +96,11 @@ typedef struct __attribute__((packed))
   uint32_t volume_serial;       //<Same as the description of FAT12/16 field.
   uint8_t volume_label[11];     //<Same as the description of FAT12/16 field.
   uint8_t fs_type[8];           //< Always "FAT32   "
-  // There are two more fields (Bootstrap and signature, for RAM economy
-  // purposes, we'll skip on those)
+  // The two remaining fields (bootstrap code and the trailing 0xAA55
+  // signature) are kept so that sizeof(vbr) == SECTOR_SIZE, allowing a
+  // whole sector to be copied 1:1 into the struct without an overflow.
+  uint8_t boot_code[420];   //< Bootstrap code, ignored
+  uint16_t signature_55AA;  //< Must be 0xAA55, at sector offset 510
 } vbr;
 
 // --- FAT32 THINGS
@@ -125,10 +128,11 @@ typedef struct __attribute__((packed))
 } fat32_dir_entry;
 
 static DSTATUS sd_card_status = STA_NOINIT;
-static mbr sd_mbr = {0};
-static vbr sd_vbr;
+static uint32_t part_lba_start = 0;
 static uint32_t fat_start_lba = 0;
 static uint32_t data_start_lba = 0;
+static uint32_t root_cluster = 0;
+static uint8_t sectors_per_cluster = 0;
 img image_lut[IMG_LUT_MAX_SIZE] = {0};
 
 DSTATUS disk_initialize(BYTE pdrv)
@@ -172,15 +176,19 @@ DRESULT disk_read(BYTE pdrv, BYTE* buff, LBA_t sector, UINT count)
 
 DRESULT parse_vbr(void)
 {
+  vbr sd_vbr;
+
   if (sd_card_status != 0)
   {
     return RES_NOTRDY;
   }
 
-  disk_read(0, (BYTE*)&sd_vbr, sd_mbr.partitions[0].lba_start, 1);
+  disk_read(0, (BYTE*)&sd_vbr, part_lba_start, 1);
 
-  fat_start_lba = sd_mbr.partitions[0].lba_start + sd_vbr.reserved_sectors;
+  fat_start_lba = part_lba_start + sd_vbr.reserved_sectors;
   data_start_lba = fat_start_lba + sd_vbr.num_fats * sd_vbr.fat_size_32;
+  root_cluster = sd_vbr.root_cluster;
+  sectors_per_cluster = sd_vbr.sectors_per_cluster;
 
 #ifdef DEBUG
   uart_printstr("[VBR] sectors/cluster=");
@@ -197,6 +205,8 @@ DRESULT parse_vbr(void)
 
 DRESULT parse_mbr(void)
 {
+  mbr sd_mbr;
+
   if (sd_card_status != 0)
     return RES_NOTRDY;
 
@@ -223,6 +233,8 @@ DRESULT parse_mbr(void)
 #endif /* ifdef DEBUG */
     return RES_PARERR;
   }
+
+  part_lba_start = sd_mbr.partitions[0].lba_start;
   return 0;
 }
 
@@ -230,7 +242,7 @@ uint32_t cluster_to_lba(uint32_t cluster)
 {
   // FAT32 data clusters always start at index 2
   return data_start_lba +
-         ((cluster - FAT32_CLUSTER_DATA_START) * sd_vbr.sectors_per_cluster);
+         ((cluster - FAT32_CLUSTER_DATA_START) * sectors_per_cluster);
 }
 
 void scan_root_dir(void)
@@ -239,7 +251,7 @@ void scan_root_dir(void)
   uint32_t fat_sector_buf[FAT32_ENTRIES_PER_SECTOR];
   static uint8_t image_count;
 
-  uint32_t current_cluster = sd_vbr.root_cluster;
+  uint32_t current_cluster = root_cluster;
 
   uart_printstr("Scanning for images on SD Card:\r\n");
 
@@ -247,7 +259,7 @@ void scan_root_dir(void)
   {
     uint32_t start_lba = cluster_to_lba(current_cluster);
 
-    for (uint8_t sector = 0; sector < sd_vbr.sectors_per_cluster; sector++)
+    for (uint8_t sector = 0; sector < sectors_per_cluster; sector++)
     {
       disk_read(0, (BYTE*)&sd_dir_entries, start_lba + sector, 1);
 
