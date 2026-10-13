@@ -1,7 +1,8 @@
 #include "utils/crc.h"
 
-#define G (0b10001001)  // Best value for error detection as per way
-                        // smarter folks than us.
+#define G \
+  (0b10001001)  // Best value for error detection as per way
+                // smarter folks than us.
 
 uint8_t generate_crc7(uint8_t* data, uint8_t len)
 {
