@@ -49,7 +49,7 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
 #endif /* ifdef DEBUG */
   uint32_t bytes_processed = 0;
 
-  uint8_t rgb[3];
+  uint8_t rgb_px[3];
   uint8_t rgb_idx = 0;
 
   while (bytes_processed < byte_count)
@@ -61,13 +61,13 @@ void sd_stream_bmp_to_screen(uint32_t start_sector)
 
     for (; buffer_idx < 512 && bytes_processed < byte_count; buffer_idx++)
     {
-      rgb[rgb_idx++] = buffers.img[buffer_idx];
+      rgb_px[rgb_idx++] = buffers.img[buffer_idx];
 
       if (rgb_idx == 3)
       {
-        spi_txrx(rgb[2] & 0xFC);  // R
-        spi_txrx(rgb[1] & 0xFC);  // G
-        spi_txrx(rgb[0] & 0xFC);  // B
+        spi_txrx(rgb_px[2] & 0xFC);  // R
+        spi_txrx(rgb_px[1] & 0xFC);  // G
+        spi_txrx(rgb_px[0] & 0xFC);  // B
         rgb_idx = 0;
       }
       bytes_processed++;

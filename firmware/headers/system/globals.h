@@ -21,8 +21,6 @@ extern app_state_t app_state;
 
 extern word_state_t word_state;
 
-extern uint8_t eye_state;
-
 // rotary encoder
 extern uint8_t prev_sw;  // etat precedent du bouton
 extern uint8_t rotaryclk_prev;

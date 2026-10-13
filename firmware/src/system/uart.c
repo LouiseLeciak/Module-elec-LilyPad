@@ -30,9 +30,3 @@ void uart_printstr(const char* str)
     run++;
   }
 }
-
-char uart_rx(void)
-{
-  while (!(UCSR0A & (1 << RXC0)));
-  return (UDR0);
-}
