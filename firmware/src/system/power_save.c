@@ -7,7 +7,8 @@
 #include "pinout.h"
 #include "system/uart.h"
 
-#define INACTIVITY_THRESHOLD 5000
+// 30000 ~= 23s
+#define INACTIVITY_THRESHOLD 30000
 
 uint32_t inactivity_counter = 0;
 uint8_t inac = 0;
@@ -15,7 +16,6 @@ uint8_t inac = 0;
 // timer to know since when nothing is happening
 void power_save_update(void)
 {
-  // 30000 ~= 23s
   if (inactivity_counter < INACTIVITY_THRESHOLD)
     inactivity_counter++;
 
