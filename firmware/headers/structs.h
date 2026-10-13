@@ -3,7 +3,7 @@
 
 #include <avr/io.h>
 
-#define FILE_NAME_SIZE 16
+#define FILE_NAME_SIZE 12
 
 /**
  * @class s_position
@@ -12,8 +12,8 @@
  */
 typedef struct s_position
 {
-  uint32_t _pos_x;  ///< X coordinate.
-  uint32_t _pos_y;  ///< Y coordinate.
+  uint16_t _pos_x;  ///< X coordinate.
+  uint16_t _pos_y;  ///< Y coordinate.
 } position;
 
 /**

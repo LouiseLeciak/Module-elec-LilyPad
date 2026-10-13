@@ -20,32 +20,6 @@
 #define DC_LOW() PORTH &= ~SCREENS_DC
 #define DC_HIGH() PORTH |= SCREENS_DC
 
-/// @brief Standard strlen
-/// @param str pointer to string to length tested
-/// @return number of chars in the string
-uint8_t ft_text_len(const char* str);
-
-/// @brief sends data to main screen
-/// @param data uint8_t packets
-void ili9341_data(uint8_t data);
-
-/// @brief sends cmd to main screen
-/// @param cmd uint8_t packets
-void ili9341_cmd(uint8_t cmd);
-
-/// @brief Sets window size to write to a square / rectangle
-/// @param x0 X position of top left point
-/// @param y0 Y position of top left point
-/// @param x1 X position of bottom right point
-/// @param y1 Y position of bottom right point
-void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1);
-
-/// @brief draws one pixel of a "color" to main screen at position x y
-/// @param x X position on screen
-/// @param y Y position on screen
-/// @param color in format RGB 565 and parsed in the function
-void draw_pixel(uint16_t x, uint16_t y, uint16_t color);
-
 /// @brief Draws to main screen one character 'c' at position x, y in color fg
 /// and bg using scale factor
 /// @param x X position on screen

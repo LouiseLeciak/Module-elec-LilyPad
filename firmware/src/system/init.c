@@ -1,4 +1,4 @@
-#include <stdint.h>
+#include "system/init.h"
 
 #include "app/language.h"
 #include "display/GC9A01.h"

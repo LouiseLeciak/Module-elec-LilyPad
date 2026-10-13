@@ -90,13 +90,6 @@ void uart_tx(char data);
  */
 void uart_printstr(const char* str);
 
-/**
- * @brief Reads a character sent over serial.
- *
- * @return The read character.
- */
-char uart_rx(void);
-
 /** @} */
 
 #endif  // !UART_H

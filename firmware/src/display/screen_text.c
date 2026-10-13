@@ -18,7 +18,7 @@
 #include "pinout.h"
 #include "system/spi.h"
 
-void ili9341_cmd(uint8_t cmd)
+static void ili9341_cmd(uint8_t cmd)
 {
   DC_LOW();
   CS_MAIN_LOW();
@@ -26,7 +26,7 @@ void ili9341_cmd(uint8_t cmd)
   CS_MAIN_HIGH();
 }
 
-void ili9341_data(uint8_t data)
+static void ili9341_data(uint8_t data)
 {
   DC_HIGH();
   CS_MAIN_LOW();
@@ -34,7 +34,7 @@ void ili9341_data(uint8_t data)
   CS_MAIN_HIGH();
 }
 
-void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
+static void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
 {
   ili9341_cmd(0x2A);
   ili9341_data(x0 >> 8);
@@ -49,7 +49,7 @@ void set_window(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1)
   ili9341_cmd(0x2C);
 }
 
-uint8_t ft_text_len(const char* str)
+static uint8_t ft_text_len(const char* str)
 {
   uint8_t len = 0;
   while (str && *str)
@@ -60,7 +60,7 @@ uint8_t ft_text_len(const char* str)
   return (len);
 }
 
-void draw_pixel(uint16_t x, uint16_t y, uint16_t color)
+static void draw_pixel(uint16_t x, uint16_t y, uint16_t color)
 {
   uint8_t r = ((color >> 11) & 0x1F) << 3;  // 5 bits -> 8 bits (bits hauts)
   uint8_t g = ((color >> 5) & 0x3F) << 2;   // 6 bits -> 8 bits (bits hauts)

@@ -28,10 +28,6 @@ void ili9488_sleep_out(void);
 
 void ili9488_sleep_in(void);
 
-void ili9488_idle_mode_off(void);
-
-void ili9488_idle_mode_on(void);
-
 void ili9488_fill_screen(uint16_t color565);
 // --------- Utilitaries commands --------------------------------------------
 /**

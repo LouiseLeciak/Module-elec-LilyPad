@@ -16,11 +16,6 @@
 
 #define COL_BGBLACK "\x1b[47m"
 
-#define MBR_SIZE 512
-#define PART_ENTRY_SIZE 16
-#define BOOT_SIGNATURE 0x01FE
-#define BOOT_SIGNATURE_SIZE 2
-
 void uart_printhex(uint8_t value)
 {
   char hex[] = "0123456789abcdef";
@@ -284,7 +279,7 @@ int ft_strncmp(const char* s1, const char* s2, size_t n)
   return (0);
 }
 
-size_t ft_strlen(const char* str)
+static size_t ft_strlen(const char* str)
 {
   size_t i;
 

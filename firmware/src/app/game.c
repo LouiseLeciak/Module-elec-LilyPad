@@ -22,6 +22,103 @@ uint32_t random_state = 0;
 
 static const char game_characters[] = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
+// https://stackoverflow.com/questions/32225896/pseudo-random-function-in-c
+//  this helped me
+static uint32_t simple_random(void)
+{
+  random_state = random_state * 1103515245UL + 12345UL;
+
+  return random_state;
+}
+///////////////////////////////////////////////////////////////////
+//////////////////////////  GAME 1  ///////////////////////////////
+///////////////////////////////////////////////////////////////////
+void start_find_letter(void)
+{
+  uint8_t correct_position;
+  uint8_t target_position;
+  uint8_t first_position;   // position of the first bad answer
+  uint8_t second_position;  // pos of the second one
+
+  game_state = GAME_FIND_LETTER;
+
+  // choose the letter to find
+  target_position =
+      simple_random() % GAME_CHAR_COUNT;  // % bcs we have on 36 choices
+
+  game_target = game_characters[target_position];
+
+  // where the good answer will be
+  correct_position = simple_random() % GAME_CHOICES;
+
+  game_answers[correct_position] = game_target;
+
+  // where is the first bad asnwer
+  first_position = simple_random() % GAME_CHAR_COUNT;
+
+  if (first_position == target_position)
+  {
+    first_position++;
+
+    if (first_position >= GAME_CHAR_COUNT)
+      first_position = 0;
+  }
+
+  // where is the second bad answer
+  second_position = simple_random() % GAME_CHAR_COUNT;
+
+  // check if similar of the good answer
+  if (second_position == target_position)
+  {
+    second_position++;
+
+    if (second_position >= GAME_CHAR_COUNT)
+      second_position = 0;
+  }
+
+  // checking if similar of the other bad answer
+  if (second_position == first_position)
+  {
+    second_position++;
+
+    if (second_position >= GAME_CHAR_COUNT)
+      second_position = 0;
+  }
+
+  // positions
+  if (correct_position == 0)
+  {
+    game_answers[1] = game_characters[first_position];
+    game_answers[2] = game_characters[second_position];
+  }
+  else if (correct_position == 1)
+  {
+    game_answers[0] = game_characters[first_position];
+    game_answers[2] = game_characters[second_position];
+  }
+  else
+  {
+    game_answers[0] = game_characters[first_position];
+    game_answers[1] = game_characters[second_position];
+  }
+
+  game_answer = 0;  // set the player choice at 0
+
+#ifdef DEBUG
+  uart_printstr("[GAME] Find Letter | target=");
+  uart_tx(game_target);
+  uart_printstr(" | choices=");
+  uart_tx(game_answers[0]);
+  uart_tx(' ');
+  uart_tx(game_answers[1]);
+  uart_tx(' ');
+  uart_tx(game_answers[2]);
+  uart_printstr("\r\n");
+#endif
+
+  display_find_letter();
+}
+
 // manage keyboard in game mdd
 void game()
 {
@@ -130,38 +227,6 @@ void update_game_answer_cursor(uint8_t old_choice)
   draw_string(10, new_y, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 }
 
-void display_game_letter_image(void)
-{
-  char letter[2];
-  char file_name[16];
-
-  letter[0] = game_target;
-  letter[1] = '\0';
-
-  file_name[0] = '\0';
-
-  ft_strcat(file_name, letter);
-
-  if (language == LANG_FR)
-  {
-    ft_strcat(file_name, "_GLSF");
-  }
-  else
-  {
-    ft_strcat(file_name, "_GBSL");
-  }
-
-  ft_strcat(file_name, "  BMP");
-
-  for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
-  {
-    if (!ft_strncmp(file_name, image_lut[i].name, FILE_NAME_SIZE))
-    {
-      sd_stream_bmp_to_screen(cluster_to_lba(image_lut[i].address));
-    }
-  }
-}
-
 void display_find_letter(void)
 {
   ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
@@ -226,103 +291,6 @@ void random_update(void)
   {
     blink_front();
   }
-}
-
-// https://stackoverflow.com/questions/32225896/pseudo-random-function-in-c
-//  this helped me
-uint32_t simple_random(void)
-{
-  random_state = random_state * 1103515245UL + 12345UL;
-
-  return random_state;
-}
-///////////////////////////////////////////////////////////////////
-//////////////////////////  GAME 1  ///////////////////////////////
-///////////////////////////////////////////////////////////////////
-void start_find_letter(void)
-{
-  uint8_t correct_position;
-  uint8_t target_position;
-  uint8_t first_position;   // position of the first bad answer
-  uint8_t second_position;  // pos of the second one
-
-  game_state = GAME_FIND_LETTER;
-
-  // choose the letter to find
-  target_position =
-      simple_random() % GAME_CHAR_COUNT;  // % bcs we have on 36 choices
-
-  game_target = game_characters[target_position];
-
-  // where the good answer will be
-  correct_position = simple_random() % GAME_CHOICES;
-
-  game_answers[correct_position] = game_target;
-
-  // where is the first bad asnwer
-  first_position = simple_random() % GAME_CHAR_COUNT;
-
-  if (first_position == target_position)
-  {
-    first_position++;
-
-    if (first_position >= GAME_CHAR_COUNT)
-      first_position = 0;
-  }
-
-  // where is the second bad answer
-  second_position = simple_random() % GAME_CHAR_COUNT;
-
-  // check if similar of the good answer
-  if (second_position == target_position)
-  {
-    second_position++;
-
-    if (second_position >= GAME_CHAR_COUNT)
-      second_position = 0;
-  }
-
-  // checking if similar of the other bad answer
-  if (second_position == first_position)
-  {
-    second_position++;
-
-    if (second_position >= GAME_CHAR_COUNT)
-      second_position = 0;
-  }
-
-  // positions
-  if (correct_position == 0)
-  {
-    game_answers[1] = game_characters[first_position];
-    game_answers[2] = game_characters[second_position];
-  }
-  else if (correct_position == 1)
-  {
-    game_answers[0] = game_characters[first_position];
-    game_answers[2] = game_characters[second_position];
-  }
-  else
-  {
-    game_answers[0] = game_characters[first_position];
-    game_answers[1] = game_characters[second_position];
-  }
-
-  game_answer = 0;  // set the player choice at 0
-
-#ifdef DEBUG
-  uart_printstr("[GAME] Find Letter | target=");
-  uart_tx(game_target);
-  uart_printstr(" | choices=");
-  uart_tx(game_answers[0]);
-  uart_tx(' ');
-  uart_tx(game_answers[1]);
-  uart_tx(' ');
-  uart_tx(game_answers[2]);
-  uart_printstr("\r\n");
-#endif
-
-  display_find_letter();
 }
 
 ///////////////////////////////////////////////////////////////////

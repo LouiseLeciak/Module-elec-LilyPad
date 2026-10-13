@@ -2,6 +2,12 @@
 
 #include <util/delay.h>
 
+const char keymap[ROWS_NB][COLS_NB] = {
+    {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
+    {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
+    {'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', '-'},   // enter
+    {'Z', 'X', 'C', 'V', 'B', 'N', 'M', '#', '/', '/'}};  // add supp and home
+
 void keypad_init(void)
 {
   // les 4 lignes, elles deviennent des sorties
@@ -33,7 +39,7 @@ void keypad_init(void)
 }
 
 // select row one by one to find where is the key
-void select_row(uint8_t row)
+static void select_row(uint8_t row)
 {
   // je desactive toutes les lignes
   PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
@@ -62,7 +68,7 @@ void select_row(uint8_t row)
 }
 
 // read column to find where is the key
-int read_column(void)
+static int read_column(void)
 {
   // si PINF = 0 alors c'est que c'est presse
   if (!(PINA & (1 << PA3)))
