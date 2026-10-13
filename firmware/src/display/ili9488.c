@@ -260,15 +260,6 @@ static void ili9488_adjust_control_3(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-static void ili9488_sleep_out(void)
-{
-  MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(SLPOUT);
-  _delay_ms(120);  // Mandatory delay, see ILI9488 datasheet
-  MAIN_SCREEN_CS_HIGH();
-}
-
 static void ili9488_display_on(void)
 {
   MAIN_SCREEN_CS_LOW();
@@ -375,6 +366,24 @@ void ili9488_ramwr(void)
   DC_CMD();
   spi_txrx(RAMWR);
   DC_DATA();
+}
+
+void ili9488_sleep_in(void)
+{
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
+  spi_txrx(SLPIN);
+  _delay_ms(5);
+  MAIN_SCREEN_CS_HIGH();
+}
+
+void ili9488_sleep_out(void)
+{
+  MAIN_SCREEN_CS_LOW();
+  DC_CMD();
+  spi_txrx(SLPOUT);
+  _delay_ms(120);  // Mandatory delay, see ILI9488 datasheet
+  MAIN_SCREEN_CS_HIGH();
 }
 
 void ili9488_fill_screen(uint16_t color565)

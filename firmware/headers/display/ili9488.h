@@ -24,6 +24,10 @@ void ili9488_init();
 
 void ili9488_ramwr(void);
 
+void ili9488_sleep_out(void);
+
+void ili9488_sleep_in(void);
+
 void ili9488_fill_screen(uint16_t color565);
 // --------- Utilitaries commands --------------------------------------------
 /**

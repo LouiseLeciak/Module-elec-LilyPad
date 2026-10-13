@@ -62,6 +62,11 @@
 #define GC9A01A_COLOR_BROWN 0xA145
 #define GC9A01A_COLOR_EYE 0XD77A
 
+void gc9a01_sleep_in(void);
+void gc9a01_sleep_out(void);
+void gc9a01_idle_mode_off(void);
+void gc9a01_idle_mode_on(void);
+
 /* functions that send to a specific eye using the CS pin */
 
 /// @brief Initates each GC0901 LCD with the register settingd
