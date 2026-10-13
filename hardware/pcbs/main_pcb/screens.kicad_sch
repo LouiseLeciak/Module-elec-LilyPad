@@ -1425,14 +1425,14 @@
 				(pin input line
 					(at 0 0 90)
 					(length 2.54)
-					(name "1"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4562,7 +4562,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "39d4b9eb-83f8-43df-b884-de78a2c25c86")
 		)
 		(instances
@@ -5122,7 +5122,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "b9203132-f7dd-4e07-b6c8-6becc1a024d3")
 		)
 		(instances
@@ -5525,7 +5525,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "2f0ef28e-3393-4307-9212-0328f7685670")
 		)
 		(instances
@@ -6560,19 +6560,21 @@
 		(fields_autoplaced yes)
 		(uuid "ccb2aa81-5900-4b9d-929d-c2d9d50c238a")
 		(property "Reference" "TP1"
-			(at 199.39 90.17 0)
+			(at 200.66 85.7249 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "Test Left Eye CS"
-			(at 199.39 92.71 0)
+			(at 200.66 88.2649 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "Lilibrary:Test point"
@@ -6629,7 +6631,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "03bd88de-e67e-46e1-b8a2-4cf4296d5313")
 		)
 		(instances
@@ -6652,21 +6654,19 @@
 		(fields_autoplaced yes)
 		(uuid "cfcc238c-78bf-410c-b014-bd1e6626dc37")
 		(property "Reference" "TP5"
-			(at 135.89 76.1999 90)
+			(at 137.795 72.39 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "Test Main Screen CS"
-			(at 135.89 78.7399 90)
+			(at 137.795 74.93 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "Lilibrary:Test point"
@@ -6723,7 +6723,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "d2de47a0-ed09-4bd2-9691-53e427297ca2")
 		)
 		(instances

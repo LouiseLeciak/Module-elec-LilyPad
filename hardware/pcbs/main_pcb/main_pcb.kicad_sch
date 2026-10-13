@@ -2893,14 +2893,14 @@
 				(pin input line
 					(at 0 0 90)
 					(length 2.54)
-					(name "1"
+					(name ""
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number ""
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -7325,7 +7325,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "28cf4750-2d1e-4d8b-8a3c-fc1a924da47d")
 		)
 		(instances
@@ -9304,7 +9304,7 @@
 				(hide yes)
 			)
 		)
-		(pin ""
+		(pin "1"
 			(uuid "17e228ce-4c95-48b6-ab06-e08c2559a9f6")
 		)
 		(instances
