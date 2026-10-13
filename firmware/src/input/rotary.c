@@ -20,28 +20,8 @@
 /// Rotation manager of the rotary///
 /////////////////////////////////////
 
-void rotary_update(void)
-{
-  uint8_t clk;
-  uint8_t dt;
-
-  rotary_read(&clk, &dt);
-
-  if (rotary_has_changed(clk))
-  {
-    if (inac == 1)
-    {
-      power_save_activity();
-      return;
-    }
-    else
-      power_save_activity();
-    rotary_manage_state(clk, dt);
-  }
-}
-
 // read mcp23017 and get clk and dt
-void rotary_read(uint8_t* clk, uint8_t* dt)
+static void rotary_read(uint8_t* clk, uint8_t* dt)
 {
   uint8_t gpio;
 
@@ -52,7 +32,7 @@ void rotary_read(uint8_t* clk, uint8_t* dt)
 }
 
 // compare with previous clk because everything goes fast
-uint8_t rotary_has_changed(uint8_t clk)
+static uint8_t rotary_has_changed(uint8_t clk)
 {
   // rotary prev started at 1
   if (rotaryclk_prev == 1 && clk == 0)
@@ -66,10 +46,35 @@ uint8_t rotary_has_changed(uint8_t clk)
 }
 
 // to dertermine if rotary is clockwise or not
-uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt) { return (dt != clk); }
+static uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt)
+{
+  return (dt != clk);
+}
+
+// fonction to move dforward the rotary
+static uint8_t rotary_change_choice(uint8_t choice, uint8_t max_choice,
+                                    uint8_t clockwise)
+{
+  if (clockwise)
+  {
+    choice++;
+
+    if (choice >= max_choice)
+      choice = 0;
+  }
+  else
+  {
+    if (choice == 0)
+      choice = max_choice - 1;
+    else
+      choice--;
+  }
+
+  return choice;
+}
 
 // manage the principal menu
-void rotary_menu(uint8_t clockwise)
+static void rotary_menu(uint8_t clockwise)
 {
   uint8_t old_choice;
 
@@ -82,7 +87,7 @@ void rotary_menu(uint8_t clockwise)
 }
 
 // manage the game menu
-void rotary_game_menu(uint8_t clockwise)
+static void rotary_game_menu(uint8_t clockwise)
 {
   uint8_t old_choice;
 
@@ -94,7 +99,7 @@ void rotary_game_menu(uint8_t clockwise)
 }
 
 // manage answer of the game
-void rotary_game_answer(uint8_t clockwise)
+static void rotary_game_answer(uint8_t clockwise)
 {
   uint8_t old_choice;
 
@@ -106,7 +111,7 @@ void rotary_game_answer(uint8_t clockwise)
 }
 
 // manage alphabet
-void rotary_alphabet(uint8_t clockwise)
+static void rotary_alphabet(uint8_t clockwise)
 {
   uint8_t old_choice;
 
@@ -118,7 +123,7 @@ void rotary_alphabet(uint8_t clockwise)
   update_alphabet_cursor(old_choice);
 }
 
-void rotary_manage_state(uint8_t clk, uint8_t dt)
+static void rotary_manage_state(uint8_t clk, uint8_t dt)
 {
   uint8_t clockwise;
 
@@ -165,49 +170,28 @@ void rotary_manage_state(uint8_t clk, uint8_t dt)
   }
 }
 
-// fonction to move dforward the rotary
-uint8_t rotary_change_choice(uint8_t choice, uint8_t max_choice,
-                             uint8_t clockwise)
+void rotary_update(void)
 {
-  if (clockwise)
+  uint8_t clk;
+  uint8_t dt;
+
+  rotary_read(&clk, &dt);
+
+  if (rotary_has_changed(clk))
   {
-    choice++;
-
-    if (choice >= max_choice)
-      choice = 0;
-  }
-  else
-  {
-    if (choice == 0)
-      choice = max_choice - 1;
-    else
-      choice--;
-  }
-
-  return choice;
-}
-
-////////////////////////////////////////
-/// Push button manager of the rotary///
-////////////////////////////////////////
-
-void rotary_button_update(void)
-{
-  uint8_t sw;
-
-  sw = rotary_button_read();
-
-  if (rotary_button_has_changed(sw))
-  {
-    if (sw == 0)
+    if (inac == 1)
     {
-      rotary_button_handle_press();
+      power_save_activity();
+      return;
     }
+    else
+      power_save_activity();
+    rotary_manage_state(clk, dt);
   }
 }
 
 // MCP23017 -> GPIOA -> bit SW -> return 0 or 1
-uint8_t rotary_button_read(void)
+static uint8_t rotary_button_read(void)
 {
   uint8_t gpio;
 
@@ -216,8 +200,12 @@ uint8_t rotary_button_read(void)
   return (gpio >> ROTARY_SW) & 1;
 }
 
+////////////////////////////////////////
+/// Push button manager of the rotary///
+////////////////////////////////////////
+
 // check if somoene pushed the button
-uint8_t rotary_button_has_changed(uint8_t sw)
+static uint8_t rotary_button_has_changed(uint8_t sw)
 {
   if (sw != prev_sw)
   {
@@ -236,7 +224,7 @@ uint8_t rotary_button_has_changed(uint8_t sw)
 }
 
 // menu management
-void rotary_button_menu(void)
+static void rotary_button_menu(void)
 {
   if (menu_choice == 0)
   {
@@ -253,7 +241,7 @@ void rotary_button_menu(void)
 }
 
 // traduction button management
-void rotary_button_traduction(void)
+static void rotary_button_traduction(void)
 {
   if (word_state == INPUT)
   {
@@ -282,8 +270,43 @@ void rotary_button_traduction(void)
   }
 }
 
+static void display_game_answer(void)
+{
+  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+
+  if (language == LANG_FR)
+  {
+    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
+                3, 2);
+  }
+  else
+  {
+    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
+                2);
+  }
+
+  // choice n1
+  draw_string(10, 150, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(80, 150, "1", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  // choice n2
+  draw_string(10, 220, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(80, 220, "2", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  // choice n3
+  draw_string(10, 290, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+
+  draw_string(80, 290, "3", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+}
+
 // game button management
-void rotary_button_game(void)
+static void rotary_button_game(void)
 {
   if (game_state == GAME_MENU)
   {
@@ -397,7 +420,7 @@ void rotary_button_game(void)
 }
 
 // alphabet button manger
-void rotary_button_alphabet(void)
+static void rotary_button_alphabet(void)
 {
   if (alphabet_state == ALPHABET_LIST)
   {
@@ -413,7 +436,7 @@ void rotary_button_alphabet(void)
 }
 
 // where to go when the button is pressed in the menu
-void rotary_button_handle_press(void)
+static void rotary_button_handle_press(void)
 {
   if (inac == 1)
   {
@@ -456,37 +479,17 @@ void rotary_button_handle_press(void)
   }
 }
 
-void display_game_answer(void)
+void rotary_button_update(void)
 {
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  uint8_t sw;
 
-  if (language == LANG_FR)
+  sw = rotary_button_read();
+
+  if (rotary_button_has_changed(sw))
   {
-    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    if (sw == 0)
+    {
+      rotary_button_handle_press();
+    }
   }
-  else
-  {
-    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
-                2);
-  }
-
-  // choice n1
-  draw_string(10, 150, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  draw_string(80, 150, "1", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  // choice n2
-  draw_string(10, 220, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  draw_string(80, 220, "2", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  // choice n3
-  draw_string(10, 290, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
-
-  draw_string(80, 290, "3", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 }

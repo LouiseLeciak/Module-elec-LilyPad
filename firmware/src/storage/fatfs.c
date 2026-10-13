@@ -131,12 +131,6 @@ static uint32_t fat_start_lba = 0;
 static uint32_t data_start_lba = 0;
 img image_lut[IMG_LUT_MAX_SIZE] = {0};
 
-DSTATUS disk_status(BYTE pdrv)
-{
-  (void)pdrv;
-  return sd_card_status;
-}
-
 DSTATUS disk_initialize(BYTE pdrv)
 {
   (void)pdrv;

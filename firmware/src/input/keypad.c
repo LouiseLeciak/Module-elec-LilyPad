@@ -33,7 +33,7 @@ void keypad_init(void)
 }
 
 // select row one by one to find where is the key
-void select_row(uint8_t row)
+static void select_row(uint8_t row)
 {
   // je desactive toutes les lignes
   PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
@@ -62,7 +62,7 @@ void select_row(uint8_t row)
 }
 
 // read column to find where is the key
-int read_column(void)
+static int read_column(void)
 {
   // si PINF = 0 alors c'est que c'est presse
   if (!(PINA & (1 << PA3)))

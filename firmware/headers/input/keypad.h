@@ -13,8 +13,6 @@ static const char keymap[ROWS_NB][COLS_NB] = {
     {'Z', 'X', 'C', 'V', 'B', 'N', 'M', '#', '/', '/'}};  // add supp and home
 
 void keypad_init(void);
-void select_row(uint8_t row);
-int read_column(void);
 int keypad_read(void);
 
 #endif

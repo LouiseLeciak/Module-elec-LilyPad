@@ -1,3 +1,5 @@
+#include "app/menu.h"
+
 #include "display/GC9A01.h"
 #include "display/ili9488.h"
 #include "display/screen_text.h"

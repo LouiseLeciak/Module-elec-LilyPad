@@ -15,6 +15,38 @@
 alphabet_state_t alphabet_state = ALPHABET_LIST;
 uint8_t alphabet_choice = 0;
 
+// display letters from A to 0, 4 column
+static void display_alphabet(void)
+{
+  uint8_t i;
+  uint8_t row;
+  uint8_t col;
+  uint16_t x;
+  uint16_t y;
+  char letter[2];
+
+  for (i = 0; i < 36; i++)
+  {
+    row = i / 4;
+    col = i % 4;
+
+    x = 30 + col * 80;   // ecrat entre colonne
+    y = 115 + row * 38;  // ecrat entre ligne
+
+    letter[0] = alphabet_characters[i];
+    letter[1] = '\0';
+
+    if (i == alphabet_choice)
+    {
+      draw_string(x, y, letter, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 5, 2);
+    }
+    else
+    {
+      draw_string(x, y, letter, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3, 2);
+    }
+  }
+}
+
 // home page of the alphabet, set up the display
 void show_alphabet(void)
 {
@@ -128,38 +160,6 @@ void alphabet()
     while (keypad_read() >= 0)
     {
       ;
-    }
-  }
-}
-
-// display letters from A to 0, 4 column
-void display_alphabet(void)
-{
-  uint8_t i;
-  uint8_t row;
-  uint8_t col;
-  uint16_t x;
-  uint16_t y;
-  char letter[2];
-
-  for (i = 0; i < 36; i++)
-  {
-    row = i / 4;
-    col = i % 4;
-
-    x = 30 + col * 80;   // ecrat entre colonne
-    y = 115 + row * 38;  // ecrat entre ligne
-
-    letter[0] = alphabet_characters[i];
-    letter[1] = '\0';
-
-    if (i == alphabet_choice)
-    {
-      draw_string(x, y, letter, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 5, 2);
-    }
-    else
-    {
-      draw_string(x, y, letter, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3, 2);
     }
   }
 }

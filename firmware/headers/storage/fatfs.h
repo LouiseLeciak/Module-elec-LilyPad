@@ -58,35 +58,6 @@ typedef enum
 } PARTITION_ENTRY_NO;
 
 /**
- * @brief Inquires the current drive status
- *
- * @param pdrv Physical drive number to identify the target device. Always zero
- * in single drive system.
- *
- * @return The current drive status is returned in combination of status flags
- * described below. FatFs refers only STA_NOINIT and STA_PROTECT.
- *
- * STA_NOINIT
- * Indicates that the device has not been initialized and not ready to work.
- * This flag is set on system reset, media removal or failure of disk_initialize
- * function. It is cleared on disk_initialize function succeeded. Any media
- * change that occurs asynchronously must be captured and reflect it to the
- * status flags, or auto-mount function will not work correctly. If the system
- * does not support media change detection, application program needs to
- * explicitly re-mount the volume with f_mount function after each media change.
- *
- * STA_NODISK
- * Indicates that no medium in the drive. This is always cleared when
- * the drive is non-removable class. Note that FatFs does not refer this flag.
- *
- * STA_PROTECT
- * Indicates that the medium is write protected. This is always
- * cleared when the drive has no write protect function. Not valid if STA_NODISK
- * is set.
- */
-DSTATUS disk_status(BYTE pdrv);
-
-/**
  * @brief Iinitialises the storage device.
  *
  * @param pdrv Physical drive number to identify the target device. Always zero

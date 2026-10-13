@@ -29,6 +29,45 @@ typedef enum
   IDMON = 0x39,   ///< Idle Mode On
 } gc9a01_cmd;
 
+static void GC9A01_cmd(uint8_t cmd, uint8_t screen)
+{
+  DC_LOW();
+  if (screen == LEFT_EYE)
+  {
+    CS_LEFT_EYE_LOW();
+    spi_txrx(cmd);
+    CS_LEFT_EYE_HIGH();
+    return;
+  }
+  else if (screen == RIGHT_EYE)
+  {
+    CS_RIGHT_EYE_LOW();
+    spi_txrx(cmd);
+    CS_RIGHT_EYE_HIGH();
+    return;
+  }
+}
+
+static void GC9A01_data(uint8_t data, uint8_t screen)
+{
+  DC_HIGH();
+
+  if (screen == LEFT_EYE)
+  {
+    CS_LEFT_EYE_LOW();
+    spi_txrx(data);
+    CS_LEFT_EYE_HIGH();
+    return;
+  }
+  else if (screen == RIGHT_EYE)
+  {
+    CS_RIGHT_EYE_LOW();
+    spi_txrx(data);
+    CS_RIGHT_EYE_HIGH();
+    return;
+  }
+}
+
 void GC9A01_init(uint8_t screen)
 {
   // 1. Hardware Reset
@@ -259,131 +298,16 @@ void GC9A01_init(uint8_t screen)
   _delay_ms(120);
 }
 
-void GC9A01_cmd(uint8_t cmd, uint8_t screen)
-{
-  DC_LOW();
-  if (screen == LEFT_EYE)
-  {
-    CS_LEFT_EYE_LOW();
-    spi_txrx(cmd);
-    CS_LEFT_EYE_HIGH();
-    return;
-  }
-  else if (screen == RIGHT_EYE)
-  {
-    CS_RIGHT_EYE_LOW();
-    spi_txrx(cmd);
-    CS_RIGHT_EYE_HIGH();
-    return;
-  }
-}
-
-void GC9A01_data(uint8_t data, uint8_t screen)
-{
-  DC_HIGH();
-
-  if (screen == LEFT_EYE)
-  {
-    CS_LEFT_EYE_LOW();
-    spi_txrx(data);
-    CS_LEFT_EYE_HIGH();
-    return;
-  }
-  else if (screen == RIGHT_EYE)
-  {
-    CS_RIGHT_EYE_LOW();
-    spi_txrx(data);
-    CS_RIGHT_EYE_HIGH();
-    return;
-  }
-}
-
-void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
-                          uint8_t screen)
-{
-  // Column Address Set
-  GC9A01_cmd(0x2A, screen);
-  GC9A01_data(0x00, screen);
-  GC9A01_data(x0, screen);
-  GC9A01_data(0x00, screen);
-  GC9A01_data(x1, screen);
-
-  // Row Address Set
-  GC9A01_cmd(0x2B, screen);
-  GC9A01_data(0x00, screen);
-  GC9A01_data(y0, screen);
-  GC9A01_data(0x00, screen);
-  GC9A01_data(y1, screen);
-
-  // Memory Write (start RAM write)
-  GC9A01_cmd(0x2C, screen);
-}
-
-void gc9a01_sleep_in(void)
-{
-  GC9A01_cmd_eyes(SLPIN);
-  _delay_ms(5);
-}
-
-void gc9a01_idle_mode_off(void) { GC9A01_cmd_eyes(IDMOFF); }
-
-void gc9a01_idle_mode_on(void) { GC9A01_cmd_eyes(IDMON); }
-
-void gc9a01_sleep_out(void)
-{
-  GC9A01_cmd_eyes(SLPOUT);
-  _delay_ms(120);
-}
-
-void GC9A01_fillScreen(uint16_t color, uint8_t screen)
-{
-  GC9A01_setAddrWindow(0, 0, GC9A01_WIDTH - 1, GC9A01_HEIGHT - 1, screen);
-  GC9A01_pushColor(color, FULLSCREEN, screen);
-}
-
-// pixel push
-void GC9A01_pushColor(uint16_t color, uint16_t pixels, uint8_t screen)
-{
-  uint8_t hi = color >> 8;
-  uint8_t lo = color & 0xFF;
-
-  if (screen == LEFT_EYE)
-  {
-    DC_HIGH();
-    CS_LEFT_EYE_LOW();
-    while (pixels--)
-    {
-      spi_txrx(hi);
-      spi_txrx(lo);
-    }
-    CS_LEFT_EYE_HIGH();
-    return;
-  }
-  else if (screen == RIGHT_EYE)
-  {
-    DC_HIGH();
-
-    CS_RIGHT_EYE_LOW();
-    while (pixels--)
-    {
-      spi_txrx(hi);
-      spi_txrx(lo);
-    }
-    CS_RIGHT_EYE_HIGH();
-    return;
-  }
-}
-
 /// Alls Eyes together functions
 
-void GC9A01_cmd_eyes(uint8_t cmd)
+static void GC9A01_cmd_eyes(uint8_t cmd)
 {
   DC_LOW();
   spi_txrx(cmd);
   return;
 }
 
-void GC9A01_data_eyes(uint8_t data)
+static void GC9A01_data_eyes(uint8_t data)
 {
   DC_HIGH();
   spi_txrx(data);
@@ -408,7 +332,7 @@ void GC9A01_setAddrWindow_eyes(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1)
 }
 
 // pixel push
-void GC9A01_pushColor_eyes(uint16_t color, uint16_t count)
+static void GC9A01_pushColor_eyes(uint16_t color, uint16_t count)
 {
   uint8_t hi = color >> 8;
   uint8_t lo = color & 0xFF;
@@ -437,14 +361,14 @@ void GC9A01_fillScreen_eyes(uint16_t color)
 // Helper function of GC9A01_drawEye_img()
 // Sends the color to be drawn
 
-void GC9A01_draw_pixel(uint16_t color)
+static void GC9A01_draw_pixel(uint16_t color)
 {
   spi_txrx(color >> 8);
   spi_txrx(color & 0xFF);
 }
 
-void GC9A01_drawImg_eyes(const uint8_t* file, uint8_t maxNbrLines,
-                         uint8_t hSizeBytes, uint16_t fg, uint16_t bg)
+static void GC9A01_drawImg_eyes(const uint8_t* file, uint8_t maxNbrLines,
+                                uint8_t hSizeBytes, uint16_t fg, uint16_t bg)
 {
   uint16_t newfg;
   DC_HIGH();
@@ -476,7 +400,7 @@ void GC9A01_draw_eye_Lids(uint16_t pixels, uint16_t color)
   GC9A01_pushColor_eyes(color, pixels);
 }
 
-void GC9A01_eye_Lids_up(void)
+static void GC9A01_eye_Lids_up(void)
 {
   GC9A01_cmd_eyes(0x36);
   GC9A01_data_eyes(0xC8);
@@ -490,7 +414,7 @@ void GC9A01_eye_Lids_down(void)
   GC9A01_cmd_eyes(0x2C);  // force Memory Write before pixel push
 }
 
-void GC9A01_blink(const uint8_t* file, int nbr)
+static void GC9A01_blink(const uint8_t* file, int nbr)
 {
   for (int i = 0; i < nbr; i++)
   {
@@ -511,22 +435,6 @@ void GC9A01_blink(const uint8_t* file, int nbr)
     CS_LEFT_EYE_HIGH();
     CS_RIGHT_EYE_HIGH();
   }
-}
-
-uint8_t change_eye(uint8_t es)
-{
-  uint8_t eye_state = es;
-  if (eye_state == 0)
-  {
-    // GC9A01_blink(Eye_look_Right, 1);
-    eye_state = 1;
-  }
-  else
-  {
-    // GC9A01_blink(Eye_Front, 1);
-    eye_state = 0;
-  }
-  return eye_state;
 }
 
 void eyes_action()

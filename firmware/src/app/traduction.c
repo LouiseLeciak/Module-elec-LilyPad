@@ -1,3 +1,5 @@
+#include "app/traduction.h"
+
 #include "app/menu.h"
 #include "display/GC9A01.h"
 #include "display/ili9488.h"
@@ -37,12 +39,12 @@ void start_new_word(void)
 // when you validate your word
 void validate_word(void) { word_state = VALIDATED; }
 
-void display_word(void)
+static void display_word(void)
 {
   draw_string(10, 80, word, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
 }
 
-void delete_last_char(void)
+static void delete_last_char(void)
 {
   if (word_len == 0)
     return;

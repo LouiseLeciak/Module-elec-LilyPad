@@ -386,22 +386,6 @@ void ili9488_sleep_out(void)
   MAIN_SCREEN_CS_HIGH();
 }
 
-void ili9488_idle_mode_off(void)
-{
-  MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(IDMOFF);
-  MAIN_SCREEN_CS_HIGH();
-}
-
-void ili9488_idle_mode_on(void)
-{
-  MAIN_SCREEN_CS_LOW();
-  DC_CMD();
-  spi_txrx(IDMON);
-  MAIN_SCREEN_CS_HIGH();
-}
-
 void ili9488_fill_screen(uint16_t color565)
 {
   // Convertit le RGB565 en RGB666 (18-bit), format attendu par
