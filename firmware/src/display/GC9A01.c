@@ -14,11 +14,20 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>  //memory
+#include <stdint.h>
 #include <util/delay.h>
 
 #include "display/eye_imgs.h"
 #include "pinout.h"
 #include "system/spi.h"
+
+typedef enum
+{
+  SLPIN = 0x10,   ///< Sleep In
+  SLPOUT = 0x11,  ///< Sleep Out
+  IDMOFF = 0x38,  ///< Idle Mode Off
+  IDMON = 0x39,   ///< Idle Mode On
+} gc9a01_cmd;
 
 void GC9A01_init(uint8_t screen)
 {
@@ -308,6 +317,22 @@ void GC9A01_setAddrWindow(uint8_t x0, uint8_t y0, uint8_t x1, uint8_t y1,
 
   // Memory Write (start RAM write)
   GC9A01_cmd(0x2C, screen);
+}
+
+void gc9a01_sleep_in(void)
+{
+  GC9A01_cmd_eyes(SLPIN);
+  _delay_ms(5);
+}
+
+void gc9a01_idle_mode_off(void) { GC9A01_cmd_eyes(IDMOFF); }
+
+void gc9a01_idle_mode_on(void) { GC9A01_cmd_eyes(IDMON); }
+
+void gc9a01_sleep_out(void)
+{
+  GC9A01_cmd_eyes(SLPOUT);
+  _delay_ms(120);
 }
 
 void GC9A01_fillScreen(uint16_t color, uint8_t screen)
