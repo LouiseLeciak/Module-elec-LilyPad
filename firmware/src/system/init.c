@@ -24,7 +24,7 @@ static void eyes_init()
 {
   uart_printstr("Initialising eyes...");
 
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
+  DDRH |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   GC9A01_init(LEFT_EYE);
   GC9A01_init(RIGHT_EYE);
 
