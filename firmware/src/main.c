@@ -8,6 +8,8 @@
 #include "input/i2c_rotary.h"
 #include "input/keypad.h"
 #include "input/rotary.h"
+#include "storage/fatfs.h"
+#include "storage/sd_streaming.h"
 #include "system/globals.h"
 #include "system/init.h"
 #include "system/power_save.h"
@@ -19,6 +21,9 @@ int main(void)
 
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   eyes_action();
+
+  show_menu();
+  sd_stream_bmp_to_screen(cluster_to_lba(image_lut[130].address));
 
   language_init();
   language_update();

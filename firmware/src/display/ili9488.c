@@ -180,8 +180,8 @@ static void ili9488_memory_access_control(void)
   DC_CMD();
   spi_txrx(MADCTL);
   DC_DATA();
-  // spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
-  spi_txrx(0x88);  // Calibrated for TF01 panel orientation
+  spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
+  // spi_txrx(0x88);  // Calibrated for TF01 panel orientation
   MAIN_SCREEN_CS_HIGH();
 }
 
