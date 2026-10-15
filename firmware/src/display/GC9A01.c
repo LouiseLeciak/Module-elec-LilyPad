@@ -507,7 +507,7 @@ void GC9A01_blink(const uint8_t* file, int nbr)
     CS_RIGHT_EYE_LOW();
     GC9A01_eye_Lids_up();
     GC9A01_setAddrWindow_eyes(0, 0, 239, 239);
-    GC9A01_drawImg_eyes(file, 240, 30, IRIS_COLOUR, SCLERA_COLOUR);
+    GC9A01_drawImg_eyes(file, 240, 30, SCLERA_COLOUR, IRIS_COLOUR);
     CS_LEFT_EYE_HIGH();
     CS_RIGHT_EYE_HIGH();
   }

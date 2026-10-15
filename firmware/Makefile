@@ -15,8 +15,14 @@ THEME_SUFFIX :=
 else ifeq ($(ALT),1)
 THEME_NAME := halloween
 THEME_SUFFIX := _halloween
+else ifeq ($(ALT), 2)
+THEME_NAME := candy
+THEME_SUFFIX := _candy
+else ifeq ($(ALT), 3)
+THEME_NAME := bw
+THEME_SUFFIX := _bw
 else
-$(error Unknown ALT value "$(ALT)": use 0 (default) or 1 (halloween)
+$(error Unknown ALT value "$(ALT)": use 0 (default), 1 (halloween), 2 (candy) or 3 (black & white)
 endif
 THEME_FLAGS := $(if $(THEME_SUFFIX),-DALT=$(ALT),)
 
@@ -72,7 +78,7 @@ TARGET	=	$(BUI_DIR)main$(THEME_SUFFIX)
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc debug size default halloween releases
+.PHONY: all hex flash clean re doc debug size default halloween candy bw releases
 
 all: hex
 
@@ -83,10 +89,18 @@ hex: $(HEX)
 # expanded before target-specific variables take effect).
 halloween:
 	$(MAKE) ALT=1 hex
+
+candy:
+	$(MAKE) ALT=2 hex
+
+bw:
+	$(MAKE) ALT=3 hex
+
 default: hex
 
+
 # Build one hex per theme and collect them in releases/
-ALT_LIST := 0 1
+ALT_LIST := 0 1 2 3
 REL_DIR := releases/
 releases:
 	@mkdir -p $(REL_DIR)
