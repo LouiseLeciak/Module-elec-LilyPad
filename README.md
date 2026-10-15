@@ -11,6 +11,14 @@ French Sign Language (FSL) or English Sign Language (ESL), as chosen.
 Lily's Pad is also accessible for hearing users who are curious or who have
 hearing-impaired loved ones they would like to communicate with.
 
+## Update firmware
+
+Download update.sh in the latest releases section and run it. The script can take one argument for the theme.
+
+```bash
+./update.sh <DEVICE PORT> <OPTIONAL: THEME>
+```
+
 ## I. Features
 
 An LCD screen connected to a keyboard featuring letters and numbers.
