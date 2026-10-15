@@ -54,14 +54,12 @@ jobs:
           sudo rm -rf ~/.apt-cache/partial
           sudo chown -R "$USER" ~/.apt-cache
 
-      - name: Build project
-        run: make all
+      - name: Build all themes
+        run: make releases
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: avr-firmware
-          path: |
-            firmware/build/*.hex
-            firmware/build/*.bin
+          path: firmware/releases/*
           if-no-files-found: error

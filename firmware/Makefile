@@ -6,10 +6,24 @@ PORT ?= /dev/ttyUSB0 # fallback if config.mk absent
 PROGRAMMER	:=	wiring
 BD_RATE			:=	115200
 
+# --- THEME CONFIG ---
+# ALT=0 (or unset) default | ALT=1 halloween
+ALT ?= 0
+ifeq ($(ALT),0)
+THEME_NAME := default
+THEME_SUFFIX :=
+else ifeq ($(ALT),1)
+THEME_NAME := halloween
+THEME_SUFFIX := _halloween
+else
+$(error Unknown ALT value "$(ALT)": use 0 (default) or 1 (halloween)
+endif
+THEME_FLAGS := $(if $(THEME_SUFFIX),-DALT=$(ALT),)
+
 # --- DIRECTORIES ---
 SRC_DIR	:=	src/
 INC_DIR	:=	headers/
-BUI_DIR	:=	build/
+BUI_DIR	:=	build/$(THEME_NAME)/
 
 # --- TOOLCHAIN ---
 CC			:=	avr-gcc
@@ -18,7 +32,7 @@ DUDE		:=	avrdude
 
 # --- COMPILER FLAGS ---
 INC_FLAGS	=	-I$(INC_DIR) -I/opt/homebrew/opt/avr-gcc@15/avr/include
-CFLAGS		=	-Wall -Wextra -Werror $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) -MMD -MP
+CFLAGS		=	-Wall -Wextra -Werror $(INC_FLAGS) -Os -mmcu=$(MCU) -DF_CPU=$(F_CPU) $(THEME_FLAGS) -MMD -MP
 
 
 # --- SOURCE & OBJECT FILES ---
@@ -54,15 +68,33 @@ OBJ	= $(addprefix $(BUI_DIR), $(addsuffix .o, $(SRC_FIL)))
 DEP	=	$(OBJ:.o=.d)
 
 # --- OUTPUT FILES ---
-TARGET	=	$(BUI_DIR)main
+TARGET	=	$(BUI_DIR)main$(THEME_SUFFIX)
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc debug size
+.PHONY: all hex flash clean re doc debug size default halloween releases
 
 all: hex
 
 hex: $(HEX)
+
+# Theme shortcuts: make [default|halloween]
+# Re-invoke make so ALT is visible at parse time (prerequisites are
+# expanded before target-specific variables take effect).
+halloween:
+	$(MAKE) ALT=1 hex
+default: hex
+
+# Build one hex per theme and collect them in releases/
+ALT_LIST := 0 1
+REL_DIR := releases/
+releases:
+	@mkdir -p $(REL_DIR)
+	@for alt in $(ALT_LIST); do \
+		echo "==> Building theme ALT=$$alt"; \
+		$(MAKE) --no-print-directory ALT=$$alt hex || exit 1; \
+	done
+	cp build/*/main*.hex build/*/main*.bin $(REL_DIR)
 
 $(BUI_DIR):
 	mkdir -p $@
@@ -84,7 +116,7 @@ size: $(HEX)
 	avr-size --format=avr --mcu=$(MCU) $(TARGET).bin
 
 clean:
-	rm -rf $(BUI_DIR)
+	rm -rf build/
 
 re: clean all
 

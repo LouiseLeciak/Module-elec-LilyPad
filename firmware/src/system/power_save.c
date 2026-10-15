@@ -2,6 +2,7 @@
 
 #include <util/delay.h>
 
+#include "app/menu.h"
 #include "display/GC9A01.h"
 #include "display/ili9488.h"
 #include "pinout.h"
@@ -31,7 +32,7 @@ void power_save_update(void)
     CS_RIGHT_EYE_LOW();
     GC9A01_eye_Lids_down();
     GC9A01_setAddrWindow_eyes(0, 0, 239, 219);
-    GC9A01_draw_eye_Lids(FULLSCREEN, GC9A01A_COLOR_GREEN);
+    GC9A01_draw_eye_Lids(FULLSCREEN, EYELID_COLOUR);
     CS_LEFT_EYE_HIGH();
     CS_RIGHT_EYE_HIGH();
     inac = 1;
