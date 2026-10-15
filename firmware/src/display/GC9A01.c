@@ -463,7 +463,7 @@ void GC9A01_drawImg_eyes(const uint8_t* file, uint8_t maxNbrLines,
         if (b == 0x00)
           newfg = fg;
         else
-          newfg = GC9A01A_COLOR_CYAN;
+          newfg = EYE_ACCENT_COLOUR;
         GC9A01_draw_pixel(pixel ? bg : newfg);
       }
     }
