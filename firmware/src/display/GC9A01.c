@@ -14,7 +14,6 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>  //memory
-#include <stdint.h>
 #include <util/delay.h>
 
 #include "display/eye_imgs.h"
