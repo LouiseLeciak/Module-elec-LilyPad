@@ -3,6 +3,26 @@
 
 #include <avr/io.h>
 
+#include "display/GC9A01.h"
+
+#ifdef ALT
+#define BG_COLOUR GC9A01A_COLOR_BLACK
+#define FG_COLOUR GC9A01A_COLOR_ORANGE
+#define ACCENT_COLOUR GC9A01A_COLOR_WHITE
+#define EYELID_COLOUR GC9A01A_COLOR_MAROON
+#define IRIS_COLOUR GC9A01A_COLOR_RED
+#define SCLERA_COLOUR GC9A01A_COLOR_MAROON
+#endif  // ALT
+
+#ifndef ALT
+#define BG_COLOUR GC9A01A_COLOR_OLIVE
+#define FG_COLOUR GC9A01A_COLOR_GREEN
+#define ACCENT_COLOUR GC9A01A_COLOR_WHITE
+#define EYELID_COLOUR GC9A01A_COLOR_GREEN
+#define IRIS_COLOUR GC9A01A_COLOR_WHITE
+#define SCLERA_COLOUR GC9A01A_COLOR_BLACK
+#endif  // !ALT
+
 void show_menu(void);
 void start_translation(void);
 void show_alphabet(void);

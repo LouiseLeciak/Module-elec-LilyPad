@@ -57,31 +57,26 @@ void game()
 // display teh game menu
 void show_game(void)
 {
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
   if (language == LANG_FR)
   {
-    draw_string(125, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(125, 20, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 120, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(70, 120, "Lettre", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(70, 120, "Lettre", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(70, 220, "Signe", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(70, 220, "Signe", FG_COLOUR, BG_COLOUR, 4, 2);
   }
   else if (language == LANG_EN)
   {
-    draw_string(125, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(125, 20, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 120, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(70, 120, "Letter game", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(70, 120, "Letter game", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(70, 220, "Sign game", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                4, 2);
+    draw_string(70, 220, "Sign game", FG_COLOUR, BG_COLOUR, 4, 2);
   }
   game_choice = 0;
   game_state = GAME_MENU;
@@ -96,20 +91,20 @@ void update_game_cursor(uint8_t old_choice)
 
   if (old_choice == 0)
   {
-    draw_string(10, 120, "  ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 120, "  ", FG_COLOUR, BG_COLOUR, 4, 2);
   }
   else
   {
-    draw_string(10, 220, "  ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 220, "  ", FG_COLOUR, BG_COLOUR, 4, 2);
   }
 
   if (game_choice == 0)
   {
-    draw_string(10, 120, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
   }
   else
   {
-    draw_string(10, 220, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(10, 220, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
   }
 }
 
@@ -124,10 +119,10 @@ void update_game_answer_cursor(uint8_t old_choice)
   new_y = 150 + game_answer * 70;
 
   // delete old cursos
-  draw_string(10, old_y, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, old_y, " ", FG_COLOUR, BG_COLOUR, 4, 2);
 
   // draw new cursor
-  draw_string(10, new_y, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, new_y, ">", FG_COLOUR, BG_COLOUR, 4, 2);
 }
 
 void display_game_letter_image(void)
@@ -164,28 +159,23 @@ void display_game_letter_image(void)
 
 void display_find_letter(void)
 {
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   if (language == LANG_FR)
   {
-    draw_string(120, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(120, 20, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 150, "Clique pour voir", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(20, 150, "Clique pour voir", FG_COLOUR, BG_COLOUR, 3, 2);
 
-    draw_string(80, 190, "ton signe", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    draw_string(80, 190, "ton signe", FG_COLOUR, BG_COLOUR, 3, 2);
   }
   else
   {
-    draw_string(120, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(120, 20, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(50, 150, "Click to see", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(50, 150, "Click to see", FG_COLOUR, BG_COLOUR, 3, 2);
 
-    draw_string(80, 190, "your sign", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    draw_string(80, 190, "your sign", FG_COLOUR, BG_COLOUR, 3, 2);
   }
 }
 
@@ -336,40 +326,31 @@ void display_find_sign(void)
   sign[0] = game_target;
   sign[1] = '\0';
 
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   if (language == LANG_FR)
   {
-    draw_string(120, 30, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(120, 30, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 100, "Voici ta lettre :", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(20, 100, "Voici ta lettre :", FG_COLOUR, BG_COLOUR, 3, 2);
 
-    draw_string(140, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
-                2);
+    draw_string(140, 170, sign, ACCENT_COLOUR, BG_COLOUR, 12, 2);
 
-    draw_string(70, 280, "Clic pour voir", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 2, 2);
+    draw_string(70, 280, "Clic pour voir", FG_COLOUR, BG_COLOUR, 2, 2);
 
-    draw_string(100, 310, "tes choix", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                2, 2);
+    draw_string(100, 310, "tes choix", FG_COLOUR, BG_COLOUR, 2, 2);
   }
   else if (language == LANG_EN)
   {
-    draw_string(120, 30, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(120, 30, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 100, "Here's your letter :", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(20, 100, "Here's your letter :", FG_COLOUR, BG_COLOUR, 3, 2);
 
-    draw_string(140, 170, sign, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 12,
-                2);
+    draw_string(140, 170, sign, ACCENT_COLOUR, BG_COLOUR, 12, 2);
 
-    draw_string(100, 280, "Click to see", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 2, 2);
+    draw_string(100, 280, "Click to see", FG_COLOUR, BG_COLOUR, 2, 2);
 
-    draw_string(100, 310, "your choices", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 2, 2);
+    draw_string(100, 310, "your choices", FG_COLOUR, BG_COLOUR, 2, 2);
   }
 }
 
@@ -488,23 +469,22 @@ void display_sign_choice(uint8_t choice)
   ft_strcat(file_name, "  BMP");
 
   // clean screen
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   // title
   if (language == LANG_FR)
   {
-    draw_string(100, 30, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(100, 30, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
   }
   else
   {
-    draw_string(100, 30, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(100, 30, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
   }
 
   // img nb
-  draw_string(100, 100, number, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(100, 100, number, ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
-  draw_string(150, 100, ".", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(150, 100, ".", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
   // get img in sd
   for (uint8_t i = 0; i < IMG_LUT_MAX_SIZE && image_lut[i].address != 0; i++)
@@ -522,40 +502,35 @@ void display_letter_answers(void)
 {
   char answer_text[2];
 
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   if (language == LANG_FR)
   {
-    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(20, 20, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    draw_string(20, 80, "Choisis :", FG_COLOUR, BG_COLOUR, 3, 2);
   }
   else
   {
-    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(20, 20, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
-                2);
+    draw_string(20, 80, "Choose:", FG_COLOUR, BG_COLOUR, 3, 2);
   }
 
   answer_text[0] = game_answers[0];
   answer_text[1] = '\0';
 
-  draw_string(10, 150, "> ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, 150, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
 
-  draw_string(70, 150, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
+  draw_string(70, 150, answer_text, FG_COLOUR, BG_COLOUR, 4, 2);
 
   answer_text[0] = game_answers[1];
 
-  draw_string(70, 220, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
+  draw_string(70, 220, answer_text, FG_COLOUR, BG_COLOUR, 4, 2);
 
   answer_text[0] = game_answers[2];
 
-  draw_string(70, 290, answer_text, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-              2);
+  draw_string(70, 290, answer_text, FG_COLOUR, BG_COLOUR, 4, 2);
 }
 
 /////////////////////////////////////////////
@@ -566,9 +541,9 @@ void display_game_yes(void)
 {
   power_save_activity();
   win();
-  ili9488_fill_screen(GC9A01A_COLOR_GREEN);
+  ili9488_fill_screen(FG_COLOUR);
 
-  draw_string(110, 170, "O", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_GREEN, 20, 2);
+  draw_string(110, 170, "O", ACCENT_COLOUR, FG_COLOUR, 20, 2);
 }
 
 void display_game_no(void)
@@ -577,5 +552,5 @@ void display_game_no(void)
   loose();
   ili9488_fill_screen(GC9A01A_COLOR_RED);
 
-  draw_string(110, 170, "X", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_RED, 20, 2);
+  draw_string(110, 170, "X", ACCENT_COLOUR, GC9A01A_COLOR_RED, 20, 2);
 }

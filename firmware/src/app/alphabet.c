@@ -18,23 +18,19 @@ uint8_t alphabet_choice = 0;
 // home page of the alphabet, set up the display
 void show_alphabet(void)
 {
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   if (language == LANG_FR)
   {
-    draw_string(80, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(80, 20, "ALPHABET", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 80, "Choisis une lettre", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(10, 80, "Choisis une lettre", FG_COLOUR, BG_COLOUR, 3, 2);
   }
   else if (language == LANG_EN)
   {
-    draw_string(80, 20, "ALPHABET", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4,
-                2);
+    draw_string(80, 20, "ALPHABET", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 80, "Choose a letter:", GC9A01A_COLOR_GREEN,
-                GC9A01A_COLOR_OLIVE, 3, 2);
+    draw_string(10, 80, "Choose a letter:", FG_COLOUR, BG_COLOUR, 3, 2);
   }
 
   // index to know where we are in the laphabet
@@ -155,11 +151,11 @@ void display_alphabet(void)
 
     if (i == alphabet_choice)
     {
-      draw_string(x, y, letter, GC9A01A_COLOR_WHITE, GC9A01A_COLOR_OLIVE, 5, 2);
+      draw_string(x, y, letter, ACCENT_COLOUR, BG_COLOUR, 5, 2);
     }
     else
     {
-      draw_string(x, y, letter, GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3, 2);
+      draw_string(x, y, letter, FG_COLOUR, BG_COLOUR, 3, 2);
     }
   }
 }
@@ -200,14 +196,11 @@ void update_alphabet_cursor(uint8_t old_choice)
   new_letter[1] = '\0';
 
   // Effacer complètement l'ancienne grosse lettre
-  draw_string(old_x, old_y, old_letter, GC9A01A_COLOR_OLIVE,
-              GC9A01A_COLOR_OLIVE, 5, 2);
+  draw_string(old_x, old_y, old_letter, BG_COLOUR, BG_COLOUR, 5, 2);
 
   // Redessiner l'ancienne lettre en petit
-  draw_string(old_x, old_y, old_letter, GC9A01A_COLOR_GREEN,
-              GC9A01A_COLOR_OLIVE, 3, 2);
+  draw_string(old_x, old_y, old_letter, FG_COLOUR, BG_COLOUR, 3, 2);
 
   // Nouvelle lettre en grand
-  draw_string(new_x, new_y, new_letter, GC9A01A_COLOR_WHITE,
-              GC9A01A_COLOR_OLIVE, 5, 2);
+  draw_string(new_x, new_y, new_letter, ACCENT_COLOUR, BG_COLOUR, 5, 2);
 }

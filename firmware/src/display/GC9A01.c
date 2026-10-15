@@ -17,6 +17,7 @@
 #include <stdint.h>
 #include <util/delay.h>
 
+#include "app/menu.h"
 #include "display/eye_imgs.h"
 #include "pinout.h"
 #include "system/spi.h"
@@ -498,7 +499,7 @@ void GC9A01_blink(const uint8_t* file, int nbr)
     CS_RIGHT_EYE_LOW();
     GC9A01_eye_Lids_down();
     GC9A01_setAddrWindow_eyes(0, 0, 239, 219);
-    GC9A01_draw_eye_Lids(LID_80_PERCENT, GC9A01A_COLOR_GREEN);
+    GC9A01_draw_eye_Lids(LID_80_PERCENT, EYELID_COLOUR);
     CS_LEFT_EYE_HIGH();
     CS_RIGHT_EYE_HIGH();
 
@@ -506,8 +507,7 @@ void GC9A01_blink(const uint8_t* file, int nbr)
     CS_RIGHT_EYE_LOW();
     GC9A01_eye_Lids_up();
     GC9A01_setAddrWindow_eyes(0, 0, 239, 239);
-    GC9A01_drawImg_eyes(file, 240, 30, GC9A01A_COLOR_WHITE,
-                        GC9A01A_COLOR_BLACK);
+    GC9A01_drawImg_eyes(file, 240, 30, IRIS_COLOUR, SCLERA_COLOUR);
     CS_LEFT_EYE_HIGH();
     CS_RIGHT_EYE_HIGH();
   }

@@ -458,35 +458,33 @@ void rotary_button_handle_press(void)
 
 void display_game_answer(void)
 {
-  ili9488_fill_screen(GC9A01A_COLOR_OLIVE);
+  ili9488_fill_screen(BG_COLOUR);
 
   if (language == LANG_FR)
   {
-    draw_string(20, 20, "JEU", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(20, 20, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 80, "Choisis :", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE,
-                3, 2);
+    draw_string(20, 80, "Choisis :", FG_COLOUR, BG_COLOUR, 3, 2);
   }
   else
   {
-    draw_string(20, 20, "GAME", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+    draw_string(20, 20, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(20, 80, "Choose:", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 3,
-                2);
+    draw_string(20, 80, "Choose:", FG_COLOUR, BG_COLOUR, 3, 2);
   }
 
   // choice n1
-  draw_string(10, 150, ">", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, 150, ">", FG_COLOUR, BG_COLOUR, 4, 2);
 
-  draw_string(80, 150, "1", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(80, 150, "1", FG_COLOUR, BG_COLOUR, 4, 2);
 
   // choice n2
-  draw_string(10, 220, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, 220, " ", FG_COLOUR, BG_COLOUR, 4, 2);
 
-  draw_string(80, 220, "2", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(80, 220, "2", FG_COLOUR, BG_COLOUR, 4, 2);
 
   // choice n3
-  draw_string(10, 290, " ", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(10, 290, " ", FG_COLOUR, BG_COLOUR, 4, 2);
 
-  draw_string(80, 290, "3", GC9A01A_COLOR_GREEN, GC9A01A_COLOR_OLIVE, 4, 2);
+  draw_string(80, 290, "3", FG_COLOUR, BG_COLOUR, 4, 2);
 }
