@@ -541,9 +541,9 @@ void display_game_yes(void)
 {
   power_save_activity();
   win();
-  ili9488_fill_screen(FG_COLOUR);
+  ili9488_fill_screen(GC9A01A_COLOR_GREEN);
 
-  draw_string(110, 170, "O", ACCENT_COLOUR, FG_COLOUR, 20, 2);
+  draw_string(110, 170, "O", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_GREEN, 20, 2);
 }
 
 void display_game_no(void)
@@ -552,5 +552,5 @@ void display_game_no(void)
   loose();
   ili9488_fill_screen(GC9A01A_COLOR_RED);
 
-  draw_string(110, 170, "X", ACCENT_COLOUR, GC9A01A_COLOR_RED, 20, 2);
+  draw_string(110, 170, "X", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_RED, 20, 2);
 }
