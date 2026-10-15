@@ -2,6 +2,8 @@
 
 #include <util/delay.h>
 
+#include "pinout.h"
+
 const char keymap[ROWS_NB][COLS_NB] = {
     {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'},
     {'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'},
@@ -12,57 +14,42 @@ void keypad_init(void)
 {
   // les 4 lignes, elles deviennent des sorties
   // 1 sortie 0 entree
-  DDRJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
-  PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
+  DDRC |= KB_R1 | KB_R2 | KB_R3 | KB_R4;
+  PORTC |= KB_R1 | KB_R2 | KB_R3 | KB_R4;
 
-  DDRC |= (1 << PC7);
-  PORTC |= (1 << PC7);
+  // les colonnes, on les met en entree avec pull up
+  // car on veut les lire
+  DDRC &= ~(KB_C1 | KB_C2 | KB_C3 | KB_C4);
+  PORTC |= KB_C1 | KB_C2 | KB_C3 | KB_C4;
 
-  // les colonnes, on les met a 0
-  // car on veut els lire
-  DDRA &= ~((1 << PA3) | (1 << PA4) | (1 << PA5) | (1 << PA6) | (1 << PA7));
-  // pour les pull up
-  PORTA |= ((1 << PA3) | (1 << PA4) | (1 << PA5) | (1 << PA6) | (1 << PA7));
-
-  DDRG &= ~(1 << PG2);
-  PORTG |= (1 << PG2);
-
-  DDRJ &= ~((1 << PJ3) | (1 << PJ4) | (1 << PJ5) | (1 << PJ6));
-
-  PORTJ |= ((1 << PJ3) | (1 << PJ4) | (1 << PJ5) | (1 << PJ6));
-
-  // // on check comment on est pour savoir comment changer
-  // if (PINC & (1 << ROTARY_CLK))
-  //     rotaryclk_prev = 1;
-  // else
-  //     rotaryclk_prev = 0;
+  DDRJ &= ~(KB_C5 | KB_C6 | KB_C7 | KB_C8 | KB_C9 | KB_C10);
+  PORTJ |= KB_C5 | KB_C6 | KB_C7 | KB_C8 | KB_C9 | KB_C10;
 }
 
 // select row one by one to find where is the key
 static void select_row(uint8_t row)
 {
   // je desactive toutes les lignes
-  PORTJ |= (1 << PJ0) | (1 << PJ1) | (1 << PJ2);
-  PORTC |= (1 << PC7);
+  PORTC |= KB_R1 | KB_R2 | KB_R3 | KB_R4;
 
-  // j'active une seule lgine poru "monitorer"
-  // j;active celle envoye en parametre
+  // j'active une seule ligne pour "monitorer"
+  // j'active celle envoye en parametre
   switch (row)
   {
     case 0:
-      PORTJ &= ~(1 << PJ2);  // R1
+      PORTC &= ~KB_R1;
       break;
 
     case 1:
-      PORTJ &= ~(1 << PJ1);  // R2
+      PORTC &= ~KB_R2;
       break;
 
     case 2:
-      PORTJ &= ~(1 << PJ0);  // R3
+      PORTC &= ~KB_R3;
       break;
 
     case 3:
-      PORTC &= ~(1 << PC7);  // R4
+      PORTC &= ~KB_R4;
       break;
   }
 }
@@ -70,26 +57,26 @@ static void select_row(uint8_t row)
 // read column to find where is the key
 static int read_column(void)
 {
-  // si PINF = 0 alors c'est que c'est presse
-  if (!(PINA & (1 << PA3)))
+  // si PINx = 0 alors c'est que c'est presse
+  if (!(PINC & KB_C1))
     return 0;
-  if (!(PINA & (1 << PA4)))
+  if (!(PINC & KB_C2))
     return 1;
-  if (!(PINA & (1 << PA5)))
+  if (!(PINC & KB_C3))
     return 2;
-  if (!(PINA & (1 << PA6)))
+  if (!(PINC & KB_C4))
     return 3;
-  if (!(PINA & (1 << PA7)))
+  if (!(PINJ & KB_C5))
     return 4;
-  if (!(PING & (1 << PG2)))
+  if (!(PINJ & KB_C6))
     return 5;
-  if (!(PINJ & (1 << PJ6)))
+  if (!(PINJ & KB_C7))
     return 6;
-  if (!(PINJ & (1 << PJ5)))
+  if (!(PINJ & KB_C8))
     return 7;
-  if (!(PINJ & (1 << PJ4)))
+  if (!(PINJ & KB_C9))
     return 8;
-  if (!(PINJ & (1 << PJ3)))
+  if (!(PINJ & KB_C10))
     return 9;
 
   return -1;
