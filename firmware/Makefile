@@ -72,13 +72,13 @@ TARGET	=	$(BUI_DIR)main$(THEME_SUFFIX)
 HEX	= $(TARGET).hex
 
 # --- BUILD RULES ---
-.PHONY: all hex flash clean re doc debug size default halloween christmas releases
+.PHONY: all hex flash clean re doc debug size default halloween releases
 
 all: hex
 
 hex: $(HEX)
 
-# Theme shortcuts: make [default|halloween|christmas]
+# Theme shortcuts: make [default|halloween]
 # Re-invoke make so ALT is visible at parse time (prerequisites are
 # expanded before target-specific variables take effect).
 halloween:
@@ -94,7 +94,7 @@ releases:
 		echo "==> Building theme ALT=$$alt"; \
 		$(MAKE) --no-print-directory ALT=$$alt hex || exit 1; \
 	done
-	cp build/*/main*.hex $(REL_DIR)
+	cp build/*/main*.hex build/*/main*.bin $(REL_DIR)
 
 $(BUI_DIR):
 	mkdir -p $@
