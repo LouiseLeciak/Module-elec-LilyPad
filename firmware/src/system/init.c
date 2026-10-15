@@ -15,7 +15,7 @@ static void version_info_string(void)
 {
   uart_printstr("\r\nLily's Pad v.1\r\n");
   uart_printstr(
-      "Made by Louise \"lleciak\" Leciak, Madeline \"apetitco\" Petitcollin & "
+      "Made by Louise \"lleciak\" Leciak, Madeline \"mpetitco\" Petitcollin & "
       "Nigel \"nrobinso\" Robinson\r\n");
   uart_printstr("Module Électronique 2026 @ 42 Paris\r\n\r\n");
 }
@@ -24,7 +24,7 @@ static void eyes_init()
 {
   uart_printstr("Initialising eyes...");
 
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
+  DDRH |= (LEFT_EYE_CS | RIGHT_EYE_CS | EYES_RST);
   GC9A01_init(LEFT_EYE);
   GC9A01_init(RIGHT_EYE);
 

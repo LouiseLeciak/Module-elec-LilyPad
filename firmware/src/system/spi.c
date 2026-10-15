@@ -12,11 +12,11 @@ void spi_master_init(void)
   DDRB |= (CS);
   PORTB |= (CS);
 
-  DDRH |= (MAIN_SCREEN_CS | SD_CS);
-  PORTH |= (MAIN_SCREEN_CS | SD_CS);
+  DDRE |= (MAIN_SCREEN_CS | SD_CS);
+  PORTE |= (MAIN_SCREEN_CS | SD_CS);
 
-  DDRE |= (LEFT_EYE_CS | RIGHT_EYE_CS);
-  PORTE |= (LEFT_EYE_CS | RIGHT_EYE_CS);
+  DDRH |= (LEFT_EYE_CS | RIGHT_EYE_CS);
+  PORTH |= (LEFT_EYE_CS | RIGHT_EYE_CS);
 
   // Sets MOSI and SCK as outputs (p.172)
   DDRB |= (MOSI | SCK);
