@@ -12,26 +12,29 @@
 language_t language = LANG_FR;
 
 // init the slide switch
-// pc1 <-> pc2 ; pc2 <-> pc3
+// sw1 <-> sw2 ; sw2 <-> sw3
 void language_switch_init(void)
 {
-  // pc1 et pc3 avec pull up
+  // sw1 et sw3 avec pull up
   // entree a 1
-  DDRC &= ~(SDL_SW1 | SDL_SW3);
-  PORTC |= SDL_SW1 | SDL_SW3;
+  DDRJ &= ~SDL_SW1;
+  PORTJ |= SDL_SW1;
 
-  // pc2, different comme c;est le point commun
+  DDRA &= ~SDL_SW3;
+  PORTA |= SDL_SW3;
+
+  // sw2, different comme c;est le point commun
   // sortie a 0
-  DDRC |= SDL_SW2;
-  PORTC &= ~SDL_SW2;
+  DDRG |= SDL_SW2;
+  PORTG &= ~SDL_SW2;
 }
 
 // to know the language at the inti
 void language_init(void)
 {
-  if (!(PINC & SDL_SW1))
+  if (!(PINJ & SDL_SW1))
     language = LANG_EN;
-  else if (!(PINC & SDL_SW3))
+  else if (!(PINA & SDL_SW3))
     language = LANG_FR;
 }
 
@@ -40,12 +43,12 @@ void language_update(void)
 {
   language_t new_language;
   // if on the left -> fr
-  // pc1 = 0 car relie a pc2 qui est a 0
-  if (!(PINC & SDL_SW1))
+  // sw1 = 0 car relie a sw2 qui est a 0
+  if (!(PINJ & SDL_SW1))
   {
     new_language = LANG_FR;
   }
-  else if (!(PINC & SDL_SW3))  // right -> en
+  else if (!(PINA & SDL_SW3))  // right -> en
   {
     new_language = LANG_EN;
   }
