@@ -43,3 +43,5 @@ Run the following command:
 ```
 make doc
 ```
+## Small presentation video
+https://youtu.be/-Ymx-qcXOJo
