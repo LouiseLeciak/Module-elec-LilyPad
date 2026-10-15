@@ -15,8 +15,8 @@
 
 #include <avr/io.h>
 
-#define CS_MAIN_LOW() PORTH &= ~(1 << PH0);
-#define CS_MAIN_HIGH() PORTH |= (1 << PH0);
+#define CS_MAIN_LOW() PORTE &= ~(MAIN_SCREEN_CS);
+#define CS_MAIN_HIGH() PORTE |= MAIN_SCREEN_CS;
 #define DC_LOW() PORTH &= ~SCREENS_DC
 #define DC_HIGH() PORTH |= SCREENS_DC
 

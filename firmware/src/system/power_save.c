@@ -26,7 +26,7 @@ void power_save_update(void)
       uart_printstr("[PWR] Screen sleeping (inactivity timeout)\r\n");
 #endif /* ifdef DEBUG */
     ili9488_sleep_in();
-    PORTH &= ~MAIN_SCREEN_BL;  // on eteint
+    PORTE &= ~MAIN_SCREEN_BL;  // on eteint
     CS_LEFT_EYE_LOW();
     CS_RIGHT_EYE_LOW();
     GC9A01_eye_Lids_down();
@@ -51,7 +51,7 @@ void power_save_activity(void)
 #endif /* ifdef DEBUG */
     ili9488_sleep_out();
     _delay_ms(50);
-    PORTH |= MAIN_SCREEN_BL;
+    PORTE |= MAIN_SCREEN_BL;
     eyes_action();  // pose un pb je crois, c;est pas toujours bine
     //   responsive, a tester
     inac = 0;

@@ -180,8 +180,8 @@ static void ili9488_memory_access_control(void)
   DC_CMD();
   spi_txrx(MADCTL);
   DC_DATA();
-  // spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
-  spi_txrx(0x88);  // Calibrated for TF01 panel orientation
+  spi_txrx(0x48);  // Calibrated for TFT02 panel orientation
+  // spi_txrx(0x88);  // Calibrated for TF01 panel orientation
   MAIN_SCREEN_CS_HIGH();
 }
 
@@ -330,16 +330,16 @@ static void ili9488_init_driver(void)
 
 void ili9488_init()
 {
-  DDRH |= (MAIN_SCREEN_CS);
+  DDRE |= (MAIN_SCREEN_CS);
   MAIN_SCREEN_CS_HIGH();
 
   DDRH |= (SCREENS_DC);
   PORTH |= (SCREENS_DC);
 
-  DDRH |= (MAIN_SCREEN_RST);
+  DDRE |= (MAIN_SCREEN_RST);
   MAIN_SCREEN_RST_HIGH();
 
-  DDRH |= (MAIN_SCREEN_BL);
+  DDRE |= (MAIN_SCREEN_BL);
   MAIN_SCREEN_BL_HIGH();
 
   uart_printstr("Initialising main screen...");

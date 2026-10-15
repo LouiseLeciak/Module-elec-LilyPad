@@ -18,14 +18,14 @@
 // ─── GC09A01 Pin control macros
 // ─────────────────────────────────────────────────────────
 
-#define CS_LEFT_EYE_LOW() PORTE &= ~LEFT_EYE_CS
-#define CS_LEFT_EYE_HIGH() PORTE |= LEFT_EYE_CS
-#define CS_RIGHT_EYE_LOW() PORTE &= ~RIGHT_EYE_CS
-#define CS_RIGHT_EYE_HIGH() PORTE |= RIGHT_EYE_CS
+#define CS_LEFT_EYE_LOW() PORTH &= ~LEFT_EYE_CS
+#define CS_LEFT_EYE_HIGH() PORTH |= LEFT_EYE_CS
+#define CS_RIGHT_EYE_LOW() PORTH &= ~RIGHT_EYE_CS
+#define CS_RIGHT_EYE_HIGH() PORTH |= RIGHT_EYE_CS
 #define DC_LOW() PORTH &= ~SCREENS_DC
 #define DC_HIGH() PORTH |= SCREENS_DC
-#define RST_LOW() PORTE &= ~EYES_RST
-#define RST_HIGH() PORTE |= EYES_RST
+#define RST_LOW() PORTH &= ~EYES_RST
+#define RST_HIGH() PORTH |= EYES_RST
 
 // --- MAX LCD SIZE 240 x 240 - 1,28 inch TFT GC9A01
 
