@@ -3,7 +3,8 @@
 ## Overview
 <img width="977" height="1286" alt="ddbd350f-061c-47f3-a756-0a21d2c326e7_E3B3C5B3-A24D-4E5D-87FF-49D93A3F66E2" src="https://github.com/user-attachments/assets/b9f07d69-60a5-4935-91db-9a3ed593b332" />
 
-Lily's Pad is a simple interactive and educational object primarily intended for
+## Lily's Pad </br> 
+is a simple interactive and educational object primarily intended for
 children, teachers/educational teams, and families
 
 It allows users to familiarize themselves with the alphabet and numbers in
