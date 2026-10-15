@@ -1,9 +1,11 @@
 # Lily's Pad
 
 ## Overview
+
 <img width="977" height="1286" alt="ddbd350f-061c-47f3-a756-0a21d2c326e7_E3B3C5B3-A24D-4E5D-87FF-49D93A3F66E2" src="https://github.com/user-attachments/assets/b9f07d69-60a5-4935-91db-9a3ed593b332" />
 
-## Lily's Pad </br> 
+## Lily's Pad </br>
+
 is a simple interactive and educational object primarily intended for
 children, teachers/educational teams, and families
 
@@ -18,7 +20,9 @@ hearing-impaired loved ones they would like to communicate with.
 Download update.sh in the latest releases section and run it. The script can take one argument for the theme.
 
 ```bash
-./update.sh <DEVICE PORT> <OPTIONAL: THEME>
+# cd inside the directory where update.sh is located
+$> chmod +x update.sh
+$> ./update.sh <DEVICE PORT> <OPTIONAL: THEME>
 ```
 
 ## I. Features
@@ -43,5 +47,7 @@ Run the following command:
 ```
 make doc
 ```
+
 ## Small presentation video
-https://youtu.be/-Ymx-qcXOJo
+
+<https://youtu.be/-Ymx-qcXOJo>
