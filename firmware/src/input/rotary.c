@@ -474,7 +474,7 @@ void display_game_answer(void)
   }
 
   // choice n1
-  draw_string(10, 150, ">", FG_COLOUR, BG_COLOUR, 4, 2);
+  draw_string(10, 150, ">", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
   draw_string(80, 150, "1", FG_COLOUR, BG_COLOUR, 4, 2);
 

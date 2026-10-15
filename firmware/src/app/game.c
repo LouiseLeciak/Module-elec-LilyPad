@@ -62,7 +62,7 @@ void show_game(void)
   {
     draw_string(125, 20, "JEU", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
+    draw_string(10, 120, "> ", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
     draw_string(70, 120, "Lettre", FG_COLOUR, BG_COLOUR, 4, 2);
 
@@ -72,7 +72,7 @@ void show_game(void)
   {
     draw_string(125, 20, "GAME", FG_COLOUR, BG_COLOUR, 4, 2);
 
-    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
+    draw_string(10, 120, "> ", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
     draw_string(70, 120, "Letter game", FG_COLOUR, BG_COLOUR, 4, 2);
 
@@ -100,11 +100,11 @@ void update_game_cursor(uint8_t old_choice)
 
   if (game_choice == 0)
   {
-    draw_string(10, 120, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
+    draw_string(10, 120, "> ", ACCENT_COLOUR, BG_COLOUR, 4, 2);
   }
   else
   {
-    draw_string(10, 220, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
+    draw_string(10, 220, "> ", ACCENT_COLOUR, BG_COLOUR, 4, 2);
   }
 }
 
@@ -122,7 +122,7 @@ void update_game_answer_cursor(uint8_t old_choice)
   draw_string(10, old_y, " ", FG_COLOUR, BG_COLOUR, 4, 2);
 
   // draw new cursor
-  draw_string(10, new_y, ">", FG_COLOUR, BG_COLOUR, 4, 2);
+  draw_string(10, new_y, ">", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 }
 
 void display_game_letter_image(void)
@@ -520,7 +520,7 @@ void display_letter_answers(void)
   answer_text[0] = game_answers[0];
   answer_text[1] = '\0';
 
-  draw_string(10, 150, "> ", FG_COLOUR, BG_COLOUR, 4, 2);
+  draw_string(10, 150, "> ", ACCENT_COLOUR, BG_COLOUR, 4, 2);
 
   draw_string(70, 150, answer_text, FG_COLOUR, BG_COLOUR, 4, 2);
 

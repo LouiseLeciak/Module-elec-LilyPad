@@ -3,7 +3,7 @@
 #
 # Usage: ./update.sh [-p PORT] [THEME]
 #   -p PORT   Serial port of the board (default: /dev/cu.usbserial-110)
-#   THEME     default | halloween   (default: default)
+#   THEME     default | halloween | candy | bw  (default: default)
 
 REPO="https://github.com/LouiseLeciak/Module-elec-LilyPad/releases/latest/download"
 PORT="/dev/ttyUSB0"
@@ -12,7 +12,7 @@ THEME="default"
 usage() {
   echo "Usage: $0 [-p PORT] [THEME]" >&2
   echo "  -p PORT   Serial port (default: $PORT)" >&2
-  echo "  THEME     default | halloween" >&2
+  echo "  THEME     default | halloween | candy | bw" >&2
   exit 1
 }
 
@@ -30,9 +30,11 @@ shift $((OPTIND - 1))
 case "$THEME" in
 default) HEX="main.hex" ;;
 halloween) HEX="main_halloween.hex" ;;
+candy) HEX="main_candy.hex" ;;
+bw) HEX="main_bw.hex" ;;
 *)
   echo "Unknown theme: $THEME" >&2
-  echo "Available themes: default, halloween" >&2
+  echo "Available themes: default, halloween, candy, bw" >&2
   exit 1
   ;;
 esac
