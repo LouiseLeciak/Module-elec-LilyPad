@@ -22,9 +22,6 @@ int main(void)
   GC9A01_fillScreen_eyes(GC9A01A_COLOR_GREEN);
   eyes_action();
 
-  show_menu();
-  sd_stream_bmp_to_screen(cluster_to_lba(image_lut[130].address));
-
   language_init();
   language_update();
   _delay_ms(300);
