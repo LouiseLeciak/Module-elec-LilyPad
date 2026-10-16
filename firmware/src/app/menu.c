@@ -26,13 +26,13 @@ void show_menu(void)
 
     if (menu_choice == 1)
     {
-      draw_string(10, 120, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
+      draw_string(10, 220, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
     }
     draw_string(60, 220, "Alphabet", FG_COLOUR, BG_COLOUR, 4, 2);
 
     if (menu_choice == 2)
     {
-      draw_string(10, 120, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
+      draw_string(10, 320, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
     }
     draw_string(60, 320, "Jeux", FG_COLOUR, BG_COLOUR, 4, 2);
   }
@@ -47,13 +47,13 @@ void show_menu(void)
     draw_string(60, 120, "Translation", FG_COLOUR, BG_COLOUR, 4, 2);
     if (menu_choice == 1)
     {
-      draw_string(10, 120, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
+      draw_string(10, 220, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
     }
     draw_string(60, 220, "Alphabet", FG_COLOUR, BG_COLOUR, 4, 2);
 
     if (menu_choice == 2)
     {
-      draw_string(10, 120, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
+      draw_string(10, 320, ">", ACCENT_COLOUR, BG_COLOUR, 4, 0);
     }
     draw_string(60, 320, "Games", FG_COLOUR, BG_COLOUR, 4, 2);
   }
