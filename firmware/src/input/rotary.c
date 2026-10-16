@@ -27,7 +27,7 @@ void rotary_update(void)
 
   rotary_read(&clk, &dt);
 
-  if (rotary_has_changed(clk))
+  if (rotary_has_changed(&clk, &dt))
   {
     if (inac == 1)
     {
@@ -51,19 +51,61 @@ void rotary_read(uint8_t* clk, uint8_t* dt)
   *dt = (gpio >> ROTARY_DT) & 1;
 }
 
-// compare with previous clk because everything goes fast
-uint8_t rotary_has_changed(uint8_t clk)
-{
-  // rotary prev started at 1
-  if (rotaryclk_prev == 1 && clk == 0)
-  {
-    rotaryclk_prev = clk;
-    return 1;
-  }
 
-  rotaryclk_prev = clk;
-  return 0;
+#define ROTARY_STEPS_PER_CLICK 2
+
+static const int8_t rotary_direction_table[16] = {
+     0, -1,  1,  0,
+     1,  0,  0, -1,
+    -1,  0,  0,  1,
+     0,  1, -1,  0
+};
+
+// Returns 1 when a full click was completed.
+// On a click, clk and dt are rewritten to match what rotary_manage_state()
+// already expects: clk = 0, dt = 1 for CW, dt = 0 for CCW.
+uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
+{
+    static uint8_t last_pins = 0xFF;   // 0xFF = not initialised yet
+    static int8_t  step_count = 0;
+
+    uint8_t pins = (*clk << 1) | *dt;
+
+    if (last_pins == 0xFF)             // first call: just remember the position
+    {
+        last_pins = pins;
+        return 0;
+    }
+
+    if (pins == last_pins)             // nothing changed
+        return 0;
+
+    step_count += rotary_direction_table[(last_pins << 2) | pins];
+    last_pins = pins;
+
+    if (step_count > -ROTARY_STEPS_PER_CLICK && step_count < ROTARY_STEPS_PER_CLICK)
+        return 0;                      // not a full click yet
+
+    *clk = 0;
+    *dt = (step_count > 0);            // 1 = CW, 0 = CCW
+    step_count = 0;
+    return 1;
 }
+
+
+// compare with previous clk because everything goes fast
+// uint8_t rotary_has_changed(uint8_t clk)
+// {
+//   // rotary prev started at 1
+//   if (rotaryclk_prev == 1 && clk == 0)
+//   {
+//     rotaryclk_prev = clk;
+//     return 1;
+//   }
+
+//   rotaryclk_prev = clk;
+//   return 0;
+// }
 
 // to dertermine if rotary is clockwise or not
 uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt) { return (dt != clk); }
