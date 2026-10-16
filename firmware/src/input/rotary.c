@@ -257,12 +257,13 @@ void rotary_button_traduction(void)
 {
   if (word_state == INPUT)
   {
-    validate_word();
-
-    translation_index = 0;
-
+    // To avoid being in a dead-end when submitting empty word
     if (word_len > 0)
     {
+      validate_word();
+
+      translation_index = 0;
+
       word_state = SHOW_TRANSLATION;
       display_translation_letter();
     }
