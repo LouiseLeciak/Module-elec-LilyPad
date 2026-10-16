@@ -52,46 +52,61 @@ void rotary_read(uint8_t* clk, uint8_t* dt)
 }
 
 
-#define ROTARY_STEPS_PER_CLICK 2
-
-static const int8_t rotary_direction_table[16] = {
-     0, -1,  1,  0,
-     1,  0,  0, -1,
-    -1,  0,  0,  1,
-     0,  1, -1,  0
-};
-
-// Returns 1 when a full click was completed.
-// On a click, clk and dt are rewritten to match what rotary_manage_state()
-// already expects: clk = 0, dt = 1 for CW, dt = 0 for CCW.
-uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
+// Returns +1 (CW), -1 (CCW) or 0 (no move / impossible jump)
+int8_t rotary_get_rotary_direction(uint8_t prev_state, uint8_t current_state)
 {
-    static uint8_t last_pins = 0xFF;   // 0xFF = not initialised yet
-    static int8_t  step_count = 0;
+    uint8_t changed  = prev_state ^ current_state;   // which pins changed
+    uint8_t prev_clk = (prev_state >> 1) & 1;
+    uint8_t cur_dt   = current_state & 1;
 
-    uint8_t pins = (*clk << 1) | *dt;
+    // Valid step = exactly one pin changed (changed is 01 or 10)
+    if (changed == 0 || changed == 3)
+        return 0;               // nothing changed, or both pins jumped (bounce / missed state)
 
-    if (last_pins == 0xFF)             // first call: just remember the position
-    {
-        last_pins = pins;
-        return 0;
-    }
-
-    if (pins == last_pins)             // nothing changed
-        return 0;
-
-    step_count += rotary_direction_table[(last_pins << 2) | pins];
-    last_pins = pins;
-
-    if (step_count > -ROTARY_STEPS_PER_CLICK && step_count < ROTARY_STEPS_PER_CLICK)
-        return 0;                      // not a full click yet
-
-    *clk = 0;
-    *dt = (step_count > 0);            // 1 = CW, 0 = CCW
-    step_count = 0;
-    return 1;
+    if (prev_clk ^ cur_dt)
+        return -1;              // counter-clockwise
+    return 1;                   // clockwise
 }
 
+// Returns 1 when a full click was completed, 0 otherwise.
+// On a click, clk and dt are rewritten to what rotary_manage_state() expects:
+//   clk = 0, dt = 1 for clockwise
+//   clk = 0, dt = 0 for counter-clockwise
+uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
+{
+    uint8_t prev_state;
+    uint8_t current_state;
+    int8_t  rotary_direction;
+
+    prev_state    = (rotaryclk_prev << 1) | rotarydt_prev;
+    current_state = (*clk << 1) | *dt;
+
+    // Pins are the same as last time: nothing moved
+    if (current_state == prev_state)
+        return 0;
+
+    // Pins changed: CW (+1), CCW (-1) or invalid jump (0)
+    rotary_direction = rotary_get_rotary_direction(prev_state, current_state);
+
+    // Add this step to the count and remember the new position
+    rotary_steps += rotary_direction;
+    rotaryclk_prev = *clk;
+    rotarydt_prev  = *dt;
+
+    // Not enough steps yet for a full click
+    if (rotary_steps > -ROTARY_STEPS_PER_CLICK && rotary_steps < ROTARY_STEPS_PER_CLICK)
+        return 0;
+
+    // Full click: report it in the format rotary_manage_state() expects
+    *clk = 0;
+    if (rotary_steps > 0)
+        *dt = 1;                // clockwise
+    else
+        *dt = 0;                // counter-clockwise
+
+    rotary_steps = 0;
+    return 1;
+}
 
 // compare with previous clk because everything goes fast
 // uint8_t rotary_has_ch anged(uint8_t clk)
@@ -108,7 +123,12 @@ uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
 // }
 
 // to dertermine if rotary is clockwise or not
-uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt) { return (dt != clk); }
+uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt)
+{ 
+  if (dt == clk)
+    return (0);
+  return (1); 
+}
 
 // manage the principal menu
 void rotary_menu(uint8_t clockwise)

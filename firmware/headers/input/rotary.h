@@ -2,6 +2,7 @@
 #define ROTARY_H
 
 #include <avr/io.h>
+#define ROTARY_STEPS_PER_CLICK  2  // used for rotary_has_changed() function
 
 // rotary funcions
 void rotary_read(uint8_t* clk, uint8_t* dt);

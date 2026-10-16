@@ -26,6 +26,8 @@ extern uint8_t eye_state;
 // rotary encoder
 extern uint8_t prev_sw;  // etat precedent du bouton
 extern uint8_t rotaryclk_prev;
+extern uint8_t rotarydt_prev;
+extern int8_t rotary_steps;
 
 extern uint32_t last_key_time;
 extern uint8_t screen_sleeping;
