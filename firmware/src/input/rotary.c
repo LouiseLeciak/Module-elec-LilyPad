@@ -94,7 +94,7 @@ uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
 
 
 // compare with previous clk because everything goes fast
-// uint8_t rotary_has_changed(uint8_t clk)
+// uint8_t rotary_has_ch anged(uint8_t clk)
 // {
 //   // rotary prev started at 1
 //   if (rotaryclk_prev == 1 && clk == 0)
