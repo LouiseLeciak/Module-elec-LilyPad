@@ -266,8 +266,10 @@ void rotary_button_traduction(void)
       word_state = SHOW_TRANSLATION;
       display_translation_letter();
     }
-    else if (word_len == 0)
+    else if (word_len == 0){
+      ili9488_fill_screen(GC9A01A_COLOR_CYAN);
       traduction();
+    }
   }
   else if (word_state == SHOW_TRANSLATION)
   {
