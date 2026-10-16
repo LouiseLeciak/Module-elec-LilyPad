@@ -258,7 +258,7 @@ void rotary_button_traduction(void)
   if (word_state == INPUT)
   {
     if (word_len == 0)
-      traduction();
+      return;
     else
       validate_word();
 
