@@ -27,7 +27,7 @@ void rotary_update(void)
 
   rotary_read(&clk, &dt);
 
-  if (rotary_has_changed(&clk, &dt)) //added pointers  and poniter to dt
+  if (rotary_has_changed(&clk, &dt))  // added pointers  and poniter to dt
   {
     if (inac == 1)
     {
@@ -55,33 +55,34 @@ void rotary_read(uint8_t* clk, uint8_t* dt)
 // Returns +1 (CW), -1 (CCW) or 0 (no move / invalid jump)
 int8_t rotary_get_direction(uint8_t prev_state, uint8_t current_state)
 {
-    uint8_t changed  = prev_state ^ current_state;   // 1 bit = that pin changed
-    uint8_t prev_clk = (prev_state >> 1) & 1;        // clk BEFORE the step (bit 1 of old state)
-    uint8_t cur_dt   = current_state & 1;            // dt AFTER the step (bit 0 of new state)
+  uint8_t changed = prev_state ^ current_state;  // 1 bit = that pin changed
+  uint8_t prev_clk =
+      (prev_state >> 1) & 1;  // clk BEFORE the step (bit 1 of old state)
+  uint8_t cur_dt = current_state & 1;  // dt AFTER the step (bit 0 of new state)
 
-    //  find which pins changed  (prev_state ^ current_state)
-    //  changed | meaning                  | (prev -> current) pairs
-    // --------+--------------------------+---------------------------------------
-    //   0     | nothing moved            | 00->00  01->01  10->10  11->11
-    //   1     | only dt flipped (valid)  | 00->01  01->00  10->11  11->10
-    //   2     | only clk flipped (valid) | 00->10  10->00  01->11  11->01
-    //   3     | both flipped (invalid)   | 00->11  11->00  01->10  10->01
-    //
-    if (changed == 0 || changed == 3)
-        return 0;
+  //  find which pins changed  (prev_state ^ current_state)
+  //  changed | meaning                  | (prev -> current) pairs
+  // --------+--------------------------+---------------------------------------
+  //   0     | nothing moved            | 00->00  01->01  10->10  11->11
+  //   1     | only dt flipped (valid)  | 00->01  01->00  10->11  11->10
+  //   2     | only clk flipped (valid) | 00->10  10->00  01->11  11->01
+  //   3     | both flipped (invalid)   | 00->11  11->00  01->10  10->01
+  //
+  if (changed == 0 || changed == 3)
+    return 0;
 
-    //  check which has changed (2 possibilities changed = 10)
-    //     
-    if (prev_clk == cur_dt)
-    {
-      // the levels are the same: clockwise
-      return 1;
-    }
-    else
-    {
-      // the levels are different: counter-clockwise
-      return -1;
-    }
+  //  check which has changed (2 possibilities changed = 10)
+  //
+  if (prev_clk == cur_dt)
+  {
+    // the levels are the same: clockwise
+    return 1;
+  }
+  else
+  {
+    // the levels are different: counter-clockwise
+    return -1;
+  }
 }
 
 // Returns 1 when a full click was completed, 0 otherwise.
@@ -90,59 +91,59 @@ int8_t rotary_get_direction(uint8_t prev_state, uint8_t current_state)
 // clk = 0, dt = 0 for counter-clockwise
 // Updates Globals rotaryclk_prev, rotarydt_prev and rotary_steps.
 
-uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt)
+uint8_t rotary_has_changed(uint8_t* clk, uint8_t* dt)
 {
-    uint8_t prev_state = 0;
-    uint8_t current_state = 0;
-    int8_t  rotary_direction = 0;
-    uint8_t clk_bit = *clk << 1;       // clk moved to bit 1
-    uint8_t dt_bit  = *dt;             // dt stays in bit 0
+  uint8_t prev_state = 0;
+  uint8_t current_state = 0;
+  int8_t rotary_direction = 0;
+  uint8_t clk_bit = *clk << 1;  // clk moved to bit 1
+  uint8_t dt_bit = *dt;         // dt stays in bit 0
 
-  
-    if (rotaryclk_prev == 0 && rotarydt_prev == 0)
-        prev_state = 0;
-    else if (rotaryclk_prev == 0 && rotarydt_prev == 1)
-        prev_state = 1;
-    else if (rotaryclk_prev == 1 && rotarydt_prev == 0)
-        prev_state = 2;
-    else
-        prev_state = 3;
+  if (rotaryclk_prev == 0 && rotarydt_prev == 0)
+    prev_state = 0;
+  else if (rotaryclk_prev == 0 && rotarydt_prev == 1)
+    prev_state = 1;
+  else if (rotaryclk_prev == 1 && rotarydt_prev == 0)
+    prev_state = 2;
+  else
+    prev_state = 3;
 
-     current_state = clk_bit | dt_bit;       // combine them
+  current_state = clk_bit | dt_bit;  // combine them
 
-    // Pins are the same as last time: nothing moved
-    if (current_state == prev_state)
-        return 0;
+  // Pins are the same as last time: nothing moved
+  if (current_state == prev_state)
+    return 0;
 
-    // Pins changed: CW (+1), CCW (-1) or invalid jump (0)
-    rotary_direction = rotary_get_direction(prev_state, current_state);
+  // Pins changed: CW (+1), CCW (-1) or invalid jump (0)
+  rotary_direction = rotary_get_direction(prev_state, current_state);
 
-    // Add this step to the count and remember the new position
-    rotary_steps += rotary_direction;
-    rotaryclk_prev = *clk;
-    rotarydt_prev  = *dt;
+  // Add this step to the count and remember the new position
+  rotary_steps += rotary_direction;
+  rotaryclk_prev = *clk;
+  rotarydt_prev = *dt;
 
-    // Not enough steps wait for a full click
-    if (rotary_steps > -ROTARY_STEPS_PER_CLICK && rotary_steps < ROTARY_STEPS_PER_CLICK)
-        return 0;
+  // Not enough steps wait for a full click
+  if (rotary_steps > -ROTARY_STEPS_PER_CLICK &&
+      rotary_steps < ROTARY_STEPS_PER_CLICK)
+    return 0;
 
-    // Full click: report it in the format rotary_manage_state() expects
-    *clk = 0;
-    if (rotary_steps > 0)
-        *dt = 1;                // clockwise
-    else
-        *dt = 0;                // counter-clockwise
+  // Full click: report it in the format rotary_manage_state() expects
+  *clk = 0;
+  if (rotary_steps > 0)
+    *dt = 1;  // clockwise
+  else
+    *dt = 0;  // counter-clockwise
 
-    rotary_steps = 0;
-    return 1;
+  rotary_steps = 0;
+  return 1;
 }
 
 // to dertermine if rotary is clockwise or not
 uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt)
-{ 
+{
   if (dt == clk)
     return (0);
-  return (1); 
+  return (1);
 }
 
 // manage the principal menu

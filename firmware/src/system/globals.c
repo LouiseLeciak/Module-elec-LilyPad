@@ -24,9 +24,8 @@ word_state_t word_state = INPUT;
 uint8_t prev_sw;  // etat precedent du bouton
 uint8_t rotaryclk_prev = 1;
 // Globals (same idea as your rotaryclk_prev)
-uint8_t rotarydt_prev  = 1;            // previous dt level, rotary starts at 1
-int8_t  rotary_steps   = 0;            // steps counted since the last full click
-
+uint8_t rotarydt_prev = 1;  // previous dt level, rotary starts at 1
+int8_t rotary_steps = 0;    // steps counted since the last full click
 
 // screen energy mode
 uint32_t last_key_time = 0;
