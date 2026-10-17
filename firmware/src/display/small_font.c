@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/08 15:50:20 by nige42            #+#    #+#             */
-/*   Updated: 2026/10/17 13:18:16 by nige42           ###   ########.fr       */
+/*   Updated: 2026/10/17 13:29:52 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,6 @@
 
 #include <avr/io.h>
 #include <avr/pgmspace.h>
-
-// ─── 5x7 Font ────────────────────────────────────────────────────────────────
-// Flat array covering ASCII 32-126.
-// Each char = 5 bytes (one per column).
-// Bits 0-6 of each byte = rows top-to-bottom.
-// Unused chars are zero (blank).
 
 const uint8_t font5x7[95][5] PROGMEM = {
     {0x00, 0x00, 0x00, 0x00, 0x00},  // 32  ' '
@@ -56,6 +50,7 @@ const uint8_t font5x7[95][5] PROGMEM = {
     {0x02, 0x01, 0x51, 0x09, 0x06},  // 63  '?'
     {0x32, 0x49, 0x79, 0x41, 0x3E},  // 64  '@'
     {0x7E, 0x11, 0x11, 0x11, 0x7E},  // 65  'A'
+    {0x7F, 0x49, 0x49, 0x49, 0x36},  // 66  'B'
     {0x3E, 0x41, 0x41, 0x41, 0x22},  // 67  'C'
     {0x7F, 0x41, 0x41, 0x22, 0x1C},  // 68  'D'
     {0x7F, 0x49, 0x49, 0x49, 0x41},  // 69  'E'  (already inverted)
@@ -117,4 +112,3 @@ const uint8_t font5x7[95][5] PROGMEM = {
     {0x00, 0x41, 0x36, 0x08, 0x00},  // 125 '}'
     {0x10, 0x08, 0x08, 0x10, 0x08},  // 126 '~'
 };
-
