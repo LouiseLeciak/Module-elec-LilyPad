@@ -6,11 +6,11 @@
 
 // rotary funcions
 void rotary_read(uint8_t* clk, uint8_t* dt);
-// uint8_t rotary_has_changed(uint8_t clk);
 uint8_t rotary_has_changed(uint8_t *clk, uint8_t *dt);
 uint8_t rotary_is_clockwise(uint8_t clk, uint8_t dt);
 uint8_t rotary_change_choice(uint8_t choice, uint8_t max_choice,
                              uint8_t clockwise);
+int8_t rotary_get_direction(uint8_t prev_state, uint8_t current_state);
 void rotary_menu(uint8_t clockwise);
 void rotary_game_menu(uint8_t clockwise);
 void rotary_game_answer(uint8_t clockwise);
