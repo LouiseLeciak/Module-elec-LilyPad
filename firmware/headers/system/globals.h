@@ -25,9 +25,9 @@ extern uint8_t eye_state;
 
 // rotary encoder
 extern uint8_t prev_sw;  // etat precedent du bouton
-extern uint8_t rotaryclk_prev;
-extern uint8_t rotarydt_prev;
-extern int8_t rotary_steps;
+extern uint8_t rotaryclk_prev; // holds previous bit state of rotary pin clk
+extern uint8_t rotarydt_prev;  // holds previous bit state of rotary pin dt
+extern int8_t rotary_steps;    // holds previous bit state of the step count to avoid debounce etc
 
 extern uint32_t last_key_time;
 extern uint8_t screen_sleeping;
