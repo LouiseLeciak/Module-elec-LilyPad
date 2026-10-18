@@ -6,7 +6,7 @@
 /*   By: nige42 <nige42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/08 14:07:34 by nige42            #+#    #+#             */
-/*   Updated: 2026/10/17 12:38:36 by nige42           ###   ########.fr       */
+/*   Updated: 2026/10/18 11:23:39 by nige42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,69 +27,35 @@
 /* ------------------------------------------------------------------ */
 typedef enum
 {
-  GC9A01_CMD_RDDID = 0x04,    /* Read display identification   p.97  (3 bytes,
-                                 default 00 9A 01) */
-  GC9A01_CMD_RDDST = 0x09,    /* Read display status           p.99  */
-  GC9A01_CMD_SLPIN = 0x10,    /* Enter sleep mode              p.101 */
-  GC9A01_CMD_SLPOUT = 0x11,   /* Sleep out                     p.103 (wait 5 ms;
-                                 120 ms before next SLPIN->SLPOUT) */
-  GC9A01_CMD_PTLON = 0x12,    /* Partial mode ON               p.105 */
-  GC9A01_CMD_NORON = 0x13,    /* Normal display mode ON        p.106 */
-  GC9A01_CMD_INVOFF = 0x20,   /* Display inversion OFF         p.107 */
-  GC9A01_CMD_INVON = 0x21,    /* Display inversion ON          p.108 */
-  GC9A01_CMD_DISPOFF = 0x28,  /* Display OFF                   p.109 */
-  GC9A01_CMD_DISPON = 0x29,   /* Display ON                    p.110 */
-  GC9A01_CMD_CASET = 0x2A,    /* Column address set (4 params) p.111 */
-  GC9A01_CMD_RASET = 0x2B,    /* Row address set (4 params)    p.113 */
-  GC9A01_CMD_RAMWR = 0x2C,    /* Memory write                  p.115 */
-  GC9A01_CMD_PTLAR = 0x30,    /* Partial area (4 params)       p.117 */
-  GC9A01_CMD_VSCRDEF = 0x33,  /* Vertical scrolling definition p.120 */
-  GC9A01_CMD_TEOFF = 0x34,    /* Tearing effect line OFF       p.124 */
-  GC9A01_CMD_TEON = 0x35,     /* Tearing effect line ON (1 param: M)  p.125 */
-  GC9A01_CMD_MADCTL = 0x36,   /* Memory access control (1 param)      p.127 */
-  GC9A01_CMD_VSCRSADD = 0x37, /* Vertical scrolling start address     p.130 */
-  GC9A01_CMD_IDMOFF = 0x38,   /* Idle mode OFF                 p.132 */
-  GC9A01_CMD_IDMON = 0x39,    /* Idle mode ON (8 colors)       p.133 */
-  GC9A01_CMD_COLMOD = 0x3A,   /* Pixel format set (1 param)    p.135 */
-  GC9A01_CMD_RAMWRC = 0x3C,   /* Write memory continue         p.137 */
-  GC9A01_CMD_SETTEARSCAN = 0x44, /* Set tear scanline             p.140 */
-  GC9A01_CMD_GETSCAN = 0x45,     /* Get scanline                  p.142 */
-  GC9A01_CMD_WRDISBV = 0x51,     /* Write display brightness      p.143 */
-  GC9A01_CMD_WRCTRLD = 0x53,     /* Write CTRL display            p.145 */
-  GC9A01_CMD_RDID1 = 0xDA,       /* Read ID1 (default 00)         p.147 */
-  GC9A01_CMD_RDID2 = 0xDB,       /* Read ID2 (default 9A)         p.149 */
-  GC9A01_CMD_RDID3 = 0xDC        /* Read ID3 (default 01)         p.151 */
+  GC9A01_CMD_SLPIN = 0x10,  /* Enter sleep mode              p.101 */
+  GC9A01_CMD_SLPOUT = 0x11, /* Sleep out                     p.103 (wait 5 ms;
+                               120 ms before next SLPIN->SLPOUT) */
+  GC9A01_CMD_INVON = 0x21,  /* Display inversion ON          p.108 */
+  GC9A01_CMD_DISPON = 0x29, /* Display ON                    p.110 */
+  GC9A01_CMD_CASET = 0x2A,  /* Column address set (4 params) p.111 */
+  GC9A01_CMD_RASET = 0x2B,  /* Row address set (4 params)    p.113 */
+  GC9A01_CMD_RAMWR = 0x2C,  /* Memory write                  p.115 */
+  GC9A01_CMD_MADCTL = 0x36, /* Memory access control (1 param)      p.127 */
+  GC9A01_CMD_IDMOFF = 0x38, /* Idle mode OFF                 p.132 */
+  GC9A01_CMD_IDMON = 0x39,  /* Idle mode ON (8 colors)       p.133 */
+  GC9A01_CMD_COLMOD = 0x3A  /* Pixel format set (1 param)    p.135 */
 } gc9a01_cmd_t;
 
-/* ------------------------------------------------------------------ */
 /* Level 2 commands (extended)                     p.94, 153-163       */
-/* ------------------------------------------------------------------ */
 typedef enum
 {
-  GC9A01_CMD_RGBCTRL = 0xB0, /* RGB interface signal control  p.153 */
-  GC9A01_CMD_BPC = 0xB5,     /* Blanking porch control        p.156 */
-  GC9A01_CMD_DFC = 0xB6,     /* Display function control      p.158 (2nd byte is
-                                read, 1st ignored) */
-  GC9A01_CMD_TECTRL = 0xBA,  /* Tearing effect control        p.161 */
-  GC9A01_CMD_IFCTRL = 0xF6   /* Interface control             p.163 */
+  GC9A01_CMD_DFC = 0xB6 /* Display function control      p.158 (2nd byte is
+                           read, 1st ignored) */
 } gc9a01_cmd_l2_t;
 
-/* ------------------------------------------------------------------ */
 /* Level 3 commands ("inter" commands)             p.94-96, 164-181    */
-/* Only usable after FEh then EFh were written (see note below).       */
-/* ------------------------------------------------------------------ */
+/* Only usable after FEh then EFh were written.                        */
 typedef enum
 {
-  GC9A01_CMD_PWR1 = 0xC1, /* Power control 1 (vcire)               p.167 */
-  GC9A01_CMD_PWR2 = 0xC3, /* Power control 2 (vreg1_vbp_d, VREG1A/B) p.168 */
-  GC9A01_CMD_PWR3 = 0xC4, /* Power control 3 (vreg1_vbn_d, VREG2A/B) p.169 */
-  GC9A01_CMD_PWR4 = 0xC9, /* Power control 4 (vrh)                 p.170 */
-  GC9A01_CMD_PWR7 = 0xA7, /* Power control 7 (vdd_ad)              p.171 */
-  GC9A01_CMD_FRAMERATE =
-      0xE8, /* Frame rate (DINV, RTN1, RTN2)         p.164 (layout p.95) */
-  GC9A01_CMD_SPI2DATA = 0xE9, /* SPI 2-data control                    p.166 */
-  GC9A01_CMD_CHARGEPUMP = 0xEC, /* Charge pump frequency control         p.95
-                                   only (no detail page) */
+  GC9A01_CMD_PWR2 = 0xC3,      /* Power control 2 (vreg1_vbp_d, VREG1A/B) p.168 */
+  GC9A01_CMD_PWR3 = 0xC4,      /* Power control 3 (vreg1_vbn_d, VREG2A/B) p.169 */
+  GC9A01_CMD_PWR4 = 0xC9,      /* Power control 4 (vrh)                 p.170 */
+  GC9A01_CMD_FRAMERATE = 0xE8, /* Frame rate (DINV, RTN1, RTN2)         p.164 */
   GC9A01_CMD_INTER_EN1 = 0xFE, /* Inter register enable 1               p.172 */
   GC9A01_CMD_INTER_EN2 = 0xEF, /* Inter register enable 2               p.173 */
   GC9A01_CMD_GAMMA1 = 0xF0,    /* Set gamma 1 (6 params)                p.174 */
@@ -145,54 +111,24 @@ typedef enum
   GC9A01_VENDOR_FF = 0xFF
 } gc9a01_vendor_cmd_t;
 
-/* ------------------------------------------------------------------ */
-/* Parameter bits                                                      */
-/* ------------------------------------------------------------------ */
-
-/* MADCTL (36h) parameter, p.127. Default 0x00 (p.128). */
+/* MADCTL (36h) parameter, p.127. */
 typedef enum
 {
-  GC9A01_MADCTL_MY = 0x80,  /* D7 row address order        */
-  GC9A01_MADCTL_MX = 0x40,  /* D6 column address order     */
-  GC9A01_MADCTL_MV = 0x20,  /* D5 row/column exchange      */
-  GC9A01_MADCTL_ML = 0x10,  /* D4 vertical refresh order   */
-  GC9A01_MADCTL_BGR = 0x08, /* D3 0 = RGB filter, 1 = BGR  */
-  GC9A01_MADCTL_MH = 0x04   /* D2 horizontal refresh order */
+  GC9A01_MADCTL_BGR = 0x08 /* D3 0 = RGB filter, 1 = BGR  */
 } gc9a01_madctl_t;
 
-/* COLMOD (3Ah) parameter, p.135. Default 0x66 (18 bit both). */
+/* COLMOD (3Ah) parameter, p.135. */
 typedef enum
 {
-  GC9A01_COLMOD_DBI_12BIT = 0x03, /* MCU interface, D2:D0 = 011 */
-  GC9A01_COLMOD_DBI_16BIT = 0x05, /* MCU interface, D2:D0 = 101 (RGB565) */
-  GC9A01_COLMOD_DBI_18BIT = 0x06, /* MCU interface, D2:D0 = 110 */
-  GC9A01_COLMOD_DPI_16BIT = 0x50, /* RGB interface, D6:D4 = 101 */
-  GC9A01_COLMOD_DPI_18BIT = 0x60  /* RGB interface, D6:D4 = 110 */
+  GC9A01_COLMOD_DBI_16BIT = 0x05 /* MCU interface, D2:D0 = 101 (RGB565) */
 } gc9a01_colmod_t;
 
-/* TEON (35h) parameter, p.125. */
+/* Frame rate (E8h), 1st parameter DINV, p.164. */
 typedef enum
 {
-  GC9A01_TEON_VBLANK_ONLY = 0x00,      /* M = 0: V-blanking only */
-  GC9A01_TEON_VBLANK_AND_HBLANK = 0x01 /* M = 1: V and H blanking */
-} gc9a01_teon_t;
-
-/* Display Function Control (B6h), 2nd parameter, p.158. */
-typedef enum
-{
-  GC9A01_DFC_GS = 0x40, /* D6: gate scan, 0 = G1->G32, 1 = G32->G1 */
-  GC9A01_DFC_SS = 0x20  /* D5: source scan, 0 = S1->S360, 1 = S360->S1 */
-} gc9a01_dfc_t;
-
-/* Frame rate (E8h), 1st parameter DINV, p.164 (inversion table). */
-typedef enum
-{
-  GC9A01_DINV_COLUMN = 0, /* default after reset is 1 (p.165) */
-  GC9A01_DINV_1DOT = 1,
-  GC9A01_DINV_2DOT = 2,
-  GC9A01_DINV_4DOT = 3,
-  GC9A01_DINV_8DOT = 4
+  GC9A01_DINV_4DOT = 3
 } gc9a01_dinv_t;
+
 
 void GC9A01_init(uint8_t screen)
 {
