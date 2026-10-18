@@ -52,9 +52,9 @@ typedef enum
 /* Only usable after FEh then EFh were written.                        */
 typedef enum
 {
-  GC9A01_CMD_PWR2 = 0xC3,      /* Power control 2 (vreg1_vbp_d, VREG1A/B) p.168 */
-  GC9A01_CMD_PWR3 = 0xC4,      /* Power control 3 (vreg1_vbn_d, VREG2A/B) p.169 */
-  GC9A01_CMD_PWR4 = 0xC9,      /* Power control 4 (vrh)                 p.170 */
+  GC9A01_CMD_PWR2 = 0xC3, /* Power control 2 (vreg1_vbp_d, VREG1A/B) p.168 */
+  GC9A01_CMD_PWR3 = 0xC4, /* Power control 3 (vreg1_vbn_d, VREG2A/B) p.169 */
+  GC9A01_CMD_PWR4 = 0xC9, /* Power control 4 (vrh)                 p.170 */
   GC9A01_CMD_FRAMERATE = 0xE8, /* Frame rate (DINV, RTN1, RTN2)         p.164 */
   GC9A01_CMD_INTER_EN1 = 0xFE, /* Inter register enable 1               p.172 */
   GC9A01_CMD_INTER_EN2 = 0xEF, /* Inter register enable 2               p.173 */
@@ -128,7 +128,6 @@ typedef enum
 {
   GC9A01_DINV_4DOT = 3
 } gc9a01_dinv_t;
-
 
 void GC9A01_init(uint8_t screen)
 {
