@@ -155,7 +155,7 @@ make doc
 
 |         DOC          |                               Lien                               |
 | :------------------: | :--------------------------------------------------------------: |
-|    Specifications    | [CDC Lily's Pad](Doc_LilysPAD/CDC_Lily-s-pad.pdf)                |
+|    Specifications    | [CDC Lily's Pad](https://docs.google.com/document/d/1O8xM8pXDJNO5zp6k8G5bc-3bWXDQlbUf1931MdxXfck/edit?tab=t.0#heading=h.v1wg8mrqdu4q)                |
 |      Prototype       | [Prototypage](Doc_LilysPAD/prototypage.pdf)                      |
 | Problemes&Solutions  | [Problèmes & Solutions](Doc_LilysPAD/Problemes%26Solutions.pdf)  |
 |      User guide      | [User guide](Doc_LilysPAD/user-friendly-documentation.pdf)       |
