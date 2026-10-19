@@ -34,7 +34,7 @@ L'application fonctionne ensuite dans une boucle principale qui vérifie continu
 - la rotation de l'encodeur.
 - l'appui sur le bouton de l'encodeur.
 - l'activité du clavier.
-- le système d'économie d'énergie .
+- le système d'économie d'énergie.
 - l'état actuel de l'application.
 
 Le comportement de l'interface dépend principalement de machines à états.
@@ -49,7 +49,7 @@ Le projet utilise principalement :
 
 - 2 × GC9A01 : écrans utilisés pour les yeux
 
-- MCP23017 : pour parler en i2c au rotary encoder
+- MCP23017 : pour communiquer en I²C avec l'encodeur rotatif
 
 - Encodeur rotatif : navigation et sélection
 
@@ -119,7 +119,7 @@ La fonctionnalité Alphabet permet de parcourir les caractères disponibles.
 
 L'utilisateur utilise l'encodeur pour se déplacer dans la liste.
 
-Un appui sur l'encodeur rotatif permet d'afficher la lettre selectionnée.
+Un appui sur l'encodeur rotatif permet d'afficher la lettre sélectionnée.
 
 Un nouvel appui permet de revenir à la liste.
 
@@ -155,11 +155,11 @@ Validation avec le bouton
 
 Affichage de OUI ou NON
 
-Une seule des trois réponses correspond au signe affiche.
+Une seule des trois réponses correspond au signe affiché.
 
 Si la réponse est correcte, une nouvelle question est générée.
 
-Si la reéponse est incorrecte, le jeu revient à l'écran de depart du jeu.
+Si la réponse est incorrecte, le jeu revient à l'écran de départ du jeu.
 
 **Jeu 2 : trouver le bon signe**
 
@@ -233,7 +233,7 @@ A S D F G H J K L -
 
 Z X C V B N M # /
 
-Le '#' est pour le retour a l'ecran principal, '/' pour supprimer.
+Le '#' est pour le retour à l'écran principal, '/' pour supprimer.
 
 Le programme sélectionne chaque ligne successivement et lit les colonnes afin de détecter la touche appuyée.
 
@@ -247,11 +247,11 @@ LANG_FR
 
 LANG_EN
 
-La langue est selectionnée grâce à un switch matériel.
+La langue est sélectionnée grâce à un switch matériel.
 
 La variable `language` permet de connaître la langue actuellement utilisée.
 
-Les textes affichés et les images recherchées dependent de cette langue.
+Les textes affichés et les images recherchées dépendent de cette langue.
 
 ## Gestion de l'énergie
 
@@ -259,9 +259,9 @@ L'application possède un système d'économie d'énergie.
 
 Lorsqu'aucune interaction n'est détectée pendant un certain temps, l'application passe en veille.
 
-Le retro-éclairage de l'écran principal est alors désactivé et les yeux changent d'affichage.
+Le rétro-éclairage de l'écran principal est alors désactivé et les yeux changent d'affichage.
 
-Une activite de l'utilisateur reactive le système.
+Une activité de l'utilisateur réactive le système.
 
 Les principales actions considérées comme une activité sont :
 
@@ -272,61 +272,53 @@ Les principales actions considérées comme une activité sont :
 
 La fonction `power_save_activity()` remet le système en activité.
 
-La fonction `power_save_update()` gère le compteur d'inactivité, après une vingtaine de secondes on passe en économie d’énergie.
+La fonction `power_save_update()` gère le compteur d'inactivité, après une vingtaine de secondes on passe en économie d'énergie.
 
-### Architecture du code
+## Architecture du code
 
 Le projet est organisé en plusieurs modules.
 
 Le dossier app contient la logique principale de l'application :
 
 - menu
-
 - traduction
-
 - alphabet
-
 - game
 
 Le dossier display contient la gestion des écrans :
 
 - ILI9488
-
 - GC9A01
-
 - affichage du texte
 
 Le dossier input contient la gestion des entrées :
 
 - clavier
-
 - encodeur
-
 - I²C / MCP23017
 
 Le dossier système contient les éléments communs au système :
 
 - globals
-
 - power_save
 
-- Le dossier utils contient les fonctions utilitaires.
+Le dossier utils contient les fonctions utilitaires.
 
-- Chaque module possède une responsabilité spécifique.
+Chaque module possède une responsabilité spécifique.
 
-- Les modules app gèrent la logique de l'application.
+Les modules app gèrent la logique de l'application.
 
-- Les modules input gèrent les interactions avec l'utilisateur.
+Les modules input gèrent les interactions avec l'utilisateur.
 
-- Les modules display gèrent les ecrans.
+Les modules display gèrent les écrans.
 
-- Les modules système regroupent les éléments communs au fonctionnement du système.
+Les modules système regroupent les éléments communs au fonctionnement du système.
 
-- Machine à états
+## Machine à états
 
-- Le fonctionnement de l'application repose sur plusieurs niveaux d'états.
+Le fonctionnement de l'application repose sur plusieurs niveaux d'états.
 
-- L'état principal est app_state.
+L'état principal est app_state.
 
 Il permet de savoir si l'utilisateur se trouve dans :
 
@@ -338,7 +330,7 @@ ALPHABET
 
 JEU
 
-Chaque fonctionnalité possede ensuite ses propres états.
+Chaque fonctionnalité possède ensuite ses propres états.
 
 Par exemple, pendant un jeu :
 
@@ -358,22 +350,16 @@ Cette organisation permet au même bouton ou au même mouvement de l'encodeur d'
 
 ## Boucle principale
 
-La boucle principale permet à l'application de surveiller en permanence les entrées utilisateur et de faire évoluer la machine à etats.
+La boucle principale permet à l'application de surveiller en permanence les entrées utilisateur et de faire évoluer la machine à états.
 
 Elle gère notamment :
 
 - la langue
-
-- le générateur aleatoire
-
+- le générateur aléatoire
 - l'encodeur
-
 - le bouton de l'encodeur
-
 - l'économie d'énergie
-
 - le clavier
-
 - la fonctionnalité actuellement sélectionnée.
 
 ## Résumé
@@ -383,38 +369,27 @@ L'application est organisée autour de trois éléments principaux.
 **Entrées :**
 
 - Clavier matriciel
-
 - Encodeur rotatif
-
 - Bouton de l'encodeur
-
 - Switch de langue
 
 **Traitement :**
 
 - Machines à états
-
 - Navigation dans les menus
-
 - Gestion de la traduction
-
 - Gestion de l'alphabet
-
 - Gestion des jeux
-
-- Generation aléatoire
-
+- Génération aléatoire
 - Gestion de l'économie d'énergie
 
 **Sorties :**
 
-- Ecran ILI9488
-
+- Écran ILI9488
 - Deux écrans GC9A01
-
 - Images de signes stockées sur carte SD
 
-Le système utilise principalement une architecture basée sur les états. Cela permet de gérer les differentes fonctionnalités de l'application et d'adapter le comportement du clavier, de l'encodeur et du bouton en fonction de l'écran ou de l'action en cours.
+Le système utilise principalement une architecture basée sur les états. Cela permet de gérer les différentes fonctionnalités de l'application et d'adapter le comportement du clavier, de l'encodeur et du bouton en fonction de l'écran ou de l'action en cours.
 
 ---
 
@@ -424,9 +399,9 @@ Le système utilise principalement une architecture basée sur les états. Cela 
 
 ## Presentation
 
-This application is a project developed on an ATmega2560.
+This firmware is designed to be used with a Lily's Pad device based on an ATmega2560.
 
-It allows the user to learn and manipulate the signs of LSF (French Sign Language) and BSL (British Sign Language) thanks to an interface composed of 3 screens, a matrix keyboard and a rotary encoder.
+It allows the user to learn and manipulate the signs of LSF (French Sign Language) and BSL (British Sign Language) through an interface composed of 3 screens, a matrix keyboard and a rotary encoder.
 
 The application has three main functionalities:
 
@@ -440,7 +415,7 @@ At startup, the microcontroller initializes the different devices:
 
 1. The screens
 2. The matrix keyboard
-3. The MCP23017 is connected to the rotary encoder
+3. The MCP23017 linked to the rotary encoder
 4. The language selection system
 5. The different states of the application
 
@@ -453,7 +428,7 @@ The application then runs in a main loop that continuously checks:
 - pressing the encoder button.
 - the keyboard activity.
 - the energy-saving system.
-- the current status of the application.
+- the current state of the application.
 
 The behavior of the interface mainly depends on state machines.
 
@@ -467,9 +442,9 @@ The project mainly uses:
 
 - 2 × GC9A01: screens used for the eyes
 
-- MCP23017: to speak in i2c at the rotary encoder
+- MCP23017: communicates with the rotary encoder over I²C
 
-- rotary encoder: navigation and selection
+- Rotary encoder: navigation and selection
 
 - Matrix keyboard 4 × 10: character input
 
@@ -495,9 +470,9 @@ The current choice is stored in menu_choice.
 
 ### Translation
 
-Translation functionality allows you to enter a word using the keyboard.
+The Translation functionality allows you to enter a word using the keyboard.
 
-**Operation:***
+**Operation:**
 
 - Enter Translation
 
@@ -517,15 +492,15 @@ Translation functionality allows you to enter a word using the keyboard.
 
 The word is stored in word and its length in word_len.
 
-The key "delete" allows to delete the last character.
+The key "delete" allows you to delete the last character.
 
-When the word is valid, the program searches for images corresponding to the different letters on the SD card.
+When the word is validated, the program searches for images corresponding to the different letters on the SD card.
 
-The images dependent on the selected language.
+The images depend on the selected language.
 
 For LSF, the program searches for images associated with the LSF suffix.
 
-For the BSL, the program searches for images associated with the BSL suffix.
+For BSL, the program searches for images associated with the BSL suffix.
 
 The images are then displayed one by one on the main screen.
 
@@ -535,13 +510,13 @@ The images are then displayed one by one on the main screen.
 
 The Alphabet functionality allows you to browse through the available characters.
 
-The user uses the encoder to move into the list.
+The user uses the encoder to move through the list.
 
 Pressing the button displays the selected letter.
 
 A new tap allows you to return to the list.
 
-**The two main states are:***
+**The two main states are:**
 
 ALPHABET_LIST
 
@@ -555,15 +530,15 @@ The app has two games.
 
 **Game 1: find the right letter**
 
-The first game is to recognize a letter from a sign.
+The first game consists of recognizing a letter from a sign.
 
 The program randomly chooses a letter and displays the corresponding sign.
 
 The user must then choose the correct letter from among three proposals.
 
-Layout:
+Sequence:
 
-Poster sign
+Displayed sign
 
 3 proposals
 
@@ -573,7 +548,7 @@ Validation with the button
 
 Display YES or NO
 
-Only one of the three answers corresponds to the poster sign.
+Only one of the three answers corresponds to the displayed sign.
 
 If the answer is correct, a new question is generated.
 
@@ -587,7 +562,7 @@ The program chooses a letter and displays it.
 
 Three signs are then presented successively.
 
-Layout:
+Sequence:
 
 Letter displayed
 
@@ -611,17 +586,17 @@ Choices and letters are randomly generated.
 
 ## Rotary encoder
 
-The encoder is connected to the MCP23017, which in turn is connected to the ATmega2560 by I 2 C.
+The encoder is connected to the MCP23017, which in turn is connected to the ATmega2560 by I²C.
 
-He has three signals:
+It has three signals:
 
 **CLK** : rotation
 
-**DT** : management
+**DT** : direction
 
 **SW** : button
 
-Rotation allows you to move the cursors in different menus.
+Rotation allows you to move the cursors in the different menus.
 
 The button allows you to validate or move on to the next step.
 
@@ -635,11 +610,11 @@ In the ALPHABET, it allows you to move through the letters.
 
 In the GAME, it allows you to select a response.
 
-The button also has an anti-bounce system to avoid several detections for a single touch.
+The button also has a debounce system to avoid multiple detections for a single press.
 
 ## Keyboard
 
-The keyboard is a matrix of 4 rows and 10 columns, or 38 keys.
+The keyboard is a matrix of 4 rows and 10 columns, i.e. 38 keys.
 
 The layout used is:
 
@@ -647,7 +622,7 @@ The layout used is:
 
 Q W E R T Y U I O P
 
-A S D F G H J K L
+A S D F G H J K L -
 
 Z X C V B N M # /
 
@@ -665,11 +640,11 @@ LANG_FR
 
 LANG_EN
 
-The language is selected thanks to a hardware switch.
+The language is selected using a hardware switch.
 
 The language variable lets you know which language is currently in use.
 
-The poster texts and images sought after in this language.
+The displayed texts and the images searched for depend on this language.
 
 ## Energy Management
 
@@ -679,74 +654,66 @@ When no interaction is detected for a period of time, the application goes into 
 
 The backlighting of the main screen is then deactivated and the eyes change their display.
 
-An activity of the user reactivates the system.
+User activity reactivates the system.
 
 The main actions considered as an activity are:
 
 - rotation of the encoder
-- press the button
-- press a key on the keyboard
+- pressing the button
+- pressing a key on the keyboard
 - change of language
 
-The power_save_activity() function restarts the system.
+The power_save_activity() function puts the system back into active mode.
 
-The power_save_update() function manages the inactivity counter, after about 20 seconds you switch to power saving.
+The power_save_update() function manages the inactivity counter, after about 20 seconds the system switches to power saving.
 
-### Code Architecture
+## Code Architecture
 
 The project is organized into several modules.
 
 The app folder contains the main logic of the application:
 
 - menu
-
 - translation
-
 - alphabet
-
 - game
 
 The display folder contains screen management:
 
 - ILI9488
-
 - GC9A01
-
 - displaying the text
 
-The input folder contains the management of entries:
+The input folder contains the management of the inputs:
 
 - keyboard
-
 - encoder
-
-- I 2 C / MCP23017
+- I²C / MCP23017
 
 The system folder contains the common elements of the system:
 
 - globals
-
 - power_save
 
-- The utils folder contains the utility functions.
+The utils folder contains the utility functions.
 
-- Each module has a specific responsibility.
+Each module has a specific responsibility.
 
-- The app modules manage the logic of the application.
+The app modules manage the logic of the application.
 
-- The input modules manage interactions with the user.
+The input modules manage interactions with the user.
 
-- The display modules handle the screens.
+The display modules handle the screens.
 
-- The system modules bring together the common elements of the system’s operation.
+The system modules bring together the common elements of the system’s operation.
 
-- State machine
+## State machine
 
-- The operation of the application is based on several levels of states.
+The operation of the application is based on several levels of states.
 
-- The main state is app_state.
+The main state is app_state.
 
-It lets you know if the user is located in:
+It lets you know whether the user is in:
 
 **MENU**
 
@@ -778,58 +745,41 @@ This organization allows the same button or the same movement of the encoder to 
 
 The main loop allows the application to constantly monitor user inputs and to make the state machine evolve.
 
-She manages in particular:
+It manages in particular:
 
 - the language
-
 - the random generator
-
 - the encoder
-
 - the encoder button
-
-- energy saving
-
+- the energy saving
 - the keyboard
-
 - the functionality currently selected.
 
-## Resume
+## Summary
 
 The application is organized around three main elements.
 
-**Entries:**
+**Inputs:**
 
 - Matrix keyboard
-
 - Rotary encoder
-
 - Encoder button
+- Language switch
 
-- Switch language
-
-**Treatment:**
+**Processing:**
 
 - State machines
-
 - Menu navigation
-
 - Translation management
-
 - Management of the alphabet
-
 - Game management
-
 - Random generation
-
 - Energy saving management
 
-**Outings:**
+**Outputs:**
 
-- Screen ILI9488
-
+- ILI9488 screen
 - Two GC9A01 screens
-
 - Sign images stored on an SD card
 
-The system mainly uses a state-based architecture. This allows to manage the different functionalities of the application and to adapt the behavior of the keyboard, the encoder and the button according to the screen or the current action.
+The system mainly uses a state-based architecture. This makes it possible to manage the different functionalities of the application and to adapt the behavior of the keyboard, the encoder and the button according to the screen or the current action.
