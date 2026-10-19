@@ -26,10 +26,10 @@ hearing-impaired loved ones they would like to communicate with.
 
 ### ATmega2560 - Power and quartz
 
-GND - 11, 32, 62, 81, 99
-VCC - 10, 31, 61, 80, 100
-XTAL1 - 34
-XTAL2 - 33
+#### GND - 11, 32, 62, 81, 99
+#### VCC - 10, 31, 61, 80, 100
+#### XTAL1 - 34
+#### XTAL2 - 33
 
 ### ATmega2560 - Resets
 
