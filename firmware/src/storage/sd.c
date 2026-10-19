@@ -55,6 +55,7 @@ static sd_resp sd_send_cmd(sd_cmd* cmd, SD_RESP_KIND kind)
   for (uint8_t i = 0; i < (sizeof(*cmd) / sizeof(uint8_t)); i++)
     spi_txrx((((uint8_t*)cmd)[i]));
   sd_resp resp = sd_read_response(kind);
+  _delay_ms(10);
   SD_CS_HIGH();
   spi_txrx(0xFF);  // 1 dummy byte to release the bus (SD spec)
   return resp;
