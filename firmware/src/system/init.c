@@ -11,7 +11,7 @@
 
 static void version_info_string(void)
 {
-  uart_printstr("\r\nLily's Pad v.1\r\n");
+  uart_printstr("\r\nLily's Pad v.2.0.5\r\n");
   uart_printstr(
       "Made by Louise \"lleciak\" Leciak, Madeline \"mpetitco\" Petitcollin & "
       "Nigel \"nrobinso\" Robinson\r\n");
