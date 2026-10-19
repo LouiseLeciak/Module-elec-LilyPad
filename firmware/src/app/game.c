@@ -543,7 +543,7 @@ void display_game_yes(void)
   win();
   ili9488_fill_screen(GC9A01A_COLOR_GREEN);
 
-  draw_string(110, 170, "O", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_GREEN, 20, 2);
+  draw_string(110, 170, "<", GC9A01A_COLOR_WHITE, GC9A01A_COLOR_GREEN, 20, 2);
 }
 
 void display_game_no(void)
