@@ -334,7 +334,7 @@ void display_find_sign(void)
 
     draw_string(20, 100, "Voici ta lettre :", FG_COLOUR, BG_COLOUR, 3, 2);
 
-    draw_string(140, 170, sign, ACCENT_COLOUR, BG_COLOUR, 12, 2);
+    draw_string(135, 170, sign, ACCENT_COLOUR, BG_COLOUR, 12, 2);
 
     draw_string(70, 280, "Clic pour voir", FG_COLOUR, BG_COLOUR, 2, 2);
 
