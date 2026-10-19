@@ -133,4 +133,5 @@ make doc
 
 ## Small presentation video
 
-[<https://youtu.be/-Ymx-qcXOJo>](https://youtu.be/IG8Irz5PA7s?is=ZnnKCJjxfxXaESvo)
+[[<https://youtu.be/-Ymx-qcXOJo>](https://youtu.be/IG8Irz5PA7s?is=ZnnKCJjxfxXaESvo)]
+
