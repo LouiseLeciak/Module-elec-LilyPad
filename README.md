@@ -153,10 +153,9 @@ make doc
 
 ## Documentation
 
-<table>
-  <tr><th>DOC</th><th>Lien</th></tr>
-  <tr><td>Specifications</td><td><a href="Doc_LilysPAD/CDC_Lily-s-pad.pdf" target="_blank" rel="noopener">CDC Lily's Pad</a></td></tr>
-  <tr><td>Prototype</td><td><a href="Doc_LilysPAD/prototypage.pdf" target="_blank" rel="noopener">Prototypage</a></td></tr>
-  <tr><td>Problemes&amp;Solutions</td><td><a href="Doc_LilysPAD/Problemes%26Solutions.pdf" target="_blank" rel="noopener">Problèmes &amp; Solutions</a></td></tr>
-  <tr><td>User guide</td><td><a href="Doc_LilysPAD/user-friendly-documentation.pdf" target="_blank" rel="noopener">User guide</a></td></tr>
-</table>
+|         DOC          |                               Lien                               |
+| :------------------: | :--------------------------------------------------------------: |
+|    Specifications    | [CDC Lily's Pad](Doc_LilysPAD/CDC_Lily-s-pad.pdf)                |
+|      Prototype       | [Prototypage](Doc_LilysPAD/prototypage.pdf)                      |
+| Problemes&Solutions  | [Problèmes & Solutions](Doc_LilysPAD/Problemes%26Solutions.pdf)  |
+|      User guide      | [User guide](Doc_LilysPAD/user-friendly-documentation.pdf)       |
