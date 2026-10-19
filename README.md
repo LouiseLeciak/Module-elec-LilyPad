@@ -156,6 +156,6 @@ make doc
 |         DOC          |                               Lien                               |
 | :------------------: | :--------------------------------------------------------------: |
 |    Specifications    | [CDC Lily's Pad](https://docs.google.com/document/d/1O8xM8pXDJNO5zp6k8G5bc-3bWXDQlbUf1931MdxXfck/edit?tab=t.0#heading=h.v1wg8mrqdu4q)                |
-|      Prototype       | [Prototypage](Doc_LilysPAD/prototypage.pdf)                      |
-| Problemes&Solutions  | [Problèmes & Solutions](Doc_LilysPAD/Problemes%26Solutions.pdf)  |
-|      User guide      | [User guide](Doc_LilysPAD/user-friendly-documentation.pdf)       |
+|      Prototype       | [Prototypage](https://docs.google.com/document/d/1rZbFsAjX72JkaI_FbCfIp4b-ht4Qgn11_CjMCb2TPow/edit?tab=t.0)                      |
+| Problemes&Solutions  | [Problèmes & Solutions](https://docs.google.com/document/d/1paDHATY-Msma2sKo5jREeCfTP951xgNia56kSwROvPU/edit?tab=t.0#heading=h.edi7yypwj845)  |
+|      User guide      | [User guide](https://docs.google.com/document/d/11DVUBJalhqJB5Wq1R7DtcMrKvT6OBZJyWIw1Wtvbu1M/edit?tab=t.0#heading=h.yum7i86vcbuq)       |
