@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 #include "app/language.h"
 #include "display/GC9A01.h"
 #include "display/ili9488.h"
