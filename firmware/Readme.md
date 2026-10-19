@@ -4,60 +4,60 @@ ENGLISH VERSION BELOW
 
 =================================
 
-## Presentation
+## Présentation
 
-Cette application est un projet embarque developpe sur un ATmega2560.
+Ce firmware est conçu pour être utilisé avec un appareil Lily's Pad utilisant un ATmega2560.
 
-Elle permet à l'utilisateur d'apprendre et de manipuler les signes de la LSF (Langue des Signes Française) et de la BSL (British Sign Language) grâce à une interface composee de 3 ecrans, d'un clavier matriciel et d'un encodeur rotatif.
+Le firmware prend la forme d'une application qui permet à l'utilisateur d'apprendre et de manipuler les signes de la LSF (Langue des Signes Française) et de la BSL (British Sign Language) grâce à une interface composée de 3 écrans, d'un clavier matriciel et d'un encodeur rotatif.
 
-L'application possede trois fonctionnalites principales :
+L'application possède trois fonctionnalités principales :
 
 - Traduction
 - Alphabet
 - Jeu
 
-## Fonctionnement general
+## Fonctionnement général
 
-Au demarrage, le microcontrôleur initialise les differents peripheriques :
+Au démarrage, le microcontrôleur initialise les différents périphériques :
 
-1. Les ecrans
+1. Les écrans
 2. Le clavier matriciel
-3. Le MCP23017 lie a l'encodeur rotatif
-4. Le systeme de selection de langue
-5. Les differents etats de l'application
+3. Le MCP23017 lié à l'encodeur rotatif
+4. Le système de sélection de langue
+5. Les différents états de l'application
 
-Une fois l'initialisation terminee, le menu principal est affiche.
+Une fois l'initialisation terminée, le menu principal est affiché.
 
-L'application fonctionne ensuite dans une boucle principale qui verifie continuellement :
+L'application fonctionne ensuite dans une boucle principale qui vérifie continuellement :
 
 - le changement de langue.
 - la rotation de l'encodeur.
 - l'appui sur le bouton de l'encodeur.
-- l'activite du clavier.
-- le systeme d'economie d'energie .
-- l'etat actuel de l'application.
+- l'activité du clavier.
+- le système d'économie d'énergie.
+- l'état actuel de l'application.
 
-Le comportement de l'interface depend principalement de machines à etats.
+Le comportement de l'interface dépend principalement de machines à états.
 
-## Materiel
+## Matériel
 
 Le projet utilise principalement :
 
 - ATmega2560 : microcontrôleur principal
 
-- ILI9488 : ecran principal
+- ILI9488 : écran principal
 
-- 2 × GC9A01 : ecrans utilises pour les yeux
+- 2 × GC9A01 : écrans utilisés pour les yeux
 
-- MCP23017 : pour parler en i2c au rotary encoder
+- MCP23017 : pour communiquer en I²C avec l'encodeur rotatif
 
-- encodeur rotatif : navigation et selection
+- Encodeur rotatif : navigation et sélection
 
-- Clavier matriciel 4 × 10 : saisie de caracteres
+- Clavier matriciel 4 × 10 : saisie de caractères
 
 - Carte SD : stockage des images
 
-- Switch : selection de la langue
+- Switch : sélection de la langue
 
 ## Menu principal
 
@@ -69,15 +69,15 @@ Le projet utilise principalement :
 
 > - Jeu
 
-L'encodeur permet de deplacer le curseur.
+L'encodeur permet de déplacer le curseur.
 
-Le bouton permet de selectionner l'element choisi.
+Le bouton permet de sélectionner l'élément choisi.
 
-Le choix actuel est stocke dans menu_choice.
+Le choix actuel est stocké dans menu_choice.
 
 ### Traduction
 
-La fonctionnalite de traduction permet de saisir un mot à l'aide du clavier.
+La fonctionnalité de traduction permet de saisir un mot à l'aide du clavier.
 
 **Fonctionnement :**
 
@@ -87,89 +87,91 @@ La fonctionnalite de traduction permet de saisir un mot à l'aide du clavier.
 
 - Valider avec l'encodeur
 
-- Afficher le signe de la premiere lettre
+- Afficher le signe de la première lettre
 
 - Appuyer pour passer à la lettre suivante
 
 - Afficher le signe suivant
 
-- Continuer jusqu'à la derniere lettre
+- Continuer jusqu'à la dernière lettre
 
 - Revenir à une nouvelle saisie
 
-Le mot est stocke dans word et sa longueur dans word_len.
+Le mot est stocké dans `word` et sa longueur dans `word_len`.
 
-La touche “delete” permet de supprimer le dernier caractere.
+La touche “delete” permet de supprimer le dernier caractère.
 
-Lorsque le mot est valide, le programme recherche les images correspondant aux differentes lettres sur la carte SD.
+Lorsque le mot est validé, le programme recherche les images (stockées dans la SD) correspondant aux différentes lettres via une look up table.
 
-Les images dependent de la langue selectionnee.
+Les images dépendent de la langue sélectionnée.
 
-Pour la LSF, le programme recherche les images associees au suffixe LSF.
+Pour la LSF, le programme recherche les images associées au suffixe LSF.
 
-Pour la BSL, le programme recherche les images associees au suffixe BSL.
+Pour la BSL, le programme recherche les images associées au suffixe BSL.
 
-Les images sont ensuite affichees une par une sur l'ecran principal.
+Les images sont ensuite affichées une par une sur l'écran principal.
 
-----------------------------------------------------------------------
+---
+
 ### Alphabet
 
-La fonctionnalite Alphabet permet de parcourir les caracteres disponibles.
+La fonctionnalité Alphabet permet de parcourir les caractères disponibles.
 
-L'utilisateur utilise l'encodeur pour se deplacer dans la liste.
+L'utilisateur utilise l'encodeur pour se déplacer dans la liste.
 
-Un appui sur le bouton permet d'afficher la lettre selectionnee.
+Un appui sur l'encodeur rotatif permet d'afficher la lettre sélectionnée.
 
 Un nouvel appui permet de revenir à la liste.
 
-**Les deux principaux etats sont :**
+**Les deux principaux états sont :**
 
 ALPHABET_LIST
 
 ALPHABET_LETTER
 
-----------------------------------------------------------------------
+---
+
 ### Jeux
 
-L'application possede deux jeux.
+L'application possède deux jeux.
 
 **Jeu 1 : trouver la bonne lettre**
 
 Le premier jeu consiste à reconnaître une lettre à partir d'un signe.
 
-Le programme choisit aleatoirement une lettre et affiche le signe correspondant.
+Le programme choisit aléatoirement une lettre et affiche le signe correspondant.
 
 L'utilisateur doit ensuite choisir la bonne lettre parmi trois propositions.
 
-Deroulement :
+Déroulement :
 
-Signe affiche
+Signe affiché
 
 3 propositions
 
-Selection avec l'encodeur
+Sélection avec l'encodeur
 
 Validation avec le bouton
 
 Affichage de OUI ou NON
 
-Une seule des trois reponses correspond au signe affiche.
+Une seule des trois réponses correspond au signe affiché.
 
-Si la reponse est correcte, une nouvelle question est generee.
+Si la réponse est correcte, une nouvelle question est générée.
 
-Si la reponse est incorrecte, le jeu revient à l'ecran de depart du jeu.
+Si la réponse est incorrecte, le jeu revient à l'écran de départ du jeu.
 
 **Jeu 2 : trouver le bon signe**
 
-Le fonctionnement est inverse.
+Le fonctionnement est inversé.
 
 Le programme choisit une lettre et l'affiche.
 
-Trois signes sont ensuite presentes successivement.
+Trois signes sont ensuite présentés successivement.
 
-Deroulement :
+Déroulement :
 
-Lettre affichee
+Lettre affichée
 
 Signe 1
 
@@ -183,16 +185,17 @@ Validation avec le bouton
 
 Affichage de OUI ou NON
 
-Une seule des trois images correspond à la lettre donnee.
+Une seule des trois images correspond à la lettre donnée.
 
-Les choix et les lettres sont generes aleatoirement.
+Les choix et les lettres sont générés aléatoirement.
 
-----------------------------------------------------------------------
+---
+
 ## Encodeur rotatif
 
-L'encodeur est connecte au MCP23017, lui-meme relie à l'ATmega2560 par I²C.
+L'encodeur est connecté au MCP23017, lui-même relié à l'ATmega2560 par I²C.
 
-Il possede trois signaux :
+Il possède trois signaux :
 
 **CLK** : rotation
 
@@ -200,27 +203,27 @@ Il possede trois signaux :
 
 **SW** : bouton
 
-La rotation permet de deplacer les curseurs dans les differents menus.
+La rotation permet de déplacer les curseurs dans les différents menus.
 
-Le bouton permet de valider ou de passer à l'etape suivante.
+Le bouton permet de valider ou de passer à l'étape suivante.
 
-Le comportement de l'encodeur depend de l'etat actuel de l'application.
+Le comportement de l'encodeur dépend de l'état actuel de l'application.
 
 Par exemple :
 
-Dans le MENU, l'encodeur deplace le curseur du menu.
+Dans le MENU, l'encodeur déplace le curseur du menu.
 
 Dans l'ALPHABET, il permet de parcourir les lettres.
 
-Dans le JEU, il permet de sectelionner une reponse.
+Dans le JEU, il permet de sélectionner une réponse.
 
-Le bouton possede egalement un systeme d'anti-rebond afin d'eviter plusieurs detections pour un seul appui.
+Le bouton possède également un système d'anti-rebond afin d'éviter plusieurs détections pour un seul appui.
 
 ## Clavier
 
 Le clavier est une matrice de 4 lignes et 10 colonnes, soit 38 touches.
 
-La disposition utilisee est :
+La disposition utilisée est :
 
 1 2 3 4 5 6 7 8 9 0
 
@@ -230,11 +233,11 @@ A S D F G H J K L -
 
 Z X C V B N M # /
 
-Le '#' est pour le retour a l'ecran principal, '/' pour supprimer.
+Le '#' est pour le retour à l'écran principal, '/' pour supprimer.
 
-Le programme selectionne chaque ligne successivement et lit les colonnes afin de detecter la touche appuyee.
+Le programme sélectionne chaque ligne successivement et lit les colonnes afin de détecter la touche appuyée.
 
-Le tableau keymap permet ensuite de convertir la position de la touche en caractere.
+Le tableau `keymap` permet ensuite de convertir la position de la touche en caractère.
 
 ## Gestion de la langue
 
@@ -244,86 +247,78 @@ LANG_FR
 
 LANG_EN
 
-La langue est selectionnee grâce à un switch materiel.
+La langue est sélectionnée grâce à un switch matériel.
 
-La variable language permet de connaître la langue actuellement utilisee.
+La variable `language` permet de connaître la langue actuellement utilisée.
 
-Les textes affiches et les images recherchees dependent de cette langue.
+Les textes affichés et les images recherchées dépendent de cette langue.
 
-## Gestion de l'energie
+## Gestion de l'énergie
 
-L'application possede un systeme d'economie d'energie.
+L'application possède un système d'économie d'énergie.
 
-Lorsqu'aucune interaction n'est detectee pendant un certain temps, l'application passe en veille.
+Lorsqu'aucune interaction n'est détectée pendant un certain temps, l'application passe en veille.
 
-Le retroeclairage de l'ecran principal est alors desactive et les yeux changent d'affichage.
+Le rétro-éclairage de l'écran principal est alors désactivé et les yeux changent d'affichage.
 
-Une activite de l'utilisateur reactive le systeme.
+Une activité de l'utilisateur réactive le système.
 
-Les principales actions considerees comme une activite sont :
+Les principales actions considérées comme une activité sont :
 
 - rotation de l'encodeur
 - appui sur le bouton
 - appui sur une touche du clavier
 - changement de langue
 
-La fonction power_save_activity() remet le systeme en activite.
+La fonction `power_save_activity()` remet le système en activité.
 
-La fonction power_save_update() gere le compteur d'inactivite, apres une 20aine de secondes on passe en economie d’energie.
+La fonction `power_save_update()` gère le compteur d'inactivité, après une vingtaine de secondes on passe en économie d'énergie.
 
-### Architecture du code
+## Architecture du code
 
-Le projet est organise en plusieurs modules.
+Le projet est organisé en plusieurs modules.
 
 Le dossier app contient la logique principale de l'application :
 
 - menu
-
 - traduction
-
 - alphabet
-
 - game
 
-Le dossier display contient la gestion des ecrans :
+Le dossier display contient la gestion des écrans :
 
 - ILI9488
-
 - GC9A01
-
 - affichage du texte
 
-Le dossier input contient la gestion des entrees :
+Le dossier input contient la gestion des entrées :
 
 - clavier
-
 - encodeur
-
 - I²C / MCP23017
 
-Le dossier system contient les elements communs au systeme :
+Le dossier système contient les éléments communs au système :
 
 - globals
-
 - power_save
 
-- Le dossier utils contient les fonctions utilitaires.
+Le dossier utils contient les fonctions utilitaires.
 
-- Chaque module possede une responsabilite specifique.
+Chaque module possède une responsabilité spécifique.
 
-- Les modules app gerent la logique de l'application.
+Les modules app gèrent la logique de l'application.
 
-- Les modules input gerent les interactions avec l'utilisateur.
+Les modules input gèrent les interactions avec l'utilisateur.
 
-- Les modules display gerent les ecrans.
+Les modules display gèrent les écrans.
 
-- Les modules system regroupent les elements communs au fonctionnement du systeme.
+Les modules système regroupent les éléments communs au fonctionnement du système.
 
-- Machine à etats
+## Machine à états
 
-- Le fonctionnement de l'application repose sur plusieurs niveaux d'etats.
+Le fonctionnement de l'application repose sur plusieurs niveaux d'états.
 
-- L'etat principal est app_state.
+L'état principal est app_state.
 
 Il permet de savoir si l'utilisateur se trouve dans :
 
@@ -335,7 +330,7 @@ ALPHABET
 
 JEU
 
-Chaque fonctionnalite possede ensuite ses propres etats.
+Chaque fonctionnalité possède ensuite ses propres états.
 
 Par exemple, pendant un jeu :
 
@@ -343,7 +338,7 @@ Par exemple, pendant un jeu :
 
 - Afficher les propositions
 
-- Selectionner une reponse
+- Sélectionner une réponse
 
 - Valider
 
@@ -351,70 +346,52 @@ Par exemple, pendant un jeu :
 
 - Passer à la question suivante
 
-Cette organisation permet au meme bouton ou au meme mouvement de l'encodeur d'avoir un comportement different selon la situation.
+Cette organisation permet au même bouton ou au même mouvement de l'encodeur d'avoir un comportement différent selon la situation.
 
 ## Boucle principale
 
-La boucle principale permet à l'application de surveiller en permanence les entrees utilisateur et de faire evoluer la machine à etats.
+La boucle principale permet à l'application de surveiller en permanence les entrées utilisateur et de faire évoluer la machine à états.
 
-Elle gere notamment :
+Elle gère notamment :
 
 - la langue
+- le générateur aléatoire
+- l'encodeur
+- le bouton de l'encodeur
+- l'économie d'énergie
+- le clavier
+- la fonctionnalité actuellement sélectionnée.
 
-- le generateur aleatoire 
+## Résumé
 
-- l'encodeur 
+L'application est organisée autour de trois éléments principaux.
 
-- le bouton de l'encodeur 
-
-- l'economie d'energie 
-
-- le clavier 
-
-- la fonctionnalite actuellement selectionnee.
-
-## Resume
-
-L'application est organisee autour de trois elements principaux.
-
-**Entrees :**
+**Entrées :**
 
 - Clavier matriciel
-
 - Encodeur rotatif
-
 - Bouton de l'encodeur
-
 - Switch de langue
 
 **Traitement :**
 
-- Machines à etats
-
+- Machines à états
 - Navigation dans les menus
-
 - Gestion de la traduction
-
 - Gestion de l'alphabet
-
 - Gestion des jeux
-
-- Generation aleatoire
-
-- Gestion de l'economie d'energie
+- Génération aléatoire
+- Gestion de l'économie d'énergie
 
 **Sorties :**
 
-- Ecran ILI9488
+- Écran ILI9488
+- Deux écrans GC9A01
+- Images de signes stockées sur carte SD
 
-- Deux ecrans GC9A01
+Le système utilise principalement une architecture basée sur les états. Cela permet de gérer les différentes fonctionnalités de l'application et d'adapter le comportement du clavier, de l'encodeur et du bouton en fonction de l'écran ou de l'action en cours.
 
-- Images de signes stockees sur carte SD
-
-Le systeme utilise principalement une architecture basee sur les etats. Cela permet de gerer les differentes fonctionnalites de l'application et d'adapter le comportement du clavier, de l'encodeur et du bouton en fonction de l'ecran ou de l'action en cours.
-
-
--------------------------------------------------------------------------------------------------------
+---
 
 # Primary Application
 
@@ -422,9 +399,9 @@ Le systeme utilise principalement une architecture basee sur les etats. Cela per
 
 ## Presentation
 
-This application is a project developed on an ATmega2560.
+This firmware is designed to be used with a Lily's Pad device based on an ATmega2560.
 
-It allows the user to learn and manipulate the signs of LSF (French Sign Language) and BSL (British Sign Language) thanks to an interface composed of 3 screens, a matrix keyboard and a rotary encoder.
+It allows the user to learn and manipulate the signs of LSF (French Sign Language) and BSL (British Sign Language) through an interface composed of 3 screens, a matrix keyboard and a rotary encoder.
 
 The application has three main functionalities:
 
@@ -438,7 +415,7 @@ At startup, the microcontroller initializes the different devices:
 
 1. The screens
 2. The matrix keyboard
-3. The MCP23017 is connected to the rotary encoder
+3. The MCP23017 linked to the rotary encoder
 4. The language selection system
 5. The different states of the application
 
@@ -451,7 +428,7 @@ The application then runs in a main loop that continuously checks:
 - pressing the encoder button.
 - the keyboard activity.
 - the energy-saving system.
-- the current status of the application.
+- the current state of the application.
 
 The behavior of the interface mainly depends on state machines.
 
@@ -465,9 +442,9 @@ The project mainly uses:
 
 - 2 × GC9A01: screens used for the eyes
 
-- MCP23017: to speak in i2c at the rotary encoder
+- MCP23017: communicates with the rotary encoder over I²C
 
-- rotary encoder: navigation and selection
+- Rotary encoder: navigation and selection
 
 - Matrix keyboard 4 × 10: character input
 
@@ -493,9 +470,9 @@ The current choice is stored in menu_choice.
 
 ### Translation
 
-Translation functionality allows you to enter a word using the keyboard.
+The Translation functionality allows you to enter a word using the keyboard.
 
-**Operation:***
+**Operation:**
 
 - Enter Translation
 
@@ -515,51 +492,53 @@ Translation functionality allows you to enter a word using the keyboard.
 
 The word is stored in word and its length in word_len.
 
-The key "delete" allows to delete the last character.
+The key "delete" allows you to delete the last character.
 
-When the word is valid, the program searches for images corresponding to the different letters on the SD card.
+When the word is validated, the program searches for images corresponding to the different letters on the SD card.
 
-The images dependent on the selected language.
+The images depend on the selected language.
 
 For LSF, the program searches for images associated with the LSF suffix.
 
-For the BSL, the program searches for images associated with the BSL suffix.
+For BSL, the program searches for images associated with the BSL suffix.
 
 The images are then displayed one by one on the main screen.
 
-----------------------------------------------------------------------
+---
+
 ### Alphabet
 
 The Alphabet functionality allows you to browse through the available characters.
 
-The user uses the encoder to move into the list.
+The user uses the encoder to move through the list.
 
 Pressing the button displays the selected letter.
 
 A new tap allows you to return to the list.
 
-**The two main states are:***
+**The two main states are:**
 
 ALPHABET_LIST
 
 ALPHABET_LETTER
 
-----------------------------------------------------------------------
+---
+
 ### Games
 
 The app has two games.
 
 **Game 1: find the right letter**
 
-The first game is to recognize a letter from a sign.
+The first game consists of recognizing a letter from a sign.
 
 The program randomly chooses a letter and displays the corresponding sign.
 
 The user must then choose the correct letter from among three proposals.
 
-Layout:
+Sequence:
 
-Poster sign
+Displayed sign
 
 3 proposals
 
@@ -569,7 +548,7 @@ Validation with the button
 
 Display YES or NO
 
-Only one of the three answers corresponds to the poster sign.
+Only one of the three answers corresponds to the displayed sign.
 
 If the answer is correct, a new question is generated.
 
@@ -583,7 +562,7 @@ The program chooses a letter and displays it.
 
 Three signs are then presented successively.
 
-Layout:
+Sequence:
 
 Letter displayed
 
@@ -603,20 +582,21 @@ Only one of the three images corresponds to the given letter.
 
 Choices and letters are randomly generated.
 
-----------------------------------------------------------------------
+---
+
 ## Rotary encoder
 
-The encoder is connected to the MCP23017, which in turn is connected to the ATmega2560 by I 2 C.
+The encoder is connected to the MCP23017, which in turn is connected to the ATmega2560 by I²C.
 
-He has three signals:
+It has three signals:
 
 **CLK** : rotation
 
-**DT** : management
+**DT** : direction
 
 **SW** : button
 
-Rotation allows you to move the cursors in different menus.
+Rotation allows you to move the cursors in the different menus.
 
 The button allows you to validate or move on to the next step.
 
@@ -630,11 +610,11 @@ In the ALPHABET, it allows you to move through the letters.
 
 In the GAME, it allows you to select a response.
 
-The button also has an anti-bounce system to avoid several detections for a single touch.
+The button also has a debounce system to avoid multiple detections for a single press.
 
 ## Keyboard
 
-The keyboard is a matrix of 4 rows and 10 columns, or 38 keys.
+The keyboard is a matrix of 4 rows and 10 columns, i.e. 38 keys.
 
 The layout used is:
 
@@ -642,7 +622,7 @@ The layout used is:
 
 Q W E R T Y U I O P
 
-A S D F G H J K L
+A S D F G H J K L -
 
 Z X C V B N M # /
 
@@ -660,11 +640,11 @@ LANG_FR
 
 LANG_EN
 
-The language is selected thanks to a hardware switch.
+The language is selected using a hardware switch.
 
 The language variable lets you know which language is currently in use.
 
-The poster texts and images sought after in this language.
+The displayed texts and the images searched for depend on this language.
 
 ## Energy Management
 
@@ -674,74 +654,66 @@ When no interaction is detected for a period of time, the application goes into 
 
 The backlighting of the main screen is then deactivated and the eyes change their display.
 
-An activity of the user reactivates the system.
+User activity reactivates the system.
 
 The main actions considered as an activity are:
 
 - rotation of the encoder
-- press the button
-- press a key on the keyboard
+- pressing the button
+- pressing a key on the keyboard
 - change of language
 
-The power_save_activity() function restarts the system.
+The power_save_activity() function puts the system back into active mode.
 
-The power_save_update() function manages the inactivity counter, after about 20 seconds you switch to power saving.
+The power_save_update() function manages the inactivity counter, after about 20 seconds the system switches to power saving.
 
-### Code Architecture
+## Code Architecture
 
 The project is organized into several modules.
 
 The app folder contains the main logic of the application:
 
 - menu
-
 - translation
-
 - alphabet
-
 - game
 
 The display folder contains screen management:
 
 - ILI9488
-
 - GC9A01
-
 - displaying the text
 
-The input folder contains the management of entries:
+The input folder contains the management of the inputs:
 
 - keyboard
-
 - encoder
-
-- I 2 C / MCP23017
+- I²C / MCP23017
 
 The system folder contains the common elements of the system:
 
 - globals
-
 - power_save
 
-- The utils folder contains the utility functions.
+The utils folder contains the utility functions.
 
-- Each module has a specific responsibility.
+Each module has a specific responsibility.
 
-- The app modules manage the logic of the application.
+The app modules manage the logic of the application.
 
-- The input modules manage interactions with the user.
+The input modules manage interactions with the user.
 
-- The display modules handle the screens.
+The display modules handle the screens.
 
-- The system modules bring together the common elements of the system’s operation.
+The system modules bring together the common elements of the system’s operation.
 
-- State machine
+## State machine
 
-- The operation of the application is based on several levels of states.
+The operation of the application is based on several levels of states.
 
-- The main state is app_state.
+The main state is app_state.
 
-It lets you know if the user is located in:
+It lets you know whether the user is in:
 
 **MENU**
 
@@ -773,58 +745,41 @@ This organization allows the same button or the same movement of the encoder to 
 
 The main loop allows the application to constantly monitor user inputs and to make the state machine evolve.
 
-She manages in particular:
+It manages in particular:
 
 - the language
-
-- the random generator 
-
-- the encoder 
-
-- the encoder button 
-
-- energy saving 
-
-- the keyboard 
-
+- the random generator
+- the encoder
+- the encoder button
+- the energy saving
+- the keyboard
 - the functionality currently selected.
 
-## Resume
+## Summary
 
 The application is organized around three main elements.
 
-**Entries:**
+**Inputs:**
 
 - Matrix keyboard
-
 - Rotary encoder
-
 - Encoder button
+- Language switch
 
-- Switch language
-
-**Treatment:**
+**Processing:**
 
 - State machines
-
 - Menu navigation
-
 - Translation management
-
 - Management of the alphabet
-
 - Game management
-
 - Random generation
-
 - Energy saving management
 
-**Outings:**
+**Outputs:**
 
-- Screen ILI9488
-
+- ILI9488 screen
 - Two GC9A01 screens
-
 - Sign images stored on an SD card
 
-The system mainly uses a state-based architecture. This allows to manage the different functionalities of the application and to adapt the behavior of the keyboard, the encoder and the button according to the screen or the current action.
+The system mainly uses a state-based architecture. This makes it possible to manage the different functionalities of the application and to adapt the behavior of the keyboard, the encoder and the button according to the screen or the current action.
