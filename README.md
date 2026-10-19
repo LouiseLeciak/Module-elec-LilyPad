@@ -2,9 +2,9 @@
 
 ## Quick start
 
-# How to flash : 
+### How to flash : 
 make flash
-# How to start : 
+### How to start : 
 turn on Lily's pad, have fun !
 
 ## Overview
