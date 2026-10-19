@@ -150,3 +150,12 @@ make doc
 ## Small presentation video
 
 [Video](https://youtu.be/IG8Irz5PA7s?is=ZnnKCJjxfxXaESvo)
+
+## Documentation
+
+|      DOC      |  Lien  |
+| :------------: | :------: |
+|      Specifications  | Doc_LilysPAD/CDC_Lily-s-pad.pdf |
+|      Prototype  | Doc_LilysPAD/prototypage.pdf |
+|      Problemes&Solutions  | Doc_LilysPAD/Problemes&Solutions.pdf |
+|      User guide  | Doc_LilysPAD/user-friendly-documentation.pdf |
